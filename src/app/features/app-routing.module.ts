@@ -2,6 +2,7 @@ import { ActivityFormComponent } from "./pages/activities/activity-form/activity
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 
 const routes: Routes = [
   { 
@@ -11,6 +12,10 @@ const routes: Routes = [
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
+  },
+  {
+    path: "backoffice/organization",
+    component: OrgViewComponent
   },
   {
     path: "**",
