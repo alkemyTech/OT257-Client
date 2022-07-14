@@ -79,7 +79,6 @@ export class NewsFormComponent implements OnInit {
   createNew(){
      
      console.log("Forma2",this. form.value);
-
      console.log(this.form.invalid)
 
      if(this.form.invalid){

@@ -12,4 +12,11 @@ export class NewFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  updateNew(){
+
+
+    
+  }
+
 }
