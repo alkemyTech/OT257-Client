@@ -17,8 +17,9 @@ export class NewsFormComponent implements OnInit {
   public Editor = ClassicEditor;
   form: FormGroup;
   categories:any;
+  img;
 
-  new:NewModel=new NewModel();
+  
 
   constructor( 
                private categoriesService:CategoriesService,
@@ -37,15 +38,12 @@ export class NewsFormComponent implements OnInit {
             this.categories = resp.data;
           })
 
-
-
   }
-
 
   crearFormulario() {
     this. form = this.fb.group({
       name : ['', [ Validators.required, Validators.minLength(5) ]  ],
-      //image: null,
+      image: null,
       category_id: ['', [Validators.required  ]],
       content: ['']
       
@@ -54,16 +52,15 @@ export class NewsFormComponent implements OnInit {
     
     //console.log("Forma",this. form);
 
-    // this.form.get('image').valueChanges.subscribe((value) => {
-    //   if (value !== null && value !== '') {
-    //     this.imgToBase64((document.querySelector('input[type="file"]') as HTMLInputElement).files[0]);
-    //   }
-    // });
+     this.form.get('image').valueChanges.subscribe((value) => {
+       if (value !== null && value !== '') {
+         this.imgToBase64((document.querySelector('input[type="file"]') as HTMLInputElement).files[0]);
+       }
+     });
 
   }
 
 
-    
     private imgToBase64(file: any) {
       if (file) {
         const reader = new FileReader();
@@ -72,8 +69,10 @@ export class NewsFormComponent implements OnInit {
       }
     }
     
+    
     toBase64(e) {
-      console.log('data:image/png;base64,' + btoa(e.target.result));
+      this.img='data:image/png;base64,' + btoa(e.target.result)
+      //console.log('data:image/png;base64,' + btoa(e.target.result));
     }
 
 
@@ -81,15 +80,26 @@ export class NewsFormComponent implements OnInit {
      
      console.log("Forma2",this. form.value);
 
+     console.log(this.form.invalid)
+
      if(this.form.invalid){
       return
      }
 
+    if(this.form.value.image!=''){
+     this.form.value.image=this.img;
+    }else{
+
+      delete this.form.value.image;
+    }
      this.newsService.createNew(this.form.value)
          .subscribe(resp=>{
           console.log(resp);
          })
 
+         
+
   }
+  
 
 }
