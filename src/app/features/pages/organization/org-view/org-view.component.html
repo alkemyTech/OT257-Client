@@ -1,20 +1,15 @@
 <div class="container">
     <div class="row min-vh-100 justify-content-center align-items-center">
       <div class="col-sm-12 col-md-8 col-lg-6">
-        <div class="card w-100 shadow-lg border-0 text-center p-5">
+        <div class="card w-100 shadow-lg border-0 text-center p-5" *ngIf="orgData">
           <img
-            src="https://www.analisisdigital.com.ar/sites/default/files/styles/noticias_front_desktop/public/imagenNoticiaDigital/ong_0.jpg?itok=VeWFCCKR&timestamp=1625269087"
-            class="card-img-top"
+            [src]="orgData.logo"
+            class="card-img-top border border-dark"
             alt="ONG image"
           />
           <div class="card-body">
-            <h4 class="mb-3">NOMBRE ORGANIZACIÓN</h4>
-            <p class="card-text">
-              Short Description: Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Corrupti molestiae explicabo impedit ratione, odit
-              id ab vel natus, dolores dolorem maiores esse, cupiditate cumque
-              eveniet provident magni nostrum hic totam.
-            </p>
+            <h4 class="mb-3">{{orgData.name | uppercase}}</h4>
+            <p class="card-text">{{orgData.short_description}}</p>
   
             <div class="d-grid">
               <a
