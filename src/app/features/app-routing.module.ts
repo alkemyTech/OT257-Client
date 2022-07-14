@@ -5,6 +5,10 @@ import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 
 const routes: Routes = [
+  {
+    path: "slider",
+    component: SlidesFormComponent
+  },
   { 
     path: "actividades", 
     component: ActivityFormComponent },
@@ -18,10 +22,7 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },
-  {
-    path: "slider-form",
-    component: SlidesFormComponent
-  }
+  
 ];
 
 @NgModule({
