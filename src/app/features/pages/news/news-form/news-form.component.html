@@ -1,1 +1,38 @@
-<p>news-form works!</p>
+<div class="container">
+  <div class="row min-vh-100 justify-content-center align-items-center">
+      <div class="col-sm-12 col-md-8 col-lg-6">
+          <div class="card w-100 shadow-lg border-0 text-center p-5">
+              <div class="card-body">
+                  <h4 class="mb-5">CREAR NUEVA NOVEDADES</h4>
+                  <form [formGroup]="form" (ngSubmit)="createNew()">
+                      <div class="form-floating mb-3">
+                          <input formControlName="name" type="text" class="form-control border-0 border-bottom shadow-none" id="name" placeholder="Nombre de novedad">
+                          <label for="name">Nombre de novedad</label>
+                      </div>
+
+                      <div class="form-floating mb-3">
+                        <select formControlName="category_id"  class="form-select border-0 border-bottom shadow-none" id="category"  >
+                          <option selected >Seleccione Categoria </option>
+                          <option *ngFor="let category of categories" [value]="category.id"> {{category.name}} </option>
+
+                          </select>
+                        <!-- <label for="name">Nombre de Categoria</label> -->
+                    </div>
+
+                      <div class="mb-3">
+                          <input formControlName="image" type="file" class="form-control border-0 border-bottom shadow-none" id="imagen" placeholder="URL de imagen">
+                      </div>
+                      <div class="form-floating mb-5">
+                          <label for="description">Descripción</label>
+                          <ckeditor formControlName="content" [editor]="Editor"></ckeditor>
+                          <!-- <textarea formControlName="description" class="form-control border-0 border-bottom shadow-none" placeholder="Descripción de categoría..." id="description" style="height: 100px"></textarea> -->
+                      </div>
+                      <div class="d-grid">
+                          <button type="submit" class="btn btn-outline-primary rounded-pill p-3 fw-bold">CREAR NOVEDADES</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
