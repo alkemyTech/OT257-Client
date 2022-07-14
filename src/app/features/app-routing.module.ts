@@ -3,7 +3,7 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-import { NewFormComponent } from "./pages/new/new-form.component";
+import { NewFormComponent } from "./pages/news/new-form/new-form.component";
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
     component: NewsFormComponent 
   },
   { 
-    path: "new/:id", 
+    path: "new/:id",
     component: NewFormComponent
   },
 

@@ -44,7 +44,7 @@ export class NewsFormComponent implements OnInit {
     this. form = this.fb.group({
       name : ['', [ Validators.required, Validators.minLength(5) ]  ],
       image: null,
-      category_id: ['', [Validators.required  ]],
+      category_id: ['Seleccione Categoria', [Validators.required  ]],
       content: ['']
       
     });
