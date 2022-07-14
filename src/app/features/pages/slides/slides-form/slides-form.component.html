@@ -1,30 +1,31 @@
-<div class="card text-center w-50 mx-auto">
-    <div class="card-header">
-      Slides
+<div class="row justify-content-center align-items-center">
+  <div class="card text-center col-sm-12 col-md-8 col-lg-6 my-5 shadow border-0 p-5">
+      <div class="card-header">
+        Slides
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Agregar Slides</h5>
+        <p class="card-text">Para Agregar un nuevo slides o editar uno existente complete el formulario</p>
+        <form >
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control border-0 border-bottom shadow-none" id="nameSlides" placeholder="nombre del slide">
+            <label for="nameSlides" class="form-label">Nombre de slide</label>
+          </div>
+          <div class="mb-4">
+            <label for="descriptionSlides" class="form-label">Descripcion:</label>
+            <ckeditor [editor]="Editor" ></ckeditor>
+          </div>
+          <!-- change for select -->
+          <div class="mb-4 form-floating">
+            <input type="number" class="form-control border-0 border-bottom shadow-none" id="orderSlides" placeholder="numero de posicion del slide">
+            <label for="orderSlides" class="form-label">Numero de orden que tendra el slide:</label>
+          </div>
+          <div class="mb-3">
+            <label for="imageSlide" class="form-label">Imagen:</label>
+            <input type="file" class="form-control" id="imageSlide">
+          </div>
+          <button class="btn btn-outline-primary rounded-pill p-3 fw-bold mt-3 w-100" type="submit">Guardar Slides</button>
+        </form>
+      </div>   
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Agregar Slides</h5>
-      <p class="card-text">Para Agregar un nuevo slides o editar uno existente complete el formulario</p>
-      <form >
-        <div class="mb-3">
-          <label for="nameSlides" class="form-label">Nombre:</label>
-          <input type="text" class="form-control" id="nameSlides">
-        </div>
-        <div class="mb-3">
-          <label for="descriptionSlides" class="form-label">Descripcion:</label>
-          <textarea class="form-control" id="escriptionSlides" rows="3"></textarea>
-        </div>
-        <!-- change for select -->
-        <div class="mb-3">
-          <label for="orderSlides" class="form-label">Orden:</label>
-          <input type="number" class="form-control" id="orderSlides">
-        </div>
-        <div class="mb-3">
-          <label for="imageSlide" class="form-label">Imagen:</label>
-          <input type="text" class="form-control" id="imageSlide">
-        </div>
-        <button class="btn btn-primary">Guardar Slides</button>
-      </form>
-    </div>
-    
-  </div>
+</div>
