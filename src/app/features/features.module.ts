@@ -13,6 +13,7 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,6 @@ import { EditFormComponent } from './pages/organization/edit-form/edit-form.comp
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule, CKEditorModule],
 })
 export class FeaturesModule { }

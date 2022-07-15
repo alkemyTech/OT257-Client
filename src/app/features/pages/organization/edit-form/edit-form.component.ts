@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-edit-form',
@@ -7,9 +9,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditFormComponent implements OnInit {
 
-  constructor() { }
+  Editor = ClassicEditor;
+  form!: FormGroup;
+  event!: any;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.editForm();
   }
+
+  editForm() {
+    this.form = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      logo: ['', [Validators.required]],
+      longDescription: ['', [Validators.required, Validators.minLength(20)]],
+      shortDescription: ['', [Validators.required, Validators.minLength(10)]],
+      facebook: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
+      linkedin: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
+      instagram: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
+      twitter: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]]
+    });
+  }
+
+  invalidInput(input: string) {
+    return this.form.get(input)?.invalid && this.form.get(input)?.touched;
+  }
+
+  onFileSelected(event: any) {
+    this.event = event;
+  }
+
+
+  onSubmit() {
+
+
+
+
+    console.log(this.form.value);
+
+
+    if (this.form.invalid) {
+      return Object.values(this.form.controls).forEach(control => {
+        control.markAsTouched();
+      }
+      );
+    }
+  }
+
+
 
 }

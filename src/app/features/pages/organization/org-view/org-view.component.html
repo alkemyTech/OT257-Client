@@ -1,28 +1,25 @@
 <div class="container">
   <div class="row min-vh-100 justify-content-center align-items-center">
     <div class="col-sm-12 col-md-8 col-lg-6">
-      <div
-        class="card w-100 shadow-lg border-0 text-center p-5"
-        *ngIf="organizationData"
-      >
+      <div class="card w-100 shadow-lg border-0 text-center p-5">
         <img
           [src]="organizationData.logo"
           class="card-img-top border border-dark"
           alt="ONG image"
         />
         <div class="card-body">
-          <h4 class="mb-3">{{ organizationData.name | uppercase }}</h4>
+          <h4 class="mb-3">{{ organizationData.name }}</h4>
           <p class="card-text">{{ organizationData.short_description }}</p>
 
           <div class="d-grid">
-            <a
+            <!-- <a
               [routerLink]="[
                 '/backoffice/organization/edit',
                 organizationData.id
               ]"
               class="btn btn-outline-primary rounded-pill p-3 fw-bold"
               >EDITAR</a
-            >
+            > -->
           </div>
         </div>
       </div>

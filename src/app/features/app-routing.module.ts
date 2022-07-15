@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: "backoffice/organization",
     component: OrgViewComponent,
+  },
+  {
+    path: "backoffice/organization/edit",
+    component: EditFormComponent
   },
   {
     path: 'iniciar-sesion',
