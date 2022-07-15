@@ -55,13 +55,30 @@ export class NewFormComponent implements OnInit {
 
   }
 
+  get nombreNoValido() {
+    return this.form.get('name').invalid && this.form.get('name').touched
+  }
+
+  get categoriaNoValido() {
+    return this.form.get('category_id').invalid && this.form.get('category_id').touched
+  }
+
+
+  get contentNoValido() {
+    return this.form.get('content').invalid && this.form.get('content').touched
+  }
+
+  get imageNoValido() {
+    return this.form.get('image').invalid && this.form.get('image').touched
+  }
+
   
   crearFormulario() {
     this. form = this.fb.group({
       name : ['', [ Validators.required, Validators.minLength(5) ]  ],
-      image: [null, [Validators.required, ]],
-      category_id: ['', [Validators.required, ]],
-      content: ['', [Validators.required, ]]
+      image: [null],
+      category_id: ['', [Validators.required ]],
+      content: ['', [Validators.required ]]
       
     });
 
@@ -93,6 +110,8 @@ export class NewFormComponent implements OnInit {
 
   cargarDataForm(dato){
 
+    console.log("Dato CArga",dato);
+
       this.img=dato.image;
       this.form.setValue({
         name: dato.name,
@@ -108,17 +127,31 @@ export class NewFormComponent implements OnInit {
 
   updateNew(){
 
-    console.log(this.form.value)
+    console.log("Que pass",this.form.value)
 
-    if(this.form.invalid){
-      return
-     }
-     if(this.form.value.image){
+
+    if(this.form.value.image){
       this.form.value.image=this.img;
      }else{
        console.log("borrar")
        delete this.form.value.image;
      }
+
+    if(this.form.invalid){
+       
+      return Object.values( this.form.controls ).forEach( control => {
+        
+        if ( control instanceof FormGroup ) {
+          Object.values( control.controls ).forEach( control => control.markAsTouched() );
+        } else {
+          control.markAsTouched();
+        }
+        
+        
+      });
+
+     }
+     
     this.newsService.updateNew(this.idNew,this.form.value)
         .subscribe(resp => {
           console.log("UpdateNew",resp)
