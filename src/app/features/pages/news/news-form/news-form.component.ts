@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CategoriesService } from 'src/app/services/categories.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {Router} from '@angular/router';
+
 
 import { NewModel } from 'src/app/models/new.model';
 import { NewsService } from 'src/app/services/news.service';
@@ -18,19 +20,24 @@ export class NewsFormComponent implements OnInit {
   form: FormGroup;
   categories:any;
   img;
-
   
 
+  
+ 
   constructor( 
                private categoriesService:CategoriesService,
                private newsService:NewsService,
-               private fb: FormBuilder
+               private fb: FormBuilder,
+               private router:Router,
+               
                ) { 
                 this.crearFormulario();
 
                }
 
   ngOnInit(): void {
+
+    
 
       this.categoriesService.getCategories()
           .subscribe((resp:any)=>{
@@ -40,12 +47,31 @@ export class NewsFormComponent implements OnInit {
 
   }
 
+      get nombreNoValido() {
+        return this.form.get('name').invalid && this.form.get('name').touched
+      }
+
+      get categoriaNoValido() {
+        return this.form.get('category_id').invalid && this.form.get('category_id').touched
+      }
+
+
+      get contentNoValido() {
+        return this.form.get('content').invalid && this.form.get('content').touched
+      }
+
+      get imageNoValido() {
+        return this.form.get('image').invalid && this.form.get('image').touched
+      }
+
+
+
   crearFormulario() {
     this. form = this.fb.group({
-      name : ['', [ Validators.required, Validators.minLength(5) ]  ],
+      name : ['', [ Validators.required, Validators.minLength(4) ]  ],
       image: null,
-      category_id: ['Seleccione Categoria', [Validators.required  ]],
-      content: ['']
+      category_id: ['', [Validators.required, ]],
+      content: ['', [Validators.required, ]]
       
     });
 
@@ -82,7 +108,16 @@ export class NewsFormComponent implements OnInit {
      console.log(this.form.invalid)
 
      if(this.form.invalid){
-      return
+      return Object.values( this.form.controls ).forEach( control => {
+        
+        if ( control instanceof FormGroup ) {
+          Object.values( control.controls ).forEach( control => control.markAsTouched() );
+        } else {
+          control.markAsTouched();
+        }
+        
+        
+      });
      }
 
     if(this.form.value.image!=''){
@@ -92,8 +127,10 @@ export class NewsFormComponent implements OnInit {
       delete this.form.value.image;
     }
      this.newsService.createNew(this.form.value)
-         .subscribe(resp=>{
-          console.log(resp);
+         .subscribe((resp:any)=>{
+          console.log(resp.data.id);
+         this.router.navigate([`/new/${resp.data.id}`]);
+
          })
 
          

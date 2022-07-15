@@ -19,6 +19,7 @@ const routes: Routes = [
     path: "news", 
     component: NewsFormComponent 
   },
+  
   { 
     path: "new/:id",
     component: NewFormComponent

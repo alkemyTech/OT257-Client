@@ -7,6 +7,8 @@ import { NewModel } from '../models/new.model';
 })
 export class NewsService {
 
+  url='https://ongapi.alkemy.org/api/news';
+
 
   //new:NewModel=new NewModel;
 
@@ -14,18 +16,30 @@ export class NewsService {
 
 
 
-  updateNew(dataNew: NewModel) {
+  updateNew(id:string, dataNew: NewModel) {
 
+    dataNew['id']=id;
+
+    // if(dataNew['image']==='' || dataNew['image']===null){
+    //   console.log("pasp")
+    //   delete dataNew['image'];
+    // }
+
+    return this.http.put(`${this.url}/${id}`,dataNew);
 
   }
 
 
   createNew(dataNew: NewModel) {
+    
+    return this.http.post(`${this.url}`,dataNew);
+
+  }
 
 
+  getNew(id: string){
 
-    return this.http.post("https://ongapi.alkemy.org/api/news",dataNew);
-
+    return this.http.get(`${this.url}/${id}`);
 
 
   }
