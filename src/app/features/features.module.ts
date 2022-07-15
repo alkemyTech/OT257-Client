@@ -38,4 +38,4 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
   ],
   imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
 })
-export class FeaturesModule {}
+export class FeaturesModule { }
