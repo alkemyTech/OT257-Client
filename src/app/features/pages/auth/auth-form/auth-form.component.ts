@@ -23,34 +23,35 @@ export class AuthFormComponent implements OnInit {
     this.initForm();
   }
 
-  onSubmit(): void {
-    if(this.authForm.valid && this.options.id === this.signIn) {
-    this.authSvc.login(this.authForm.value).subscribe()
-    console.log('Form ->', this.authForm.value);
-    this.initForm();
-    }else{
-      console.log('Form is invalid');
+  onSubmit(option: string): void {
+    if (option === this.signIn && this.authForm.valid) {
+      this.authSvc.login(this.authForm.value).subscribe()
+      this.initForm();
+    } else if(this.authForm.invalid && option === this.signIn) {
+      console.log('Form login is invalid');
     }
 
-    if(this.authForm.valid && this.options.id === this.signUp) {
+    if (option === this.signUp && 
+      this.authForm.value.password === this.authForm.value.password_again &&
+      this.authForm.valid) {
       this.authSvc.register(this.authForm.value).subscribe()
-      console.log('Form ->', this.authForm.value);
       this.initForm();
-    }else{
-      console.log('Form is invalid');
+    } else if(this.authForm.invalid && option === this.signUp) {
+      console.log('Form register is invalid');
     }
   }
 
   private initForm(): void {
     if (this.signIn === this.options.id) {
       this.authForm = this.fb.group({
-        email: [null, [Validators.required, Validators.email]],
-        password: [null, Validators.required]
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required]
       })
     } else {
       this.authForm = this.fb.group({
+        name: ['', [Validators.required, Validators.pattern(/[a-zA-Z]/), Validators.minLength(3)]],
         email: ['', [Validators.required, Validators.email]],
-        password: ['', 
+        password: ['',
           [Validators.required,
           // 2. check whether the entered password has a number
           Validators.pattern(/[0-9]/),
@@ -60,9 +61,9 @@ export class AuthFormComponent implements OnInit {
           Validators.pattern(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/),
           // 6. Has a minimum length of 6 characters
           Validators.minLength(6)]],
-        password_again: ['', Validators.required]
-    })
+        password_again: ['', [Validators.required, Validators.pattern]]
+      })
+    }
   }
-}
 
 }

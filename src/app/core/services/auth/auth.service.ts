@@ -1,17 +1,16 @@
-import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-import { UserAuth } from '../../models/auth.model';
-import { Router } from '@angular/router';
+import { Injectable, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, Observable } from "rxjs";
+import { map, catchError } from "rxjs/operators";
+import { UserAuth } from "../../models/auth.model";
+import { Router } from "@angular/router";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AuthService implements OnInit {
-  private auth = 'https://ongapi.alkemy.org/api/';
+  private auth = "https://ongapi.alkemy.org/api/";
   private loggedIn = new BehaviorSubject<boolean>(false);
-
 
   constructor(private http: HttpClient, private router: Router) {
     this.checkToken();
@@ -24,34 +23,35 @@ export class AuthService implements OnInit {
 
   login(user: UserAuth): Observable<any> {
     return this.http
-      .post<UserAuth>(this.auth + 'login', {
+      .post<UserAuth>(this.auth + "login", {
         email: user.email,
         password: user.password,
       })
       .pipe(
-        map((res: UserAuth) => {
-          console.log(res);
-          /* this.saveToken(res.token); */
+        map((res: any) => {
+          this.saveToken(res.data.token);
           this.loggedIn.next(true);
+          this.router.navigate(["/"]);
           return res;
         }),
         catchError(() => {
           this.loggedIn.next(false);
-          return 'error';
+          console.log("error");
+          return "error";
         })
       );
   }
 
   saveToken(token: string): void {
-    localStorage.setItem('token', token);
+    localStorage.setItem("token", token);
   }
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     this.loggedIn.next(false);
-    this.router.navigate(['/sign-in']);
+    this.router.navigate(["/iniciar-sesion"]);
   }
   checkToken() {
-    const userToken = localStorage.getItem('token');
+    const userToken = localStorage.getItem("token");
     userToken ? this.loggedIn.next(true) : this.logout();
     return this.loggedIn;
   }
@@ -59,7 +59,8 @@ export class AuthService implements OnInit {
   //register
   register(user: UserAuth): Observable<any> {
     return this.http
-      .post<UserAuth>(this.auth + 'register', {
+      .post<UserAuth>(this.auth + "register", {
+        name: user.name,
         email: user.email,
         password: user.password,
       })
@@ -69,7 +70,7 @@ export class AuthService implements OnInit {
           return res;
         }),
         catchError(() => {
-          return 'error';
+          return "error";
         })
       );
   }
