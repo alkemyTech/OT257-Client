@@ -31,6 +31,7 @@ export class NewFormComponent implements OnInit {
   ) {
     this.route.paramMap.subscribe((params) => {
       this.idNew = params.get("id");
+
     });
     this.crearFormulario();
   }
