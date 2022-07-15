@@ -9,7 +9,7 @@ import { Organization,Data } from 'src/app/core/models/IOrganization';
 })
 export class OrgViewComponent implements OnInit {
 
-  public orgData: any;
+  public organizationData!: Data;
 
   constructor(private orgService: OrgViewService) { }
 
@@ -18,14 +18,12 @@ export class OrgViewComponent implements OnInit {
   }
 
   public getOrganizationView(): void {
-    this.orgService.getOrgData().subscribe({
+    this.orgService.getorganizationData().subscribe({
       next: (response: Organization) => {
-        this.orgData = response.data;
-        console.log(this.orgData);
+        this.organizationData = response.data;
         
       },
       error: (err) => {
-        console.log(err);
       }
     });
 

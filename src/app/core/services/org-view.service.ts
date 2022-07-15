@@ -9,7 +9,7 @@ export class OrgViewService {
 
   constructor(private http:HttpClient) { }
 
-  public getOrgData():Observable<any>{
+  public getorganizationData():Observable<any>{
     return this.http.get('https://ongapi.alkemy.org/api/organization');
   }
 }
