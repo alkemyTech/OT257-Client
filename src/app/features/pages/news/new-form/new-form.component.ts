@@ -16,12 +16,14 @@ import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
   styleUrls: ["./new-form.component.scss"],
 })
 export class NewFormComponent implements OnInit {
+
   public Editor = ClassicEditor;
-  idNew: string;
+  idNew!: any;
   categories: any;
-  form: FormGroup;
-  img;
-  new: any;
+  form!: FormGroup;
+  img='';
+  new= '';
+  file!:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,22 +50,22 @@ export class NewFormComponent implements OnInit {
   }
 
   get nombreNoValido() {
-    return this.form.get("name").invalid && this.form.get("name").touched;
+    return this.form.get("name")?.invalid && this.form.get("name")?.touched;
   }
 
   get categoriaNoValido() {
     return (
-      this.form.get("category_id").invalid &&
-      this.form.get("category_id").touched
+      this.form.get("category_id")?.invalid &&
+      this.form.get("category_id")?.touched
     );
   }
 
   get contentNoValido() {
-    return this.form.get("content").invalid && this.form.get("content").touched;
+    return this.form.get("content")?.invalid && this.form.get("content")?.touched;
   }
 
   get imageNoValido() {
-    return this.form.get("image").invalid && this.form.get("image").touched;
+    return this.form.get("image")?.invalid && this.form.get("image")?.touched;
   }
 
   crearFormulario() {
@@ -74,12 +76,9 @@ export class NewFormComponent implements OnInit {
       content: ["", [Validators.required]],
     });
 
-    this.form.get("image").valueChanges.subscribe((value) => {
+    this.form.get("image")?.valueChanges.subscribe((value) => {
       if (value !== null && value !== "") {
-        this.imgToBase64(
-          (document.querySelector('input[type="file"]') as HTMLInputElement)
-            .files[0]
-        );
+        this.imgToBase64(this.file);
       }
     });
   }
@@ -92,12 +91,18 @@ export class NewFormComponent implements OnInit {
     }
   }
 
-  toBase64(e) {
+  toBase64(e:any) {
     this.img = "data:image/png;base64," + btoa(e.target.result);
 
   }
 
-  cargarDataForm(dato) {
+  onFileSelected(event:any){
+    this.file=event.target.files[0];
+    this.imgToBase64(this.file); 
+
+  }
+
+  cargarDataForm(dato:any) {
     
 
     this.img = dato.image;

@@ -25,7 +25,7 @@
                           </small>
                     </div>
                       <div class="mb-3">
-                          <input formControlName="image" type="file" class="form-control border-0 border-bottom shadow-none" id="image" placeholder="URL de imagen" >
+                          <input (change)="onFileSelected($event)" formControlName="image" type="file" class="form-control border-0 border-bottom shadow-none" id="image" placeholder="URL de imagen" >
                           <small *ngIf="imageNoValido" class="text-danger ">
                             Debe tener una imagen
                           </small>

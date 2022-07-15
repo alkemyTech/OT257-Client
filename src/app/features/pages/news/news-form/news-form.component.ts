@@ -17,9 +17,10 @@ import { NewsService } from 'src/app/services/news.service';
 
 export class NewsFormComponent implements OnInit {
   public Editor = ClassicEditor;
-  form: FormGroup;
+  form!: FormGroup;
   categories:any;
-  img;
+  img: string='';
+  file!:any;
   
 
   
@@ -47,20 +48,20 @@ export class NewsFormComponent implements OnInit {
   }
 
       get nombreNoValido() {
-        return this.form.get('name').invalid && this.form.get('name').touched
+        return this.form.get('name')?.invalid && this.form.get('name')?.touched
       }
 
       get categoriaNoValido() {
-        return this.form.get('category_id').invalid && this.form.get('category_id').touched
+        return this.form.get('category_id')?.invalid && this.form.get('category_id')?.touched
       }
 
 
       get contentNoValido() {
-        return this.form.get('content').invalid && this.form.get('content').touched
+        return this.form.get('content')?.invalid && this.form.get('content')?.touched
       }
 
       get imageNoValido() {
-        return this.form.get('image').invalid && this.form.get('image').touched
+        return this.form.get('image')?.invalid && this.form.get('image')?.touched
       }
 
 
@@ -74,13 +75,8 @@ export class NewsFormComponent implements OnInit {
       
     });
 
-    
+  
 
-     this.form.get('image').valueChanges.subscribe((value) => {
-       if (value !== null && value !== '') {
-         this.imgToBase64((document.querySelector('input[type="file"]') as HTMLInputElement).files[0]);
-       }
-     });
 
   }
 
@@ -94,9 +90,18 @@ export class NewsFormComponent implements OnInit {
     }
     
     
-    toBase64(e) {
-      this.img='data:image/png;base64,' + btoa(e.target.result)
+    toBase64(e:any) {
+      this.img='data:image/png;base64,' + btoa(e.target.result);
     }
+
+
+    onFileSelected(event:any){
+      this.file=event.target.files[0];
+      this.imgToBase64(this.file); 
+
+    }
+
+
 
 
   createNew(){

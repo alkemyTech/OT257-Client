@@ -10,8 +10,6 @@ export class NewsService {
   url='https://ongapi.alkemy.org/api/news';
 
 
-  //new:NewModel=new NewModel;
-
   constructor(private http: HttpClient) { }
 
 
@@ -20,10 +18,6 @@ export class NewsService {
 
     dataNew['id']=id;
 
-    // if(dataNew['image']==='' || dataNew['image']===null){
-    //   console.log("pasp")
-    //   delete dataNew['image'];
-    // }
 
     return this.http.put(`${this.url}/${id}`,dataNew);
 
@@ -43,7 +37,5 @@ export class NewsService {
 
 
   }
-
-
 
 }
