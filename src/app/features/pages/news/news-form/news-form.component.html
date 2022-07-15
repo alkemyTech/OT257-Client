@@ -13,7 +13,6 @@
                           </small>
                       </div>
 
-
                       <div class="mb-3">
                         <select formControlName="category_id"  class="form-select border-0 border-bottom shadow-none " >
                           <option selected >Seleccione Categoria </option>
@@ -24,11 +23,7 @@
                           <small *ngIf="categoriaNoValido" class="text-danger ">
                             Debe Seleccionar una categoria
                           </small>
-
-                        <!-- <label for="name">Nombre de Categoria</label> -->
                     </div>
-                 
-
                       <div class="mb-3">
                           <input formControlName="image" type="file" class="form-control border-0 border-bottom shadow-none" id="image" placeholder="URL de imagen" >
                           <small *ngIf="imageNoValido" class="text-danger ">
@@ -42,7 +37,7 @@
                       <div class="form-floating mb-5">
                           <label for="description">Descripción</label>
                           <ckeditor formControlName="content" [editor]="Editor"></ckeditor>
-                          <!-- <textarea formControlName="description" class="form-control border-0 border-bottom shadow-none" placeholder="Descripción de categoría..." id="description" style="height: 100px"></textarea> -->
+          
                           <small *ngIf="contentNoValido" class="text-danger ">
                             El campo description de contener información
                           </small>

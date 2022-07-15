@@ -41,7 +41,6 @@ export class NewsFormComponent implements OnInit {
 
       this.categoriesService.getCategories()
           .subscribe((resp:any)=>{
-            console.log('Respu',resp);
             this.categories = resp.data;
           })
 
@@ -76,7 +75,6 @@ export class NewsFormComponent implements OnInit {
     });
 
     
-    //console.log("Forma",this. form);
 
      this.form.get('image').valueChanges.subscribe((value) => {
        if (value !== null && value !== '') {
@@ -98,15 +96,11 @@ export class NewsFormComponent implements OnInit {
     
     toBase64(e) {
       this.img='data:image/png;base64,' + btoa(e.target.result)
-      //console.log('data:image/png;base64,' + btoa(e.target.result));
     }
 
 
   createNew(){
-     
-     console.log("Forma2",this. form.value);
-     console.log(this.form.invalid)
-
+    
      if(this.form.invalid){
       return Object.values( this.form.controls ).forEach( control => {
         
@@ -128,13 +122,9 @@ export class NewsFormComponent implements OnInit {
     }
      this.newsService.createNew(this.form.value)
          .subscribe((resp:any)=>{
-          console.log(resp.data.id);
          this.router.navigate([`/new/${resp.data.id}`]);
 
          })
-
-         
-
   }
   
 
