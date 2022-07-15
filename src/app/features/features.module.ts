@@ -10,8 +10,8 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
-import { OrgViewComponent } from './pages/organization/org-view/org-view.component';
-import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
+import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { HttpClientModule } from "@angular/common/http";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    OrgViewComponent,
+    AuthFormComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -36,6 +36,6 @@ import { HttpClientModule } from "@angular/common/http";
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
 })
-export class FeaturesModule {}
+export class FeaturesModule { }
