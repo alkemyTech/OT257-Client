@@ -9,7 +9,7 @@
         Para Agregar un nuevo slides o editar uno existente complete el
         formulario
       </p>
-      <form [formGroup]="form">
+      <form [formGroup]="form" (ngSubmit)="sendForm()">
         <div class="form-floating mb-4">
           <input
             type="text"
@@ -26,17 +26,16 @@
         </div>
         <!-- Validation to input name -->
         <div *ngIf="Name?.errors && Name?.touched">
-          <p *ngIf="Name?.hasError('required')" class="error">Campo obligatorio</p>
+          <p *ngIf="Name?.hasError('required')" class="error">
+            Campo obligatorio
+          </p>
           <p *ngIf="Name?.errors?.minLength" class="error">
             Debe contener mas de 4 caracteres
           </p>
         </div>
         <div class="mb-4">
           <label for="descriptionSlides" class="form-label">Descripcion:</label>
-          <ckeditor
-            [editor]="Editor"
-            formControlName="description"
-          ></ckeditor>
+          <ckeditor [editor]="Editor" formControlName="description" tagName="textarea"></ckeditor>
         </div>
         <!-- Validation ckeditor -->
         <div *ngIf="Description?.errors && Description?.touched">
@@ -51,7 +50,10 @@
             id="orderSlides"
             placeholder="numero de posicion del slide"
             formControlName="order"
-            [ngClass]="{'is-invalid': Order?.errors && Order?.touched, 'is-valid': !Order?.errors && Order?.touched}"
+            [ngClass]="{
+              'is-invalid': Order?.errors && Order?.touched,
+              'is-valid': !Order?.errors && Order?.touched
+            }"
           />
           <label for="orderSlides" class="form-label"
             >Número de orden que tendra el slide:</label
@@ -59,15 +61,19 @@
         </div>
         <!-- Validation input Order -->
         <div *ngIf="Order?.errors && Order?.touched">
-          <p *ngIf="Order?.hasError('required')" class="error">El campo es obligatorio</p>
+          <p *ngIf="Order?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
         </div>
         <div class="mb-3">
           <label for="imageSlide" class="form-label">Imagen:</label>
-          <input type="file" class="form-control" id="imageSlide"/>
+          <input type="file" accept="image/jpg, image/png" (change)="fileChange($event)" class="form-control" id="imageSlide" formControlName="image"/>
         </div>
         <!-- Validation input image -->
-        <div *ngIf="Image?.errors && Image?.touched">
-          <p *ngIf="Image?.hasError('required')" class="error">El campo es obligatorio</p>
+        <div *ngIf="Image?.errors?.incorrect && Image?.touched">
+          <p *ngIf="Image?.errors?.incorrect" class="error">
+            Formato aceptados png y jpg
+          </p>
         </div>
         <input type="hidden" formControlName="create_at" id="create_at" />
         <input type="hidden" formControlName="update_at" id="update_at" />
