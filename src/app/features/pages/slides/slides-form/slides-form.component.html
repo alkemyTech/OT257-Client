@@ -73,9 +73,13 @@
           <label for="imageSlide" class="form-label">Imagen:</label>
           <input type="file" accept="image/jpg, image/png" (change)="fileChange($event)" class="form-control" id="imageSlide"/>
         </div>
+        <div *ngIf="viewImageMin">
+          <img [src]="viewImageMin" alt="">
+        </div>
         <!-- Validation input image -->
-        <div *ngIf="error">
-          <p class="error">
+        <div *ngIf="Image?.errors && error || Image?.errors && Image?.touched">
+          <p *ngIf="Image?.hasError('required')" class="error"> El campo es obligatorio</p>
+          <p *ngIf="Image?.hasError('incorrect')" class="error">
             {{messageError}}
           </p>
         </div>

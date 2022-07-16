@@ -19,6 +19,7 @@ export class SlidesFormComponent implements OnInit {
   orderError: boolean = false;
   messageError:string="";
   listSlide : any;
+  viewImageMin:any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,7 +30,7 @@ export class SlidesFormComponent implements OnInit {
       name: ["", [Validators.required, Validators.minLength(4)]],
       description: ["", [Validators.required]],
       order: ["", [Validators.required]],
-      image: ["", []],
+      image: ["", [Validators.required]],
       userId: ["", []],
     });
   }
@@ -84,8 +85,10 @@ export class SlidesFormComponent implements OnInit {
     console.log(e);
     if(e.target.files.length != 0){
       if (!this.helpers.fileExtensionCheck(e)) {
+        this.viewImageMin = "";
         this.error = true;
         this.messageError = "FORMATO INCORRECTO: Se admite png y jpg";
+        this.form.get('image')?.setErrors({'incorrect': true});
         console.log("valor del input image");
         console.log(this.form.get("image"));
       }else {
@@ -94,16 +97,18 @@ export class SlidesFormComponent implements OnInit {
         reader.readAsDataURL(e.target.files[0]);
         reader.onload = () => {
           this.form.get('image')?.setValue(reader.result);
+          this.viewImageMin = this.form.value.image;
         };
       }
     }else{
+      this.viewImageMin = "";
       this.error = true;
-        this.messageError = "Campo Obligatorio";
-        this.form.get('image')?.reset;
+      this.form.get('image')?.setErrors({'required': true});
     }
   }
 
   sendForm() {
+    // if(input tiene un objeto) cargar el form con ese objeto y hacer el patch a la ruta que correspone sino hacer un post
     console.log("Valor del form cuando se presiona guardar");
     console.log(this.form.value);
     console.log(this.form.valid);
