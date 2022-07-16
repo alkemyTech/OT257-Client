@@ -9,6 +9,10 @@ const routes: Routes = [
     path: "slider",
     component: SlidesFormComponent
   },
+  {
+    path: "slider/:id",
+    component: SlidesFormComponent
+  },
   { 
     path: "actividades", 
     component: ActivityFormComponent },

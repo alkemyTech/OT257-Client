@@ -71,10 +71,10 @@
         </div>
         <div class="mb-3">
           <label for="imageSlide" class="form-label">Imagen:</label>
-          <input type="file" accept="image/jpg, image/png" (change)="fileChange($event)" class="form-control" id="imageSlide"/>
+          <input type="file" name="image" accept="image/jpg, image/png" (change)="fileChange($event)" class="form-control" id="imageSlide" />
         </div>
         <div *ngIf="viewImageMin">
-          <img [src]="viewImageMin" alt="">
+          <img [src]="viewImageMin" alt="slide" class="w-100">
         </div>
         <!-- Validation input image -->
         <div *ngIf="Image?.errors && error || Image?.errors && Image?.touched">
