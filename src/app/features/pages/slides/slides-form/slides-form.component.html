@@ -29,7 +29,7 @@
           <p *ngIf="Name?.hasError('required')" class="error">
             Campo obligatorio
           </p>
-          <p *ngIf="Name?.errors?.minLength" class="error">
+          <p *ngIf="Name?.errors?.minlength" class="error">
             Debe contener mas de 4 caracteres
           </p>
         </div>
@@ -67,17 +67,14 @@
         </div>
         <div class="mb-3">
           <label for="imageSlide" class="form-label">Imagen:</label>
-          <input type="file" accept="image/jpg, image/png" (change)="fileChange($event)" class="form-control" id="imageSlide" formControlName="image"/>
+          <input type="file" accept="image/jpg, image/png" (change)="fileChange($event)" class="form-control" id="imageSlide"/>
         </div>
         <!-- Validation input image -->
-        <div *ngIf="Image?.errors?.incorrect && Image?.touched">
-          <p *ngIf="Image?.errors?.incorrect" class="error">
-            Formato aceptados png y jpg
+        <div *ngIf="error">
+          <p class="error">
+            {{messageError}}
           </p>
         </div>
-        <input type="hidden" formControlName="create_at" id="create_at" />
-        <input type="hidden" formControlName="update_at" id="update_at" />
-        <input type="hidden" formControlName="delete_at" id="delete_at" />
         <button
           class="btn btn-outline-primary rounded-pill p-3 fw-bold mt-3 w-100"
           type="submit"
