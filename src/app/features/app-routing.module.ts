@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
+import { OrgViewComponent} from "./pages/organization/org-view/org-view.component";
 
 const routes: Routes = [
   {

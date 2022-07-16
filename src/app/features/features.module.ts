@@ -12,6 +12,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { AuthFormComponent } from "./pages/auth/auth-form/auth-form.component";
 
 @NgModule({
   declarations: [
