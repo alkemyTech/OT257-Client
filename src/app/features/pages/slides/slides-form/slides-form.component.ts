@@ -16,6 +16,7 @@ export class SlidesFormComponent implements OnInit {
   form: FormGroup;
 
   error: boolean = false;
+  orderError: boolean = false;
   messageError:string="";
   listSlide : any;
 
@@ -52,11 +53,29 @@ export class SlidesFormComponent implements OnInit {
   ngOnInit(): void {
     this.slideService.getSlide().subscribe({next:(data)=>{
       console.log("Servicio get exito");
-      this.listSlide = data;
+      console.log(data.data);
+      this.listSlide = data.data;
     },error:(error)=>{
       console.log("servicio get error");
       console.log(error);
     }})
+  }
+
+  orderUnique(){
+    this.orderError = false;
+    console.log("order valid?");
+    console.log(this.form.get('order')?.valid);
+    if(this.form.get('order')?.valid){
+      console.log("valor del input que contiene el orden");
+      console.log(this.form.get('order')?.value);
+      for(let i = 0; i < this.listSlide.length; i++){
+        console.log(this.listSlide[i].order);
+        if(this.listSlide[i].order == this.form.get('order')?.value){
+          this.orderError = true;
+        }
+      }
+
+    }
   }
 
   fileChange(e: any) {

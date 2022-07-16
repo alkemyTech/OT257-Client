@@ -50,6 +50,7 @@
             id="orderSlides"
             placeholder="numero de posicion del slide"
             formControlName="order"
+            (blur)="orderUnique()"
             [ngClass]="{
               'is-invalid': Order?.errors && Order?.touched,
               'is-valid': !Order?.errors && Order?.touched
@@ -64,6 +65,9 @@
           <p *ngIf="Order?.hasError('required')" class="error">
             El campo es obligatorio
           </p>
+        </div>
+        <div *ngIf="orderError">
+          <p class="error">El numero de orden del Slide ya existe</p>
         </div>
         <div class="mb-3">
           <label for="imageSlide" class="form-label">Imagen:</label>
