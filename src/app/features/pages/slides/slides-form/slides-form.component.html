@@ -35,7 +35,11 @@
         </div>
         <div class="mb-4">
           <label for="descriptionSlides" class="form-label">Descripcion:</label>
-          <ckeditor [editor]="Editor" formControlName="description" tagName="textarea"></ckeditor>
+          <ckeditor
+            [editor]="Editor"
+            formControlName="description"
+            tagName="textarea"
+          ></ckeditor>
         </div>
         <!-- Validation ckeditor -->
         <div *ngIf="Description?.errors && Description?.touched">
@@ -71,16 +75,27 @@
         </div>
         <div class="mb-3">
           <label for="imageSlide" class="form-label">Imagen:</label>
-          <input type="file" name="image" accept="image/jpg, image/png" (change)="fileChange($event)" class="form-control" id="imageSlide" />
+          <input
+            type="file"
+            name="image"
+            accept="image/jpg, image/png"
+            (change)="fileChange($event)"
+            class="form-control"
+            id="imageSlide"
+          />
         </div>
         <div *ngIf="viewImageMin">
-          <img [src]="viewImageMin" alt="slide" class="w-100">
+          <img [src]="viewImageMin" alt="slide" class="w-100" />
         </div>
         <!-- Validation input image -->
-        <div *ngIf="Image?.errors && error || Image?.errors && Image?.touched">
-          <p *ngIf="Image?.hasError('required')" class="error"> El campo es obligatorio</p>
+        <div
+          *ngIf="(Image?.errors && error) || (Image?.errors && Image?.touched)"
+        >
+          <p *ngIf="Image?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
           <p *ngIf="Image?.hasError('incorrect')" class="error">
-            {{messageError}}
+            {{ messageError }}
           </p>
         </div>
         <button

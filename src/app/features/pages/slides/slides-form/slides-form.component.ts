@@ -11,9 +11,7 @@ import { SlideFormService } from "src/app/core/services/slide-form.service";
   styleUrls: ["./slides-form.component.scss"],
 })
 export class SlidesFormComponent implements OnInit {
-  // variable to contain property from ckeditor
   public Editor = ClassicEditor;
-  // variable containing the form properties
   form: FormGroup;
 
   error: boolean = false;
@@ -57,13 +55,10 @@ export class SlidesFormComponent implements OnInit {
   ngOnInit(): void {
     this.slideService.getSlide().subscribe({
       next: (data) => {
-        console.log("Servicio get exito");
-        console.log(data.data);
         this.listSlide = data.data;
       },
       error: (error) => {
-        console.log("servicio get error");
-        console.log(error);
+        alert("Error al traer los datos");
       },
     });
 
@@ -72,14 +67,12 @@ export class SlidesFormComponent implements OnInit {
 
   orderUnique() {
     this.orderError = false;
-    console.log("order valid?");
-    console.log(this.form.get("order")?.valid);
     if (this.form.get("order")?.valid) {
-      console.log("valor del input que contiene el orden");
-      console.log(this.form.get("order")?.value);
-      if (!this.modified || this.modified && this.form.get('order')?.value != this.slide.order) {
+      if (
+        !this.modified ||
+        (this.modified && this.form.get("order")?.value != this.slide.order)
+      ) {
         for (let i = 0; i < this.listSlide.length; i++) {
-          console.log(this.listSlide[i].order);
           if (this.listSlide[i].order == this.form.get("order")?.value) {
             this.orderError = true;
           }
@@ -90,16 +83,12 @@ export class SlidesFormComponent implements OnInit {
 
   fileChange(e: any) {
     e.preventDefault();
-    console.log("valor del evento cuando se selecciona un archivo");
-    console.log(e);
     if (e.target.files.length != 0) {
       if (!this.helpers.fileExtensionCheck(e)) {
         this.viewImageMin = "";
         this.error = true;
         this.messageError = "FORMATO INCORRECTO: Se admite png y jpg";
         this.form.get("image")?.setErrors({ incorrect: true });
-        console.log("valor del input image");
-        console.log(this.form.get("image"));
       } else {
         this.error = false;
         const reader = new FileReader();
@@ -124,29 +113,23 @@ export class SlidesFormComponent implements OnInit {
           .subscribe({
             next: (data) => {
               alert("Usuario modificado con exito");
-              console.log(data);
               this.slide = data.data;
             },
             error: (err) => {
-              console.log(err);
+              alert("Error: " + err);
             },
           });
       } else {
         this.form.markAllAsTouched();
       }
     } else {
-      console.log("Valor del form cuando se presiona guardar");
-      console.log(this.form.value);
-      console.log(this.form.valid);
       if (this.form.valid) {
         this.slideService.saveSlide(this.form.value).subscribe({
           next: (data) => {
-            console.log("Post con exito");
-            console.log(data);
+            alert("Slide guardado con exito");
           },
           error: (error) => {
-            console.log("Post con error");
-            console.log(error);
+            alert("Error: " + error);
           },
         });
       } else {
@@ -158,12 +141,12 @@ export class SlidesFormComponent implements OnInit {
   modifiedSlide() {
     this.activateRoute.params.subscribe((idRoute) => {
       let id = idRoute["id"];
-      console.log("Valor id: " + id);
       if (id) {
         this.modified = true;
         this.slideService.getOneSlide(id).subscribe({
           next: (data) => {
             this.slide = data.data;
+
             this.form.setValue({
               name: this.slide.name,
               description: this.slide.description,
@@ -173,7 +156,7 @@ export class SlidesFormComponent implements OnInit {
             this.viewImageMin = this.slide.image;
           },
           error: (error) => {
-            console.log(error);
+            alert("Error: " + error);
           },
         });
       } else {
