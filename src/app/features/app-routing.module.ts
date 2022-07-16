@@ -22,6 +22,24 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
+    path: "backoffice/organization",
+    component: OrgViewComponent,
+  },
+  {
+    path: 'iniciar-sesion',
+    loadChildren: () =>
+      import('./pages/auth/login-form/login-form-routing.module').then(
+        (m) => m.LoginFormRoutingModule
+      )
+  },
+  {
+    path: 'registro',
+    loadChildren: () =>
+      import('./pages/auth/register-form/register-form-routing.module').then(
+        (m) => m.RegisterFormRoutingModule
+      )
+  },
+  {
     path: "**",
     redirectTo: "actividades",
     pathMatch: "full",
@@ -33,4 +51,4 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
