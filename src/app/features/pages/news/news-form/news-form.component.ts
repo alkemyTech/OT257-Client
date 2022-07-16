@@ -3,8 +3,6 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { CategoriesService } from 'src/app/services/categories.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {Router} from '@angular/router';
-
-
 import { NewModel } from 'src/app/models/new.model';
 import { NewsService } from 'src/app/services/news.service';
 
