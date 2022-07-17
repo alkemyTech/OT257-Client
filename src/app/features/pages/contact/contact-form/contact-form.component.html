@@ -1,1 +1,106 @@
-<p>contact-form works!</p>
+<div class="row justify-content-center align-items-center">
+  <div
+    class="card text-center col-sm-12 col-md-8 col-lg-6 my-5 shadow border-0 p-5"
+  >
+    <div class="card-header">Contacto</div>
+    <div class="card-body">
+      <h5 class="card-title">Formulario de Contacto</h5>
+      <p class="card-text">
+        Completa el formulario con tus datos y dejanos tu consulta, nos comunicaremos con vos a la brevedad.
+      </p>
+      <form [formGroup]="form">
+        <div class="form-floating mb-4">
+          <input
+            type="text"
+            class="form-control border-0 border-bottom shadow-none"
+            id="nameContact"
+            placeholder="nombre del slide"
+            formControlName="name"
+            [ngClass]="{
+              'is-invalid': Name?.errors && Name?.touched,
+              'is-valid': !Name?.errors && Name?.touched
+            }"
+          />
+          <label for="nameContact" class="form-label">Nombre:</label>
+        </div>
+        <!-- Validation to input name -->
+        <div *ngIf="Name?.errors && Name?.touched">
+          <p *ngIf="Name?.hasError('required')" class="error">
+            Campo obligatorio
+          </p>
+        </div>
+        <div class="mb-4 form-floating">
+          <input
+            type="email"
+            class="form-control border-0 border-bottom shadow-none"
+            id="emailContact"
+            placeholder="direccion@proveedor.com"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid': Email?.errors && Email?.touched,
+              'is-valid': !Email?.errors && Email?.touched
+            }"
+          />
+          <label for="emailContact" class="form-label">Email: </label>
+        </div>
+        <div *ngIf="Email?.errors && Email?.touched">
+          <p *ngIf="Email?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
+          <p *ngIf="Email?.hasError('email')" class="error">
+            Ingrese un Email valido
+          </p>
+        </div>
+        <div class="mb-4 form-floating">
+          <input
+            type="number"
+            formControlname="phone"
+            class="form-control border-0 border-bottom shadow-none"
+            id="phoneContact"
+            placeholder="escribe tu mensaje"
+            [ngClass]="{
+                'is-invalid': Phone?.errors && Phone?.touched,
+                'is-valid': !Phone?.errors && Phone?.touched
+              }"
+          />
+          <label for="phoneContact" class="form-label">Telefono:</label>
+        </div>
+        <div *ngIf="Phone?.errors && Phone?.touched">
+          <p *ngIf="Phone?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
+          <p *ngIf="Phone?.errors?.minlength" class="error">
+            El campo debe contener mas de 8 caracteres
+          </p>
+        </div>
+        <div class="mb-4 form-floating">
+          <textarea
+            type="text"
+            row="5"
+            formControlName="message"
+            id="messageContact"
+            class="form-control border-0 border-bottom shadow-none"
+            placeholder="escribe tu mensaje"
+            [ngClass]="{
+                'is-invalid': Message?.errors && Message?.touched,
+                'is-valid': !Message?.errors && Message?.touched
+              }"
+          >
+          </textarea>
+          <label for="messageContact" class="form-label"
+            >Dejenos su consulta:</label
+          >
+        </div>
+        <div *ngIf="Message?.errors && Message?.touched">
+            <p *ngIf="Message?.hasError('required')" class="error"> El campo es obligatorio</p>
+        </div>
+        <button
+          class="btn btn-outline-primary rounded-pill p-3 fw-bold mt-3 w-100"
+          type="submit"
+        >
+          Guardar Slides
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

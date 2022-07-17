@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { ContactFormComponent} from './pages/contact/contact-form/contact-form.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       import('./pages/auth/register-form/register-form-routing.module').then(
         (m) => m.RegisterFormRoutingModule
       )
+  },
+  {
+    path: 'contact-form',
+    component: ContactFormComponent
   },
   {
     path: "**",
