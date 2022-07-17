@@ -146,7 +146,6 @@ export class SlidesFormComponent implements OnInit {
         this.slideService.getOneSlide(id).subscribe({
           next: (data) => {
             this.slide = data.data;
-
             this.form.setValue({
               name: this.slide.name,
               description: this.slide.description,

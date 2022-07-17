@@ -27,6 +27,10 @@ const routes: Routes = [
     component: OrgViewComponent,
   },
   {
+    path: "backoffice/organization/:edit",
+    component: OrgViewComponent,
+  },
+  {
     path: 'iniciar-sesion',
     loadChildren: () =>
       import('./pages/auth/login-form/login-form-routing.module').then(
