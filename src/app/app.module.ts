@@ -20,7 +20,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     CoreModule,
     FeaturesModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
 
   ],
