@@ -3,15 +3,23 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { NewFormComponent } from "./pages/news/new-form/new-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 
 const routes: Routes = [
   {
-    path: "actividades",
-    component: ActivityFormComponent
+    path: "slider",
+    component: SlidesFormComponent
   },
+  {
+    path: "slider/:id",
+    component: SlidesFormComponent
+  },
+  { 
+    path: "actividades", 
+    component: ActivityFormComponent },
   {
     path: "",
     redirectTo: "actividades",
@@ -53,7 +61,8 @@ const routes: Routes = [
     path: "**",
     redirectTo: "actividades",
     pathMatch: "full",
-  }
+  },
+  
 ];
 
 @NgModule({

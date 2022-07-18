@@ -27,10 +27,7 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-
     NewFormComponent,
-
-
     AuthFormComponent,
     EditFormComponent,
     OrgViewComponent
@@ -45,17 +42,15 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule
+    RouterModule,
   ],
-
-
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule,
     ReactiveFormsModule,
-    CKEditorModule,
+    FormsModule,
+    CKEditorModule
   ],
-
 })
 export class FeaturesModule { }
