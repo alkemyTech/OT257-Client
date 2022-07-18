@@ -8,7 +8,7 @@ export class ValidatorsService {
   constructor() {}
 
   typeImagen(control: FormControl): ValidationErrors | null {
-    if (!control.value?.includes("JPG")) {
+    if (!control.value?.includes("JPG") && !control.value?.includes("PNG")) {
       return {
         imageNoValido: true,
       };
