@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { NewFormComponent } from "./pages/news/new-form/new-form.component";
+import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 
 const routes: Routes = [
   {
@@ -24,12 +25,12 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },
-  { 
-    path: "news", 
-    component: NewsFormComponent 
+  {
+    path: "news",
+    component: NewsFormComponent
   },
-  
-  { 
+
+  {
     path: "new/:id",
     component: NewFormComponent
   },
@@ -39,8 +40,8 @@ const routes: Routes = [
     component: OrgViewComponent,
   },
   {
-    path: "backoffice/organization/:edit",
-    component: OrgViewComponent,
+    path: "backoffice/organization/edit/:id",
+    component: EditFormComponent
   },
   {
     path: 'iniciar-sesion',
