@@ -9,6 +9,7 @@ import {
   FormControl,
 } from "@angular/forms";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { ValidatorsService } from '../../../../../services/validators/validators.service';
 
 @Component({
   selector: "app-member-form",
@@ -28,7 +29,8 @@ export class MemberFormComponent implements OnInit {
     private route: ActivatedRoute,
     private membersService: MembersService,
     private categoriesService: CategoriesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private validators:ValidatorsService
   ) {
     this.route.paramMap.subscribe((params) => {
       this.idMember = params.get("id");
@@ -61,7 +63,7 @@ export class MemberFormComponent implements OnInit {
   crearFormulario() {
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(5)]],
-      image: [null],
+      image: ["", [Validators.required,this.validators.typeImagen]],
       description: ["", [Validators.required]],
     });
 
