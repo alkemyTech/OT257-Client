@@ -13,7 +13,7 @@ export class ContactFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['',[Validators.required]],
       email: ['',[Validators.required,Validators.email]],
-      phone: ['',[Validators.required,Validators.minLength(8)]],
+      phone: ['',[Validators.min(10000000),Validators.required]],
       message: ['',[Validators.required]]
     })
    }
@@ -25,13 +25,26 @@ export class ContactFormComponent implements OnInit {
     return this.form.get('email');
    }
    get Phone(){
-    return this.form.get('phone');
+   return this.form.get('phone');
    }
    get Message(){
     return this.form.get('message');
    }
 
   ngOnInit(): void {
+  }
+
+  sendConsulta(){
+    if(this.form.valid){
+      console.log("enviar");
+      console.log(this.form.value);
+      console.log(this.Phone);
+    }else{
+      console.log("invalid form")
+        console.log(this.form.value);
+        this.form.markAllAsTouched();
+      }
+    
   }
 
 }

@@ -6,9 +6,10 @@
     <div class="card-body">
       <h5 class="card-title">Formulario de Contacto</h5>
       <p class="card-text">
-        Completa el formulario con tus datos y dejanos tu consulta, nos comunicaremos con vos a la brevedad.
+        Completa el formulario con tus datos y dejanos tu consulta, nos
+        comunicaremos con vos a la brevedad.
       </p>
-      <form [formGroup]="form">
+      <form [formGroup]="form" (ngSubmit)="sendConsulta()">
         <div class="form-floating mb-4">
           <input
             type="text"
@@ -54,14 +55,14 @@
         <div class="mb-4 form-floating">
           <input
             type="number"
-            formControlname="phone"
+            formControlName="phone"
             class="form-control border-0 border-bottom shadow-none"
             id="phoneContact"
             placeholder="escribe tu mensaje"
             [ngClass]="{
-                'is-invalid': Phone?.errors && Phone?.touched,
-                'is-valid': !Phone?.errors && Phone?.touched
-              }"
+              'is-invalid': Phone?.errors && Phone?.touched,
+              'is-valid': !Phone?.errors && Phone?.touched
+            }"
           />
           <label for="phoneContact" class="form-label">Telefono:</label>
         </div>
@@ -69,8 +70,8 @@
           <p *ngIf="Phone?.hasError('required')" class="error">
             El campo es obligatorio
           </p>
-          <p *ngIf="Phone?.errors?.minlength" class="error">
-            El campo debe contener mas de 8 caracteres
+          <p *ngIf="Phone?.errors?.min" class="error">
+            Debe contener mas de 8 caracteres
           </p>
         </div>
         <div class="mb-4 form-floating">
@@ -82,9 +83,9 @@
             class="form-control border-0 border-bottom shadow-none"
             placeholder="escribe tu mensaje"
             [ngClass]="{
-                'is-invalid': Message?.errors && Message?.touched,
-                'is-valid': !Message?.errors && Message?.touched
-              }"
+              'is-invalid': Message?.errors && Message?.touched,
+              'is-valid': !Message?.errors && Message?.touched
+            }"
           >
           </textarea>
           <label for="messageContact" class="form-label"
@@ -92,13 +93,15 @@
           >
         </div>
         <div *ngIf="Message?.errors && Message?.touched">
-            <p *ngIf="Message?.hasError('required')" class="error"> El campo es obligatorio</p>
+          <p *ngIf="Message?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
         </div>
         <button
           class="btn btn-outline-primary rounded-pill p-3 fw-bold mt-3 w-100"
           type="submit"
         >
-          Guardar Slides
+          Enviar consulta
         </button>
       </form>
     </div>

@@ -13,6 +13,7 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
+import { OrgViewComponent } from './pages/organization/org-view/org-view.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
     UserFormComponent,
     AuthFormComponent,
     ContactFormComponent,
+    OrgViewComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -36,7 +38,8 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule
+    RouterModule,
+    
   ],
   imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
 })
