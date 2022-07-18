@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import * as ClassicEditorBuild from "@ckeditor/ckeditor5-build-classic";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { ActivitiesService } from "../../../../core/services/activities.service";
+import { ActivitiesService } from "../../../../core/services/activity/activities.service";
 import { Activity } from "../../../../core/models/activity.model";
-import { HelpersService } from "../../../../core/helpers.service";
 import Swal from "sweetalert2";
 import { ActivatedRoute, Router } from "@angular/router";
+import { HelpersService } from '../../../../core/services/helpers.service';
 
 @Component({
   selector: "app-activity-form",
