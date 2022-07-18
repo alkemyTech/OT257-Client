@@ -15,7 +15,11 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
-    path: "backoffice/organization",
+    path: "organization",
+    component: OrgViewComponent,
+  },
+  {
+    path: "organization/:id",
     component: OrgViewComponent,
   },
   {

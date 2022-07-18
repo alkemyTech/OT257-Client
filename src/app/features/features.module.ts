@@ -12,6 +12,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
+import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
     TestimonialFormComponent,
     UserFormComponent,
     AuthFormComponent,
+    OrgViewComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -34,8 +36,12 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    OrgViewComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, 
+            AppRoutingModule,
+            RouterModule,
+            ReactiveFormsModule],
 })
 export class FeaturesModule { }
