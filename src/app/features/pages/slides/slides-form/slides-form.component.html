@@ -1,1 +1,110 @@
-<p>slides form works </p>
+<div class="row justify-content-center align-items-center">
+  <div
+    class="card text-center col-sm-12 col-md-8 col-lg-6 my-5 shadow border-0 p-5"
+  >
+    <div class="card-header">Slides</div>
+    <div class="card-body">
+      <h5 class="card-title">Agregar Slides</h5>
+      <p class="card-text">
+        Para Agregar un nuevo slides o editar uno existente complete el
+        formulario
+      </p>
+      <form [formGroup]="form" (ngSubmit)="sendForm()">
+        <div class="form-floating mb-4">
+          <input
+            type="text"
+            class="form-control border-0 border-bottom shadow-none"
+            id="nameSlides"
+            placeholder="nombre del slide"
+            formControlName="name"
+            [ngClass]="{
+              'is-invalid': Name?.errors && Name?.touched,
+              'is-valid': !Name?.errors && Name?.touched
+            }"
+          />
+          <label for="nameSlides" class="form-label">Nombre de slide</label>
+        </div>
+        <!-- Validation to input name -->
+        <div *ngIf="Name?.errors && Name?.touched">
+          <p *ngIf="Name?.hasError('required')" class="error">
+            Campo obligatorio
+          </p>
+          <p *ngIf="Name?.errors?.minlength" class="error">
+            Debe contener mas de 4 caracteres
+          </p>
+        </div>
+        <div class="mb-4">
+          <label for="descriptionSlides" class="form-label">Descripcion:</label>
+          <ckeditor
+            [editor]="Editor"
+            formControlName="description"
+            tagName="textarea"
+          ></ckeditor>
+        </div>
+        <!-- Validation ckeditor -->
+        <div *ngIf="Description?.errors && Description?.touched">
+          <p *ngIf="Description?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
+        </div>
+        <div class="mb-4 form-floating">
+          <input
+            type="number"
+            class="form-control border-0 border-bottom shadow-none"
+            id="orderSlides"
+            placeholder="numero de posicion del slide"
+            formControlName="order"
+            (blur)="orderUnique()"
+            [ngClass]="{
+              'is-invalid': Order?.errors && Order?.touched,
+              'is-valid': !Order?.errors && Order?.touched
+            }"
+          />
+          <label for="orderSlides" class="form-label"
+            >Número de orden que tendra el slide:</label
+          >
+        </div>
+        <!-- Validation input Order -->
+        <div *ngIf="Order?.errors && Order?.touched">
+          <p *ngIf="Order?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
+        </div>
+        <div *ngIf="orderError">
+          <p class="error">El numero de orden del Slide ya existe</p>
+        </div>
+        <div class="mb-3">
+          <label for="imageSlide" class="form-label">Imagen:</label>
+          <input
+            type="file"
+            name="image"
+            accept="image/jpg, image/png"
+            (change)="fileChange($event)"
+            class="form-control"
+            id="imageSlide"
+          />
+        </div>
+        <div *ngIf="viewImageMin">
+          <img [src]="viewImageMin" alt="slide" class="w-100" />
+        </div>
+        <!-- Validation input image -->
+        <div
+          *ngIf="(Image?.errors && error) || (Image?.errors && Image?.touched)"
+        >
+          <p *ngIf="Image?.hasError('required')" class="error">
+            El campo es obligatorio
+          </p>
+          <p *ngIf="Image?.hasError('incorrect')" class="error">
+            {{ messageError }}
+          </p>
+        </div>
+        <button
+          class="btn btn-outline-primary rounded-pill p-3 fw-bold mt-3 w-100"
+          type="submit"
+        >
+          Guardar Slides
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

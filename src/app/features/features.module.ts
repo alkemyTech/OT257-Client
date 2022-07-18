@@ -17,6 +17,7 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { MemberFormComponent } from './pages/backoffice/members/member-form/member-form.component';
+import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { MemberFormComponent } from './pages/backoffice/members/member-form/memb
     AuthFormComponent,
     OrgViewComponent,
     MembersFormComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    EditFormComponent,
+    OrgViewComponent
 
   ],
   exports: [
@@ -45,17 +48,15 @@ import { MemberFormComponent } from './pages/backoffice/members/member-form/memb
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    OrgViewComponent,
-    RouterModule
+    RouterModule,
   ],
-
-  imports: [CommonModule,
-     AppRoutingModule, 
-     RouterModule,
-     FormsModule,
-     ReactiveFormsModule,
-     CKEditorModule,
-    ],
-
+  imports: [
+    CommonModule,
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CKEditorModule
+  ],
 })
 export class FeaturesModule { }

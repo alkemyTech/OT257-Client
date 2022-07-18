@@ -9,6 +9,8 @@ import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+
 import { AppComponent } from './app.component';
 
 
@@ -20,8 +22,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     CoreModule,
     FeaturesModule,
+    CKEditorModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
 
   ],
