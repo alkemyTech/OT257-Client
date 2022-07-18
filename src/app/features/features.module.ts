@@ -10,16 +10,12 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
-<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NewFormComponent } from './pages/news/new-form/new-form.component';
-
-
-=======
-import { ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
->>>>>>> main
+import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 
 @NgModule({
   declarations: [
@@ -31,12 +27,14 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-<<<<<<< HEAD
+
     NewFormComponent,
-  
-=======
+
+
     AuthFormComponent,
->>>>>>> main
+    EditFormComponent,
+    OrgViewComponent
+
   ],
   exports: [
     ActivityFormComponent,
@@ -49,16 +47,15 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
     UserFormComponent,
     RouterModule
   ],
-<<<<<<< HEAD
+
+
   imports: [CommonModule,
-     AppRoutingModule, 
-     RouterModule,
-     FormsModule,
-     ReactiveFormsModule,
-     CKEditorModule,
-    ],
-=======
-  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
->>>>>>> main
+    AppRoutingModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CKEditorModule,
+  ],
+
 })
 export class FeaturesModule { }

@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { NewFormComponent } from "./pages/news/new-form/new-form.component";
+import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 
 const routes: Routes = [
   {
@@ -16,12 +17,12 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },
-  { 
-    path: "news", 
-    component: NewsFormComponent 
+  {
+    path: "news",
+    component: NewsFormComponent
   },
-  
-  { 
+
+  {
     path: "new/:id",
     component: NewFormComponent
   },
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: "backoffice/organization",
     component: OrgViewComponent,
+  },
+  {
+    path: "backoffice/organization/edit/:id",
+    component: EditFormComponent
   },
   {
     path: 'iniciar-sesion',
