@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     UserFormComponent,
     AuthFormComponent,
     EditFormComponent,
+    OrgViewComponent
   ],
   exports: [
     ActivityFormComponent,

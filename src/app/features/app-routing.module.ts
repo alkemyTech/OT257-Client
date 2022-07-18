@@ -20,7 +20,7 @@ const routes: Routes = [
     component: OrgViewComponent,
   },
   {
-    path: "backoffice/organization/edit",
+    path: "backoffice/organization/edit/:id",
     component: EditFormComponent
   },
   {
