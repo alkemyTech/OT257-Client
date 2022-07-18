@@ -20,20 +20,41 @@
               </p>
             </div>
             <div class="mb-3">
-              <p class="text-start my-2 ms-2" for="logo">Seleccionar logo</p>
+              <p class="text-start my-2 ms-2" for="logo">URL logo</p>
               <input
-                (change)="onFileSelected($event)"
-                formControlName="logo"
-                [class.is-invalid]="invalidInput('logo')"
-                type="file"
+                type="text"
                 class="form-control border-0 border-bottom shadow-none"
                 id="logo"
+                formControlName="logo"
                 placeholder="URL de logo"
               />
+              <div *ngIf="logoView">
+                <img
+                  [src]="logoView"
+                  class="w-40 img-fluid border border-secondary rounded mt-2"
+                  alt="Logo pre visualization"
+                />
+              </div>
               <p *ngIf="invalidInput('logo')" class="text-danger text-center mt-1">
                 Debes colocar un logo (Debe ser .png o .jpg)
               </p>
             </div>
+
+            <div class="mb-3">
+              <p class="text-start my-2 ms-2" for="logo">Seleccionar logo</p>
+              <input
+                (change)="onFileSelected($event)"
+                type="file"
+                class="form-control border-0 border-bottom shadow-none"
+                id="inputLogo"
+                accept=".png, .jpg"
+                placeholder="URL de logo"
+              />
+              <p *ngIf="invalidInput('logo')" class="text-danger text-center mt-1">
+                Debes seleccionar un logo (Debe ser .png o .jpg)
+              </p>
+            </div>
+
             <div class="form-floating mb-5">
               <textarea
                 formControlName="longDescription"
@@ -125,7 +146,6 @@
             <div class="d-grid">
               <button
                 type="submit"
-                [disabled]="!form.valid"
                 class="btn btn-outline-primary rounded-pill p-3 fw-bold"
               >
                 GUARDAR CAMBIOS

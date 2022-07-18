@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Organization, Data } from "src/app/core/models/IOrganization";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { HelpersService } from "src/app/core/services/helpers.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-edit-form",
@@ -12,8 +13,15 @@ export class EditFormComponent implements OnInit {
   Editor = ClassicEditor;
   form!: FormGroup;
   event!: any;
+  data!: Data;
+  file!: any;
+  organizationId!: any;
+  logoView!: any | null;
+  messageError!: string;
 
-  constructor(private fb: FormBuilder, private helpers: HelpersService) { }
+  constructor(private fb: FormBuilder,
+
+    private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     this.editForm();
@@ -73,16 +81,6 @@ export class EditFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.helpers.fileExtensionCheck(this.event)) {
-      this.form.controls["logo"].setErrors({ 'incorrect': true });
 
-      console.log(this.form.value);
-
-      if (this.form.invalid) {
-        return Object.values(this.form.controls).forEach((control) => {
-          control.markAsTouched();
-        });
-      }
-    }
   }
 }
