@@ -36,6 +36,11 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
+<<<<<<< HEAD
+              
+      
+=======
+>>>>>>> main
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
@@ -106,8 +111,12 @@
             ],
             "styles": [
               "src/styles.scss"
+           
+      
             ],
-            "scripts": []
+            "scripts": [
+            
+            ]
           }
         }
       }

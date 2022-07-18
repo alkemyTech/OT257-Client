@@ -1,3 +1,10 @@
+
+//Modules Insert
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
@@ -13,6 +20,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     CoreModule,
     FeaturesModule,
+    HttpClientModule,
+    ReactiveFormsModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
