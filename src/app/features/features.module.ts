@@ -12,7 +12,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { NewFormComponent } from './pages/new/new-form.component';
+import { NewFormComponent } from './pages/news/new-form/new-form.component';
 
 
 @NgModule({
