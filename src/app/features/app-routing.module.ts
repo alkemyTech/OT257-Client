@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { NewFormComponent } from "./pages/news/new-form/new-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
+import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,14 @@ const routes: Routes = [
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
+  },
+  { 
+    path: "testimonios", 
+    component: TestimonialFormComponent 
+  },
+  { 
+    path: "testimonio/:id", 
+    component: TestimonialFormComponent 
   },
   {
     path: "news",
