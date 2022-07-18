@@ -8,16 +8,15 @@ import {
 import { CategoriesService } from "src/app/services/categories/categories.service";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Router } from "@angular/router";
-import { NewModel } from "src/app/models/new.model";
-import { NewsService } from "src/app/services/news/news.service";
-
+import { MembersService } from "src/app/services/members/members.service";
+import { ValidatorsService } from "../../../../../services/validators/validators.service";
 
 @Component({
-  selector: "app-news-form",
-  templateUrl: "./news-form.component.html",
-  styleUrls: ["./news-form.component.scss"],
+  selector: "app-members-form",
+  templateUrl: "./members-form.component.html",
+  styleUrls: ["./members-form.component.scss"],
 })
-export class NewsFormComponent implements OnInit {
+export class MembersFormComponent implements OnInit {
   public Editor = ClassicEditor;
   form!: FormGroup;
   categories: any;
@@ -26,33 +25,24 @@ export class NewsFormComponent implements OnInit {
 
   constructor(
     private categoriesService: CategoriesService,
-    private newsService: NewsService,
+    private membersService: MembersService,
     private fb: FormBuilder,
     private router: Router,
+    private validators: ValidatorsService
   ) {
     this.crearFormulario();
   }
 
-  ngOnInit(): void {
-    this.categoriesService.getCategories().subscribe((resp: any) => {
-      this.categories = resp.data;
-    });
-  }
+  ngOnInit(): void {}
 
   get nombreNoValido() {
     return this.form.get("name")?.invalid && this.form.get("name")?.touched;
   }
 
-  get categoriaNoValido() {
+  get descriptionNoValido() {
     return (
-      this.form.get("category_id")?.invalid &&
-      this.form.get("category_id")?.touched
-    );
-  }
-
-  get contentNoValido() {
-    return (
-      this.form.get("content")?.invalid && this.form.get("content")?.touched
+      this.form.get("description")?.invalid &&
+      this.form.get("description")?.touched
     );
   }
 
@@ -63,9 +53,8 @@ export class NewsFormComponent implements OnInit {
   crearFormulario() {
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
-      image: null,
-      category_id: ["", [Validators.required]],
-      content: ["", [Validators.required]],
+      image: ["", [Validators.required, this.validators.typeImagen]],
+      description: ["", [Validators.required]],
     });
   }
 
@@ -84,13 +73,9 @@ export class NewsFormComponent implements OnInit {
   onFileSelected(event: any) {
     this.file = event.target.files[0];
     this.imgToBase64(this.file);
-
-  
   }
 
-  createNew() {
-
-
+  createMember() {
     if (this.form.invalid) {
       return Object.values(this.form.controls).forEach((control) => {
         if (control instanceof FormGroup) {
@@ -108,8 +93,8 @@ export class NewsFormComponent implements OnInit {
     } else {
       delete this.form.value.image;
     }
-    this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/new/${resp.data.id}`]);
+    this.membersService.createMember(this.form.value).subscribe((resp: any) => {
+      this.router.navigate([`/member/${resp.data.id}`]);
     });
   }
 }
