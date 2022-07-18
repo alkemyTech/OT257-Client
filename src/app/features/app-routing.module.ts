@@ -4,10 +4,17 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
+
+  { 
+    path: "actividades/:id", 
+    component: ActivityFormComponent 
+  },
   { 
     path: "actividades", 
-    component: ActivityFormComponent },
+    component: ActivityFormComponent 
+  },
   {
+
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
