@@ -11,14 +11,15 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HttpClientModule } from "@angular/common/http";
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NewFormComponent } from './pages/news/new-form/new-form.component';
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
-import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { BackOfficeHomeComponent } from './pages/back-office-home/back-office-home.component';
+import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
+import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
+
+
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -29,8 +30,9 @@ import { BackOfficeHomeComponent } from './pages/back-office-home/back-office-ho
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    NewFormComponent,
     AuthFormComponent,
+    OrgViewComponent,
+    MembersFormComponent,
     EditFormComponent,
     OrgViewComponent,
     BackOfficeHomeComponent
@@ -52,7 +54,6 @@ import { BackOfficeHomeComponent } from './pages/back-office-home/back-office-ho
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SweetAlert2Module.forRoot(),
     FormsModule,
     CKEditorModule,
   ],
