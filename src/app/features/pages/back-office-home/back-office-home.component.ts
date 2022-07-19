@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-back-office-home',
@@ -10,9 +10,17 @@ export class BackOfficeHomeComponent implements OnInit {
 
   homeForm!: FormGroup;
 
-  constructor() { }
+
+  constructor(private fb: FormBuilder,) { }
 
   ngOnInit(): void {
+    this.editHomeForm();
+  }
+
+  editHomeForm() {
+    this.homeForm = this.fb.group({
+      longDescription: ["", [Validators.required, Validators.minLength(20)]],
+    });
   }
 
   invalidInput(input: string) {
