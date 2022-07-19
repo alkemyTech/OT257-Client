@@ -12,8 +12,6 @@
                                 Debe ingresar min 4 letras
                               </small>
                         </div>
-  
-  
                         <div class="mb-3">
                           <select formControlName="category_id"  class="form-select border-0 border-bottom shadow-none " >
                             <option *ngFor="let category of categories" [value]="category.id"> {{category.id}}-{{category.name}} </option>

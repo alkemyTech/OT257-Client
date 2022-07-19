@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { MembersService } from "src/app/services/members/members.service";
+import { MembersService } from "src/app/core/services/members/members.service";
 import {
   FormGroup,
   FormBuilder,

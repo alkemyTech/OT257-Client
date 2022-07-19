@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { CategoriesService } from "src/app/services/categories/categories.service";
-import { NewsService } from "src/app/services/news/news.service";
+import { CategoriesService } from "src/app/core/services/categories/categories.service";
+import { NewsService } from "src/app/core/services/news/news.service";
 import {
   FormGroup,
   FormBuilder,
@@ -134,7 +134,7 @@ export class NewFormComponent implements OnInit {
     this.newsService
       .updateNew(this.idNew, this.form.value)
       .subscribe((resp) => {
-        Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
+       // Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
       });
   }
 }

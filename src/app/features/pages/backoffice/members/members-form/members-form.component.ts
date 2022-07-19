@@ -5,10 +5,10 @@ import {
   Validators,
   FormControl,
 } from "@angular/forms";
-import { CategoriesService } from "src/app/services/categories/categories.service";
+import { CategoriesService } from "src/app/core/services/categories/categories.service";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Router } from "@angular/router";
-import { MembersService } from "src/app/services/members/members.service";
+import { MembersService } from "src/app/core/services/members/members.service";
 
 import { HelpersService } from "src/app/core/services/helpers.service";
 

@@ -5,11 +5,12 @@ import {
   Validators,
   FormControl,
 } from "@angular/forms";
-import { CategoriesService } from "src/app/services/categories/categories.service";
+import { CategoriesService } from "src/app/core/services/categories/categories.service";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Router } from "@angular/router";
-import { NewModel } from "src/app/models/new.model";
-import { NewsService } from "src/app/services/news/news.service";
+import { NewModel } from "src/app/core/models/new.model";
+import { NewsService } from "src/app/core/services/news/news.service";
+
 
 
 @Component({

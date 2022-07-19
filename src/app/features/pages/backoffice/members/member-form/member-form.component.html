@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="row min-vh-100 justify-description-center align-items-center">
+    <div class="row min-vh-100 justify-content-center align-items-center">
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="card w-100 shadow-lg border-0 text-center p-5">
                 <div class="card-body">
                     <h4 class="mb-5">ACTUALIZAR MIEMBRO </h4>
                     <form [formGroup]="form" (ngSubmit)="updateMember()">
                         <div class="form-floating mb-3">
-                            <input formControlName="name" type="text" class="form-control border-0 border-bottom shadow-none" id="name" placeholder="Nombre de novedad">
+                            <input formControlName="name" type="text" class="form-control border-0 border-bottom shadow-none" id="name" >
                             <label for="name">Nombre de miembro</label>
                             <small *ngIf="nombreNoValido" class="text-danger text-left">
                               Debe ingresar min 4 letras
