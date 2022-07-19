@@ -1,1 +1,38 @@
-<p>back-office-home works!</p>
+<div class="container">
+  <div class="row min-vh-100 justify-content-center align-items-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <div class="card w-100 shadow-lg border-0 text-center p-5">
+        <div class="card-body">
+          <h4 class="mb-5">EDITAR HOME</h4>
+          <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-5">
+              <textarea
+                formControlName="longDescription"
+                [class.is-invalid]="invalidInput('longDescription')"
+                class="form-control border-0 border-bottom shadow-none"
+                placeholder="Descripción larga"
+                id="longDescription"
+                style="height: 100px"
+              ></textarea>
+              <label for="longDescription">Descripción Larga</label>
+              <p
+                *ngIf="invalidInput('longDescription')"
+                class="text-danger text-center mt-1"
+              >
+                La Descripción Larga es requerida)
+              </p>
+            </div>
+            <div class="d-grid">
+              <button
+                type="submit"
+                class="btn btn-outline-primary rounded-pill p-3 fw-bold"
+              >
+                GUARDAR CAMBIOS
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

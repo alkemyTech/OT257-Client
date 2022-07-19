@@ -19,6 +19,7 @@ import { EditFormComponent } from './pages/organization/edit-form/edit-form.comp
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { BackOfficeHomeComponent } from './pages/back-office-home/back-office-home.component';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -54,7 +55,8 @@ import { BackOfficeHomeComponent } from './pages/back-office-home/back-office-ho
     HttpClientModule,
     SweetAlert2Module.forRoot(),
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    DropDownListModule
   ],
 })
 export class FeaturesModule { }

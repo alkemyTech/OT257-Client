@@ -7,15 +7,16 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { NewFormComponent } from "./pages/news/new-form/new-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
+import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 
 const routes: Routes = [
- { 
-    path: "actividades", 
-    component: ActivityFormComponent 
+  {
+    path: "actividades",
+    component: ActivityFormComponent
   },
-  { 
-    path: "actividades/:id", 
-    component: ActivityFormComponent 
+  {
+    path: "actividades/:id",
+    component: ActivityFormComponent
   },
   {
     path: "slider",
@@ -46,6 +47,10 @@ const routes: Routes = [
     component: OrgViewComponent,
   },
   {
+    path: "backoffice/Home",
+    component: BackOfficeHomeComponent
+  },
+  {
     path: "backoffice/organization/edit/:id",
     component: EditFormComponent
   },
@@ -68,7 +73,7 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },
-  
+
 ];
 
 @NgModule({
