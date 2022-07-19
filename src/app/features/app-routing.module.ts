@@ -8,8 +8,13 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
 import { NewFormComponent } from "./pages/news/new-form/new-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
+import { AboutComponent } from "./pages/about/about.component";
 
 const routes: Routes = [
+  {
+    path: "nosotros",
+    component: AboutComponent,
+  },
  { 
     path: "actividades", 
     component: ActivityFormComponent 

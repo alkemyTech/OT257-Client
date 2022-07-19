@@ -10,7 +10,6 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
-import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -19,6 +18,7 @@ import { NewFormComponent } from './pages/news/new-form/new-form.component';
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     NewFormComponent,
     AuthFormComponent,
     EditFormComponent,
-    OrgViewComponent
+    OrgViewComponent,
+    AboutComponent
 
   ],
   exports: [
