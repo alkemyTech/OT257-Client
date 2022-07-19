@@ -10,20 +10,21 @@ import {
 } from "@angular/forms";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
+import Swal from "sweetalert2";
+
 @Component({
   selector: "app-new-form",
   templateUrl: "./new-form.component.html",
   styleUrls: ["./new-form.component.scss"],
 })
 export class NewFormComponent implements OnInit {
-
   public Editor = ClassicEditor;
   idNew!: any;
   categories: any;
   form!: FormGroup;
-  img='';
-  new= '';
-  file!:any;
+  img = "";
+  new = "";
+  file!: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +34,6 @@ export class NewFormComponent implements OnInit {
   ) {
     this.route.paramMap.subscribe((params) => {
       this.idNew = params.get("id");
-
     });
     this.crearFormulario();
   }
@@ -61,7 +61,9 @@ export class NewFormComponent implements OnInit {
   }
 
   get contentNoValido() {
-    return this.form.get("content")?.invalid && this.form.get("content")?.touched;
+    return (
+      this.form.get("content")?.invalid && this.form.get("content")?.touched
+    );
   }
 
   get imageNoValido() {
@@ -91,20 +93,16 @@ export class NewFormComponent implements OnInit {
     }
   }
 
-  toBase64(e:any) {
+  toBase64(e: any) {
     this.img = "data:image/png;base64," + btoa(e.target.result);
-
   }
 
-  onFileSelected(event:any){
-    this.file=event.target.files[0];
-    this.imgToBase64(this.file); 
-
+  onFileSelected(event: any) {
+    this.file = event.target.files[0];
+    this.imgToBase64(this.file);
   }
 
-  cargarDataForm(dato:any) {
-    
-
+  cargarDataForm(dato: any) {
     this.img = dato.image;
     this.form.setValue({
       name: dato.name,
@@ -112,11 +110,9 @@ export class NewFormComponent implements OnInit {
       category_id: dato.category_id,
       content: dato.content,
     });
-
   }
 
   updateNew() {
-
     if (this.form.value.image) {
       this.form.value.image = this.img;
     } else {
@@ -138,6 +134,7 @@ export class NewFormComponent implements OnInit {
     this.newsService
       .updateNew(this.idNew, this.form.value)
       .subscribe((resp) => {
+        Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
       });
   }
 }

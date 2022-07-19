@@ -31,6 +31,23 @@
                               El campo description de contener información
                             </small>
                         </div>
+
+                        <div class="form-floating mb-3">
+                            <input formControlName="facebookUrl" type="text" class="form-control border-0 border-bottom shadow-none" id="facebookUrl" placeholder="Url de Facebook">
+                            <label for="facebookUrl">Url Facebook</label>
+                            <small *ngIf="facebookUrlNoValido" class="text-danger text-left">
+                              No es un URL Correcta
+                            </small>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input formControlName="linkedinUrl" type="text" class="form-control border-0 border-bottom shadow-none" id="linkedinUrl" placeholder="Url de Facebook">
+                            <label for="linkedinUrl">Url Linked</label>
+                            <small *ngIf="linkedinUrlNoValido" class="text-danger text-left">
+                              No es un URL Correcta
+                            </small>
+                        </div>
+
                         <div class="d-grid">
                             <button type="submit" class="btn btn-outline-primary rounded-pill p-3 fw-bold">CREAR MIEMBRO</button>
                         </div>

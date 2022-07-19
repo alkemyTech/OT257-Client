@@ -9,7 +9,8 @@ import { CategoriesService } from "src/app/services/categories/categories.servic
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Router } from "@angular/router";
 import { MembersService } from "src/app/services/members/members.service";
-import { ValidatorsService } from "../../../../../services/validators/validators.service";
+
+import { HelpersService } from "src/app/core/services/helpers.service";
 
 @Component({
   selector: "app-members-form",
@@ -22,13 +23,14 @@ export class MembersFormComponent implements OnInit {
   categories: any;
   img: string = "";
   file!: any;
+  event!: any;
 
   constructor(
     private categoriesService: CategoriesService,
     private membersService: MembersService,
     private fb: FormBuilder,
     private router: Router,
-    private validators: ValidatorsService
+    private helpers: HelpersService
   ) {
     this.crearFormulario();
   }
@@ -50,10 +52,41 @@ export class MembersFormComponent implements OnInit {
     return this.form.get("image")?.invalid && this.form.get("image")?.touched;
   }
 
+  get facebookUrlNoValido() {
+    return (
+      this.form.get("facebookUrl")?.invalid &&
+      this.form.get("facebookUrl")?.touched
+    );
+  }
+  get linkedinUrlNoValido() {
+    return (
+      this.form.get("linkedinUrl")?.invalid &&
+      this.form.get("linkedinUrl")?.touched
+    );
+  }
+
   crearFormulario() {
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
-      image: ["", [Validators.required, this.validators.typeImagen]],
+      image: ["", [Validators.required]],
+      facebookUrl: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern(
+            "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?"
+          ),
+        ],
+      ],
+      linkedinUrl: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern(
+            "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?"
+          ),
+        ],
+      ],
       description: ["", [Validators.required]],
     });
   }
@@ -71,6 +104,7 @@ export class MembersFormComponent implements OnInit {
   }
 
   onFileSelected(event: any) {
+    this.event = event;
     this.file = event.target.files[0];
     this.imgToBase64(this.file);
   }
@@ -86,6 +120,10 @@ export class MembersFormComponent implements OnInit {
           control.markAsTouched();
         }
       });
+    }
+
+    if (this.helpers.fileExtensionCheck(this.event)) {
+      this.form.controls["image"].setErrors({ imageNoValido: true });
     }
 
     if (this.form.value.image != "") {
