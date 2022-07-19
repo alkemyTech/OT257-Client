@@ -3,7 +3,7 @@
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="card w-100 shadow-lg border-0 text-center p-5">
                 <div class="card-body">
-                    <h4 class="mb-5">CREAR NUEVA ACTIVIDAD</h4>
+                    <h4 class="mb-5">{{titleText}}</h4>
                     <form [formGroup]="formData" (ngSubmit)="onSubmit()">
                         <div class="form-floating mb-3">
                             <input formControlName="name" type="text" class="form-control border-0 border-bottom shadow-none" id="name" placeholder="Nombre de la actividad">
@@ -25,7 +25,7 @@
                             <ckeditor [editor]="Editor" formControlName="description"></ckeditor>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-outline-primary rounded-pill p-3 fw-bold">CREAR ACTIVIDAD</button>
+                            <button type="submit" class="btn btn-outline-primary rounded-pill p-3 fw-bold">{{buttonText}}</button>
                         </div>
                     </form>
                 </div>
