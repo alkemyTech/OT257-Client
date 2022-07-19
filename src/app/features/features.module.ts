@@ -10,15 +10,14 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
-import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { NewFormComponent } from './pages/news/new-form/new-form.component';
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
-import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
+import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+
 
 @NgModule({
   declarations: [
@@ -30,8 +29,9 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    NewFormComponent,
     AuthFormComponent,
+    OrgViewComponent,
+    MembersFormComponent,
     EditFormComponent,
     OrgViewComponent
 
@@ -53,9 +53,6 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SweetAlert2Module.forRoot(),
-    SweetAlert2Module,
-    SweetAlert2Module.forChild({}),
     FormsModule,
     CKEditorModule
   ],

@@ -5,7 +5,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
-import { NewFormComponent } from "./pages/news/new-form/new-form.component";
+import { MembersFormComponent } from "./pages/backoffice/members/members-form/members-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 
@@ -44,14 +44,26 @@ const routes: Routes = [
     path: "news",
     component: NewsFormComponent
   },
+  { 
+    path: "news/:id",
+    component: NewsFormComponent
+  },
+  { 
+    path: "members",
+    component: MembersFormComponent
+  },
 
-  {
-    path: "new/:id",
-    component: NewFormComponent
+  { 
+    path: "members/:id",
+    component: MembersFormComponent
   },
 
   {
-    path: "backoffice/organization",
+    path: "organization",
+    component: OrgViewComponent,
+  },
+  {
+    path: "organization/:id",
     component: OrgViewComponent,
   },
   {
