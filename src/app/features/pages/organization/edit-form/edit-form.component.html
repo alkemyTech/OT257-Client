@@ -1,0 +1,159 @@
+<div class="container">
+  <div class="row min-vh-100 justify-content-center align-items-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <div class="card w-100 shadow-lg border-0 text-center p-5">
+        <div class="card-body">
+          <h4 class="mb-5">EDITAR ORGANIZACIÓN</h4>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+              <input
+                formControlName="name"
+                [class.is-invalid]="invalidInput('name')"
+                type="text"
+                class="form-control border-0 border-bottom shadow-none"
+                id="name"
+                placeholder="Nombre de la organización"
+              />
+              <label for="name">Nombre de organización</label>
+              <p *ngIf="invalidInput('name')" class="text-danger text-center mt-1">
+                El nombre es requerido (Mínimo 4 caracteres)
+              </p>
+            </div>
+            <div class="mb-3">
+              <p class="text-start my-2 ms-2" for="logo">URL logo</p>
+              <input
+                type="text"
+                class="form-control border-0 border-bottom shadow-none"
+                id="logo"
+                formControlName="logo"
+                placeholder="URL de logo"
+              />
+              <div *ngIf="logoView">
+                <img
+                  [src]="logoView"
+                  class="w-40 img-fluid border border-secondary rounded mt-2"
+                  alt="Logo pre visualization"
+                />
+              </div>
+              <p *ngIf="invalidInput('logo')" class="text-danger text-center mt-1">
+                Debes colocar un logo (Debe ser .png o .jpg)
+              </p>
+            </div>
+
+            <div class="mb-3">
+              <p class="text-start my-2 ms-2" for="logo">Seleccionar logo</p>
+              <input
+                (change)="onFileSelected($event)"
+                type="file"
+                class="form-control border-0 border-bottom shadow-none"
+                id="inputLogo"
+                accept=".png, .jpg"
+                placeholder="URL de logo"
+              />
+              <p *ngIf="invalidInput('logo')" class="text-danger text-center mt-1">
+                Debes seleccionar un logo (Debe ser .png o .jpg)
+              </p>
+            </div>
+
+            <div class="form-floating mb-5">
+              <textarea
+                formControlName="longDescription"
+                [class.is-invalid]="invalidInput('longDescription')"
+                class="form-control border-0 border-bottom shadow-none"
+                placeholder="Descripción larga"
+                id="longDescription"
+                style="height: 100px"
+              ></textarea>
+              <label for="longDescription">Descripción Larga</label>
+              <p
+                *ngIf="invalidInput('longDescription')"
+                class="text-danger text-center mt-1"
+              >
+                La Descripción Larga es requerida)
+              </p>
+            </div>
+            <div class="form-floating mb-5">
+              <p class="text-start my-2 ms-2" for="shortDescription">Descripción Corta</p>
+              <ckeditor
+                formControlName="shortDescription"
+                [class.is-invalid]="invalidInput('shortDescription')"
+                [editor]="Editor"
+                class="bg-primary"
+              ></ckeditor>
+              <p
+                *ngIf="invalidInput('shortDescription')"
+                class="text-danger text-center mt-1"
+              >
+                La Descripción Corta es requerida (Mínimo 20 caracteres)
+              </p>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                formControlName="facebook"
+                [class.is-invalid]="invalidInput('facebook')"
+                type="text"
+                class="form-control border-0 border-bottom shadow-none"
+                id="facebook"
+                placeholder="Facebook URL"
+              />
+              <label for="facebook">Facebook</label>
+              <p *ngIf="invalidInput('facebook')" class="text-danger text-center mt-1">
+                Debes ingresar una url válida
+              </p>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                formControlName="linkedin"
+                [class.is-invalid]="invalidInput('linkedin')"
+                type="text"
+                class="form-control border-0 border-bottom shadow-none"
+                id="linkedin"
+                placeholder="Linkedin URL"
+              />
+              <label for="linkedin">Linkedin</label>
+              <p *ngIf="invalidInput('linkedin')" class="text-danger text-center mt-1">
+                Debes ingresar una url válida
+              </p>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                formControlName="instagram"
+                [class.is-invalid]="invalidInput('instagram')"
+                type="text"
+                class="form-control border-0 border-bottom shadow-none"
+                id="instagram"
+                placeholder="Instagram URL"
+              />
+              <label for="instagram">Instagram</label>
+              <p *ngIf="invalidInput('instagram')" class="text-danger text-center mt-1">
+                Debes ingresar una url válida
+              </p>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                formControlName="twitter"
+                [class.is-invalid]="invalidInput('twitter')"
+                type="text"
+                class="form-control border-0 border-bottom shadow-none"
+                id="twitter"
+                placeholder="Twitter URL"
+              />
+              <label for="twitter">Twitter</label>
+              <p *ngIf="invalidInput('twitter')" class="text-danger text-center mt-1">
+                Debes ingresar una url válida
+              </p>
+            </div>
+            <div class="d-grid">
+              <button
+                type="submit"
+                class="btn btn-outline-primary rounded-pill p-3 fw-bold"
+              >
+                GUARDAR CAMBIOS
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,9 +11,12 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { NewFormComponent } from './pages/news/new-form/new-form.component';
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
-import { OrgViewComponent } from './pages/organization/org-view/org-view.component';
+import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 
 @NgModule({
   declarations: [
@@ -25,9 +28,12 @@ import { OrgViewComponent } from './pages/organization/org-view/org-view.compone
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    NewFormComponent,
     AuthFormComponent,
     ContactFormComponent,
-    OrgViewComponent
+    OrgViewComponent,
+    EditFormComponent,
+
   ],
   exports: [
     ActivityFormComponent,
@@ -39,8 +45,14 @@ import { OrgViewComponent } from './pages/organization/org-view/org-view.compone
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
+  ],
+  imports: [
+    CommonModule,
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule
     
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
 })
 export class FeaturesModule { }
