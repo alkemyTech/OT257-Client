@@ -55,10 +55,11 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     FormsModule,
     CKEditorModule,
+    SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
-    SharedModule
+    
   ],
 })
 export class FeaturesModule { }

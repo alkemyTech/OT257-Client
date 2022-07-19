@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FeaturesModule} from '../features/features.module';
 import { TituloComponent} from './titulo/titulo.component'
 
 
@@ -10,9 +9,9 @@ import { TituloComponent} from './titulo/titulo.component'
   declarations: [
     TituloComponent,
   ],
+  exports: [TituloComponent],
   imports: [
     CommonModule,
-    FeaturesModule
   ]
 })
 export class SharedModule { }

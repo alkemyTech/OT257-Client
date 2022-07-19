@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TituloComponent implements OnInit {
   @Input ('title') showTitle: string = "";
-  @Input ('image') showImage: string = "";
+  @Input ('image') showImage: any;
   constructor() { }
 
   ngOnInit(): void {
