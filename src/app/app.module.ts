@@ -25,9 +25,7 @@ import { AppComponent } from './app.component';
     CKEditorModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
-
-
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
