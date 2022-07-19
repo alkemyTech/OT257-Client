@@ -4,17 +4,18 @@
       <div class="card w-100 shadow-lg border-0 text-center p-5">
         <div class="card-body">
           <h4 class="mb-5">EDITAR HOME</h4>
-          <form (ngSubmit)="onSubmit()">
+          <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
             <div class="form-floating mb-5">
+              <label for="longDescription">Descripción Larga</label>
               <textarea
                 formControlName="longDescription"
                 [class.is-invalid]="invalidInput('longDescription')"
-                class="form-control border-0 border-bottom shadow-none"
+                class="form-control shadow-none"
                 placeholder="Descripción larga"
                 id="longDescription"
                 style="height: 100px"
               ></textarea>
-              <label for="longDescription">Descripción Larga</label>
+
               <p
                 *ngIf="invalidInput('longDescription')"
                 class="text-danger text-center mt-1"
