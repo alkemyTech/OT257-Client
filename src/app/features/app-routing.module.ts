@@ -7,38 +7,33 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { NewFormComponent } from "./pages/news/new-form/new-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
+import { HomeComponent } from "./pages/home/page/home.component";
 
 const routes: Routes = [
- { 
-    path: "actividades", 
-    component: ActivityFormComponent 
+  {
+    path: "actividades",
+    component: ActivityFormComponent,
   },
-  { 
-    path: "actividades/:id", 
-    component: ActivityFormComponent 
+  {
+    path: "actividades/:id",
+    component: ActivityFormComponent,
   },
   {
     path: "slider",
-    component: SlidesFormComponent
+    component: SlidesFormComponent,
   },
   {
     path: "slider/:id",
-    component: SlidesFormComponent
-  },
-  {
-
-    path: "",
-    redirectTo: "actividades",
-    pathMatch: "full",
+    component: SlidesFormComponent,
   },
   {
     path: "news",
-    component: NewsFormComponent
+    component: NewsFormComponent,
   },
 
   {
     path: "new/:id",
-    component: NewFormComponent
+    component: NewFormComponent,
   },
 
   {
@@ -47,32 +42,35 @@ const routes: Routes = [
   },
   {
     path: "backoffice/organization/edit/:id",
-    component: EditFormComponent
+    component: EditFormComponent,
   },
   {
-    path: 'iniciar-sesion',
+    path: "iniciar-sesion",
     loadChildren: () =>
-      import('./pages/auth/login-form/login-form-routing.module').then(
+      import("./pages/auth/login-form/login-form-routing.module").then(
         (m) => m.LoginFormRoutingModule
-      )
+      ),
   },
   {
-    path: 'registro',
+    path: "registro",
     loadChildren: () =>
-      import('./pages/auth/register-form/register-form-routing.module').then(
+      import("./pages/auth/register-form/register-form-routing.module").then(
         (m) => m.RegisterFormRoutingModule
-      )
+      ),
+  },
+  {
+    path: "",
+    component: HomeComponent,
   },
   {
     path: "**",
-    redirectTo: "actividades",
+    redirectTo: "",
     pathMatch: "full",
   },
-  
 ];
 
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

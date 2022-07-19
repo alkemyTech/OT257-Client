@@ -4,7 +4,7 @@ import * as ClassicEditorBuild from "@ckeditor/ckeditor5-build-classic";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { ActivitiesService } from "../../../../core/services/activities.service";
 import { Activity } from "../../../../core/models/activity.model";
-import { HelpersService } from "../../../../core/helpers.service";
+import { HelpersService } from "../../../../core/services/helpers.service";
 import Swal from "sweetalert2";
 import { ActivatedRoute, Router } from "@angular/router";
 
