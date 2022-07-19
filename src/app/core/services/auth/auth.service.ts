@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { UserAuth } from "../../models/auth.model";
 import { Router } from "@angular/router";
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: "root",
@@ -11,6 +12,17 @@ import { Router } from "@angular/router";
 export class AuthService implements OnInit {
   private auth = "https://ongapi.alkemy.org/api/";
   private loggedIn = new BehaviorSubject<boolean>(false);
+  toast = Swal.mixin({
+    toast: true,
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    position: 'bottom-end',
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer);
+      toast.addEventListener('mouseleave', Swal.resumeTimer);
+    },
+  });
 
   constructor(private http: HttpClient, private router: Router) {
     this.checkToken();
@@ -32,12 +44,18 @@ export class AuthService implements OnInit {
           this.saveToken(res.data.token);
           this.loggedIn.next(true);
           this.router.navigate(["/"]);
+          this.toast.fire({
+            icon: 'success',
+            title: 'Inicio de sesión exitoso',
+          });
           return res;
         }),
         catchError(() => {
           this.loggedIn.next(false);
-          console.log("error");
-          return "error";
+          return this.toast.fire({
+            icon: 'error',
+            title: 'Inicio de sesión incorrecto',
+          })
         })
       );
   }
@@ -66,11 +84,18 @@ export class AuthService implements OnInit {
       })
       .pipe(
         map((res: UserAuth) => {
-          console.log(res);
+          this.toast.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+          });
+          this.router.navigate(["/iniciar-sesion"]);
           return res;
         }),
         catchError(() => {
-          return "error";
+          return this.toast.fire({
+            icon: 'error',
+            title: 'Registro fallido',
+          })
         })
       );
   }

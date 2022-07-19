@@ -9,38 +9,38 @@ import {
 import { CategoriesService } from "src/app/core/services/categories/categories.service";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Router } from "@angular/router";
-import { NewsService } from "src/app/core/services/news/news.service";
+import { MembersService } from "src/app/core/services/members/members.service";
 
 import { HelpersService } from "src/app/core/services/helpers.service";
 
 import Swal from "sweetalert2";
 
 @Component({
-  selector: "app-news-form",
-  templateUrl: "./news-form.component.html",
-  styleUrls: ["./news-form.component.scss"],
+  selector: "app-members-form",
+  templateUrl: "./members-form.component.html",
+  styleUrls: ["./members-form.component.scss"],
 })
-export class NewsFormComponent implements OnInit {
+export class MembersFormComponent implements OnInit {
   public Editor = ClassicEditor;
   form!: FormGroup;
   categories: any;
   img: string = "";
   file!: any;
   event!: any;
-  idNew!: any;
-  new = "";
+  idMember!: any;
+  member = "";
 
   constructor(
     private route: ActivatedRoute,
     private categoriesService: CategoriesService,
-    private newsService: NewsService,
+    private membersService: MembersService,
     private fb: FormBuilder,
     private router: Router,
     private helpers: HelpersService
   ) {
 
     this.route.paramMap.subscribe((params) => {
-      this.idNew = params.get("id");
+      this.idMember = params.get("id");
     });
 
     this.crearFormulario();
@@ -48,14 +48,11 @@ export class NewsFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.categoriesService.getCategories().subscribe((resp: any) => {
-      this.categories = resp.data;
-    });
 
-    if(this.idNew){
-    this.newsService.getNew(this.idNew).subscribe((result: any) => {
-      this.new = result.data;
-      this.cargarDataForm(this.new);
+    if(this.idMember){
+    this.membersService.getMember(this.idMember).subscribe((result: any) => {
+      this.member = result.data;
+      this.cargarDataForm(this.member);
     });
     
   }
@@ -66,30 +63,53 @@ export class NewsFormComponent implements OnInit {
     return this.form.get("name")?.invalid && this.form.get("name")?.touched;
   }
 
-  get categoriaNoValido() {
+  get descriptionNoValido() {
     return (
-      this.form.get("category_id")?.invalid &&
-      this.form.get("category_id")?.touched
-    );
-  }
-  get contentNoValido() {
-    return (
-      this.form.get("content")?.invalid &&
-      this.form.get("content")?.touched
+      this.form.get("description")?.invalid &&
+      this.form.get("description")?.touched
     );
   }
 
   get imageNoValido() {
     return this.form.get("image")?.invalid && this.form.get("image")?.touched;
   }
- 
+
+  get facebookUrlNoValido() {
+    return (
+      this.form.get("facebookUrl")?.invalid &&
+      this.form.get("facebookUrl")?.touched
+    );
+  }
+  get linkedinUrlNoValido() {
+    return (
+      this.form.get("linkedinUrl")?.invalid &&
+      this.form.get("linkedinUrl")?.touched
+    );
+  }
 
   crearFormulario() {
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
-      category_id: ["", [Validators.required]],
       image: ["", [Validators.required]],
-      content: ["", [Validators.required]],
+      facebookUrl: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern(
+            "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?"
+          ),
+        ],
+      ],
+      linkedinUrl: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern(
+            "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?"
+          ),
+        ],
+      ],
+      description: ["", [Validators.required]],
     });
   }
 
@@ -117,13 +137,14 @@ export class NewsFormComponent implements OnInit {
     this.form.setValue({
       name: dato.name,
       image: null,
-      category_id: dato.category_id,
-      content: dato.content,
+      facebookUrl: dato.facebookUrl,
+      linkedinUrl: dato.linkedinUrl,
+      description: dato.description,
     });
   }
 
 
-  updateNew() {
+  updateMember() {
     if (this.form.value.image) {
       this.form.value.image = this.img;
     } else {
@@ -146,17 +167,18 @@ export class NewsFormComponent implements OnInit {
       this.form.controls["image"].setErrors({ imageNoValido: true });
     }
 
-    this.newsService
-      .updateNew(this.idNew, this.form.value)
+    this.membersService
+      .updateMember(this.idMember, this.form.value)
       .subscribe((resp) => {
         Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
       });
   }
 
-  createNew() {
+  createMember() {
 
-    if(this.idNew){
-      this.updateNew();
+
+    if(this.idMember){
+      this.updateMember();
     }
 
     if (this.form.invalid) {
@@ -180,8 +202,8 @@ export class NewsFormComponent implements OnInit {
     } else {
       delete this.form.value.image;
     }
-    this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/news/${resp.data.id}`]);
+    this.membersService.createMember(this.form.value).subscribe((resp: any) => {
+      this.router.navigate([`/members/${resp.data.id}`]);
     });
   }
 }
