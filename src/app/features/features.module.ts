@@ -18,6 +18,7 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -52,9 +53,11 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    CKEditorModule,
     HttpClientModule,
-    CKEditorModule
-    
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module,
+    SweetAlert2Module.forChild({ /* options */ })  
   ],
 })
 export class FeaturesModule { }
