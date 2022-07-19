@@ -12,13 +12,13 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NewFormComponent } from './pages/news/new-form/new-form.component';
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
-import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from '../shared/shared.module';
+import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
+import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 
 
 @NgModule({
@@ -31,10 +31,10 @@ import { SharedModule } from '../shared/shared.module';
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    NewFormComponent,
     AuthFormComponent,
     OrgViewComponent,
-    EditFormComponent
+    MembersFormComponent,
+    EditFormComponent,
   ],
   exports: [
     ActivityFormComponent,

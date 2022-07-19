@@ -3,7 +3,8 @@
       <div class="col-sm-12 col-md-8 col-lg-6">
           <div class="card w-100 shadow-lg border-0 text-center p-5">
               <div class="card-body">
-                  <h4 class="mb-5">CREAR NUEVA NOVEDADES</h4>
+                  <h4 *ngIf="!idNew" class="mb-5">CREAR NUEVA NOVEDADES</h4>
+                  <h4 *ngIf="idNew" class="mb-5">ACTUALIZAR NOVEDADES</h4>
                   <form [formGroup]="form" (ngSubmit)="createNew()">
                       <div class="form-floating mb-3">
                           <input formControlName="name" type="text" class="form-control border-0 border-bottom shadow-none" id="name" placeholder="Nombre de novedad">
@@ -27,7 +28,7 @@
                       <div class="mb-3">
                           <input (change)="onFileSelected($event)" formControlName="image" type="file" class="form-control border-0 border-bottom shadow-none" id="image" placeholder="URL de imagen" >
                           <small *ngIf="imageNoValido" class="text-danger ">
-                            Debe tener una imagen
+                            Debe tener una imagen o debe ser de formato JPG,PNG
                           </small>
                       </div>
                           
@@ -43,7 +44,7 @@
                           </small>
                       </div>
                       <div class="d-grid">
-                          <button type="submit" class="btn btn-outline-primary rounded-pill p-3 fw-bold">CREAR NOVEDADES</button>
+                          <button type="submit" class="btn btn-outline-primary rounded-pill p-3 fw-bold">GUARDAR</button>
                       </div>
                   </form>
               </div>
