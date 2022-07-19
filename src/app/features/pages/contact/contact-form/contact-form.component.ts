@@ -36,12 +36,8 @@ export class ContactFormComponent implements OnInit {
 
   sendConsulta(){
     if(this.form.valid){
-      console.log("enviar");
-      console.log(this.form.value);
-      console.log(this.Phone);
+      
     }else{
-      console.log("invalid form")
-        console.log(this.form.value);
         this.form.markAllAsTouched();
       }
     
