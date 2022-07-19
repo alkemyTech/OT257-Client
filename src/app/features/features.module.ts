@@ -18,6 +18,7 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { BackOfficeHomeComponent } from './pages/back-office-home/back-office-home.component';
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -31,7 +32,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     NewFormComponent,
     AuthFormComponent,
     EditFormComponent,
-    OrgViewComponent
+    OrgViewComponent,
+    BackOfficeHomeComponent
 
   ],
   exports: [
