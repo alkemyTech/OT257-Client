@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import {
   FormGroup,
   FormBuilder,
@@ -8,10 +9,11 @@ import {
 import { CategoriesService } from "src/app/core/services/categories/categories.service";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Router } from "@angular/router";
-import { NewModel } from "src/app/core/models/new.model";
 import { NewsService } from "src/app/core/services/news/news.service";
 
+import { HelpersService } from "src/app/core/services/helpers.service";
 
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-news-form",
@@ -24,20 +26,40 @@ export class NewsFormComponent implements OnInit {
   categories: any;
   img: string = "";
   file!: any;
+  event!: any;
+  idNew!: any;
+  new = "";
 
   constructor(
+    private route: ActivatedRoute,
     private categoriesService: CategoriesService,
     private newsService: NewsService,
     private fb: FormBuilder,
     private router: Router,
+    private helpers: HelpersService
   ) {
+
+    this.route.paramMap.subscribe((params) => {
+      this.idNew = params.get("id");
+    });
+
     this.crearFormulario();
   }
 
   ngOnInit(): void {
+
     this.categoriesService.getCategories().subscribe((resp: any) => {
       this.categories = resp.data;
     });
+
+    if(this.idNew){
+    this.newsService.getNew(this.idNew).subscribe((result: any) => {
+      this.new = result.data;
+      this.cargarDataForm(this.new);
+    });
+    
+  }
+
   }
 
   get nombreNoValido() {
@@ -50,22 +72,23 @@ export class NewsFormComponent implements OnInit {
       this.form.get("category_id")?.touched
     );
   }
-
   get contentNoValido() {
     return (
-      this.form.get("content")?.invalid && this.form.get("content")?.touched
+      this.form.get("content")?.invalid &&
+      this.form.get("content")?.touched
     );
   }
 
   get imageNoValido() {
     return this.form.get("image")?.invalid && this.form.get("image")?.touched;
   }
+ 
 
   crearFormulario() {
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
-      image: null,
       category_id: ["", [Validators.required]],
+      image: ["", [Validators.required]],
       content: ["", [Validators.required]],
     });
   }
@@ -83,14 +106,29 @@ export class NewsFormComponent implements OnInit {
   }
 
   onFileSelected(event: any) {
+    this.event = event;
     this.file = event.target.files[0];
     this.imgToBase64(this.file);
-
-  
   }
 
-  createNew() {
 
+  cargarDataForm(dato: any) {
+    this.img = dato.image;
+    this.form.setValue({
+      name: dato.name,
+      image: null,
+      category_id: dato.category_id,
+      content: dato.content,
+    });
+  }
+
+
+  updateNew() {
+    if (this.form.value.image) {
+      this.form.value.image = this.img;
+    } else {
+      delete this.form.value.image;
+    }
 
     if (this.form.invalid) {
       return Object.values(this.form.controls).forEach((control) => {
@@ -104,13 +142,46 @@ export class NewsFormComponent implements OnInit {
       });
     }
 
+    if (this.helpers.fileExtensionCheck(this.event)) {
+      this.form.controls["image"].setErrors({ imageNoValido: true });
+    }
+
+    this.newsService
+      .updateNew(this.idNew, this.form.value)
+      .subscribe((resp) => {
+        Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
+      });
+  }
+
+  createNew() {
+
+    if(this.idNew){
+      this.updateNew();
+    }
+
+    if (this.form.invalid) {
+      return Object.values(this.form.controls).forEach((control) => {
+        if (control instanceof FormGroup) {
+          Object.values(control.controls).forEach((control) =>
+            control.markAsTouched()
+          );
+        } else {
+          control.markAsTouched();
+        }
+      });
+    }
+
+    if (this.helpers.fileExtensionCheck(this.event)) {
+      this.form.controls["image"].setErrors({ imageNoValido: true });
+    }
+
     if (this.form.value.image != "") {
       this.form.value.image = this.img;
     } else {
       delete this.form.value.image;
     }
     this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/new/${resp.data.id}`]);
+      this.router.navigate([`/news/${resp.data.id}`]);
     });
   }
 }

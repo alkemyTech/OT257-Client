@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import {
   FormGroup,
   FormBuilder,
@@ -12,6 +13,8 @@ import { MembersService } from "src/app/core/services/members/members.service";
 
 import { HelpersService } from "src/app/core/services/helpers.service";
 
+import Swal from "sweetalert2";
+
 @Component({
   selector: "app-members-form",
   templateUrl: "./members-form.component.html",
@@ -24,18 +27,37 @@ export class MembersFormComponent implements OnInit {
   img: string = "";
   file!: any;
   event!: any;
+  idMember!: any;
+  member = "";
 
   constructor(
+    private route: ActivatedRoute,
     private categoriesService: CategoriesService,
     private membersService: MembersService,
     private fb: FormBuilder,
     private router: Router,
     private helpers: HelpersService
   ) {
+
+    this.route.paramMap.subscribe((params) => {
+      this.idMember = params.get("id");
+    });
+
     this.crearFormulario();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+
+    if(this.idMember){
+    this.membersService.getMember(this.idMember).subscribe((result: any) => {
+      this.member = result.data;
+      this.cargarDataForm(this.member);
+    });
+    
+  }
+
+  }
 
   get nombreNoValido() {
     return this.form.get("name")?.invalid && this.form.get("name")?.touched;
@@ -109,7 +131,56 @@ export class MembersFormComponent implements OnInit {
     this.imgToBase64(this.file);
   }
 
+
+  cargarDataForm(dato: any) {
+    this.img = dato.image;
+    this.form.setValue({
+      name: dato.name,
+      image: null,
+      facebookUrl: dato.facebookUrl,
+      linkedinUrl: dato.linkedinUrl,
+      description: dato.description,
+    });
+  }
+
+
+  updateMember() {
+    if (this.form.value.image) {
+      this.form.value.image = this.img;
+    } else {
+      delete this.form.value.image;
+    }
+
+    if (this.form.invalid) {
+      return Object.values(this.form.controls).forEach((control) => {
+        if (control instanceof FormGroup) {
+          Object.values(control.controls).forEach((control) =>
+            control.markAsTouched()
+          );
+        } else {
+          control.markAsTouched();
+        }
+      });
+    }
+
+    if (this.helpers.fileExtensionCheck(this.event)) {
+      this.form.controls["image"].setErrors({ imageNoValido: true });
+    }
+
+    this.membersService
+      .updateMember(this.idMember, this.form.value)
+      .subscribe((resp) => {
+        Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
+      });
+  }
+
   createMember() {
+
+
+    if(this.idMember){
+      this.updateMember();
+    }
+
     if (this.form.invalid) {
       return Object.values(this.form.controls).forEach((control) => {
         if (control instanceof FormGroup) {
@@ -132,7 +203,7 @@ export class MembersFormComponent implements OnInit {
       delete this.form.value.image;
     }
     this.membersService.createMember(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/member/${resp.data.id}`]);
+      this.router.navigate([`/members/${resp.data.id}`]);
     });
   }
 }
