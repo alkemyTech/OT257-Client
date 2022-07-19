@@ -17,6 +17,7 @@ import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { TituloComponent } from './pages/titulos/titulo/titulo.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { CKEditorModule } from "@ckeditor/ckeditor5-build-classic";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    CKEditorModule
   ],
 })
 export class FeaturesModule { }
