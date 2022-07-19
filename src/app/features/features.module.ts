@@ -12,6 +12,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { NewFormComponent } from './pages/news/new-form/new-form.component';
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
@@ -51,7 +52,8 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CKEditorModule
     
   ],
 })
