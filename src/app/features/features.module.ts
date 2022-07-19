@@ -18,6 +18,8 @@ import { TituloComponent } from './pages/titulos/titulo/titulo.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,10 @@ import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module,
+    SweetAlert2Module.forChild({ /* options */ })
   ],
 })
 export class FeaturesModule { }
