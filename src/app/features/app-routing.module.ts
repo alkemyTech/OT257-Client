@@ -9,6 +9,8 @@ import { MembersFormComponent } from "./pages/backoffice/members/members-form/me
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
+import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
+import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 
 const routes: Routes = [
   {
@@ -42,30 +44,34 @@ const routes: Routes = [
     component: TestimonialFormComponent
   },
   {
-    path: "news",
+    path: "backoffice/news",
     component: NewsFormComponent
   },
   {
-    path: "news/:id",
+    path: "backoffice/news/:id",
     component: NewsFormComponent
   },
   {
-    path: "members",
+    path: "backoffice/members",
     component: MembersFormComponent
   },
 
   {
-    path: "members/:id",
+    path: "backoffice/members/:id",
     component: MembersFormComponent
+  },
+  {
+    path: "backoffice",
+    component: DashboardComponent
   },
 
   {
-    path: "organization",
-    component: OrgViewComponent,
+    path: "backoffice/organization",
+    component: OrgViewComponent
   },
   {
-    path: "organization/organization",
-    component: OrgViewComponent,
+    path: "backoffice/organization/edit/:id",
+    component: EditFormComponent
   },
   {
     path: "backoffice/Home",
@@ -88,6 +94,10 @@ const routes: Routes = [
       import('./pages/auth/register-form/register-form-routing.module').then(
         (m) => m.RegisterFormRoutingModule
       )
+  },
+  {
+    path: 'contact-form',
+    component: ContactFormComponent
   },
   {
     path: "**",
