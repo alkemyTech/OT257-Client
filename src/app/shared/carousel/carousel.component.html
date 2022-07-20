@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div #carousel id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div *ngFor="let slide of slides; let i = index; first as isFirst" class="carousel-item" [class.active]="isFirst" data-bs-interval="5000">
+                <img src="{{ slide.image }}" class="d-block w-100" alt="..." height="400" />
+                <div class="carousel-caption d-md-block bg-black bg-opacity-50 p-3">
+                    <h5>{{ slide.name }}</h5>
+                    <div [innerHtml]="slide.description"></div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev rounded" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <div class="rounded-circle bg-white p-1">
+                <button class="carousel-control-prev-icon btn" aria-hidden="true"></button>
+    </div>
+    <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <div class="rounded-circle bg-white p-1">
+                <button class="carousel-control-next-icon btn" aria-hidden="true"></button>
+</div>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
