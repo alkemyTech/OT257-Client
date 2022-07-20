@@ -21,9 +21,7 @@ import { AppComponent } from './app.component';
     FeaturesModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
-
-
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

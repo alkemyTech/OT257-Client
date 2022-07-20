@@ -14,9 +14,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
-import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 
 
 @NgModule({
@@ -33,8 +35,6 @@ import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
     OrgViewComponent,
     MembersFormComponent,
     EditFormComponent,
-    OrgViewComponent
-
   ],
   exports: [
     ActivityFormComponent,
@@ -54,7 +54,12 @@ import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    SharedModule,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module,
+    SweetAlert2Module.forChild({ /* options */ }),
+    
   ],
 })
 export class FeaturesModule { }
