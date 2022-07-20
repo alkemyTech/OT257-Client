@@ -8,6 +8,7 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
 import { MembersFormComponent } from "./pages/backoffice/members/members-form/members-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
+import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 
 const routes: Routes = [
@@ -42,21 +43,25 @@ const routes: Routes = [
     component: TestimonialFormComponent 
   },
   {
-    path: "news",
+    path: "backoffice/news",
     component: NewsFormComponent
   },
   { 
-    path: "news/:id",
+    path: "backoffice/news/:id",
     component: NewsFormComponent
   },
   { 
-    path: "members",
+    path: "backoffice/members",
     component: MembersFormComponent
   },
 
   { 
-    path: "members/:id",
+    path: "backoffice/members/:id",
     component: MembersFormComponent
+  },
+  { 
+    path: "backoffice",
+    component: DashboardComponent
   },
 
   {

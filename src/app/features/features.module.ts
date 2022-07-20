@@ -20,6 +20,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -37,6 +38,9 @@ import { EditFormComponent } from './pages/organization/edit-form/edit-form.comp
     OrgViewComponent,
     MembersFormComponent,
     EditFormComponent,
+    OrgViewComponent,
+    DashboardComponent
+
   ],
   exports: [
     ActivityFormComponent,
