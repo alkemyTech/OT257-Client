@@ -1,0 +1,32 @@
+
+    <nav class="navbar navbar-light bg-light  ms-xl-3 me-xl-5">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <img class="imgnav" src="assets/images/paceholder.PNG" alt="image">
+    </nav>
+
+    <div>
+        <div class="tableCard">
+            <div *ngFor="let menu of menus" class="cards">
+                <div class="card w-100 shadow-lg border-0 text-center p-5">
+                    <div class="card-body">
+                        <h4 class="mb-3">{{menu.name}}</h4>
+                        <img class="image" [src]="menu.img" [alt]="menu.name">
+                        <br>
+                        <button [routerLink]="menu.link" [disabled]=""class="btncard">Ir</button>
+                    </div>
+                </div>
+            </div>
+                            
+         </div>
+    </div>
+
+
+
+       
+
+
+  
+
+     

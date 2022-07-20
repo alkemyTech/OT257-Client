@@ -1,0 +1,36 @@
+.tableCard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards {
+  font-size: 28px;
+  width: 380px;
+  margin: 0px 150px 25px 180px;
+}
+
+h4 {
+  color: #8dadd3;
+  font-size: 32px;
+}
+
+.backcolor {
+  background-color: #c0c4ca;
+}
+
+.btncard {
+  border: 0px solid;
+  background-color: #349494;
+  border-radius: 8px;
+  color: #fff;
+  padding: 6px 18px 6px 18px;
+}
+
+.image {
+  width: 180px;
+  height: 190px;
+  padding-bottom: 30px;
+}
+.imgnav {
+  width: 110px;
+}

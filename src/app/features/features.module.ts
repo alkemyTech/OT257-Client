@@ -17,6 +17,7 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
     OrgViewComponent,
     MembersFormComponent,
     EditFormComponent,
-    OrgViewComponent
+    OrgViewComponent,
+    DashboardComponent
 
   ],
   exports: [
