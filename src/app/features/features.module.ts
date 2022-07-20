@@ -21,6 +21,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     MembersFormComponent,
     EditFormComponent,
     OrgViewComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersListComponent
 
   ],
   exports: [

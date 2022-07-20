@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <span class="h3">Listado de Usuarios</span>
+      <button
+        class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
+        routerLink="/backoffice/users/create"
+      >
+        Agregar usuario
+      </button>
+      <h5 style="margin-top: 30px" *ngIf="users.length == 0">
+        No hay datos para mostrar
+      </h5>
+      <table *ngIf="users.length > 0" class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th>Nombre completo</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <i class="fas fa-edit fa-lg text-primary me-5"></i>
+              <i class="fas fa-trash-alt fa-lg text-danger"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
