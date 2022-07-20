@@ -1,14 +1,9 @@
-<div class="row justify-content-center align-items-center">
-  <div
-    class="card text-center col-sm-12 col-md-8 col-lg-6 my-5 shadow border-0 p-5"
-  >
-    <div class="card-header">Contacto</div>
-    <div class="card-body">
-      <h5 class="card-title">Formulario de Contacto</h5>
-      <p class="card-text">
-        Completa el formulario con tus datos y dejanos tu consulta, nos
-        comunicaremos con vos a la brevedad.
-      </p>
+<section class="container my-5">
+  <div class="row justify-content-start align-items-center font">
+    <div class="col-sm-12 col-md-8">
+      <h1 class="fw-bolder">¿Queres contribuir?</h1>
+      <a [routerLink]=""><button class="btn btn-danger my-4 radius fw-bolder py-2">Contribuir</button></a>
+      <h1 class="fw-bolder">¡Contactate con nosotros!</h1>
       <form [formGroup]="form" (ngSubmit)="sendConsulta()">
         <div class="form-floating mb-4">
           <input
@@ -22,7 +17,7 @@
               'is-valid': !Name?.errors && Name?.touched
             }"
           />
-          <label for="nameContact" class="form-label">Nombre:</label>
+          <label for="nameContact" class="form-label">Nombre y apellido:</label>
         </div>
         <!-- Validation to input name -->
         <div *ngIf="Name?.errors && Name?.touched">
@@ -74,23 +69,21 @@
             Debe contener mas de 8 caracteres
           </p>
         </div>
-        <div class="mb-4 form-floating">
+        <div class="mb-4">
           <textarea
             type="text"
             rows="5"
             formControlName="message"
             id="messageContact"
             class="form-control border-0 border-bottom shadow-none"
-            placeholder="escribe tu mensaje"
+            placeholder="escribe tu consulta"
             [ngClass]="{
               'is-invalid': Message?.errors && Message?.touched,
               'is-valid': !Message?.errors && Message?.touched
             }"
           >
           </textarea>
-          <label for="messageContact" class="form-label"
-            >Dejenos su consulta:</label
-          >
+
         </div>
         <div *ngIf="Message?.errors && Message?.touched">
           <p *ngIf="Message?.hasError('required')" class="error">
@@ -98,12 +91,18 @@
           </p>
         </div>
         <button
-          class="btn btn-outline-primary rounded-pill p-3 fw-bold mt-3 w-100"
+          class="btn btn-primary p-3 mt-3 radius"
           type="submit"
         >
           Enviar consulta
         </button>
       </form>
+      <a [routerLink]=""><button
+        class="btn border border-dark p-3 mt-3 radius"
+        type="submit"
+      >
+        Ir al inicio
+      </button></a>
     </div>
   </div>
-</div>
+</section>

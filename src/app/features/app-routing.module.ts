@@ -5,10 +5,10 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
-import { ContactFormComponent} from './pages/contact/contact-form/contact-form.component';
 import { MembersFormComponent } from "./pages/backoffice/members/members-form/members-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
+import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 
 const routes: Routes = [
  { 

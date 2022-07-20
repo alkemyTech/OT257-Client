@@ -48,6 +48,7 @@ import { EditFormComponent } from './pages/organization/edit-form/edit-form.comp
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
+    ContactFormComponent
   ],
   imports: [
     CommonModule,
