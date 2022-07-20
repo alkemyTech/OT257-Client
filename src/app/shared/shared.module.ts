@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TituloComponent} from './titulo/titulo.component'
+import { TituloComponent} from './titulo/titulo.component';
+import { CarouselComponent } from './carousel/carousel.component'
 
 
 
@@ -8,8 +9,9 @@ import { TituloComponent} from './titulo/titulo.component'
 @NgModule({
   declarations: [
     TituloComponent,
+    CarouselComponent,
   ],
-  exports: [TituloComponent],
+  exports: [TituloComponent, CarouselComponent],
   imports: [
     CommonModule,
   ]
