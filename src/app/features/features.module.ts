@@ -11,14 +11,18 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HttpClientModule } from "@angular/common/http";
-import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
+import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { NewFormComponent } from './pages/news/new-form/new-form.component';
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
-import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { AboutComponent } from './pages/about/about.component';
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SharedModule } from '../shared/shared.module';
+import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
+import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -30,11 +34,14 @@ import { AboutComponent } from './pages/about/about.component';
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    NewFormComponent,
     AuthFormComponent,
+    ContactFormComponent,
+    OrgViewComponent,
+    MembersFormComponent,
     EditFormComponent,
     OrgViewComponent,
-    AboutComponent
+    AboutComponent,
+    DashboardComponent
 
   ],
   exports: [
@@ -47,18 +54,22 @@ import { AboutComponent } from './pages/about/about.component';
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
+    ContactFormComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    CKEditorModule,
     HttpClientModule,
+    FormsModule,
+    CKEditorModule,
+    SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
-    SweetAlert2Module.forChild({}),
-    FormsModule,
-    CKEditorModule
+    SweetAlert2Module.forChild({ /* options */ }),
+    
   ],
 })
 export class FeaturesModule { }

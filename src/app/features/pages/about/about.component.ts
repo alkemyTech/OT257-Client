@@ -9,6 +9,7 @@ import { OrgViewService } from 'src/app/core/services/org-view.service';
 })
 export class AboutComponent implements OnInit {
   public organizationData!: Data;
+  title = 'Nosotros';
   
   constructor(private orgSvc: OrgViewService) { }
 
