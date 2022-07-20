@@ -78,10 +78,6 @@ const routes: Routes = [
     component: BackOfficeHomeComponent
   },
   {
-    path: "backoffice/organization/edit/:id",
-    component: EditFormComponent
-  },
-  {
     path: 'iniciar-sesion',
     loadChildren: () =>
       import('./pages/auth/login-form/login-form-routing.module').then(
