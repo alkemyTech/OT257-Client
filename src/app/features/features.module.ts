@@ -11,12 +11,15 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HttpClientModule } from "@angular/common/http";
+import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
-import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
 
 
@@ -31,6 +34,7 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     TestimonialFormComponent,
     UserFormComponent,
     AuthFormComponent,
+    ContactFormComponent,
     OrgViewComponent,
     MembersFormComponent,
     EditFormComponent,
@@ -48,15 +52,22 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
+    ContactFormComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    CKEditorModule,
     HttpClientModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    SharedModule,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module,
+    SweetAlert2Module.forChild({ /* options */ }),
+    
   ],
 })
 export class FeaturesModule { }

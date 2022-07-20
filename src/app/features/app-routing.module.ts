@@ -9,6 +9,7 @@ import { MembersFormComponent } from "./pages/backoffice/members/members-form/me
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
+import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 
 const routes: Routes = [
  { 
@@ -88,6 +89,10 @@ const routes: Routes = [
       import('./pages/auth/register-form/register-form-routing.module').then(
         (m) => m.RegisterFormRoutingModule
       )
+  },
+  {
+    path: 'contact-form',
+    component: ContactFormComponent
   },
   {
     path: "**",
