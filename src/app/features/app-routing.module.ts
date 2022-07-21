@@ -38,7 +38,7 @@ const routes: Routes = [
     component: TestimonialFormComponent 
   },
   {
-    path: "news",
+    path: "news-form",
     component: NewsFormComponent,
   },
   {

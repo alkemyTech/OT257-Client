@@ -1,19 +1,12 @@
 <div class="overflow-hidden w-100 p-5">
     <div class="d-flex flex-row justify-content-between aling-items-center p-2 ">
         <h2>últimas novedades</h2>
-        <a routerLink="/news" class="cursor-pointer text-muted">Ver todos...</a>
+        <a class="pe-auto" routerLink="/news">Ver todos...</a>
     </div>
-    <p *ngIf="!organizationData" class="card-text placeholder-glow">
-        <span class="placeholder col-7"></span>
-        <span class="placeholder col-4"></span>
-        <span class="placeholder col-4"></span>
-        <span class="placeholder col-6"></span>
-        <span class="placeholder col-8"></span>
-    </p>
-    <div class="row row-cols-md-4 g-3 flex-row" *ngIf="organizationData">
+    <div class="row row-cols-md-3 g-3 flex-row">
         <div *ngFor="let new of news">
             <div class="col" height="320px">
-                <div class="card">
+                <div class="card shadow p-2">
                     <div class="card-img-top d-flex justify-content-center aling-items-center overflow-hidden">
                         <img class="rounded mx-auto d-block" src="{{new.image}}" alt="..." height="160px">
                     </div>
