@@ -64,7 +64,6 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     HttpClientModule,
     FormsModule,
     CKEditorModule,
-    SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
