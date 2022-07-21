@@ -8,9 +8,7 @@
       >
         Agregar usuario
       </button>
-      <h5 style="margin-top: 30px" *ngIf="users.length == 0">
-        No hay datos para mostrar
-      </h5>
+      <h5 *ngIf="users.length">No hay datos para mostrar</h5>
       <table *ngIf="users.length > 0" class="table table-striped mt-5">
         <thead>
           <tr>
@@ -23,7 +21,7 @@
           <tr *ngFor="let user of users">
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
-            <td>
+            <td class="icons">
               <i class="fas fa-edit fa-lg text-primary me-5"></i>
               <i class="fas fa-trash-alt fa-lg text-danger"></i>
             </td>

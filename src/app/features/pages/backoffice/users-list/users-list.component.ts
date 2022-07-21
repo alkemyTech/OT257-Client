@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/core/services/users/users.service';
 
 @Component({
   selector: 'app-users-list',
@@ -7,17 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  users: any[] = [
-    { name: 'Juan Perez', email: 'mail@gmail.com' },
-    { name: 'Martín Gonzalez', email: 'mail@gmail.com' },
-    { name: 'Mario Mario', email: 'mail@gmail.com' },
-    { name: 'Pedro Silva', email: 'mail@gmail.com' },
-    { name: 'Luis Paco', email: 'mail@gmail.com' }
-  ]
+  users: any[] = []
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.getUsers()
+  }
+
+  getUsers() {
+    this.usersService.getUsersFromApi().subscribe({
+      next: (response: any) => {
+        this.users = response.data
+      }
+    })
   }
 
 }
