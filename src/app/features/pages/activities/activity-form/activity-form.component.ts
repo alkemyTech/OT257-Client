@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import * as ClassicEditorBuild from "@ckeditor/ckeditor5-build-classic";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { ActivitiesService } from "../../../../core/services/activities.service";
+import { ActivitiesService } from "../../../../core/services/activity/activities.service";
 import { Activity } from "../../../../core/models/activity.model";
-import { HelpersService } from "../../../../core/services/helpers.service";
 import Swal from "sweetalert2";
 import { ActivatedRoute, Router } from "@angular/router";
+import { HelpersService } from '../../../../core/services/helpers.service';
 
 @Component({
   selector: "app-activity-form",
@@ -23,6 +23,9 @@ export class ActivityFormComponent implements OnInit {
   description: any;
   formData!: FormGroup;
   base64textString!: string;
+  buttonText: any = "CREAR ACTIVIDAD";
+  titleText: any = "CREAR NUEVA ACTIVIDAD";
+
 
   constructor(
     private fb: FormBuilder,
@@ -39,6 +42,10 @@ export class ActivityFormComponent implements OnInit {
 
     if (this.id > 0) {
       this.getActivity(this.id);
+      this.buttonText = "ACTUALIZAR ACTIVIDAD";
+      this.titleText = "ACTUALIZAR ACTIVIDAD";
+
+
     }
   }
 
@@ -106,6 +113,8 @@ export class ActivityFormComponent implements OnInit {
           timer: 1500,
         });
         this.formData.reset();
+        this.imgBase64 = null;
+
       },
       (error) => {
         Swal.fire({
@@ -129,6 +138,7 @@ export class ActivityFormComponent implements OnInit {
           timer: 1500,
         });
         this.formData.reset();
+        this.imgBase64 = null;
       },
       (error) => {
         Swal.fire({

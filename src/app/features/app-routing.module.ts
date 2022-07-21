@@ -5,9 +5,12 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
-import { NewFormComponent } from "./pages/news/new-form/new-form.component";
+import { MembersFormComponent } from "./pages/backoffice/members/members-form/members-form.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { HomeComponent } from "./pages/home/page/home.component";
+import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
+import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
+import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 
 const routes: Routes = [
   {
@@ -26,18 +29,50 @@ const routes: Routes = [
     path: "slider/:id",
     component: SlidesFormComponent,
   },
+  { 
+    path: "testimonios", 
+    component: TestimonialFormComponent 
+  },
+  { 
+    path: "testimonio/:id", 
+    component: TestimonialFormComponent 
+  },
   {
     path: "news",
     component: NewsFormComponent,
   },
-
   {
-    path: "new/:id",
-    component: NewFormComponent,
+    path: "backoffice/news",
+    component: NewsFormComponent
+  },
+  { 
+    path: "backoffice/news/:id",
+    component: NewsFormComponent
+  },
+  { 
+    path: "backoffice/members",
+    component: MembersFormComponent
   },
 
   {
-    path: "backoffice/organization",
+    path: "new/:id",
+    component: NewsFormComponent,
+  },
+  { 
+    path: "backoffice/members/:id",
+    component: MembersFormComponent
+  },
+  { 
+    path: "backoffice",
+    component: DashboardComponent
+  },
+
+  {
+    path: "organization",
+    component: OrgViewComponent,
+  },
+  {
+    path: "organization/:id",
     component: OrgViewComponent,
   },
   {
@@ -61,6 +96,10 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent,
+  },
+  {
+    path: 'contact-form',
+    component: ContactFormComponent
   },
   {
     path: "**",
