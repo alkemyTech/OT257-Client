@@ -44,7 +44,8 @@ export class HomeComponent implements OnInit {
   public getSlider() {
     this.slideSvc.getSlider().subscribe({
       next: (res: any) => {
-        this.slides = res.data;
+        //ordenar por res.data.order
+        this.slides = res.data.sort((a:any, b:any) => a.order - b.order).slice(0, 3);
       }})
   }
 
