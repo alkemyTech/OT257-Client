@@ -10,16 +10,23 @@ import { EditFormComponent } from "./pages/organization/edit-form/edit-form.comp
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
+import { ListActiviyComponent } from './pages/activities/list-activiy/list-activiy.component';
 
 const routes: Routes = [
+
+  { 
+    path: "backoffice/activities", 
+    component: ListActiviyComponent 
+  },
  { 
-    path: "actividades", 
+    path: "backoffice/activities/create", 
     component: ActivityFormComponent 
   },
   { 
-    path: "actividades/:id", 
+    path: "activities/:id", 
     component: ActivityFormComponent 
   },
+  
   {
     path: "slider",
     component: SlidesFormComponent

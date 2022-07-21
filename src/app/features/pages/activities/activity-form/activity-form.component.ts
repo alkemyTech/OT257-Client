@@ -114,7 +114,7 @@ export class ActivityFormComponent implements OnInit {
         });
         this.formData.reset();
         this.imgBase64 = null;
-
+        this.redirectView();
       },
       (error) => {
         Swal.fire({
@@ -139,6 +139,7 @@ export class ActivityFormComponent implements OnInit {
         });
         this.formData.reset();
         this.imgBase64 = null;
+        this.redirectView();
       },
       (error) => {
         Swal.fire({
@@ -155,7 +156,7 @@ export class ActivityFormComponent implements OnInit {
    * @param id activity id
    */
   getActivity(id: number) {
-    this.activitiesService.getActivity(id).subscribe((result: any) => {
+    this.activitiesService.getActivityById(id).subscribe((result: any) => {
       this.data = result.data;
 
       this.formData.controls["name"].setValue(this.data.name);
@@ -164,6 +165,10 @@ export class ActivityFormComponent implements OnInit {
     });
   }
 
+    
+redirectView(){
+  this.router.navigate(['/backoffice/activities']);
+}
 
   /**
    * file reader image
