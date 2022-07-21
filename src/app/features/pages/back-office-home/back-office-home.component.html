@@ -3,39 +3,64 @@
     <div class="col-sm-12 col-md-8 col-lg-6">
       <div class="card w-100 shadow-lg border-0 text-center p-5">
         <div class="card-body">
-          <h4 class="mb-5">EDITAR HOME</h4>
+          <h4 class="mb-3">EDITAR HOME</h4>
+          <h6 class="text-start mb-3">Editar texto de bienvenida</h6>
           <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
-            <div class="form-floating mb-5">
-              <label for="longDescription">Descripción Larga</label>
+            <div class="form-floating mb-3">
+              <label for="welcomeText"></label>
               <textarea
-                formControlName="longDescription"
-                [class.is-invalid]="invalidInput('longDescription')"
+                formControlName="welcomeText"
+                [class.is-invalid]="invalidInput('welcomeText')"
                 class="form-control shadow-none"
-                placeholder="Descripción larga"
-                id="longDescription"
+                placeholder="Texto de bienvenida"
+                id="welcomeText"
                 style="height: 100px"
-              ></textarea>
-
-              <p
-                *ngIf="invalidInput('longDescription')"
-                class="text-danger text-center mt-1"
               >
-                La Descripción Larga es requerida
+              </textarea>
+
+              <p *ngIf="invalidInput('welcomeText')" class="text-danger text-center mt-1">
+                Texto de bienvenida es requerido, mínimo 20 caracteres
               </p>
             </div>
-
-            <!-- drop down list -->
-            <div class="form-floating mb-5"></div>
-
             <div class="d-grid">
               <button
                 type="submit"
-                class="btn btn-outline-primary rounded-pill p-3 fw-bold"
+                class="btn btn-outline-primary rounded-pill p-3 fw-bold mb-4"
               >
-                GUARDAR CAMBIOS
+                GUARDAR TEXTO DE BIENVENIDA
               </button>
             </div>
           </form>
+          <h6 class="text-start mb-3">Editar slides</h6>
+          <!-- select list -->
+          <div class="form-floating mb-5">
+            <select class="form-select mb-1" aria-label="Default select example">
+              <option selected>Elegir Slide 1</option>
+              <option value="item.order" *ngFor="let item of listSlide">
+                {{ item.name }}
+              </option>
+            </select>
+            <select class="form-select mb-1" aria-label="Default select example">
+              <option selected>Elegir Slide 2</option>
+              <option value="item.order" *ngFor="let item of listSlide">
+                {{ item.name }}
+              </option>
+            </select>
+            <select class="form-select mb-1" aria-label="Default select example">
+              <option selected>Elegir Slide 3</option>
+              <option value="item.order" *ngFor="let item of listSlide">
+                {{ item.name }}
+              </option>
+            </select>
+            <div class="d-grid">
+              <button
+                type="submit"
+                class="btn btn-outline-primary rounded-pill p-3 fw-bold mt-4"
+              >
+                GUARDAR SLIDES SELECCIONADAS
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
