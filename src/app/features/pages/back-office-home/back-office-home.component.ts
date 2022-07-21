@@ -72,6 +72,13 @@ export class BackOfficeHomeComponent implements OnInit {
     });
   }
 
+  select1(event: any) {
+    const slide = event.target.value;
+    console.log(slide);
+    console.log(slide.order);
+
+  }
+
 
 
 

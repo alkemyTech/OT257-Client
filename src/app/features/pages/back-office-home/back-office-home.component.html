@@ -34,21 +34,25 @@
           <h6 class="text-start mb-3">Editar slides</h6>
           <!-- select list -->
           <div class="form-floating mb-5">
-            <select class="form-select mb-1" aria-label="Default select example">
+            <select
+              class="form-select mb-1"
+              aria-label="Default select example"
+              (change)="select1($event)"
+            >
               <option selected>Elegir Slide 1</option>
-              <option value="item.order" *ngFor="let item of listSlide">
-                {{ item.name }}
+              <option [value]="item | json" *ngFor="let item of listSlide" type="simple">
+                {{ item.name }},{{ item.order }}
               </option>
             </select>
             <select class="form-select mb-1" aria-label="Default select example">
               <option selected>Elegir Slide 2</option>
-              <option value="item.order" *ngFor="let item of listSlide">
+              <option *ngFor="let item of listSlide">
                 {{ item.name }}
               </option>
             </select>
             <select class="form-select mb-1" aria-label="Default select example">
               <option selected>Elegir Slide 3</option>
-              <option value="item.order" *ngFor="let item of listSlide">
+              <option *ngFor="let item of listSlide">
                 {{ item.name }}
               </option>
             </select>
