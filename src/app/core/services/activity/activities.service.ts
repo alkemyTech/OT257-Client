@@ -27,5 +27,7 @@ export class ActivitiesService {
     return this.http.get(url,{responseType:'blob'})
   }
 
-
+  getListActivity(): Observable<any>{
+    return this.http.get(`${this.url}/activities`);
+  }
 }
