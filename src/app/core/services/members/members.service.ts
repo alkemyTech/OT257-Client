@@ -8,6 +8,11 @@ export class MembersService {
   url = "https://ongapi.alkemy.org/api/members";
 
   constructor(private http: HttpClient) {}
+  
+
+  getMembers() {
+    return this.http.get(`${this.url}`);
+  }
 
   updateMember(id: string, dataMember: any) {
     dataMember["id"] = id;
@@ -17,6 +22,10 @@ export class MembersService {
 
   createMember(dataMember: any) {
     return this.http.post(`${this.url}`, dataMember);
+  }
+
+  deleteMember(id: string) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 
   getMember(id: string) {
