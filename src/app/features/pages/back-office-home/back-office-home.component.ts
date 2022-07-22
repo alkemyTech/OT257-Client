@@ -19,6 +19,7 @@ export class BackOfficeHomeComponent implements OnInit {
   data!: Data;
   id: any = 1;
   listSlide: any = [];
+  slide1!: any;
 
   constructor(private fb: FormBuilder,
     private orgService: OrgViewService,
@@ -73,9 +74,14 @@ export class BackOfficeHomeComponent implements OnInit {
   }
 
   select1(event: any) {
-    const slide = event.target.value;
-    console.log(slide);
-    console.log(slide.order);
+    const slide1Id = event.target.value;
+    console.log(slide1Id);
+    this.slideService.getOneSlide(slide1Id).subscribe({
+      next: (response) => {
+        this.slide1 = response.data;
+        console.log(this.slide1);
+      }
+    });
 
   }
 

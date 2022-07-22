@@ -40,7 +40,7 @@
               (change)="select1($event)"
             >
               <option selected>Elegir Slide 1</option>
-              <option [value]="item" *ngFor="let item of listSlide" type="simple">
+              <option [value]="item.id" *ngFor="let item of listSlide" type="simple">
                 {{ item.name }},{{ item.order }}
               </option>
             </select>
