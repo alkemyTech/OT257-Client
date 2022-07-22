@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <span class="h3">Listado de Novedades</span>
+      <button
+        class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
+        routerLink="/backoffice/news/create"
+      >
+        Agregar Novedad
+      </button>
+      <h5 style="margin-top: 30px" *ngIf="news.length == 0">
+        No hay datos para mostrar
+      </h5>
+      <table *ngIf="news.length > 0" class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th >Nombre</th>
+            <th class="text-center">Foto</th>
+            <th>Fecha Creacion</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of news">
+            <td>{{ item.name }}</td>
+            <td class="text-center"> <img [src]="item.image | noimage " class="rounded-circle" alt="Foto" width="80" height="80"></td>
+            <td>{{item.created_at}}</td>
+            <td>
+              <i [routerLink]="['/backoffice/news/',item.id]" class="fas fa-edit fa-lg text-primary me-5"></i>
+              <i (click)="deleteNew(item.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

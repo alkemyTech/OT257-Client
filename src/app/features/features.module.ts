@@ -6,7 +6,7 @@ import { ActivityFormComponent } from "./pages/activities/activity-form/activity
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
-import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { NewsFormComponent } from "./pages/backoffice/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
@@ -22,6 +22,10 @@ import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
+import { NewsComponent } from './pages/backoffice/news/news/news.component';
+import { MembersComponent } from './pages/backoffice/members/members/members.component';
+
 
 
 @NgModule({
@@ -41,8 +45,10 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     EditFormComponent,
     OrgViewComponent,
     AboutComponent,
-    DashboardComponent
-
+    DashboardComponent,
+    UsersListComponent,
+    NewsComponent,
+    MembersComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -54,7 +60,8 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
-    ContactFormComponent
+    ContactFormComponent,
+
   ],
   imports: [
     CommonModule,
@@ -69,7 +76,7 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
-    
+
   ],
 })
 export class FeaturesModule { }
