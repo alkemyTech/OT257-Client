@@ -22,6 +22,8 @@ export class TestimonialFormComponent implements OnInit {
   formData!: FormGroup;
   base64textString!: string;
   buttonText: any = "CREAR TESTIMONIO";
+  titleText: any = "CREAR NUEVO TESTIMONIO";
+
 
   constructor(
     private fb: FormBuilder,
@@ -39,6 +41,8 @@ export class TestimonialFormComponent implements OnInit {
     if (this.id > 0) {
       this.getTestimonial(this.id);
       this.buttonText = "ACTUALIZAR TESTIMONIO";
+      this.titleText = "ACTUALIZAR TESTIMONIO";
+
     }
   }
 
@@ -106,6 +110,7 @@ export class TestimonialFormComponent implements OnInit {
           timer: 1500,
         });
         this.formData.reset();
+        this.imgBase64 = null;
       },
       (error) => {
         Swal.fire({
@@ -129,6 +134,8 @@ export class TestimonialFormComponent implements OnInit {
           timer: 1500,
         });
         this.formData.reset();
+        this.imgBase64 = null;
+
       },
       (error) => {
         Swal.fire({
