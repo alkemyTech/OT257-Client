@@ -16,7 +16,11 @@ export class BackOfficeHomeComponent implements OnInit {
   id: any = 1;
   listSlide: any = [];
   slide1!: any;
+  slide2!: any;
+  slide3!: any;
   slide1Id!: any;
+  slide2Id!: any;
+  slide3Id!: any;
   organizationObject!: any;
 
   constructor(
@@ -30,12 +34,15 @@ export class BackOfficeHomeComponent implements OnInit {
     this.getTextForEdition();
     this.editHomeForm();
     this.getSlides();
+
+
   }
 
   editHomeForm() {
     this.homeForm = this.fb.group({
       welcomeText: ["", [Validators.required, Validators.minLength(20)]],
     });
+
   }
 
   invalidInput(input: string) {
@@ -46,7 +53,6 @@ export class BackOfficeHomeComponent implements OnInit {
     this.organizationEditService.getOrganizationDataById(this.id).subscribe({
       next: (response: Organization) => {
         this.data = response.data;
-        console.log(this.data);
         this.homeForm.patchValue({
           welcomeText: this.data.welcome_text,
         });
@@ -59,7 +65,7 @@ export class BackOfficeHomeComponent implements OnInit {
     this.organizationObject = {
       id: this.id,
       name: this.data.name,
-      welcome_text: this.homeForm.value.welcomeText
+      welcome_text: this.homeForm.value.welcomeText,
     };
     this.organizationEditService
       .editOrganization(this.id, this.organizationObject)
@@ -69,7 +75,6 @@ export class BackOfficeHomeComponent implements OnInit {
           alert("Se cambió welcome text a: " + this.data.welcome_text);
         },
       });
-
   }
 
   getSlides() {
@@ -79,22 +84,74 @@ export class BackOfficeHomeComponent implements OnInit {
       },
     });
   }
+  checkIfOrderExist(order: number) {
+    const filterList = this.listSlide.filter((slide: any) => slide.order === order);
+    if (filterList.length > 0) {
+      const slideToBe0 = filterList[0];
 
+      const objectToBe0 = {
+        id: slideToBe0.id,
+        name: slideToBe0.name,
+        order: 0
+      };
+      this.slideService.updateSlide(objectToBe0, slideToBe0.id).subscribe({
+        next: (response) => {
+        },
+      });
+    }
+  }
   select1(event: any) {
+    this.checkIfOrderExist(1);
     this.slide1Id = event.target.value;
     this.slideService.getOneSlide(this.slide1Id).subscribe({
       next: (response) => {
         this.slide1 = response.data;
-
         const slideObject1 = {
           id: this.slide1Id,
           name: this.slide1.name,
-          order: 1,
+          order: 1
         };
         this.slideService.updateSlide(slideObject1, this.slide1Id).subscribe({
           next: (response) => {
-            console.log(response);
             alert("Se cambió: " + this.slide1.name + " a orden 1");
+          },
+        });
+      },
+    });
+  }
+  select2(event: any) {
+    this.checkIfOrderExist(2);
+    this.slide2Id = event.target.value;
+    this.slideService.getOneSlide(this.slide2Id).subscribe({
+      next: (response) => {
+        this.slide2 = response.data;
+        const slideObject2 = {
+          id: this.slide2Id,
+          name: this.slide2.name,
+          order: 2
+        };
+        this.slideService.updateSlide(slideObject2, this.slide2Id).subscribe({
+          next: (response) => {
+            alert("Se cambió: " + this.slide2.name + " a orden 2");
+          },
+        });
+      },
+    });
+  }
+  select3(event: any) {
+    this.checkIfOrderExist(3);
+    this.slide3Id = event.target.value;
+    this.slideService.getOneSlide(this.slide3Id).subscribe({
+      next: (response) => {
+        this.slide3 = response.data;
+        const slideObject3 = {
+          id: this.slide3Id,
+          name: this.slide3.name,
+          order: 3
+        };
+        this.slideService.updateSlide(slideObject3, this.slide3Id).subscribe({
+          next: (response) => {
+            alert("Se cambió: " + this.slide3.name + " a orden 3");
           },
         });
       },
