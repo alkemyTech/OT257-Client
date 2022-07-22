@@ -8,6 +8,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
+import { AboutComponent } from "./pages/about/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
@@ -16,8 +17,12 @@ import { MembersComponent } from "./pages/backoffice/members/members/members.com
 
 const routes: Routes = [
   {
-    path: "actividades",
-    component: ActivityFormComponent
+    path: "nosotros",
+    component: AboutComponent,
+  },
+ { 
+    path: "actividades", 
+    component: ActivityFormComponent 
   },
   {
     path: "actividades/:id",
