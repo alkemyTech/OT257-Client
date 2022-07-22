@@ -35,15 +35,12 @@ export class BackOfficeHomeComponent implements OnInit {
     this.getTextForEdition();
     this.editHomeForm();
     this.getSlides();
-
-
   }
 
   editHomeForm() {
     this.homeForm = this.fb.group({
       welcomeText: ["", [Validators.required, Validators.minLength(20)]],
     });
-
   }
 
   invalidInput(input: string) {
@@ -98,11 +95,10 @@ export class BackOfficeHomeComponent implements OnInit {
       const objectToBe0 = {
         id: slideToBe0.id,
         name: slideToBe0.name,
-        order: 0
+        order: 0,
       };
       this.slideService.updateSlide(objectToBe0, slideToBe0.id).subscribe({
-        next: (response) => {
-        },
+        next: (response) => { },
       });
     }
   }
@@ -115,7 +111,7 @@ export class BackOfficeHomeComponent implements OnInit {
         const slideObject1 = {
           id: this.slide1Id,
           name: this.slide1.name,
-          order: 1
+          order: 1,
         };
         this.slideService.updateSlide(slideObject1, this.slide1Id).subscribe({
           next: (response) => {
@@ -140,7 +136,7 @@ export class BackOfficeHomeComponent implements OnInit {
         const slideObject2 = {
           id: this.slide2Id,
           name: this.slide2.name,
-          order: 2
+          order: 2,
         };
         this.slideService.updateSlide(slideObject2, this.slide2Id).subscribe({
           next: (response) => {
@@ -165,7 +161,7 @@ export class BackOfficeHomeComponent implements OnInit {
         const slideObject3 = {
           id: this.slide3Id,
           name: this.slide3.name,
-          order: 3
+          order: 3,
         };
         this.slideService.updateSlide(slideObject3, this.slide3Id).subscribe({
           next: (response) => {
