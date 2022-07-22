@@ -22,6 +22,7 @@ import { MembersFormComponent } from './pages/backoffice/members/members-form/me
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
 
@@ -45,11 +46,12 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     OrgViewComponent,
     BackOfficeHomeComponent,
     DashboardComponent,
+    UsersListComponent,
     NewsComponent,
     MembersComponent,
 
 
-  
+
 
   ],
   exports: [
@@ -62,7 +64,7 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     UserFormComponent,
     RouterModule,
     ContactFormComponent,
-    
+
   ],
   imports: [
     CommonModule,

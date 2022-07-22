@@ -11,6 +11,7 @@ import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
+import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
 import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
 
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path: "backoffice/Home",
     component: BackOfficeHomeComponent
+  },
+  {
+    path: "backoffice/users",
+    component: UsersListComponent
   },
   {
     path: 'iniciar-sesion',
