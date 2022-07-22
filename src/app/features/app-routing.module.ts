@@ -9,6 +9,7 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
+import { AboutComponent } from "./pages/about/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
@@ -16,6 +17,10 @@ import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
 
 const routes: Routes = [
+  {
+    path: "nosotros",
+    component: AboutComponent,
+  },
   {
     path: "actividades",
     component: ActivityFormComponent
