@@ -80,8 +80,23 @@ export class BackOfficeHomeComponent implements OnInit {
       next: (response) => {
         this.slide1 = response.data;
         console.log(this.slide1);
+        console.log(this.slide1.name);
+
+        const slideObject1 = {
+          id: slide1Id,
+          name: this.slide1.name,
+          order: 1,
+        };
+        this.slideService.updateSlide(slideObject1, slide1Id).subscribe({
+          next: (response) => {
+            console.log(response);
+          }
+        });
       }
     });
+
+
+
 
   }
 

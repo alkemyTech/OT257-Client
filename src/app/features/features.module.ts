@@ -75,6 +75,7 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     HttpClientModule,
     FormsModule,
     CKEditorModule,
+    SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
