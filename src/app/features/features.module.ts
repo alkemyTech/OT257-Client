@@ -24,6 +24,7 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
 import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
+import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list-slides.component';
 
 
 
@@ -47,6 +48,7 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     UsersListComponent,
     NewsComponent,
     MembersComponent,
+    ListSlidesComponent,
 
 
 
