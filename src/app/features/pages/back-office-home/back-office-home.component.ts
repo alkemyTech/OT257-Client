@@ -4,6 +4,7 @@ import { Organization, Data } from "src/app/core/models/IOrganization";
 import { OrgViewService } from "src/app/core/services/org-view.service";
 import { OrganizationEditService } from "src/app/core/services/organization-edit.service";
 import { SlideFormService } from "src/app/core/services/slide-form.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-back-office-home",
@@ -61,7 +62,6 @@ export class BackOfficeHomeComponent implements OnInit {
   }
 
   onSubmitText() {
-    console.log(this.homeForm.value);
     this.organizationObject = {
       id: this.id,
       name: this.data.name,
@@ -72,7 +72,13 @@ export class BackOfficeHomeComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.data = response.data;
-          alert("Se cambió welcome text a: " + this.data.welcome_text);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Se cambió el texto a: " + this.data.welcome_text,
+            showConfirmButton: false,
+            timer: 2000,
+          });
         },
       });
   }
@@ -113,7 +119,13 @@ export class BackOfficeHomeComponent implements OnInit {
         };
         this.slideService.updateSlide(slideObject1, this.slide1Id).subscribe({
           next: (response) => {
-            alert("Se cambió: " + this.slide1.name + " a orden 1");
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Se cambió: " + this.slide1.name + " a orden 1",
+              showConfirmButton: false,
+              timer: 2000,
+            });
           },
         });
       },
@@ -132,7 +144,13 @@ export class BackOfficeHomeComponent implements OnInit {
         };
         this.slideService.updateSlide(slideObject2, this.slide2Id).subscribe({
           next: (response) => {
-            alert("Se cambió: " + this.slide2.name + " a orden 2");
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Se cambió: " + this.slide2.name + " a orden 2",
+              showConfirmButton: false,
+              timer: 2000,
+            });
           },
         });
       },
@@ -151,7 +169,13 @@ export class BackOfficeHomeComponent implements OnInit {
         };
         this.slideService.updateSlide(slideObject3, this.slide3Id).subscribe({
           next: (response) => {
-            alert("Se cambió: " + this.slide3.name + " a orden 3");
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Se cambió: " + this.slide3.name + " a orden 3",
+              showConfirmButton: false,
+              timer: 2000,
+            });
           },
         });
       },
