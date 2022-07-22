@@ -10,17 +10,18 @@ import { EditFormComponent } from "./pages/organization/edit-form/edit-form.comp
 import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
+import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
 import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
 
 const routes: Routes = [
- { 
-    path: "actividades", 
-    component: ActivityFormComponent 
+  {
+    path: "actividades",
+    component: ActivityFormComponent
   },
-  { 
-    path: "actividades/:id", 
-    component: ActivityFormComponent 
+  {
+    path: "actividades/:id",
+    component: ActivityFormComponent
   },
   {
     path: "slider",
@@ -36,13 +37,13 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },
-  { 
-    path: "testimonios", 
-    component: TestimonialFormComponent 
+  {
+    path: "testimonios",
+    component: TestimonialFormComponent
   },
-  { 
-    path: "testimonio/:id", 
-    component: TestimonialFormComponent 
+  {
+    path: "testimonio/:id",
+    component: TestimonialFormComponent
   },
   {
     path: "backoffice/news",
@@ -52,25 +53,26 @@ const routes: Routes = [
     path: "backoffice/news/create",
     component: NewsFormComponent
   },
-  { 
+  {
     path: "backoffice/news/:id",
     component: NewsFormComponent
   },
 
-  { 
+
+  {
     path: "backoffice/members",
     component: MembersComponent
   },
-  { 
+  {
     path: "backoffice/members/create",
     component: MembersFormComponent
   },
 
-  { 
+  {
     path: "backoffice/members/:id",
     component: MembersFormComponent
   },
-  { 
+  {
     path: "backoffice",
     component: DashboardComponent
   },
@@ -86,6 +88,10 @@ const routes: Routes = [
   {
     path: "backoffice/organization/edit/:id",
     component: EditFormComponent
+  },
+  {
+    path: "backoffice/users",
+    component: UsersListComponent
   },
   {
     path: 'iniciar-sesion',
@@ -110,7 +116,7 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },
-  
+
 ];
 
 @NgModule({
