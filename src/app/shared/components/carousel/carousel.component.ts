@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, AfterContentInit, ElementRef, ViewChild } from '@angular/core';
-import { Slides } from '../../core/models/slides.model';
+import { Slides } from '../../../core/models/slides.model';
 
 declare var $: any; // used to access jQuery
 
