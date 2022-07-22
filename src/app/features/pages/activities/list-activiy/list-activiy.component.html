@@ -5,11 +5,11 @@
             <button class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end btn-create" routerLink="/backoffice/activities/create">
           Agregar Actividad
         </button>
-            <h5 style="margin-top: 30px" *ngIf="data.length == 0">
+            <h5 *ngIf="!data.length">
                 No hay datos para mostrar
             </h5>
             <div class="table-resposive">
-                <table *ngIf="data.length > 0" class="table table-striped align-middle">
+                <table *ngIf="data.length" class="table table-striped align-middle">
                     <thead>
                         <tr>
                             <th>Nombre</th>
