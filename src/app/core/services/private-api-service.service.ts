@@ -7,15 +7,29 @@ import { tap } from 'rxjs/operators';
 })
 export class PrivateApiServiceService {
 
+    constructor(private http: HttpClient) { 
+       
+      }
 
   private httpHeaders = {
     headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type':  'application/json'  
     })
 };
-  constructor(private http: HttpClient) { 
-
-  }
+  
+verifyToken(){
+    let token = JSON.parse(localStorage.getItem('token') || '{}');
+    const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        })
+      };
+    if(token){
+        return httpOptions;
+    }else{
+        return null;
+    }
+}
 
 /**
      * Send a POST request
