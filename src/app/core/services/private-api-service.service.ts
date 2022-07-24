@@ -55,13 +55,10 @@ export class PrivateApiServiceService {
         tap({
           error: (error) => {
             if (error.status === 500) {
-                console.log("Error 500:: ");
               // Handle 500
             } else if (error.status === 400) {
-                console.log("Error 400:: ");
               // Handle 400
             } else if (error.status === 401) {
-                console.log("Error 401:: ");
               // Handle 401
             }
           },
