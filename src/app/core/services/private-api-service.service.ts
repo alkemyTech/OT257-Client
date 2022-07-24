@@ -38,5 +38,30 @@ export class PrivateApiServiceService {
           }})).toPromise();
 }
 
+ /**
+   * send delete request
+   * 
+   * @param url 
+   * @param id 
+   */
+  public async sendDeleteRequest(url: string, id: number): Promise<any>{
+    return this.http
+      .delete(`${url}/${id}`, this.httpHeaders)
+      .pipe(
+        tap({
+          error: (error) => {
+            if (error.status === 500) {
+              // Handle 500
+            } else if (error.status === 400) {
+              // Handle 400
+            } else if (error.status === 401) {
+              // Handle 401
+            }
+          },
+        })
+      ).toPromise();
+  }
+
+
 
 }
