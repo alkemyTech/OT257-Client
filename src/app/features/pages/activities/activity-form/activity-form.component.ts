@@ -54,7 +54,7 @@ export class ActivityFormComponent implements OnInit {
    * 
    * @param event file
    */
-   onFileSelect(event: any) {
+  onFileSelect(event: any) {
     this.event = event;
     if (this.event.target.files[0] !== undefined) {
       this.imgToBase64(this.event.target.files[0]);
@@ -88,7 +88,7 @@ export class ActivityFormComponent implements OnInit {
         image: this.imgBase64,
         description: this.formData.get("description")!.value
       };
-      
+
       if (this.id > 0) {
         if (!this.formData.value.image) {
           delete data.image;
@@ -196,7 +196,7 @@ redirectView(){
    * return form is valid
    * @returns boolean
    */
-  validateForm(): boolean{
+  validateForm(): boolean {
     if (this.formData.invalid) {
       this.formData.markAllAsTouched();
       return false;

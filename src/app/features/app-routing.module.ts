@@ -7,6 +7,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
+import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
@@ -85,16 +86,16 @@ const routes: Routes = [
   },
 
   {
-    path: "organization",
-    component: OrgViewComponent,
-  },
-  {
-    path: "organization/:id",
-    component: OrgViewComponent,
+    path: "backoffice/organization",
+    component: OrgViewComponent
   },
   {
     path: "backoffice/organization/edit/:id",
     component: EditFormComponent,
+  },
+  {
+    path: "backoffice/Home",
+    component: BackOfficeHomeComponent
   },
   {
     path: "backoffice/users",
@@ -129,4 +130,4 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
