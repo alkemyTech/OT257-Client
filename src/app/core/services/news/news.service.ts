@@ -30,7 +30,7 @@ export class NewsService extends PrivateApiServiceService {
   }
 
   getNew(id: string) {
-    return this.sendGetRequest(`${this.url}/${id}`);
+    return this.sendGetRequest(`${this.url}`,id);
   }
 
 /*

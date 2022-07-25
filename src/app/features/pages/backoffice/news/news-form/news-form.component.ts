@@ -54,12 +54,12 @@ export class NewsFormComponent implements OnInit {
 
     if(this.idNew){
 
-      /*
-    this.newsService.getNew(this.idNew).subscribe((result: any) => {
+      
+    this.newsService.getNew(this.idNew).then((result: any) => {
       this.new = result.data;
       this.cargarDataForm(this.new);
     });
-    */
+    
   }
 
   }
