@@ -5,19 +5,11 @@
     </div>
     <div class="row row-cols-lg-3 row-cols-md-2 g-3 flex-row">
         <div *ngFor="let new of news">
-            <div class="card card-cascade d-flex align-items-center narrower mt-3 shadow">
-                <div class="view view-cascade overflow-hidden shadow">
-                    <img class="" src="{{new.image}}" alt="Card image cap">
-                </div>
-                <div class="w-100 card-body card-body-cascade">
-                    <h4 class="font-weight-bold card-title text-truncate">{{new.name}}</h4>
-                    <hr>
-                    <p [innerHtml]="new.content" class="content overflow-hidden card-text">{{new.content.slice(0,30)}}</p>
-                    <a routerLink="{{route}}" class="deco-none text-danger d-flex flex-row-reverse p-2">
-                        <h6 class="waves-effect waves-light" >Leer más...<i class="fas fa-angle-double-right ml-2"></i></h6>
-                    </a>
-                </div>
-            </div>
+            <app-card [image]="new.image" [title]="new.name" [content]="new.content" >
+                <a routerLink="new/{{new.id}}" class="deco-none text-danger d-flex flex-row-reverse p-2">
+                    <h6 class="waves-effect waves-light" >Leer más...<i class="fas fa-angle-double-right ml-2"></i></h6>
+                </a>
+            </app-card>
         </div>
     </div>
 </div>

@@ -10,9 +10,14 @@ export class NewsService {
 
   constructor(private http: HttpClient) {}
 
+
+  getNews() {
+    return this.http.get(`${this.url}`);
+  }
+
+
   updateNew(id: string, dataNew: NewModel) {
     dataNew["id"] = id;
-
     return this.http.put(`${this.url}/${id}`, dataNew);
   }
 
@@ -20,12 +25,12 @@ export class NewsService {
     return this.http.post(`${this.url}`, dataNew);
   }
 
-  getNew(id: string) {
-    return this.http.get(`${this.url}/${id}`);
+  deleteNew(id: string) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 
-  getNews() {
-    return this.http.get(`${this.url}`);
+  getNew(id: string) {
+    return this.http.get(`${this.url}/${id}`);
   }
 
 }

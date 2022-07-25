@@ -10,7 +10,6 @@ import { NewModel } from 'src/app/core/models/new.model';
 export class NewsComponent implements OnInit {
   @Input() public news!: NewModel[];
   @Input() public organizationData!: Data;
-route = '/news'
 
   constructor() { }
 

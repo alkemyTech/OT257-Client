@@ -6,7 +6,7 @@ import { ActivityFormComponent } from "./pages/activities/activity-form/activity
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
-import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { NewsFormComponent } from "./pages/backoffice/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
@@ -16,13 +16,18 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { HomeModule } from "./pages/home/home.module";
+import { AboutComponent } from './pages/about/about.component';
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
-
+import { ListActiviyComponent } from './pages/activities/list-activiy/list-activiy.component';
+import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
+import { NewsComponent } from './pages/backoffice/news/news/news.component';
+import { MembersComponent } from './pages/backoffice/members/members/members.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +45,16 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     MembersFormComponent,
     EditFormComponent,
     OrgViewComponent,
-    DashboardComponent
-
+    BackOfficeHomeComponent,
+    AboutComponent,
+    DashboardComponent,
+    ListActiviyComponent,
+    AboutComponent,
+    UsersListComponent,
+    NewsComponent,
+    MembersComponent,
   ],
   exports: [
-    ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,
@@ -53,7 +63,7 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
-    ContactFormComponent
+    ContactFormComponent,
   ],
   imports: [
     CommonModule,
@@ -69,7 +79,7 @@ import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.compo
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
-    
+
   ],
 })
 export class FeaturesModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
-import { Slides } from '../../core/models/slides.model';
+import { Slides } from '../../../core/models/slides.model';
 
 
 @Component({
