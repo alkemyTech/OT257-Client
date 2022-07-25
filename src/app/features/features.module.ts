@@ -15,6 +15,7 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { HomeModule } from "./pages/home/home.module";
 import { AboutComponent } from './pages/about/about.component';
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -73,6 +74,7 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     HttpClientModule,
     FormsModule,
     CKEditorModule,
+    HomeModule,
     SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,

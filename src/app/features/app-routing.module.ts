@@ -7,8 +7,9 @@ import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
-import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
+import { HomeComponent } from "./pages/home/page/home.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
+import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
@@ -18,6 +19,10 @@ import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
 
 const routes: Routes = [
+  {
+    path: "actividades",
+    component: ActivityFormComponent,
+  },
   {
     path: "backoffice/activities",
     component: ListActiviyComponent,
@@ -43,17 +48,16 @@ const routes: Routes = [
     component: SlidesFormComponent,
   },
   {
-    path: "",
-    redirectTo: "actividades",
-    pathMatch: "full",
-  },
-  {
     path: "testimonios",
     component: TestimonialFormComponent,
   },
   {
     path: "testimonio/:id",
     component: TestimonialFormComponent,
+  },
+  {
+    path: "news-form",
+    component: NewsFormComponent,
   },
   {
     path: "backoffice/news",
@@ -77,6 +81,10 @@ const routes: Routes = [
   },
 
   {
+    path: "new/:id",
+    component: NewsFormComponent,
+  },
+  {
     path: "backoffice/members/:id",
     component: MembersFormComponent,
   },
@@ -87,7 +95,11 @@ const routes: Routes = [
 
   {
     path: "backoffice/organization",
-    component: OrgViewComponent
+    component: OrgViewComponent,
+  },
+  {
+    path: "backoffice/organization/edit/:id",
+    component: EditFormComponent,
   },
   {
     path: "backoffice/organization/edit/:id",
@@ -95,7 +107,7 @@ const routes: Routes = [
   },
   {
     path: "backoffice/Home",
-    component: BackOfficeHomeComponent
+    component: BackOfficeHomeComponent,
   },
   {
     path: "backoffice/users",
@@ -116,12 +128,16 @@ const routes: Routes = [
       ),
   },
   {
+    path: "",
+    component: HomeComponent,
+  },
+  {
     path: "contact-form",
     component: ContactFormComponent,
   },
   {
     path: "**",
-    redirectTo: "actividades",
+    redirectTo: "",
     pathMatch: "full",
   },
 ];
@@ -130,4 +146,4 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
