@@ -11,11 +11,15 @@ export class ActivitiesService {
 
   constructor(private http: HttpClient) {}
 
+
+  getActivity() {
+    return this.http.get(`${this.url}/activities`);
+  }
   createActivity(data: Activity) {
     return this.http.post(`${this.url}/activities`, data);
   }
 
-  getActivity(id: number) {
+  getActivityById(id: number) {
     return this.http.get(`${this.url}/activities/${id}`);
   }
 

@@ -15,18 +15,19 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
+import { HomeModule } from "./pages/home/home.module";
 import { AboutComponent } from './pages/about/about.component';
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+import { ListActiviyComponent } from './pages/activities/list-activiy/list-activiy.component';
 import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
-
-
 
 @NgModule({
   declarations: [
@@ -44,14 +45,16 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     MembersFormComponent,
     EditFormComponent,
     OrgViewComponent,
+    BackOfficeHomeComponent,
     AboutComponent,
     DashboardComponent,
+    ListActiviyComponent,
+    AboutComponent,
     UsersListComponent,
     NewsComponent,
     MembersComponent,
   ],
   exports: [
-    ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,
@@ -61,7 +64,6 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     UserFormComponent,
     RouterModule,
     ContactFormComponent,
-
   ],
   imports: [
     CommonModule,
@@ -72,6 +74,7 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     HttpClientModule,
     FormsModule,
     CKEditorModule,
+    HomeModule,
     SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
