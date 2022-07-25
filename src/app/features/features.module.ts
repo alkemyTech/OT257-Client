@@ -21,12 +21,12 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
+import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+import { ListActiviyComponent } from './pages/activities/list-activiy/list-activiy.component';
 import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
-
-
 
 @NgModule({
   declarations: [
@@ -44,14 +44,16 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     MembersFormComponent,
     EditFormComponent,
     OrgViewComponent,
+    BackOfficeHomeComponent,
     AboutComponent,
     DashboardComponent,
+    ListActiviyComponent,
+    AboutComponent,
     UsersListComponent,
     NewsComponent,
     MembersComponent,
   ],
   exports: [
-    ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,
@@ -61,7 +63,6 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     UserFormComponent,
     RouterModule,
     ContactFormComponent,
-
   ],
   imports: [
     CommonModule,

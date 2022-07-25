@@ -1,0 +1,24 @@
+i {
+    cursor: pointer;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    border-radius: 150px;
+}
+
+.card {
+    margin-top: 50px;
+}
+
+h5 {
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 375px) {
+    .btn-create {
+        margin-right: 140px;
+        margin-top: 10px;
+    }
+}
