@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row min-vh-100 justify-content-center align-items-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <div class="card w-100 shadow-lg border-0 text-center p-5">
+        <div class="card-body">
+          <h4 class="mb-3">EDITAR HOME</h4>
+          <h6 class="text-start mb-3">Editar texto de bienvenida</h6>
+          <form [formGroup]="homeForm" (ngSubmit)="onSubmitText()">
+            <div class="form-floating mb-3">
+              <label for="welcomeText"></label>
+              <textarea
+                formControlName="welcomeText"
+                [class.is-invalid]="invalidInput('welcomeText')"
+                class="form-control shadow-none"
+                placeholder="Texto de bienvenida"
+                id="welcomeText"
+                style="height: 100px"
+              >
+              </textarea>
+
+              <p *ngIf="invalidInput('welcomeText')" class="text-danger text-center mt-1">
+                Texto de bienvenida es requerido, mínimo 20 caracteres
+              </p>
+            </div>
+            <div class="d-grid">
+              <button
+                type="submit"
+                class="btn btn-outline-primary rounded-pill p-3 fw-bold mb-4"
+              >
+                GUARDAR TEXTO DE BIENVENIDA
+              </button>
+            </div>
+          </form>
+          <h6 class="text-start mb-3">Editar orden de slides</h6>
+          <!-- select list -->
+          <div class="form-floating mb-5">
+            <select
+              class="form-select mb-1"
+              aria-label="Default select example"
+              (change)="select1($event)"
+            >
+              <option selected>Elegir Slide 1</option>
+              <option [value]="item.id" *ngFor="let item of listSlide" type="simple">
+                {{ item.name }}
+              </option>
+            </select>
+            <select
+              class="form-select mb-1"
+              aria-label="Default select example"
+              (change)="select2($event)"
+            >
+              <option selected>Elegir Slide 2</option>
+              <option [value]="item.id" *ngFor="let item of listSlide" type="simple">
+                {{ item.name }}
+              </option>
+            </select>
+            <select
+              class="form-select mb-1"
+              aria-label="Default select example"
+              (change)="select3($event)"
+            >
+              <option selected>Elegir Slide 3</option>
+              <option [value]="item.id" *ngFor="let item of listSlide">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -53,11 +53,13 @@ export class NewsFormComponent implements OnInit {
     });
 
     if(this.idNew){
+
+      /*
     this.newsService.getNew(this.idNew).subscribe((result: any) => {
       this.new = result.data;
       this.cargarDataForm(this.new);
     });
-    
+    */
   }
 
   }
@@ -146,11 +148,15 @@ export class NewsFormComponent implements OnInit {
       this.form.controls["image"].setErrors({ imageNoValido: true });
     }
 
+      
+  /*
     this.newsService
       .updateNew(this.idNew, this.form.value)
       .subscribe((resp) => {
         Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
       });
+
+      */
   }
 
   createNew() {
@@ -180,8 +186,12 @@ export class NewsFormComponent implements OnInit {
     } else {
       delete this.form.value.image;
     }
-    this.newsService.createNew(this.form.value).subscribe((resp: any) => {
+
+    
+    this.newsService.createNew(this.form.value).then((resp: any) => {
       this.router.navigate([`/news/${resp.data.id}`]);
     });
+
+  
   }
 }
