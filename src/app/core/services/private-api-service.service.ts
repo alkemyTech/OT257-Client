@@ -6,11 +6,13 @@ import { tap } from "rxjs/operators";
   providedIn: "root",
 })
 export class PrivateApiServiceService {
+
   private httpHeaders = {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
     }),
   };
+
   constructor(private http: HttpClient) {}
 
   /**
@@ -34,8 +36,7 @@ export class PrivateApiServiceService {
             }
           },
         })
-      )
-      .toPromise();
+      ).toPromise();
   }
 
   /** Send a GET request*/
@@ -59,14 +60,16 @@ export class PrivateApiServiceService {
   }
 
   /**
-   * send delete request
-   *
-   * @param url
-   * @param id
+   * send put request
+   * 
+   * @param url 
+   * @param id 
+   * @param data 
+   * @returns {Promise<Object>}
    */
-   public async sendDeleteRequest(url: string, id: number): Promise<any> {
+  public async sendPutRequest(url: string, id: number, data: any): Promise<any> {
     return this.http
-      .delete(`${url}/${id}`, this.httpHeaders)
+      .put(`${url}/${id}`, data, this.httpHeaders)
       .pipe(
         tap({
           error: (error) => {
@@ -79,7 +82,30 @@ export class PrivateApiServiceService {
             }
           },
         })
-      )
-      .toPromise();
+      ).toPromise();
   }
+
+   /**
+   * send delete request
+   *
+   * @param url
+   * @param id
+   */
+    public async sendDeleteRequest(url: string, id: number): Promise<any> {
+        return this.http
+          .delete(`${url}/${id}`, this.httpHeaders)
+          .pipe(
+            tap({
+              error: (error) => {
+                if (error.status === 500) {
+                  // Handle 500
+                } else if (error.status === 400) {
+                  // Handle 400
+                } else if (error.status === 401) {
+                  // Handle 401
+                }
+              },
+            })
+          ).toPromise();
+      }
 }
