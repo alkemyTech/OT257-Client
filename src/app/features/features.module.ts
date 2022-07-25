@@ -22,11 +22,10 @@ import { SharedModule } from '../shared/shared.module';
 import { MembersFormComponent } from './pages/backoffice/members/members-form/members-form.component';
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+import { ListActiviyComponent } from './pages/activities/list-activiy/list-activiy.component';
 import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
-
-
 
 @NgModule({
   declarations: [
@@ -43,9 +42,9 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     OrgViewComponent,
     MembersFormComponent,
     EditFormComponent,
-    OrgViewComponent,
-    AboutComponent,
     DashboardComponent,
+    ListActiviyComponent
+    AboutComponent,
     UsersListComponent,
     NewsComponent,
     MembersComponent,
@@ -61,7 +60,6 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
     UserFormComponent,
     RouterModule,
     ContactFormComponent,
-
   ],
   imports: [
     CommonModule,
