@@ -7,79 +7,82 @@ import { RouterModule, Routes } from "@angular/router";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
-import { TestimonialFormComponent } from './pages/testimonials/testimonial-form/testimonial-form.component';
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
+import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
+import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";
 import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
 import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
 
 const routes: Routes = [
   {
+    path: "backoffice/activities",
+    component: ListActiviyComponent,
+  },
+  {
     path: "nosotros",
     component: AboutComponent,
   },
   {
-    path: "actividades",
-    component: ActivityFormComponent
+    path: "backoffice/activities/create",
+    component: ActivityFormComponent,
   },
   {
-    path: "actividades/:id",
-    component: ActivityFormComponent
+    path: "activities/:id",
+    component: ActivityFormComponent,
   },
   {
     path: "slider",
-    component: SlidesFormComponent
+    component: SlidesFormComponent,
   },
   {
     path: "slider/:id",
-    component: SlidesFormComponent
+    component: SlidesFormComponent,
   },
   {
-
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
   },
   {
     path: "testimonios",
-    component: TestimonialFormComponent
+    component: TestimonialFormComponent,
   },
   {
     path: "testimonio/:id",
-    component: TestimonialFormComponent
+    component: TestimonialFormComponent,
   },
   {
     path: "backoffice/news",
-    component: NewsComponent
+    component: NewsComponent,
   },
   {
     path: "backoffice/news/create",
-    component: NewsFormComponent
+    component: NewsFormComponent,
   },
   {
     path: "backoffice/news/:id",
-    component: NewsFormComponent
+    component: NewsFormComponent,
   },
-
   {
     path: "backoffice/members",
-    component: MembersComponent
+    component: MembersComponent,
   },
   {
     path: "backoffice/members/create",
-    component: MembersFormComponent
+    component: MembersFormComponent,
   },
 
   {
     path: "backoffice/members/:id",
-    component: MembersFormComponent
+    component: MembersFormComponent,
   },
   {
     path: "backoffice",
-    component: DashboardComponent
+    component: DashboardComponent,
   },
 
   {
@@ -88,7 +91,7 @@ const routes: Routes = [
   },
   {
     path: "backoffice/organization/edit/:id",
-    component: EditFormComponent
+    component: EditFormComponent,
   },
   {
     path: "backoffice/Home",
@@ -96,32 +99,31 @@ const routes: Routes = [
   },
   {
     path: "backoffice/users",
-    component: UsersListComponent
+    component: UsersListComponent,
   },
   {
-    path: 'iniciar-sesion',
+    path: "iniciar-sesion",
     loadChildren: () =>
-      import('./pages/auth/login-form/login-form-routing.module').then(
+      import("./pages/auth/login-form/login-form-routing.module").then(
         (m) => m.LoginFormRoutingModule
-      )
+      ),
   },
   {
-    path: 'registro',
+    path: "registro",
     loadChildren: () =>
-      import('./pages/auth/register-form/register-form-routing.module').then(
+      import("./pages/auth/register-form/register-form-routing.module").then(
         (m) => m.RegisterFormRoutingModule
-      )
+      ),
   },
   {
-    path: 'contact-form',
-    component: ContactFormComponent
+    path: "contact-form",
+    component: ContactFormComponent,
   },
   {
     path: "**",
     redirectTo: "actividades",
     pathMatch: "full",
   },
-
 ];
 
 @NgModule({
