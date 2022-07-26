@@ -20,7 +20,7 @@ export class ListActiviyComponent implements OnInit {
   }
 
   getActivity() {
-    this.activitiesService.getActivity().subscribe((result: any) => {
+    this.activitiesService.getActivity().then((result: any) => {
       this.data = result.data;
 
     });
