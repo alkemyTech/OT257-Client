@@ -17,6 +17,7 @@ import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activ
 import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
 import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
+import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
 
 const routes: Routes = [
   {
@@ -45,6 +46,17 @@ const routes: Routes = [
   },
   {
     path: "slider/:id",
+    component: SlidesFormComponent
+  },
+  {
+    path: "backoffice/Slides",
+    component: ListSlidesComponent
+  },
+  {
+
+    path: "",
+    redirectTo: "actividades",
+    pathMatch: "full",
     component: SlidesFormComponent,
   },
   {
