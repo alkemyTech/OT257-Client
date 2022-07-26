@@ -6,7 +6,7 @@ import { ActivitiesService } from "../../../../core/services/activity/activities
 import { Activity } from "../../../../core/models/activity.model";
 import Swal from "sweetalert2";
 import { ActivatedRoute, Router } from "@angular/router";
-import { HelpersService } from '../../../../core/services/helpers.service';
+import { HelpersService } from "../../../../core/services/helpers.service";
 
 @Component({
   selector: "app-activity-form",
@@ -26,14 +26,13 @@ export class ActivityFormComponent implements OnInit {
   buttonText: any = "CREAR ACTIVIDAD";
   titleText: any = "CREAR NUEVA ACTIVIDAD";
 
-
   constructor(
     private fb: FormBuilder,
     private activitiesService: ActivitiesService,
     private helpers: HelpersService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -44,14 +43,12 @@ export class ActivityFormComponent implements OnInit {
       this.getActivity(this.id);
       this.buttonText = "ACTUALIZAR ACTIVIDAD";
       this.titleText = "ACTUALIZAR ACTIVIDAD";
-
-
     }
   }
 
   /**
    * get file selected
-   * 
+   *
    * @param event file
    */
   onFileSelect(event: any) {
@@ -86,7 +83,7 @@ export class ActivityFormComponent implements OnInit {
       let data = {
         name: this.formData.get("name")!.value,
         image: this.imgBase64,
-        description: this.formData.get("description")!.value
+        description: this.formData.get("description")!.value,
       };
 
       if (this.id > 0) {
@@ -102,8 +99,9 @@ export class ActivityFormComponent implements OnInit {
 
   //save activity
   saveActivity(activity: Activity) {
-    this.activitiesService.createActivity(activity).subscribe(
-      (result: any) => {
+    this.activitiesService
+      .createActivity(activity)
+      .then((result: any) => {
         //activity saved successfully
         Swal.fire({
           position: "top-end",
@@ -115,20 +113,20 @@ export class ActivityFormComponent implements OnInit {
         this.formData.reset();
         this.imgBase64 = null;
         this.redirectView();
-      },
-      (error) => {
+      })
+      .catch((error) => {
         Swal.fire({
           icon: "error",
           title: error.error.message,
         });
-      }
-    );
+      });
   }
 
   //update activity
   updateActivity(activity: Activity, id: number) {
-    this.activitiesService.updateActivity(this.id, activity).subscribe(
-      (result: any) => {
+    this.activitiesService
+      .updateActivity(id, activity)
+      .then((result: any) => {
         //activity saved successfully
         Swal.fire({
           position: "top-end",
@@ -140,40 +138,37 @@ export class ActivityFormComponent implements OnInit {
         this.formData.reset();
         this.imgBase64 = null;
         this.redirectView();
-      },
-      (error) => {
+      })
+      .catch((error) => {
         Swal.fire({
           icon: "error",
           title: error.error.message,
         });
-      }
-    );
+      });
   }
 
   /**
    * get Activity by id
-   * 
+   *
    * @param id activity id
    */
   getActivity(id: number) {
-    this.activitiesService.getActivityById(id).subscribe((result: any) => {
+    this.activitiesService.getActivityById(id).then((result: any) => {
       this.data = result.data;
-
       this.formData.controls["name"].setValue(this.data.name);
       this.formData.controls["description"].setValue(this.data.description);
       this.imgBase64 = this.data.image;
-    });
+    }).catch(error => console.log(error));
   }
 
-    
-redirectView(){
-  this.router.navigate(['/backoffice/activities']);
-}
+  redirectView() {
+    this.router.navigate(["/backoffice/activities"]);
+  }
 
   /**
    * file reader image
-   * 
-   * @param file 
+   *
+   * @param file
    */
   imgToBase64(file: any) {
     if (file) {
@@ -185,8 +180,8 @@ redirectView(){
 
   /**
    * get base64 image
-   * 
-   * @param e 
+   *
+   * @param e
    */
   toBase64(e: any) {
     this.imgBase64 = "data:image/png;base64," + btoa(e.target.result);
@@ -204,7 +199,10 @@ redirectView(){
 
     if (this.imgBase64 === undefined || this.imgBase64 === null) {
       //validate image field
-      if (!this.formData.value.image || !this.helpers.fileExtensionCheck(this.event)) {
+      if (
+        !this.formData.value.image ||
+        !this.helpers.fileExtensionCheck(this.event)
+      ) {
         this.formData.controls["image"].setErrors({ incorrect: true });
         return false;
       }

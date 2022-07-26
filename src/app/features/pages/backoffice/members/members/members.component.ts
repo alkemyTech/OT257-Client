@@ -13,7 +13,7 @@ export class MembersComponent implements OnInit {
   constructor(private memberService: MembersService) {}
 
   ngOnInit(): void {
-    this.memberService.getMembers().subscribe((resp: any) => {
+    this.memberService.getMembers().then((resp: any) => {
       this.members = resp.data;
     });
   }
@@ -29,7 +29,7 @@ export class MembersComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.memberService.deleteMember(id).subscribe((resp) => {
+        this.memberService.deleteMember(id).then((resp) => {
           Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
           this.ngOnInit();
         });
