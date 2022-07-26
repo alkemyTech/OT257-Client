@@ -18,7 +18,6 @@ export class NewsComponent implements OnInit {
     this.newService.getNews()
         .then((resp: any)=>{
           this.news = resp.data;
-          console.log(this.news);
         })
 
   }
