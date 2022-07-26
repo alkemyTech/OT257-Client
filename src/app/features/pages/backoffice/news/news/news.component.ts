@@ -14,9 +14,12 @@ export class NewsComponent implements OnInit {
   constructor(private newService: NewsService) {}
 
   ngOnInit(): void {
-    this.newService.getNews().subscribe((resp: any) => {
-      this.news = resp.data;
-    });
+
+    this.newService.getNews()
+        .then((resp: any)=>{
+          this.news = resp.data;
+        })
+
   }
 
   deleteNew(id: string) {
@@ -30,10 +33,14 @@ export class NewsComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.newService.deleteNew(id).subscribe((resp) => {
+
+        
+        this.newService.deleteNew(id).then((resp) => {
           Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
           this.ngOnInit();
         });
+
+        
       }
     });
   }

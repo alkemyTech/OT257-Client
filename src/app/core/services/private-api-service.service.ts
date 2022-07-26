@@ -2,9 +2,11 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { tap } from "rxjs/operators";
 
+
 @Injectable({
   providedIn: "root",
 })
+
 export class PrivateApiServiceService {
 
     constructor(private http: HttpClient) { 
@@ -83,9 +85,9 @@ verifyToken(){
   
 
   /** Send a GET request*/
-  public async sendGetRequest(url: any, id: any | null) {
+  public async sendGetRequest(url: any, id?:string ) {
     return this.http
-      .get(url + "/" + id, this.httpHeaders)
+      .get(id==undefined?url:`${url}/${id}` , this.httpHeaders)
       .pipe(
         tap({
           error: (error) => {
@@ -110,7 +112,7 @@ verifyToken(){
    * @param data 
    * @returns {Promise<Object>}
    */
-  public async sendPutRequest(url: string, id: number, data: any): Promise<any> {
+  public async sendPutRequest(url: string, id: string, data: any){
     return this.http
       .put(`${url}/${id}`, data, this.httpHeaders)
       .pipe(
@@ -134,7 +136,7 @@ verifyToken(){
    * @param url
    * @param id
    */
-    public async sendDeleteRequest(url: string, id: number): Promise<any> {
+    public async sendDeleteRequest(url: string, id: string){
         return this.http
           .delete(`${url}/${id}`, this.httpHeaders)
           .pipe(

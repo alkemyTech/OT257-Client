@@ -38,7 +38,6 @@ export class MembersFormComponent implements OnInit {
     private router: Router,
     private helpers: HelpersService
   ) {
-
     this.route.paramMap.subscribe((params) => {
       this.idMember = params.get("id");
     });
@@ -47,16 +46,12 @@ export class MembersFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-    if(this.idMember){
-    this.membersService.getMember(this.idMember).subscribe((result: any) => {
-      this.member = result.data;
-      this.cargarDataForm(this.member);
-    });
-    
-  }
-
+    if (this.idMember) {
+      this.membersService.getMember(this.idMember).then((result: any) => {
+        this.member = result.data;
+        this.cargarDataForm(this.member);
+      });
+    }
   }
 
   get nombreNoValido() {
@@ -131,7 +126,6 @@ export class MembersFormComponent implements OnInit {
     this.imgToBase64(this.file);
   }
 
-
   cargarDataForm(dato: any) {
     this.img = dato.image;
     this.form.setValue({
@@ -142,7 +136,6 @@ export class MembersFormComponent implements OnInit {
       description: dato.description,
     });
   }
-
 
   updateMember() {
     if (this.form.value.image) {
@@ -169,15 +162,13 @@ export class MembersFormComponent implements OnInit {
 
     this.membersService
       .updateMember(this.idMember, this.form.value)
-      .subscribe((resp) => {
+      .then((resp) => {
         Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
       });
   }
 
   createMember() {
-
-
-    if(this.idMember){
+    if (this.idMember) {
       this.updateMember();
     }
 
@@ -202,8 +193,8 @@ export class MembersFormComponent implements OnInit {
     } else {
       delete this.form.value.image;
     }
-    this.membersService.createMember(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/members/${resp.data.id}`]);
+    this.membersService.createMember(this.form.value).then((resp: any) => {
+      this.router.navigate([`/backoffice/members/${resp.data.id}`]);
     });
   }
 }
