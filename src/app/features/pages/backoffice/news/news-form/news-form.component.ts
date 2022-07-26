@@ -149,14 +149,14 @@ export class NewsFormComponent implements OnInit {
     }
 
       
-  /*
+  
     this.newsService
       .updateNew(this.idNew, this.form.value)
-      .subscribe((resp) => {
+      .then((resp) => {
         Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
       });
 
-      */
+      
   }
 
   createNew() {

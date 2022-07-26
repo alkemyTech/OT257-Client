@@ -42,9 +42,9 @@ export class PrivateApiServiceService {
   }
 
   /** Send a GET request*/
-  public async sendGetRequest(url: any, id='null' ) {
+  public async sendGetRequest(url: any, id?:string ) {
     return this.http
-      .get(id=='null'?url:`${url}/${id}` , this.httpHeaders)
+      .get(id==undefined?url:`${url}/${id}` , this.httpHeaders)
       .pipe(
         tap({
           error: (error) => {
