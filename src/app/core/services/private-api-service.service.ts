@@ -69,7 +69,7 @@ export class PrivateApiServiceService {
    * @param data 
    * @returns {Promise<Object>}
    */
-  public async sendPutRequest(url: string, id: number, data: any): Promise<any> {
+  public async sendPutRequest(url: string, id: string, data: any){
     return this.http
       .put(`${url}/${id}`, data, this.httpHeaders)
       .pipe(
@@ -93,7 +93,7 @@ export class PrivateApiServiceService {
    * @param url
    * @param id
    */
-    public async sendDeleteRequest(url: string, id: number): Promise<any> {
+    public async sendDeleteRequest(url: string, id: string){
         return this.http
           .delete(`${url}/${id}`, this.httpHeaders)
           .pipe(

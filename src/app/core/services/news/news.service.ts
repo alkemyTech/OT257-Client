@@ -22,7 +22,6 @@ export class NewsService extends PrivateApiServiceService {
  // Get all items
   getNews() {
     return this.sendGetRequest(`${this.url}`);
-    //return this.http.get(`${this.url}`);
   }
 
   createNew(dataNew: NewModel) {
@@ -33,23 +32,13 @@ export class NewsService extends PrivateApiServiceService {
     return this.sendGetRequest(`${this.url}`,id);
   }
 
-/*
   updateNew(id: string, dataNew: NewModel) {
     dataNew["id"] = id;
-    return this.http.put(`${this.url}/${id}`, dataNew);
-  }
-
-  createNew(dataNew: NewModel) {
-    return this.http.post(`${this.url}`, dataNew);
+    return this.sendPutRequest(`${this.url}`,id, dataNew);
   }
 
   deleteNew(id: string) {
-    return this.http.delete(`${this.url}/${id}`);
+    return this.sendDeleteRequest(`${this.url}`,id);
   }
 
-  getNew(id: string) {
-    return this.http.get(`${this.url}/${id}`);
-  }
-
-  */
 }

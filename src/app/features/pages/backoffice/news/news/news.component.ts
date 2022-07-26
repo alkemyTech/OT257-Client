@@ -20,10 +20,6 @@ export class NewsComponent implements OnInit {
           this.news = resp.data;
           console.log(this.news);
         })
-    /*
-    this.newService.getNews().subscribe((resp: any) => {
-      this.news = resp.data;
-    });*/
 
   }
 
@@ -39,13 +35,13 @@ export class NewsComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        /*
-        this.newService.deleteNew(id).subscribe((resp) => {
+        
+        this.newService.deleteNew(id).then((resp) => {
           Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
           this.ngOnInit();
         });
 
-        */
+        
       }
     });
   }

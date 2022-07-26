@@ -34,10 +34,12 @@ export class HomeComponent implements OnInit {
 
   //News
   public getNews() {
+    /*
     this.newsSvc.getNews().subscribe({
       next: (res: any) => {
         this.news = res.data.slice(0, 6);
       }})
+      */
   }
 
   //Slider

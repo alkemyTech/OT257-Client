@@ -50,7 +50,7 @@ export class MembersFormComponent implements OnInit {
 
 
     if(this.idMember){
-    this.membersService.getMember(this.idMember).subscribe((result: any) => {
+    this.membersService.getMember(this.idMember).then((result: any) => {
       this.member = result.data;
       this.cargarDataForm(this.member);
     });
@@ -169,7 +169,7 @@ export class MembersFormComponent implements OnInit {
 
     this.membersService
       .updateMember(this.idMember, this.form.value)
-      .subscribe((resp) => {
+      .then((resp) => {
         Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
       });
   }
@@ -202,8 +202,8 @@ export class MembersFormComponent implements OnInit {
     } else {
       delete this.form.value.image;
     }
-    this.membersService.createMember(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/members/${resp.data.id}`]);
+    this.membersService.createMember(this.form.value).then((resp: any) => {
+      this.router.navigate([`/backoffice/members/${resp.data.id}`]);
     });
   }
 }

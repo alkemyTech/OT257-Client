@@ -189,7 +189,7 @@ export class NewsFormComponent implements OnInit {
 
     
     this.newsService.createNew(this.form.value).then((resp: any) => {
-      this.router.navigate([`/news/${resp.data.id}`]);
+      this.router.navigate([`/backoffice/news/${resp.data.id}`]);
     });
 
   
