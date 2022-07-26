@@ -32,4 +32,5 @@ export class NewsService {
   getNew(id: string) {
     return this.http.get(`${this.url}/${id}`);
   }
+
 }
