@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { PrivateApiServiceService } from '../services/private-api-service.service';
 
 @Injectable({
   providedIn: "root",
 })
 export class SlideFormService {
   URL: string = "https://ongapi.alkemy.org/api/slides";
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+              private apiService:PrivateApiServiceService) {}
 
   saveSlide(form: any): Observable<any> {
     return this.httpClient.post(this.URL, form);
