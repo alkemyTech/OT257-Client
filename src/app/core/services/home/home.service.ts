@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
-import { PrivateApiServiceService } from '../private-api-service.service';
+import { PublicApiServicesService } from "../api-services/public-api-services.service";
 
 @Injectable({
   providedIn: "root",
 })
-export class HomeService extends PrivateApiServiceService{
+export class HomeService extends PublicApiServicesService{
   
   private url = "https://ongapi.alkemy.org/api";
 
