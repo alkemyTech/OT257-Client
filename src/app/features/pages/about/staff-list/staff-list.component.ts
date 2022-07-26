@@ -1,0 +1,64 @@
+import { Component, Input, OnInit } from "@angular/core";
+import { Staff } from "src/app/core/models/members.model";
+
+@Component({
+  selector: "app-staff-list",
+  template: `
+    <div class="row row-cols-lg-4 row-cols-md-3 g-3 d-flex justify-content-center">
+      <div class="card card-cascade d-flex align-items-center narrower mt-3 m-2 shadow" *ngFor="let staff of staff_list">
+          <div class="rounded-circle view view-cascade overflow-hidden shadow">
+            <img
+              *ngIf="!staff.image"
+              src="http://via.placeholder.com/300"
+              alt=""
+            />
+            <img
+              *ngIf="staff.image"
+              class=""
+              src="{{ staff.image }}"
+              alt="Card image cap"
+            />
+          </div>
+          <div class="w-100 card-body card-body-cascade">
+            <h4 class="font-weight-bold card-title text-truncate">
+              {{ staff.name }}
+            </h4>
+            <hr />
+            <p
+              [innerHtml]="staff.description"
+              class="square thin content overflow-hidden card-text"
+            >
+              {{ staff.description.slice(0, 20) }}
+            </p>
+            <div class="container d-flex align-items-center justify-content-center">
+              <!-- Facebook -->
+              <a
+                href="{{ staff.facebookUrl }}"
+                target="_blank"
+                type="button"
+                class="m-2"
+              >
+                <i class="link shadow fab fa-facebook-f"></i>
+              </a>
+              <!-- Linkedin -->
+              <a
+                href="{{ staff.linkedinUrl }}"
+                target="_blank"
+                type="button"
+                class="m-2"
+              >
+                <i class="link w-75 shadow fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  `,
+  styleUrls: ["./staff-list.component.scss"],
+})
+export class StaffListComponent implements OnInit {
+  @Input() staff_list!: Staff[];
+  constructor() {}
+
+  ngOnInit(): void {}
+}
