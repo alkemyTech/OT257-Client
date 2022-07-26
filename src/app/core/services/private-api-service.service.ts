@@ -65,7 +65,7 @@ verifyToken(){
    * @param data 
    * @returns {Promise<Object>}
    */
-     public async sendPatchRequest(url: any, id: any, data: any) {
+     public async sendPatchRequest(url: string, id: any, data: any) {
       return this.http
         .patch(`${url}/${id}`, data, this.httpHeaders)
         .pipe(
@@ -85,7 +85,7 @@ verifyToken(){
   
 
   /** Send a GET request*/
-  public async sendGetRequest(url: any, id?:string ) {
+  public async sendGetRequest(url: any, id?:any ) {
     return this.http
       .get(id==undefined?url:`${url}/${id}` , this.httpHeaders)
       .pipe(
@@ -112,7 +112,7 @@ verifyToken(){
    * @param data 
    * @returns {Promise<Object>}
    */
-  public async sendPutRequest(url: string, id: string, data: any){
+  public async sendPutRequest(url: string, id: any, data: any){
     return this.http
       .put(`${url}/${id}`, data, this.httpHeaders)
       .pipe(
@@ -136,7 +136,7 @@ verifyToken(){
    * @param url
    * @param id
    */
-    public async sendDeleteRequest(url: string, id: string){
+    public async sendDeleteRequest(url: string, id: any){
         return this.http
           .delete(`${url}/${id}`, this.httpHeaders)
           .pipe(

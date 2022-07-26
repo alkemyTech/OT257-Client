@@ -53,13 +53,6 @@ const routes: Routes = [
     component: ListSlidesComponent
   },
   {
-
-    path: "",
-    redirectTo: "actividades",
-    pathMatch: "full",
-    component: SlidesFormComponent,
-  },
-  {
     path: "testimonios",
     component: TestimonialFormComponent,
   },
