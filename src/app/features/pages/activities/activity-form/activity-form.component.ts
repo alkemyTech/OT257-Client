@@ -54,7 +54,7 @@ export class ActivityFormComponent implements OnInit {
    * 
    * @param event file
    */
-   onFileSelect(event: any) {
+  onFileSelect(event: any) {
     this.event = event;
     if (this.event.target.files[0] !== undefined) {
       this.imgToBase64(this.event.target.files[0]);
@@ -88,7 +88,7 @@ export class ActivityFormComponent implements OnInit {
         image: this.imgBase64,
         description: this.formData.get("description")!.value
       };
-      
+
       if (this.id > 0) {
         if (!this.formData.value.image) {
           delete data.image;
@@ -114,7 +114,7 @@ export class ActivityFormComponent implements OnInit {
         });
         this.formData.reset();
         this.imgBase64 = null;
-
+        this.redirectView();
       },
       (error) => {
         Swal.fire({
@@ -139,6 +139,7 @@ export class ActivityFormComponent implements OnInit {
         });
         this.formData.reset();
         this.imgBase64 = null;
+        this.redirectView();
       },
       (error) => {
         Swal.fire({
@@ -155,7 +156,7 @@ export class ActivityFormComponent implements OnInit {
    * @param id activity id
    */
   getActivity(id: number) {
-    this.activitiesService.getActivity(id).subscribe((result: any) => {
+    this.activitiesService.getActivityById(id).subscribe((result: any) => {
       this.data = result.data;
 
       this.formData.controls["name"].setValue(this.data.name);
@@ -164,6 +165,10 @@ export class ActivityFormComponent implements OnInit {
     });
   }
 
+    
+redirectView(){
+  this.router.navigate(['/backoffice/activities']);
+}
 
   /**
    * file reader image
@@ -191,7 +196,7 @@ export class ActivityFormComponent implements OnInit {
    * return form is valid
    * @returns boolean
    */
-  validateForm(): boolean{
+  validateForm(): boolean {
     if (this.formData.invalid) {
       this.formData.markAllAsTouched();
       return false;

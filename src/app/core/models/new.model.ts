@@ -6,7 +6,5 @@ export class NewModel{
     content: string='';
     user_id: string='';
     category_id: string='';
-
-    
-
+    image: string='';
 }
