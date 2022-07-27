@@ -34,7 +34,7 @@ export class BackOfficeHomeComponent implements OnInit {
   ngOnInit(): void {
     this.getTextForEdition();
     this.editHomeForm();
-    this.getSlides();
+    // this.getSlides();
   }
 
   editHomeForm() {
@@ -80,13 +80,13 @@ export class BackOfficeHomeComponent implements OnInit {
       });
   }
 
-  getSlides() {
-    this.slideService.getSlide().subscribe({
-      next: (response) => {
-        this.listSlide = response.data;
-      },
-    });
-  }
+  // getSlides() {
+  //   this.slideService.getSlide().subscribe({
+  //     next: (response) => {
+  //       this.listSlide = response.data;
+  //     },
+  //   });
+  // }
   checkIfOrderExist(order: number) {
     const filterList = this.listSlide.filter((slide: any) => slide.order === order);
     if (filterList.length > 0) {
@@ -97,84 +97,84 @@ export class BackOfficeHomeComponent implements OnInit {
         name: slideToBe0.name,
         order: 0,
       };
-      this.slideService.updateSlide(objectToBe0, slideToBe0.id).subscribe({
-        next: (response) => { },
-      });
+      // this.slideService.updateSlide(objectToBe0, slideToBe0.id).subscribe({
+      //   next: (response) => { },
+      // });
     }
   }
   select1(event: any) {
     this.checkIfOrderExist(1);
     this.slide1Id = event.target.value;
-    this.slideService.getOneSlide(this.slide1Id).subscribe({
-      next: (response) => {
-        this.slide1 = response.data;
-        const slideObject1 = {
-          id: this.slide1Id,
-          name: this.slide1.name,
-          order: 1,
-        };
-        this.slideService.updateSlide(slideObject1, this.slide1Id).subscribe({
-          next: (response) => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Se cambió: " + this.slide1.name + " a orden 1",
-              showConfirmButton: false,
-              timer: 2000,
-            });
-          },
-        });
-      },
-    });
+    // this.slideService.getOneSlide(this.slide1Id).subscribe({
+    //   next: (response) => {
+    //     this.slide1 = response.data;
+    //     const slideObject1 = {
+    //       id: this.slide1Id,
+    //       name: this.slide1.name,
+    //       order: 1,
+    //     };
+      //   this.slideService.updateSlide(slideObject1, this.slide1Id).subscribe({
+      //     next: (response) => {
+      //       Swal.fire({
+      //         position: "center",
+      //         icon: "success",
+      //         title: "Se cambió: " + this.slide1.name + " a orden 1",
+      //         showConfirmButton: false,
+      //         timer: 2000,
+      //       });
+      //     },
+      //   });
+      // },
+    // });
   }
   select2(event: any) {
     this.checkIfOrderExist(2);
     this.slide2Id = event.target.value;
-    this.slideService.getOneSlide(this.slide2Id).subscribe({
-      next: (response) => {
-        this.slide2 = response.data;
-        const slideObject2 = {
-          id: this.slide2Id,
-          name: this.slide2.name,
-          order: 2,
-        };
-        this.slideService.updateSlide(slideObject2, this.slide2Id).subscribe({
-          next: (response) => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Se cambió: " + this.slide2.name + " a orden 2",
-              showConfirmButton: false,
-              timer: 2000,
-            });
-          },
-        });
-      },
-    });
+    // this.slideService.getOneSlide(this.slide2Id).subscribe({
+    //   next: (response) => {
+    //     this.slide2 = response.data;
+    //     const slideObject2 = {
+    //       id: this.slide2Id,
+    //       name: this.slide2.name,
+    //       order: 2,
+    //     };
+    //     this.slideService.updateSlide(slideObject2, this.slide2Id).subscribe({
+    //       next: (response) => {
+    //         Swal.fire({
+    //           position: "center",
+    //           icon: "success",
+    //           title: "Se cambió: " + this.slide2.name + " a orden 2",
+    //           showConfirmButton: false,
+    //           timer: 2000,
+    //         });
+    //       },
+    //     });
+    //   },
+    // });
   }
   select3(event: any) {
     this.checkIfOrderExist(3);
     this.slide3Id = event.target.value;
-    this.slideService.getOneSlide(this.slide3Id).subscribe({
-      next: (response) => {
-        this.slide3 = response.data;
-        const slideObject3 = {
-          id: this.slide3Id,
-          name: this.slide3.name,
-          order: 3,
-        };
-        this.slideService.updateSlide(slideObject3, this.slide3Id).subscribe({
-          next: (response) => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Se cambió: " + this.slide3.name + " a orden 3",
-              showConfirmButton: false,
-              timer: 2000,
-            });
-          },
-        });
-      },
-    });
+    // this.slideService.getOneSlide(this.slide3Id).subscribe({
+    //   next: (response) => {
+    //     this.slide3 = response.data;
+    //     const slideObject3 = {
+    //       id: this.slide3Id,
+    //       name: this.slide3.name,
+    //       order: 3,
+    //     };
+  //       this.slideService.updateSlide(slideObject3, this.slide3Id).subscribe({
+  //         next: (response) => {
+  //           Swal.fire({
+  //             position: "center",
+  //             icon: "success",
+  //             title: "Se cambió: " + this.slide3.name + " a orden 3",
+  //             showConfirmButton: false,
+  //             timer: 2000,
+  //           });
+  //         },
+  //       });
+  //     },
+  //   });
   }
 }
