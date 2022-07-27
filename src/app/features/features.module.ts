@@ -66,6 +66,17 @@ import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list
     UserFormComponent,
     ContactFormComponent,
   ],
+  exports: [
+    LoginFormComponent,
+    RegisterFormComponent,
+    CategoriesFormComponent,
+    NewsFormComponent,
+    SlidesFormComponent,
+    TestimonialFormComponent,
+    UserFormComponent,
+    RouterModule,
+    ContactFormComponent,
+  ],
   imports: [
     CommonModule,
     AppRoutingModule,
