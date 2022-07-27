@@ -6,7 +6,7 @@ import { PrivateApiServiceService } from "../private-api-service.service";
   providedIn: "root",
 })
 export class MembersService  extends PrivateApiServiceService{
-  url = "https://ongapi.alkemy.org/api/members";
+  url = "https://ongapi.alkemy.org/api/members/";
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);

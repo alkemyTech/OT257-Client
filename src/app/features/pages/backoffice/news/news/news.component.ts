@@ -16,7 +16,8 @@ export class NewsComponent implements OnInit {
   ngOnInit(): void {
 
     this.newService.getNews()
-        .then((resp: any)=>{
+        .subscribe((resp: any)=>{
+          console.log(resp)
           this.news = resp.data;
         })
 
@@ -35,8 +36,9 @@ export class NewsComponent implements OnInit {
       if (result.isConfirmed) {
 
         
-        this.newService.deleteNew(id).then((resp) => {
-          Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
+        this.newService.deleteNew(id).subscribe((resp) => {
+          resp.success?Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success"):Swal.fire("Error", "Error de conexion", "error");
+          
           this.ngOnInit();
         });
 
