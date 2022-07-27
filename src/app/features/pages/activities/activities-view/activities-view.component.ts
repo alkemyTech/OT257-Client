@@ -17,6 +17,7 @@ export class ActivitiesViewComponent implements OnInit {
      (data)=>{
         this.activityObject = data;
         this.listActivities = this.activityObject.data;
+        console.log(this.listActivities);
       }
     )
 

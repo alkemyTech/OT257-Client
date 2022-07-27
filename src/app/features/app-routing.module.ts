@@ -46,10 +46,6 @@ const routes: Routes = [
     component: ActivityFormComponent,
   },
   {
-    path: "activities/:id",
-    component: ActivityFormComponent,
-  },
-  {
     path: "slider",
     component: SlidesFormComponent,
   },
