@@ -1,25 +1,36 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { PrivateApiServiceService } from "../private-api-service.service";
 
 @Injectable({
   providedIn: "root",
 })
-export class MembersService {
+export class MembersService  extends PrivateApiServiceService{
   url = "https://ongapi.alkemy.org/api/members";
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    super(httpClient);
+  }
+  
+
+  getMembers() {
+    return this.sendGetRequest(`${this.url}`);
+  }
 
   updateMember(id: string, dataMember: any) {
     dataMember["id"] = id;
-
-    return this.http.put(`${this.url}/${id}`, dataMember);
+    return this.sendPutRequest(`${this.url}`,id, dataMember);
   }
 
   createMember(dataMember: any) {
-    return this.http.post(`${this.url}`, dataMember);
+    return this.sendPostRequest(`${this.url}`, dataMember);
+  }
+
+  deleteMember(id: string) {
+    return this.sendDeleteRequest(`${this.url}`,id);
   }
 
   getMember(id: string) {
-    return this.http.get(`${this.url}/${id}`);
+    return this.sendGetRequest(`${this.url}`,id);
   }
 }

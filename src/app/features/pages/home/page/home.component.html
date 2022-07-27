@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center aling-items-center flex-column">
+    <app-hero [organizationData]="organizationData"></app-hero>
+    <div class="w-100 d-flex overflow-hidden justify-content-center aling-items-center flex-column">
+        <div  class=" w-100 d-flex justify-content-center aling-items-center flex-column pt-5">
+            <p *ngIf="!slides" class=" h-100 w-100 card-text placeholder-glow">
+                <span class="placeholder col-7 "></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+            </p>
+            <app-carousel class="w-100 p-3" *ngIf="slides" [slides]="slides"></app-carousel>
+        </div>
+        <div class=" cols-md-w-100 d-flex justify-content-center aling-items-center flex-column">
+            <p *ngIf="!organizationData" class="p-5 w-100 h-100 card-text placeholder-glow">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+            </p>
+            <app-news *ngIf="organizationData" [news]="news" [organizationData]="organizationData"></app-news>
+        </div>
+        
+    </div>
+</div>

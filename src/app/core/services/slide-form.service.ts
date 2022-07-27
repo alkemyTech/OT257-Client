@@ -24,4 +24,8 @@ export class SlideFormService {
   updateSlide(slide:any, id:any):Observable<any>{
     return this.httpClient.put(this.URL+"/"+id, slide);
   }
+
+  deleteSlide(id:any):Observable<any>{
+    return this.httpClient.delete(`${this.URL}/slides/${id}`);
+  }
 }
