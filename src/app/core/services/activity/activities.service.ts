@@ -36,7 +36,7 @@ export class ActivitiesService extends PrivateApiServiceService{
     return this.sendDeleteRequest(`${this.url}/activities`, id);
   }
 
-  getListActivity(): Observable<any>{
-    return this.http.get(`${this.url}/activities`);
-  }
+  // getListActivity(): Observable<any>{
+  //   return this.http.get(`${this.url}/activities`);
+  // }
 }

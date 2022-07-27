@@ -34,10 +34,6 @@ const routes: Routes = [
     component: ActivityFormComponent 
   },
   {
-    path: "actividades",
-    component: ActivityFormComponent,
-  },
-  {
     path: "backoffice/activities",
     component: ListActiviyComponent,
   },
@@ -114,10 +110,6 @@ const routes: Routes = [
   {
     path: "backoffice/organization",
     component: OrgViewComponent,
-  },
-  {
-    path: "backoffice/organization/edit/:id",
-    component: EditFormComponent,
   },
   {
     path: "backoffice/organization/edit/:id",

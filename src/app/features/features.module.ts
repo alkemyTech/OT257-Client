@@ -25,7 +25,6 @@ import { EditFormComponent } from './pages/organization/edit-form/edit-form.comp
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
 import { ActivitiesViewComponent } from './pages/activities/activities-view/activities-view.component';
-
 import { ListActiviyComponent } from './pages/activities/list-activiy/list-activiy.component';
 import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
