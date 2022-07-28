@@ -9,12 +9,15 @@ import Swal from "sweetalert2";
 })
 export class MembersComponent implements OnInit {
   members!: any;
+  spinner!:boolean;
 
   constructor(private memberService: MembersService) {}
 
   ngOnInit(): void {
+    this.spinner=true;
     this.memberService.getMembers().subscribe((resp: any) => {
       this.members = resp.data;
+      setInterval(()=>this.spinner=false , 1000);
     });
   }
 
