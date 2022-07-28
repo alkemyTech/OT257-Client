@@ -13,11 +13,11 @@ export class UsersListComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
-    this.getUsers()
+    this.getAllUsers()
   }
 
-  getUsers() {
-    this.usersService.getUsersFromApi().subscribe({
+  getAllUsers() {
+    this.usersService.getUsers().subscribe({
       next: (response: any) => {
         this.users = response.data
       }
