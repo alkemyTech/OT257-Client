@@ -114,12 +114,7 @@ export class ActivityFormComponent implements OnInit {
         this.imgBase64 = null;
         this.redirectView();
       })
-    //   ((error) => {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: error.error.message,
-    //   });
-    // });
+
   }
 
   //update activity
@@ -139,12 +134,6 @@ export class ActivityFormComponent implements OnInit {
         this.imgBase64 = null;
         this.redirectView();
       })
-    // .catch((error) => {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: error.error.message,
-    //   });
-    // });
   }
 
   /**

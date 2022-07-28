@@ -163,7 +163,8 @@ export class MembersFormComponent implements OnInit {
     this.membersService
       .updateMember(this.idMember, this.form.value)
       .subscribe((resp) => {
-        Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
+        resp.success ? Swal.fire("Actualizacion", "Se actualizo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+
       });
   }
 
@@ -194,7 +195,8 @@ export class MembersFormComponent implements OnInit {
       delete this.form.value.image;
     }
     this.membersService.createMember(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/backoffice/members/${resp.data.id}`]);
+      resp.success ? Swal.fire("Creación", "Se creo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+      this.router.navigate([`/backoffice/members/`]);
     });
   }
 }

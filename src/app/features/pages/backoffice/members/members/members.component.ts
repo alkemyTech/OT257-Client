@@ -9,12 +9,15 @@ import Swal from "sweetalert2";
 })
 export class MembersComponent implements OnInit {
   members!: any;
+  spinner!:boolean;
 
   constructor(private memberService: MembersService) { }
 
   ngOnInit(): void {
+    this.spinner=true;
     this.memberService.getMembers().subscribe((resp: any) => {
       this.members = resp.data;
+      setInterval(()=>this.spinner=false , 1000);
     });
   }
 
@@ -30,7 +33,8 @@ export class MembersComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.memberService.deleteMember(id).subscribe((resp) => {
-          Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
+          
+          resp.success?Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success"):Swal.fire("Error", "Error de conexion", "error");
           this.ngOnInit();
         });
       }

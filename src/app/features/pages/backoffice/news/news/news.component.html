@@ -1,6 +1,10 @@
 <app-navbar></app-navbar>
 
-<div class="container mt-4">
+<div *ngIf="spinner" class="spinner mt-5">
+<mat-spinner ></mat-spinner>
+</div>
+
+<div *ngIf="!spinner" class="container mt-4">
   <div class="card shadow-lg">
     <div class="card-body">
       <span class="h3">Listado de Novedades</span>

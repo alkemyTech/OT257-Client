@@ -10,14 +10,18 @@ import Swal from "sweetalert2";
 })
 export class NewsComponent implements OnInit {
   news!: any;
+  spinner!: boolean;
 
   constructor(private newService: NewsService) { }
 
   ngOnInit(): void {
-
+    this.spinner = true;
     this.newService.getNews()
       .subscribe((resp: any) => {
+        console.log(resp)
         this.news = resp.data;
+        setInterval(() => this.spinner = false, 1000);
+
       })
 
   }
@@ -36,7 +40,8 @@ export class NewsComponent implements OnInit {
 
 
         this.newService.deleteNew(id).subscribe((resp) => {
-          Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
+          resp.success ? Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success") : Swal.fire("Error", "Error de conexion", "error");
+
           this.ngOnInit();
         });
 

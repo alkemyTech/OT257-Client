@@ -52,7 +52,7 @@ export class PrivateApiServiceService {
       catchError((err: Error) => {
         return this.toast.fire({
           icon: "error",
-          title: err.name,
+          title: `Error de conexión ${err.name}`,
         });
       })
     );
@@ -108,7 +108,7 @@ export class PrivateApiServiceService {
   public sendDeleteRequest(url: string, id?: any): Observable<any> {
     return this.http.delete(`${url}/${id}`, this.httpHeaders).pipe(
       map((res: any) => {
-        Swal.fire("Creación", "Se creo Correctamente", "success");
+
         return res;
       }),
       catchError((err: Error) => {

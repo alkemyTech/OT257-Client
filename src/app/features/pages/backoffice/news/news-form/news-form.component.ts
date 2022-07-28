@@ -38,7 +38,6 @@ export class NewsFormComponent implements OnInit {
     private router: Router,
     private helpers: HelpersService
   ) {
-
     this.route.paramMap.subscribe((params) => {
       this.idNew = params.get("id");
     });
@@ -47,21 +46,16 @@ export class NewsFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.categoriesService.getCategories().subscribe((resp: any) => {
       this.categories = resp.data;
     });
 
     if (this.idNew) {
-
-
       this.newsService.getNew(this.idNew).subscribe((result: any) => {
         this.new = result.data;
         this.cargarDataForm(this.new);
       });
-
     }
-
   }
 
   get nombreNoValido() {
@@ -76,15 +70,13 @@ export class NewsFormComponent implements OnInit {
   }
   get contentNoValido() {
     return (
-      this.form.get("content")?.invalid &&
-      this.form.get("content")?.touched
+      this.form.get("content")?.invalid && this.form.get("content")?.touched
     );
   }
 
   get imageNoValido() {
     return this.form.get("image")?.invalid && this.form.get("image")?.touched;
   }
-
 
   crearFormulario() {
     this.form = this.fb.group({
@@ -113,7 +105,6 @@ export class NewsFormComponent implements OnInit {
     this.imgToBase64(this.file);
   }
 
-
   cargarDataForm(dato: any) {
     this.img = dato.image;
     this.form.setValue({
@@ -123,7 +114,6 @@ export class NewsFormComponent implements OnInit {
       content: dato.content,
     });
   }
-
 
   updateNew() {
     if (this.form.value.image) {
@@ -148,19 +138,14 @@ export class NewsFormComponent implements OnInit {
       this.form.controls["image"].setErrors({ imageNoValido: true });
     }
 
+    this.newsService.updateNew(this.idNew, this.form.value).subscribe((resp) => {
 
+      resp.success ? Swal.fire("Actualizacion", "Se actualizo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
 
-    this.newsService
-      .updateNew(this.idNew, this.form.value)
-      .subscribe((resp) => {
-        Swal.fire("Actualizacion", "Se actualizo Correctamente", "success");
-      });
-
-
+    });
   }
 
   createNew() {
-
     if (this.idNew) {
       this.updateNew();
     }
@@ -187,11 +172,11 @@ export class NewsFormComponent implements OnInit {
       delete this.form.value.image;
     }
 
-
     this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-      this.router.navigate([`/backoffice/news/${resp.data.id}`]);
+
+      resp.success ? Swal.fire("Creación", "Se creo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+
+      this.router.navigate([`/backoffice/news/`]);
     });
-
-
   }
 }
