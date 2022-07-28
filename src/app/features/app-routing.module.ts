@@ -10,7 +10,7 @@ import { EditFormComponent } from "./pages/organization/edit-form/edit-form.comp
 import { HomeComponent } from "./pages/home/page/home.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
-import { AboutComponent } from "./pages/about/about.component";
+import { AboutComponent } from "./pages/about/page/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
 import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";
