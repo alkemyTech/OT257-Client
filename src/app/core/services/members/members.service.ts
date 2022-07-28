@@ -5,13 +5,12 @@ import { PrivateApiServiceService } from "../private-api-service.service";
 @Injectable({
   providedIn: "root",
 })
-export class MembersService  extends PrivateApiServiceService{
+export class MembersService extends PrivateApiServiceService {
   url = "https://ongapi.alkemy.org/api/members";
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);
   }
-  
 
   getMembers() {
     return this.sendGetRequest(`${this.url}`);
@@ -19,7 +18,7 @@ export class MembersService  extends PrivateApiServiceService{
 
   updateMember(id: string, dataMember: any) {
     dataMember["id"] = id;
-    return this.sendPutRequest(`${this.url}`,id, dataMember);
+    return this.sendPutRequest(`${this.url}`, id, dataMember);
   }
 
   createMember(dataMember: any) {
@@ -27,10 +26,10 @@ export class MembersService  extends PrivateApiServiceService{
   }
 
   deleteMember(id: string) {
-    return this.sendDeleteRequest(`${this.url}`,id);
+    return this.sendDeleteRequest(`${this.url}`, id);
   }
 
   getMember(id: string) {
-    return this.sendGetRequest(`${this.url}`,id);
+    return this.sendGetRequest(`${this.url}`, id);
   }
 }
