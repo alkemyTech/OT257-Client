@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  URLSLIDES : "https://ongapi.alkemy.org/api/slides"
+  URLSLIDES : "https://ongapi.alkemy.org/api/slides",
+  urlNews:"https://ongapi.alkemy.org/api/news",
+  urlMembers:"https://ongapi.alkemy.org/api/members",
 };
