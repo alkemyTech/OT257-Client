@@ -17,7 +17,7 @@ export class UsersListComponent implements OnInit {
   }
 
   getUsers() {
-    this.usersService.getUsersFromApi().subscribe({
+    this.usersService.getUsers().subscribe({
       next: (response: any) => {
         this.users = response.data
       }
