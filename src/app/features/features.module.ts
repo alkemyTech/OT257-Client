@@ -80,7 +80,8 @@ import { AboutModule } from "./pages/about/about.module";
     SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
-    SweetAlert2Module.forChild({ /* options */ })
+    SweetAlert2Module.forChild({ /* options */ }),
+    MatProgressSpinnerModule
   ],
 })
 export class FeaturesModule { }
