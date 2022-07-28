@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Organization, Data } from 'src/app/core/models/IOrganization';
-
+import { Data } from 'src/app/core/models/IOrganization';
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrganizationEditService {
 
+  url = environment.urlOrganization;
+
   constructor(private http: HttpClient) { }
 
   public getorganizationData(): Observable<any> {
-    return this.http.get('https://ongapi.alkemy.org/api/organization');
+    return this.http.get(this.url);
   }
 
   public getOrganizationDataById(id: string): Observable<any> {
-    return this.http.get(`https://ongapi.alkemy.org/api/organization/${id}`);
+    return this.http.get(this.url + "/" + id);
   }
 
   public editOrganization(id: string, data: Data): Observable<any> {
-    return this.http.put(`https://ongapi.alkemy.org/api/organization/${id}`, data);
+    return this.http.put(this.url + "/" + id, data);
   }
 }
