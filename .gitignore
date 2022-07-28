@@ -50,3 +50,4 @@ Thumbs.db
 #File environment
 src/environments/environment.ts
 src/environments/environments.news.ts
+src/environments/example.ts
