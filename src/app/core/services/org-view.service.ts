@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { environment } from "src/environments/environment";
+import { PrivateApiServiceService } from './private-api-service.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class OrgViewService {
+export class OrgViewService extends PrivateApiServiceService {
 
-  constructor(private http:HttpClient) { }
+  url = environment.urlOrganization;
 
-  public getorganizationData():Observable<any>{
-    return this.http.get('https://ongapi.alkemy.org/api/organization');
+  constructor(private httpClient: HttpClient) { super(httpClient); }
+
+  public getorganizationData() {
+    return this.sendGetRequest(`${this.url}`);
   }
 }
