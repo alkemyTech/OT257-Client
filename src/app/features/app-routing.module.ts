@@ -89,7 +89,7 @@ const routes: Routes = [
     component: MembersFormComponent,
   },
   {
-    path: "backoffice",
+    path: "backoffice/dashboard",
     component: DashboardComponent,
   },
 

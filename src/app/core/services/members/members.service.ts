@@ -5,8 +5,13 @@ import { PrivateApiServiceService } from "../private-api-service.service";
 @Injectable({
   providedIn: "root",
 })
+<<<<<<< HEAD
 export class MembersService extends PrivateApiServiceService {
   url = "https://ongapi.alkemy.org/api/members";
+=======
+export class MembersService  extends PrivateApiServiceService{
+  url = "https://ongapi.alkemy.org/api/members/";
+>>>>>>> 21a04ca97d207268acccffb0a1ed40685a01876a
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);
