@@ -48,6 +48,4 @@ testem.log
 Thumbs.db
 
 #File environment
-
-environments.members.ts
-environments.news.ts
+src/environments/environment.ts

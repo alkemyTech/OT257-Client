@@ -10,15 +10,18 @@ import Swal from "sweetalert2";
 })
 export class NewsComponent implements OnInit {
   news!: any;
+  spinner!:boolean;
 
   constructor(private newService: NewsService) {}
 
   ngOnInit(): void {
-
+    this.spinner=true;
     this.newService.getNews()
         .subscribe((resp: any)=>{
           console.log(resp)
           this.news = resp.data;
+          setInterval(()=>this.spinner=false , 1000);
+          
         })
 
   }
