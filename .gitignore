@@ -47,5 +47,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#excluded files or folders
+#excluded files or folders epa
 ./src/environments/
