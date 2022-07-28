@@ -53,7 +53,7 @@ import { AboutModule } from "./pages/about/about.module";
     UsersListComponent,
     NewsComponent,
     MembersComponent,
-    ListSlidesComponent
+    ListSlidesComponent,
   ],
   exports: [
     LoginFormComponent,
@@ -64,8 +64,7 @@ import { AboutModule } from "./pages/about/about.module";
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
-    ContactFormComponent,
-
+    ContactFormComponent
   ],
   imports: [
     CommonModule,
@@ -79,11 +78,9 @@ import { AboutModule } from "./pages/about/about.module";
     HomeModule,
     AboutModule,
     SharedModule,
-    MatProgressSpinnerModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
-    SweetAlert2Module.forChild({ /* options */ }),
-    
+    SweetAlert2Module.forChild({ /* options */ })
   ],
 })
 export class FeaturesModule { }
