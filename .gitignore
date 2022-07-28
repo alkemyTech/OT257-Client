@@ -48,4 +48,4 @@ testem.log
 Thumbs.db
 
 #files environment
-/environment.slides.ts
+src/app/environments/environment.slides.ts
