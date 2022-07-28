@@ -101,7 +101,7 @@ export class ActivityFormComponent implements OnInit {
   saveActivity(activity: Activity) {
     this.activitiesService
       .createActivity(activity)
-      .then((result: any) => {
+      .subscribe((result: any) => {
         //activity saved successfully
         Swal.fire({
           position: "top-end",
@@ -114,19 +114,14 @@ export class ActivityFormComponent implements OnInit {
         this.imgBase64 = null;
         this.redirectView();
       })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: error.error.message,
-        });
-      });
+      
   }
 
   //update activity
   updateActivity(activity: Activity, id: number) {
     this.activitiesService
       .updateActivity(id, activity)
-      .then((result: any) => {
+      .subscribe((result: any) => {
         //activity saved successfully
         Swal.fire({
           position: "top-end",
@@ -139,12 +134,7 @@ export class ActivityFormComponent implements OnInit {
         this.imgBase64 = null;
         this.redirectView();
       })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: error.error.message,
-        });
-      });
+      
   }
 
   /**
@@ -153,12 +143,12 @@ export class ActivityFormComponent implements OnInit {
    * @param id activity id
    */
   getActivity(id: number) {
-    this.activitiesService.getActivityById(id).then((result: any) => {
+    this.activitiesService.getActivityById(id).subscribe((result: any) => {
       this.data = result.data;
       this.formData.controls["name"].setValue(this.data.name);
       this.formData.controls["description"].setValue(this.data.description);
       this.imgBase64 = this.data.image;
-    }).catch(error => console.log(error));
+    });
   }
 
   redirectView() {
