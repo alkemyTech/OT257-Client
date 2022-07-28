@@ -16,7 +16,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { HomeModule } from "./pages/home/home.module";
-import { AboutComponent } from './pages/about/about.component';
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from '../shared/shared.module';
@@ -30,6 +29,7 @@ import { UsersListComponent } from './pages/backoffice/users-list/users-list.com
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
 import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list-slides.component';
+import { AboutModule } from "./pages/about/about.module";
 
 @NgModule({
   declarations: [
@@ -50,9 +50,8 @@ import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list
     DashboardComponent,
     ActivitiesViewComponent,
     BackOfficeHomeComponent,
-    AboutComponent,
+    DashboardComponent,
     ListActiviyComponent,
-    AboutComponent,
     UsersListComponent,
     NewsComponent,
     MembersComponent,
@@ -65,6 +64,7 @@ import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list
     TestimonialFormComponent,
     UserFormComponent,
     ContactFormComponent,
+    ListSlidesComponent
   ],
   exports: [
     LoginFormComponent,
@@ -87,6 +87,7 @@ import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list
     FormsModule,
     CKEditorModule,
     HomeModule,
+    AboutModule,
     SharedModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
