@@ -34,7 +34,6 @@ export class BackOfficeHomeComponent implements OnInit {
   ngOnInit(): void {
     this.getTextForEdition();
     this.editHomeForm();
-    // this.getSlides();
   }
 
   editHomeForm() {
