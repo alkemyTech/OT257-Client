@@ -48,5 +48,4 @@ testem.log
 Thumbs.db
 
 #excluded files or folders
-*environment
-/src/environments
+/.env
