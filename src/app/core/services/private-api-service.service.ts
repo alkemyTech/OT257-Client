@@ -52,7 +52,7 @@ export class PrivateApiServiceService {
       catchError((err: Error) => {
         return this.toast.fire({
           icon: "error",
-          title: err.name,
+          title: `Error de conexión ${err.name}`,
         });
       })
     );
