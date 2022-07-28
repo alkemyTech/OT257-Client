@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environments.news";
+import { environment } from "src/environments/environment";
 import { NewModel } from "../../models/new.model";
 import { PrivateApiServiceService } from "../private-api-service.service";
 
