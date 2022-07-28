@@ -48,4 +48,5 @@ testem.log
 Thumbs.db
 
 #files environment
-.env
+environment.ts
+environment.slides.ts
