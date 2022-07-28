@@ -25,14 +25,30 @@ export class PrivateApiServiceService {
       });
 
 
+    constructor(private http: HttpClient) { 
+       
+      }
 
   private httpHeaders = {
     headers: new HttpHeaders({
-      "Content-Type": "application/json",
-    }),
-  };
+        'Content-Type':  'application/json'  
+    })
+};
+  
+verifyToken(){
+    let token = JSON.parse(localStorage.getItem('token') || '{}');
+    const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        })
+      };
+    if(token){
+        return httpOptions;
+    }else{
+        return null;
+    }
+}
 
-  constructor(private http: HttpClient) {}
 
   /**
    * Send a POST request
@@ -108,7 +124,6 @@ export class PrivateApiServiceService {
     public sendDeleteRequest(url: string, id?: any): Observable<any> {
         return this.http.delete(`${url}/${id}`,  this.httpHeaders).pipe(
           map((res: any) => {
-            Swal.fire("Creación", "Se creo Correctamente", "success");
             return res;
           }),
           catchError((err: Error) => {

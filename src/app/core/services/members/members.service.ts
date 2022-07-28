@@ -1,17 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 import { PrivateApiServiceService } from "../private-api-service.service";
 
 @Injectable({
   providedIn: "root",
 })
-<<<<<<< HEAD
 export class MembersService extends PrivateApiServiceService {
-  url = "https://ongapi.alkemy.org/api/members";
-=======
-export class MembersService  extends PrivateApiServiceService{
-  url = "https://ongapi.alkemy.org/api/members/";
->>>>>>> 21a04ca97d207268acccffb0a1ed40685a01876a
+
+  //It use environment and it save in variable url
+  url = environment.urlMembers;
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);

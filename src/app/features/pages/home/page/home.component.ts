@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from 'src/app/core/models/IOrganization';
-import { OrgViewService } from 'src/app/core/services/org-view.service';
 import { NewModel } from 'src/app/core/models/new.model';
-import { NewsService } from 'src/app/core/services/news/news.service';
-import { SlidesService } from 'src/app/core/services/slider/slides.service';
 import { Slides } from 'src/app/core/models/slides.model';
+import { HomeService } from 'src/app/core/services/home/home.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +14,7 @@ export class HomeComponent implements OnInit {
   news!: NewModel[]
   slides: Slides[] = []
 
-  constructor(private orgSvc: OrgViewService, private newsSvc: NewsService, private slideSvc: SlidesService) { }
+  constructor(private homeSvc: HomeService) { }
 
   ngOnInit(): void {
     this.getDatesPublics();
@@ -26,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   //Dates publics 
   public getDatesPublics() {
-    this.orgSvc.getorganizationData().subscribe({
+    this.homeSvc.getDatesPublics().subscribe({
       next: (res: any) => {
         this.organizationData = res.data;
       }})
@@ -34,17 +32,16 @@ export class HomeComponent implements OnInit {
 
   //News
   public getNews() {
-    /*
-    this.newsSvc.getNews().subscribe({
+    this.homeSvc.getNews().subscribe({
       next: (res: any) => {
         this.news = res.data.slice(0, 6);
       }})
-      */
+     
   }
 
   //Slider
   public getSlider() {
-    this.slideSvc.getSlider().subscribe({
+    this.homeSvc.getSlider().subscribe({
       next: (res: any) => {
         //ordenar por res.data.order
         this.slides = res.data.sort((a:any, b:any) => a.order - b.order).slice(0, 3);

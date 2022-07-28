@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 
 import { NewModel } from "../../models/new.model";
 import { PrivateApiServiceService } from "../private-api-service.service";
@@ -8,7 +9,7 @@ import { PrivateApiServiceService } from "../private-api-service.service";
   providedIn: "root",
 })
 export class NewsService extends PrivateApiServiceService {
-  url = "https://ongapi.alkemy.org/api/news";
+  url = environment.urlNews;
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);
