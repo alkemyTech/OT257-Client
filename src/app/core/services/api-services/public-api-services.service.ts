@@ -32,9 +32,6 @@ export class PublicApiServicesService {
 
   public sendGetRequest(url: string, id?: any): Observable<any> {
     return this.http.get(url + `${id ? id : ""}`, this.httpHeaders).pipe(
-      map((res: any) => {
-        return res;
-      }),
       catchError((err: Error) => {
         return this.toast.fire({
           icon: "error",
@@ -46,9 +43,6 @@ export class PublicApiServicesService {
 
   public sendPostRequest(url: string, data: any): Observable<any> {
     return this.http.post(url, data, this.httpHeaders).pipe(
-      map((res: any) => {
-        return res;
-      }),
       catchError((err: Error) => {
         return this.toast.fire({
           icon: "error",
