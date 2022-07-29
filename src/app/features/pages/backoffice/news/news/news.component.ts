@@ -2,6 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { NewsService } from "../../../../../core/services/news/news.service";
 
 import Swal from "sweetalert2";
+import { Store } from '@ngrx/store';
+import { loadedNews } from '../../../../../state/actions/news.actions';
+import { NewModel } from "src/app/core/models/new.model";
+import { Observable } from 'rxjs';
+import { selectListNew } from '../../../../../state/selectors/news.selectors';
 
 @Component({
   selector: "app-news",
@@ -10,19 +15,28 @@ import Swal from "sweetalert2";
 })
 export class NewsComponent implements OnInit {
   news!: any;
-  spinner!: boolean;
+  spinner!:boolean;
 
-  constructor(private newService: NewsService) { }
+  news_$:Observable<any> = new Observable();
+
+  constructor(
+    private newService: NewsService,
+    private store:Store<any>
+    ) {}
 
   ngOnInit(): void {
-    this.spinner = true;
-    this.newService.getNews()
-      .subscribe((resp: any) => {
-        console.log(resp)
-        this.news = resp.data;
-        setInterval(() => this.spinner = false, 1000);
 
-      })
+    this.news_$=this.store.select(selectListNew);
+
+
+  console.log('____',this.news_$);
+    this.spinner=true;
+    this.newService.getNews()
+        .subscribe((resp: any)=>{
+          this.news = resp.data;
+          setInterval(()=>this.spinner=false , 1000);
+          
+        })
 
   }
 
@@ -38,14 +52,14 @@ export class NewsComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-
+        
         this.newService.deleteNew(id).subscribe((resp) => {
-          resp.success ? Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success") : Swal.fire("Error", "Error de conexion", "error");
-
+          resp.success?Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success"):Swal.fire("Error", "Error de conexion", "error");
+          
           this.ngOnInit();
         });
 
-
+        
       }
     });
   }

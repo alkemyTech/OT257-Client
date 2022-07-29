@@ -9,6 +9,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
 import { AuthEffects } from "./state/effects/auth.effects";
+import { NewsEffects } from './state/effects/news.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,7 @@ import { AuthEffects } from "./state/effects/auth.effects";
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects,NewsEffects]),
     StoreDevtoolsModule.instrument({ }),
   ],
   providers: [],
