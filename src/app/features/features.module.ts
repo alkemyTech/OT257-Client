@@ -28,7 +28,7 @@ import { UsersListComponent } from './pages/backoffice/users-list/users-list.com
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
 import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list-slides.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutModule } from "./pages/about/about.module";
 
 @NgModule({
