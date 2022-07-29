@@ -69,8 +69,8 @@ export class SlidesFormComponent implements OnInit {
     this.orderError = false;
     if (this.form.get("order")?.valid) {
       if (
-        !this.modified ||
-        (this.modified && this.form.get("order")?.value != this.slide.order)
+        !this.modified && this.form.get("order")?.value != 0 ||
+        (this.modified && this.form.get("order")?.value != 0 && this.form.get("order")?.value != this.slide.order )
       ) {
         for (let i = 0; i < this.listSlide.length; i++) {
           if (this.listSlide[i].order == this.form.get("order")?.value) {
