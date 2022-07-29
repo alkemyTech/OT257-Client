@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { tap } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import Swal from "sweetalert2";
@@ -7,6 +8,7 @@ import Swal from "sweetalert2";
 @Injectable({
   providedIn: "root",
 })
+
 export class PublicApiServicesService {
   toast = Swal.mixin({
     toast: true,
@@ -30,9 +32,6 @@ export class PublicApiServicesService {
 
   public sendGetRequest(url: string, id?: any): Observable<any> {
     return this.http.get(url + `${id ? id : ""}`, this.httpHeaders).pipe(
-      map((res: any) => {
-        return res;
-      }),
       catchError((err: Error) => {
         return this.toast.fire({
           icon: "error",
@@ -44,9 +43,6 @@ export class PublicApiServicesService {
 
   public sendPostRequest(url: string, data: any): Observable<any> {
     return this.http.post(url, data, this.httpHeaders).pipe(
-      map((res: any) => {
-        return res;
-      }),
       catchError((err: Error) => {
         return this.toast.fire({
           icon: "error",
