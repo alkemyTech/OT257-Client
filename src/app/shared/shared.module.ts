@@ -6,6 +6,7 @@ import { NavbarComponent } from "./components/backoffice/navbar/navbar.component
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
+import { SkeletonComponent } from './components/layout/skeleton/skeleton/skeleton.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RouterModule } from "@angular/router";
     NavbarComponent,
     NoimagePipe,
     CardComponent,
+    SkeletonComponent,
   ],
   exports: [
     TituloComponent,
