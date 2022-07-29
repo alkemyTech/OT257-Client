@@ -23,6 +23,7 @@ import { SkeletonComponent } from './components/layout/skeleton/skeleton/skeleto
     NavbarComponent,
     NoimagePipe,
     CardComponent,
+    SkeletonComponent
   ],
   imports: [CommonModule, RouterModule],
 })
