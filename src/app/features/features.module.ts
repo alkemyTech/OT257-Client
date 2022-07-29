@@ -28,9 +28,9 @@ import { ListActiviyComponent } from './pages/activities/list-activiy/list-activ
 import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
-import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list-slides.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutModule } from "./pages/about/about.module";
+import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
 
 @NgModule({
   declarations: [
@@ -76,8 +76,7 @@ import { AboutModule } from "./pages/about/about.module";
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
-    ContactFormComponent,
-
+    ContactFormComponent
   ],
   imports: [
     CommonModule,
@@ -94,8 +93,7 @@ import { AboutModule } from "./pages/about/about.module";
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
-    MatProgressSpinnerModule,
-
+    MatProgressSpinnerModule
   ],
 })
 export class FeaturesModule { }
