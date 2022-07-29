@@ -6,6 +6,7 @@ import { NavbarComponent } from "./components/backoffice/navbar/navbar.component
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
+import { ProgressBarComponent } from './components/layout/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RouterModule } from "@angular/router";
     NavbarComponent,
     NoimagePipe,
     CardComponent,
+    ProgressBarComponent,
   ],
   exports: [
     TituloComponent,
