@@ -13,6 +13,7 @@ import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-ho
 import { AboutComponent } from "./pages/about/page/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
+import { ActivitiesViewComponent } from "./pages/activities/activities-view/activities-view.component";
 import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";
 import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
 import { NewsComponent } from "./pages/backoffice/news/news/news.component";
@@ -20,9 +21,17 @@ import { MembersComponent } from "./pages/backoffice/members/members/members.com
 import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
 
 const routes: Routes = [
-  {
-    path: "actividades",
-    component: ActivityFormComponent,
+ { 
+    path: "actividades", 
+    component: ActivitiesViewComponent 
+  },
+ { 
+    path: "form/actividades", 
+    component: ActivityFormComponent 
+  },
+  { 
+    path: "form/actividades/:id", 
+    component: ActivityFormComponent 
   },
   {
     path: "backoffice/activities",
@@ -34,10 +43,6 @@ const routes: Routes = [
   },
   {
     path: "backoffice/activities/create",
-    component: ActivityFormComponent,
-  },
-  {
-    path: "activities/:id",
     component: ActivityFormComponent,
   },
   {
@@ -101,10 +106,6 @@ const routes: Routes = [
   {
     path: "backoffice/organization",
     component: OrgViewComponent,
-  },
-  {
-    path: "backoffice/organization/edit/:id",
-    component: EditFormComponent,
   },
   {
     path: "backoffice/organization/edit/:id",

@@ -1,0 +1,17 @@
+<section class="container">
+  <app-titulo [title]="'Actividades'"></app-titulo>
+  <div class="row row-cols-lg-3 row-cols-md-2 g-3 flex-row">
+    <div *ngFor="let new of listActivities">
+      <app-card [image]="new.image" [title]="new.name" [content]="new.description">
+        <a
+          routerLink="actividades/{{ new.id }}"
+          class="deco-none text-danger d-flex flex-row-reverse p-2"
+        >
+          <h6 class="waves-effect waves-light">
+            Leer más...<i class="fas fa-angle-double-right ml-2"></i>
+          </h6>
+        </a>
+      </app-card>
+    </div>
+  </div>
+</section>

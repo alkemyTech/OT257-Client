@@ -36,5 +36,4 @@ export class ActivitiesService extends PrivateApiServiceService{
     return this.sendDeleteRequest(`${this.url}/activities`, id);
   }
 
-
 }
