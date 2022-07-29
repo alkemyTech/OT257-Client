@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ListActiviyComponent implements OnInit {
 
-  data: Activity [] = [];
+  data: Activity[] = [];
 
   constructor(private activitiesService: ActivitiesService,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getActivity();
@@ -25,9 +25,9 @@ export class ListActiviyComponent implements OnInit {
 
     });
   }
-  
-redirectView(id: number){
-  this.router.navigate(['/activities', id]);
-}
+
+  redirectView(id: number) {
+    this.router.navigate(['/activities', id]);
+  }
 
 }

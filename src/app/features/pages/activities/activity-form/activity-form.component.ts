@@ -32,7 +32,7 @@ export class ActivityFormComponent implements OnInit {
     private helpers: HelpersService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -114,7 +114,7 @@ export class ActivityFormComponent implements OnInit {
         this.imgBase64 = null;
         this.redirectView();
       })
-      
+
   }
 
   //update activity
@@ -134,7 +134,6 @@ export class ActivityFormComponent implements OnInit {
         this.imgBase64 = null;
         this.redirectView();
       })
-      
   }
 
   /**

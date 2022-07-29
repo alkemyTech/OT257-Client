@@ -2,7 +2,7 @@ import { Injectable, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map, catchError } from "rxjs/operators";
-import { UserAuth } from "../../models/auth.model";
+import { UserRegister, UserLogin } from "../../models/auth.model";
 import { Router } from "@angular/router";
 import Swal from 'sweetalert2';
 
@@ -33,17 +33,14 @@ export class AuthService implements OnInit {
     return this.loggedIn.asObservable();
   }
 
-  login(user: UserAuth): Observable<any> {
+  login(user: UserLogin): Observable<any> {
     return this.http
-      .post<UserAuth>(this.auth + "login", {
+      .post<UserLogin>(this.auth + "login", {
         email: user.email,
         password: user.password,
       })
       .pipe(
         map((res: any) => {
-          this.saveToken(res.data.token);
-          this.loggedIn.next(true);
-          this.router.navigate(["/"]);
           this.toast.fire({
             icon: 'success',
             title: 'Inicio de sesión exitoso',
@@ -51,7 +48,6 @@ export class AuthService implements OnInit {
           return res;
         }),
         catchError(() => {
-          this.loggedIn.next(false);
           return this.toast.fire({
             icon: 'error',
             title: 'Inicio de sesión incorrecto',
@@ -63,11 +59,13 @@ export class AuthService implements OnInit {
   saveToken(token: string): void {
     localStorage.setItem("token", token);
   }
+  
   logout(): void {
     localStorage.removeItem("token");
     this.loggedIn.next(false);
     this.router.navigate(["/iniciar-sesion"]);
   }
+  
   checkToken() {
     const userToken = localStorage.getItem("token");
     userToken ? this.loggedIn.next(true) : this.logout();
@@ -75,20 +73,19 @@ export class AuthService implements OnInit {
   }
 
   //register
-  register(user: UserAuth): Observable<any> {
+  register(user: UserRegister): Observable<any> {
     return this.http
-      .post<UserAuth>(this.auth + "register", {
+      .post<UserRegister>(this.auth + "register", {
         name: user.name,
         email: user.email,
         password: user.password,
       })
       .pipe(
-        map((res: UserAuth) => {
+        map((res: UserRegister) => {
           this.toast.fire({
             icon: 'success',
             title: 'Registro exitoso',
           });
-          this.router.navigate(["/iniciar-sesion"]);
           return res;
         }),
         catchError(() => {
