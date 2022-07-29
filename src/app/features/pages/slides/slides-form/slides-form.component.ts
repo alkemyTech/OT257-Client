@@ -17,7 +17,7 @@ export class SlidesFormComponent implements OnInit {
   error: boolean = false;
   orderError: boolean = false;
   messageError: string = "";
-  slideObject:any;
+  slideObject: any;
   listSlide: any;
   viewImageMin: any;
   slide: any;

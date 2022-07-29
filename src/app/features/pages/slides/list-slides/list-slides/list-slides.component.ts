@@ -8,15 +8,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list-slides.component.scss']
 })
 export class ListSlidesComponent implements OnInit {
-  slides:any;
-  listSlides :any;
-  
+  slides: any;
+  listSlides: any;
+
   constructor(private slideService: SlideFormService) { }
 
   ngOnInit(): void {
 
     this.slideService.getSlide().subscribe(
-      (resp)=>{
+      (resp) => {
         this.slides = resp;
         this.listSlides = this.slides;
       }

@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
     {
       name: "Actividades",
       img: "assets/images/actividades.PNG",
-      link: "/activities",
+      link: "/backoffice/activities",
     },
     {
       name: "Categorias",
@@ -32,17 +32,17 @@ export class DashboardComponent implements OnInit {
     {
       name: "Organizacion",
       img: "assets/images/organizacion.PNG",
-      link: "/organization",
+      link: "/backoffice/organization",
     },
     {
       name: "Slides",
       img: "assets/images/slides.PNG",
-      link: "/slider",
+      link: "/backoffice/slider",
     },
     {
       name: "Usuarios",
       img: "assets/images/usuarios.PNG",
-      link: "/users",
+      link: "/backoffice/users",
     },
     {
       name: "Miembros",
@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

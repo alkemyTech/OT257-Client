@@ -8,7 +8,7 @@
       >
         Agregar usuario
       </button>
-      <h5 *ngIf="users.length">No hay datos para mostrar</h5>
+      <h5 *ngIf="users.length < 0">No hay datos para mostrar</h5>
       <table *ngIf="users.length > 0" class="table table-striped mt-5">
         <thead>
           <tr>
