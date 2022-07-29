@@ -10,7 +10,7 @@ export const usersReducer = createReducer(
         return [...oldState, ...[user]];
     }),
     on(retrievedUsersList, (oldState, { users }) => {
-        return [...oldState, ...users];
+        return [...oldState, ...users]
     })
 );
 
