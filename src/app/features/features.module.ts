@@ -56,6 +56,7 @@ import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list
     UsersListComponent,
     NewsComponent,
     MembersComponent,
+    ListSlidesComponent,
     LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,

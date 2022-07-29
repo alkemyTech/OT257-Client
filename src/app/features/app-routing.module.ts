@@ -4,7 +4,6 @@ import { NewsFormComponent } from "./pages/backoffice/news/news-form/news-form.c
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { HomeComponent } from "./pages/home/page/home.component";
@@ -19,6 +18,7 @@ import { UsersListComponent } from "./pages/backoffice/users-list/users-list.com
 import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
 import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
+import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 
 const routes: Routes = [
  { 
@@ -46,15 +46,15 @@ const routes: Routes = [
     component: ActivityFormComponent,
   },
   {
-    path: "slider",
+    path: "backoffice/slider/create",
     component: SlidesFormComponent,
   },
   {
-    path: "slider/:id",
+    path: "backoffice/slider/update/:id",
     component: SlidesFormComponent
   },
   {
-    path: "backoffice/Slides",
+    path: "backoffice/slider",
     component: ListSlidesComponent
   },
   {

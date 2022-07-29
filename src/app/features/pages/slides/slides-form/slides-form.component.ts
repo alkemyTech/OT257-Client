@@ -54,7 +54,7 @@ export class SlidesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.slideService.getSlide().then(
+    this.slideService.getSlide().subscribe(
       data => {
         this.slideObject = data;
         this.listSlide = this.slideObject.data;
@@ -110,7 +110,7 @@ export class SlidesFormComponent implements OnInit {
       if (this.form.valid) {
         this.slideService
           .updateSlide(this.form.value, this.slide.id)
-          .then(
+          .subscribe(
             (data) => {
               alert("slide modificado con exito");
             }
@@ -120,7 +120,7 @@ export class SlidesFormComponent implements OnInit {
       }
     } else {
       if (this.form.valid) {
-        this.slideService.saveSlide(this.form.value).then(
+        this.slideService.saveSlide(this.form.value).subscribe(
           (data) => {
             alert("Slide guardado con exito");
           }
@@ -136,7 +136,7 @@ export class SlidesFormComponent implements OnInit {
       let id = idRoute["id"];
       if (id) {
         this.modified = true;
-        this.slideService.getOneSlide(id).then(
+        this.slideService.getOneSlide(id).subscribe(
           (data) => {
             this.slideObject = data;
             this.slide = this.slideObject.data;

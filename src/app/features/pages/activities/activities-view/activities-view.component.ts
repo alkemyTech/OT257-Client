@@ -13,7 +13,7 @@ export class ActivitiesViewComponent implements OnInit {
   constructor(private activityService:ActivitiesService) { }
 
   ngOnInit(): void {
-    this.activityService. getActivity().then(
+    this.activityService. getActivity().subscribe(
      (data)=>{
         this.activityObject = data;
         this.listActivities = this.activityObject.data;
