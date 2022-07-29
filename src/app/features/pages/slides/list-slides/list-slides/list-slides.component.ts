@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 })
 export class ListSlidesComponent implements OnInit {
   listSlides: any;
+  noData : boolean = false;
   loading: boolean = true;
 
   constructor(private slideService: SlideFormService) {}
@@ -17,6 +18,9 @@ export class ListSlidesComponent implements OnInit {
     this.slideService.getSlide().subscribe((resp) => {
       this.listSlides = resp.data;
       this.loading = false;
+      if(this.listSlides.length === 0) {
+        this.noData = true;
+      }
     });
   }
 
