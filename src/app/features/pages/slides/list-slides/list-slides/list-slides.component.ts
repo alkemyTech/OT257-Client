@@ -15,7 +15,7 @@ export class ListSlidesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.slideService.getSlide().then(
+    this.slideService.getSlide().subscribe(
       (resp)=>{
         this.slides = resp;
         this.listSlides = this.slides;
@@ -34,7 +34,7 @@ export class ListSlidesComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.slideService.deleteSlide(id).then((resp) => {
+        this.slideService.deleteSlide(id).subscribe((resp) => {
           Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
           this.ngOnInit();
         });
