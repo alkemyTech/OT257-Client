@@ -31,11 +31,11 @@ export class AboutComponent implements OnInit {
   }
 
   public getMembers() {
-    /* this.membersSvc.getMembers().subscribe({
+    this.membersSvc.getMembers().subscribe({
       next: (res: any) => {
         this.staff = res.data;
       }
-    }); */
+    });
   }
 
 }
