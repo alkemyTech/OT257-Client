@@ -8,19 +8,19 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list-slides.component.scss']
 })
 export class ListSlidesComponent implements OnInit {
-  listSlides:any;
-
+  slides:any;
+  listSlides :any;
+  
   constructor(private slideService: SlideFormService) { }
 
   ngOnInit(): void {
 
-    this.slideService.getSlide().subscribe({
-      next: (resp)=>{
-        this.listSlides = resp.data;
-      },error: (error)=>{
-        alert(error);
+    this.slideService.getSlide().then(
+      (resp)=>{
+        this.slides = resp;
+        this.listSlides = this.slides;
       }
-    })
+    )
   }
 
   deleteSlide(id: string) {
@@ -34,7 +34,7 @@ export class ListSlidesComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.slideService.deleteSlide(id).subscribe((resp) => {
+        this.slideService.deleteSlide(id).then((resp) => {
           Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
           this.ngOnInit();
         });
