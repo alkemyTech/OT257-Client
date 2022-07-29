@@ -9,15 +9,18 @@ import Swal from 'sweetalert2';
 })
 export class ListSlidesComponent implements OnInit {
   listSlides:any;
+  loading :boolean = true;
 
   constructor(private slideService: SlideFormService) { }
 
   ngOnInit(): void {
-
+    this.loading = true;
     this.slideService.getSlide().subscribe({
       next: (resp)=>{
         this.listSlides = resp.data;
+        this.loading = false;
       },error: (error)=>{
+        this.loading = false;
         alert(error);
       }
     })

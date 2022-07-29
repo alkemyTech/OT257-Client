@@ -49,7 +49,7 @@ const routes: Routes = [
     component: SlidesFormComponent
   },
   {
-    path: "backoffice/Slides",
+    path: "backoffice/slides",
     component: ListSlidesComponent
   },
   {

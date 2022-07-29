@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-skeleton',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skeleton.component.scss']
 })
 export class SkeletonComponent implements OnInit {
+@Input('count') showCount : number = 1;  
 
   constructor() { }
 

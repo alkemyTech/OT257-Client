@@ -10,10 +10,11 @@
       >
         Agregar slide
       </button>
+      
       <h5 style="margin-top: 30px" *ngIf="listSlides.length === 0">
         No hay datos para mostrar
       </h5>
-      <table *ngIf="listSlides" class="table table-striped mt-5">
+      <table *ngIf="listSlides && !loading" class="table table-striped mt-5">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -33,6 +34,8 @@
           </tr>
         </tbody>
       </table>
+      <app-skeleton [count]="10"></app-skeleton>
     </div>
   </div>
 </div>
+
