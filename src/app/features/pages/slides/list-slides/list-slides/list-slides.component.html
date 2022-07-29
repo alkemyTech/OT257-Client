@@ -6,7 +6,7 @@
       <span class="h3">Listado de Slides</span>
       <button
         class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
-        routerLink="backoffice/slider/create"
+        routerLink="/slider"
       >
         Agregar slide
       </button>
@@ -28,7 +28,7 @@
             <td> <img [src]="item.image | noimage" class="rounded-circle" alt="Foto" width="80" height="80"></td>
             <td>{{ item.order }}</td>
             <td>
-              <i [routerLink]="['/backoffice/slider/update/',item.id]" class="fas fa-edit fa-lg text-primary me-5"></i>
+              <i [routerLink]="['/slider/',item.id]" class="fas fa-edit fa-lg text-primary me-5"></i>
               <i (click)="deleteSlide(item.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
             </td>
           </tr>

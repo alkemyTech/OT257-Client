@@ -14,7 +14,6 @@ export class ListSlidesComponent implements OnInit {
   constructor(private slideService: SlideFormService) {}
 
   ngOnInit(): void {
-    this.loading = true;
     this.slideService.getSlide().subscribe((resp) => {
       this.listSlides = resp.data;
       this.loading = false;
