@@ -4,7 +4,6 @@ import { NewsFormComponent } from "./pages/backoffice/news/news-form/news-form.c
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { HomeComponent } from "./pages/home/page/home.component";
@@ -13,16 +12,26 @@ import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-ho
 import { AboutComponent } from "./pages/about/page/about.component";
 import { DashboardComponent } from "./pages/backoffice/dashboard/dashboard.component";
 import { ContactFormComponent } from "./pages/contact/contact-form/contact-form.component";
+import { ActivitiesViewComponent } from "./pages/activities/activities-view/activities-view.component";
 import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";
 import { UsersListComponent } from "./pages/backoffice/users-list/users-list.component";
 import { NewsComponent } from "./pages/backoffice/news/news/news.component";
 import { MembersComponent } from "./pages/backoffice/members/members/members.component";
 import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
+import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 
 const routes: Routes = [
-  {
-    path: "actividades",
-    component: ActivityFormComponent,
+ { 
+    path: "actividades", 
+    component: ActivitiesViewComponent 
+  },
+ { 
+    path: "form/actividades", 
+    component: ActivityFormComponent 
+  },
+  { 
+    path: "form/actividades/:id", 
+    component: ActivityFormComponent 
   },
   {
     path: "backoffice/activities",
@@ -37,19 +46,15 @@ const routes: Routes = [
     component: ActivityFormComponent,
   },
   {
-    path: "activities/:id",
-    component: ActivityFormComponent,
-  },
-  {
-    path: "slider",
+    path: "backoffice/slider/create",
     component: SlidesFormComponent,
   },
   {
-    path: "slider/:id",
+    path: "backoffice/slider/update/:id",
     component: SlidesFormComponent
   },
   {
-    path: "backoffice/slides",
+    path: "backoffice/slider",
     component: ListSlidesComponent
   },
   {
@@ -101,10 +106,6 @@ const routes: Routes = [
   {
     path: "backoffice/organization",
     component: OrgViewComponent,
-  },
-  {
-    path: "backoffice/organization/edit/:id",
-    component: EditFormComponent,
   },
   {
     path: "backoffice/organization/edit/:id",

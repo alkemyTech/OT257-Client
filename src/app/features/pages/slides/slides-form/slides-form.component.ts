@@ -17,6 +17,7 @@ export class SlidesFormComponent implements OnInit {
   error: boolean = false;
   orderError: boolean = false;
   messageError: string = "";
+  slideObject:any;
   listSlide: any;
   viewImageMin: any;
   slide: any;
@@ -53,14 +54,13 @@ export class SlidesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.slideService.getSlide().subscribe({
-      next: (data) => {
-        this.listSlide = data.data;
-      },
-      error: (error) => {
-        alert("Error al traer los datos");
-      },
-    });
+    this.slideService.getSlide().subscribe(
+      data => {
+        this.slideObject = data;
+        this.listSlide = this.slideObject.data;
+        console.log(this.listSlide);
+      }
+    );
 
     this.modifiedSlide();
   }
@@ -69,8 +69,8 @@ export class SlidesFormComponent implements OnInit {
     this.orderError = false;
     if (this.form.get("order")?.valid) {
       if (
-        !this.modified ||
-        (this.modified && this.form.get("order")?.value != this.slide.order)
+        !this.modified && this.form.get("order")?.value != 0 ||
+        (this.modified && this.form.get("order")?.value != 0 && this.form.get("order")?.value != this.slide.order )
       ) {
         for (let i = 0; i < this.listSlide.length; i++) {
           if (this.listSlide[i].order == this.form.get("order")?.value) {
@@ -110,28 +110,21 @@ export class SlidesFormComponent implements OnInit {
       if (this.form.valid) {
         this.slideService
           .updateSlide(this.form.value, this.slide.id)
-          .subscribe({
-            next: (data) => {
-              alert("Usuario modificado con exito");
-              this.slide = data.data;
-            },
-            error: (err) => {
-              alert("Error: " + err);
-            },
-          });
+          .subscribe(
+            (data) => {
+              alert("slide modificado con exito");
+            }
+          );
       } else {
         this.form.markAllAsTouched();
       }
     } else {
       if (this.form.valid) {
-        this.slideService.saveSlide(this.form.value).subscribe({
-          next: (data) => {
+        this.slideService.saveSlide(this.form.value).subscribe(
+          (data) => {
             alert("Slide guardado con exito");
-          },
-          error: (error) => {
-            alert("Error: " + error);
-          },
-        });
+          }
+        );
       } else {
         this.form.markAllAsTouched();
       }
@@ -143,9 +136,10 @@ export class SlidesFormComponent implements OnInit {
       let id = idRoute["id"];
       if (id) {
         this.modified = true;
-        this.slideService.getOneSlide(id).subscribe({
-          next: (data) => {
-            this.slide = data.data;
+        this.slideService.getOneSlide(id).subscribe(
+          (data) => {
+            this.slideObject = data;
+            this.slide = this.slideObject.data;
             this.form.setValue({
               name: this.slide.name,
               description: this.slide.description,
@@ -153,11 +147,7 @@ export class SlidesFormComponent implements OnInit {
               image: this.slide.image,
             });
             this.viewImageMin = this.slide.image;
-          },
-          error: (error) => {
-            alert("Error: " + error);
-          },
-        });
+          });
       } else {
         this.modified = false;
       }

@@ -1,31 +1,36 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment.prod";
+import { PrivateApiServiceService } from '../services/private-api-service.service';
 
 @Injectable({
   providedIn: "root",
 })
-export class SlideFormService {
-  URL: string = "https://ongapi.alkemy.org/api/slides";
-  constructor(private httpClient: HttpClient) {}
-
-  saveSlide(form: any): Observable<any> {
-    return this.httpClient.post(this.URL, form);
+export class SlideFormService extends PrivateApiServiceService{
+  URL: string = environment.URLSLIDES;
+  
+  constructor(private httpClient: HttpClient) {
+    super(httpClient);
   }
 
-  getSlide(): Observable<any> {
-    return this.httpClient.get(this.URL);
+  saveSlide(form: any) {
+    return this.sendPostRequest(`${this.URL}`,form);
   }
 
-  getOneSlide(id:any):Observable<any>{
-    return this.httpClient.get(this.URL+"/"+id);
+  getSlide() {
+    return this.sendGetRequest(this.URL);
   }
 
-  updateSlide(slide:any, id:any):Observable<any>{
-    return this.httpClient.put(this.URL+"/"+id, slide);
+  getOneSlide(id:any){
+    return this.sendGetRequest(this.URL,id);
   }
 
-  deleteSlide(id:any):Observable<any>{
-    return this.httpClient.delete(`${this.URL}/slides/${id}`);
+  updateSlide(slide:any, id:any){
+    return this.sendPutRequest(this.URL,id, slide);
+  }
+
+  deleteSlide(id:any){
+    return this.sendDeleteRequest(`${this.URL}`,id);
   }
 }

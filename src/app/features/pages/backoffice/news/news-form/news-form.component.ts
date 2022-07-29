@@ -139,9 +139,9 @@ export class NewsFormComponent implements OnInit {
     }
 
     this.newsService.updateNew(this.idNew, this.form.value).subscribe((resp) => {
-   
-      resp.success?Swal.fire("Actualizacion", "Se actualizo Correctamente", "success"):Swal.fire("Error", "Error de conexion", "error");
-      
+
+      resp.success ? Swal.fire("Actualizacion", "Se actualizo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+
     });
   }
 
@@ -173,9 +173,9 @@ export class NewsFormComponent implements OnInit {
     }
 
     this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-     
-      resp.success?Swal.fire("Creación", "Se creo Correctamente", "success"):Swal.fire("Error", "Error de conexion", "error");
-      
+
+      resp.success ? Swal.fire("Creación", "Se creo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+
       this.router.navigate([`/backoffice/news/`]);
     });
   }

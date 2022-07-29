@@ -23,13 +23,14 @@ import { MembersFormComponent } from './pages/backoffice/members/members-form/me
 import { EditFormComponent } from './pages/organization/edit-form/edit-form.component';
 import { BackOfficeHomeComponent } from "./pages/back-office-home/back-office-home.component";
 import { DashboardComponent } from './pages/backoffice/dashboard/dashboard.component';
+import { ActivitiesViewComponent } from './pages/activities/activities-view/activities-view.component';
 import { ListActiviyComponent } from './pages/activities/list-activiy/list-activiy.component';
 import { UsersListComponent } from './pages/backoffice/users-list/users-list.component';
 import { NewsComponent } from './pages/backoffice/news/news/news.component';
 import { MembersComponent } from './pages/backoffice/members/members/members.component';
-import { ListSlidesComponent } from './pages/slides/list-slides/list-slides/list-slides.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutModule } from "./pages/about/about.module";
+import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
 
 @NgModule({
   declarations: [
@@ -47,12 +48,23 @@ import { AboutModule } from "./pages/about/about.module";
     MembersFormComponent,
     EditFormComponent,
     OrgViewComponent,
+    DashboardComponent,
+    ActivitiesViewComponent,
     BackOfficeHomeComponent,
     DashboardComponent,
     ListActiviyComponent,
     UsersListComponent,
     NewsComponent,
     MembersComponent,
+    ListSlidesComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    CategoriesFormComponent,
+    NewsFormComponent,
+    SlidesFormComponent,
+    TestimonialFormComponent,
+    UserFormComponent,
+    ContactFormComponent,
     ListSlidesComponent
   ],
   exports: [
@@ -64,8 +76,7 @@ import { AboutModule } from "./pages/about/about.module";
     TestimonialFormComponent,
     UserFormComponent,
     RouterModule,
-    ContactFormComponent,
-
+    ContactFormComponent
   ],
   imports: [
     CommonModule,
@@ -82,8 +93,7 @@ import { AboutModule } from "./pages/about/about.module";
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
-    MatProgressSpinnerModule,
-
+    MatProgressSpinnerModule
   ],
 })
 export class FeaturesModule { }

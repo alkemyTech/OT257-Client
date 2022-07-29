@@ -12,17 +12,17 @@ import Swal from "sweetalert2";
 
 export class PrivateApiServiceService {
 
-    toast = Swal.mixin({
-        toast: true,
-        showConfirmButton: false,
-        timer: 1500,
-        timerProgressBar: true,
-        position: "bottom-end",
-        didOpen: (toast) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
-        },
-      });
+  toast = Swal.mixin({
+    toast: true,
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    position: "bottom-end",
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
 
 
 
@@ -32,7 +32,7 @@ export class PrivateApiServiceService {
     }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * Send a POST request
@@ -44,7 +44,7 @@ export class PrivateApiServiceService {
 
 
 
-   public sendPostRequest(url: string, data: any): Observable<any> {
+  public sendPostRequest(url: string, data: any): Observable<any> {
     return this.http.post(url, data, this.httpHeaders).pipe(
       map((res: any) => {
         return res;
@@ -61,7 +61,7 @@ export class PrivateApiServiceService {
 
   /** Send a GET request*/
   public sendGetRequest(url: string, id?: any): Observable<any> {
-    return this.http.get(url + `${id ? "/"+id : ""}`, this.httpHeaders).pipe(
+    return this.http.get(url + `${id ? "/" + id : ""}`, this.httpHeaders).pipe(
       map((res: any) => {
         return res;
       }),
@@ -82,11 +82,11 @@ export class PrivateApiServiceService {
    * @param data 
    * @returns {Promise<Object>}
    */
-  
 
-   /** Send a GET request*/
-   public sendPutRequest(url: string, id?: any, data?: any): Observable<any> {
-    return this.http.put(`${url}/${id}`,data,  this.httpHeaders).pipe(
+
+  /** Send a GET request*/
+  public sendPutRequest(url: string, id?: any, data?: any): Observable<any> {
+    return this.http.put(`${url}/${id}`, data, this.httpHeaders).pipe(
       map((res: any) => {
         return res;
       }),
@@ -99,24 +99,24 @@ export class PrivateApiServiceService {
     );
   }
 
-   /**
-   * send delete request
-   *
-   * @param url
-   * @param id
-   */
-    public sendDeleteRequest(url: string, id?: any): Observable<any> {
-        return this.http.delete(`${url}/${id}`,  this.httpHeaders).pipe(
-          map((res: any) => {
-           
-            return res;
-          }),
-          catchError((err: Error) => {
-            return this.toast.fire({
-              icon: "error",
-              title: `Error de conexión ${err.name}`,
-            });
-          })
-        );
-      }
+  /**
+  * send delete request
+  *
+  * @param url
+  * @param id
+  */
+  public sendDeleteRequest(url: string, id?: any): Observable<any> {
+    return this.http.delete(`${url}/${id}`, this.httpHeaders).pipe(
+      map((res: any) => {
+
+        return res;
+      }),
+      catchError((err: Error) => {
+        return this.toast.fire({
+          icon: "error",
+          title: `Error de conexión ${err.name}`,
+        });
+      })
+    );
+  }
 }

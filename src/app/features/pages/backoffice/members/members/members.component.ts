@@ -11,7 +11,7 @@ export class MembersComponent implements OnInit {
   members!: any;
   spinner!:boolean;
 
-  constructor(private memberService: MembersService) {}
+  constructor(private memberService: MembersService) { }
 
   ngOnInit(): void {
     this.spinner=true;

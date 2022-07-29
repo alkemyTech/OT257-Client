@@ -1,29 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { SlideFormService } from 'src/app/core/services/slide-form.service';
-import Swal from 'sweetalert2';
+import { Component, OnInit } from "@angular/core";
+import { SlideFormService } from "src/app/core/services/slide-form.service";
+import Swal from "sweetalert2";
 
 @Component({
-  selector: 'app-list-slides',
-  templateUrl: './list-slides.component.html',
-  styleUrls: ['./list-slides.component.scss']
+  selector: "app-list-slides",
+  templateUrl: "./list-slides.component.html",
+  styleUrls: ["./list-slides.component.scss"],
 })
 export class ListSlidesComponent implements OnInit {
-  listSlides:any;
-  loading :boolean = true;
+  listSlides: any;
+  loading: boolean = true;
 
-  constructor(private slideService: SlideFormService) { }
+  constructor(private slideService: SlideFormService) {}
 
   ngOnInit(): void {
     this.loading = true;
-    this.slideService.getSlide().subscribe({
-      next: (resp)=>{
-        this.listSlides = resp.data;
-        this.loading = false;
-      },error: (error)=>{
-        this.loading = false;
-        alert(error);
-      }
-    })
+    this.slideService.getSlide().subscribe((resp) => {
+      this.listSlides = resp.data;
+      this.loading = false;
+    });
   }
 
   deleteSlide(id: string) {
@@ -44,5 +39,4 @@ export class ListSlidesComponent implements OnInit {
       }
     });
   }
-
 }
