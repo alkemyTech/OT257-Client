@@ -46,15 +46,15 @@ const routes: Routes = [
     component: ActivityFormComponent,
   },
   {
-    path: "slider",
+    path: "backoffice/slider/create",
     component: SlidesFormComponent,
   },
   {
-    path: "slider/:id",
+    path: "backoffice/slider/update/:id",
     component: SlidesFormComponent
   },
   {
-    path: "backoffice/slides",
+    path: "backoffice/slider",
     component: ListSlidesComponent
   },
   {
