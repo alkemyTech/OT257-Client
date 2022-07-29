@@ -17,11 +17,11 @@ export class UsersListComponent implements OnInit {
   }
 
   getUsers() {
-    this.usersService.getUsersFromApi().subscribe({
+    /* this.usersService.getUsersFromApi().subscribe({
       next: (response: any) => {
         this.users = response.data
       }
-    })
+    }) */
   }
 
 }
