@@ -6,6 +6,7 @@ import { NavbarComponent } from "./components/backoffice/navbar/navbar.component
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
+import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RouterModule } from "@angular/router";
     NavbarComponent,
     NoimagePipe,
     CardComponent,
+    LazyLoadComponent,
   ],
   exports: [
     TituloComponent,
@@ -21,6 +23,7 @@ import { RouterModule } from "@angular/router";
     NavbarComponent,
     NoimagePipe,
     CardComponent,
+    LazyLoadComponent
   ],
   imports: [CommonModule, RouterModule],
 })

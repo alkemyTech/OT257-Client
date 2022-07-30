@@ -1,7 +1,7 @@
 <div class="card card-cascade d-flex align-items-center narrower mt-3 shadow">
     <div class="view view-cascade overflow-hidden shadow">
         <img *ngIf="!image" src="http://via.placeholder.com/300" alt="">
-        <img *ngIf="image" class="" src="{{image}}" alt="Card image cap">
+        <app-lazy-load [image]="image" *ngIf="image" [descriptionImage]="title"></app-lazy-load>
     </div>
     <div class="w-100 card-body card-body-cascade">
         <h4 class="font-weight-bold card-title text-truncate">{{title}}</h4>
