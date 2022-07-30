@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Testimonial } from '../../models/testimonial.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestimonialService {
-  private url = "https://ongapi.alkemy.org/api";
+  private url = environment.urlTestimonials;
 
 
   constructor(private http: HttpClient) { }
