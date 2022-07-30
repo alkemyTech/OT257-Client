@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Skeleton implementations
+
+> NGX-SKELETON-LOADER library 
+use this library.
+
+Install with npm install ngx-skeleton-loader --save.
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader'; in module where will use.
+use component <ngx-skeleton-loader></ngx-skeleton-loader>
+
+for more information go to (https://github.com/willmendesneto/ngx-skeleton-loader)

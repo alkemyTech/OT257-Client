@@ -6,14 +6,13 @@
       <span class="h3">Listado de Slides</span>
       <button
         class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
-        routerLink="backoffice/slider/create"
+        routerLink="/backoffice/slider/create"
       >
         Agregar slide
       </button>
-      <h5 style="margin-top: 30px" *ngIf="listSlides.length === 0">
-        No hay datos para mostrar
-      </h5>
-      <table *ngIf="listSlides" class="table table-striped mt-5">
+
+      <h5 style="margin-top: 30px" *ngIf="noData">No hay datos para mostrar</h5>
+      <table class="table table-striped mt-5">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -24,15 +23,30 @@
         <tbody>
           <tr *ngFor="let item of listSlides">
             <td>{{ item.name }}</td>
-            <td> <img [src]="item.image | noimage" class="rounded-circle" alt="Foto" width="80" height="80"></td>
+            <td>
+              <img
+                [src]="item.image | noimage"
+                class="rounded-circle"
+                alt="Foto"
+                width="80"
+                height="80"
+              />
+            </td>
             <td>{{ item.order }}</td>
             <td>
-              <i [routerLink]="['/backoffice/slider/update/',item.id]" class="fas fa-edit fa-lg text-primary me-5"></i>
-              <i (click)="deleteSlide(item.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+              <i
+                [routerLink]="['/backoffice/slider/update/', item.id]"
+                class="fas fa-edit fa-lg text-primary me-5"
+              ></i>
+              <i
+                (click)="deleteSlide(item.id)"
+                class="fas fa-trash-alt fa-lg text-danger"
+              ></i>
             </td>
           </tr>
         </tbody>
       </table>
+      <app-skeleton [count]="20" *ngIf="loading"></app-skeleton>
     </div>
   </div>
 </div>
