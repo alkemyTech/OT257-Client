@@ -13,15 +13,18 @@ import { RouterModule } from "@angular/router";
     CarouselComponent,
     NavbarComponent,
     NoimagePipe,
-    CardComponent,
+    CardComponent
   ],
   exports: [
     TituloComponent,
     CarouselComponent,
     NavbarComponent,
     NoimagePipe,
-    CardComponent,
+    CardComponent
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
 })
 export class SharedModule {}
