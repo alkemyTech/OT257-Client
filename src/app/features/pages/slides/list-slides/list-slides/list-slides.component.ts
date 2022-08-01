@@ -40,10 +40,10 @@ export class ListSlidesComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.slideService.deleteSlide(id).subscribe((resp) => {
-          Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
-          this.ngOnInit();
-        });
+        // this.slideService.deleteSlide(id).subscribe((resp) => {
+        //   Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
+        //   this.ngOnInit();
+        // });
       }
     });
   }
