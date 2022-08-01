@@ -7,6 +7,10 @@ import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
 import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.component';
+import { SkeletonComponent } from "./components/layout/skeleton/skeleton/skeleton.component";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { ProgressBarComponent } from "./components/layout/progress-bar/progress-bar.component";
 
 @NgModule({
   declarations: [
@@ -16,6 +20,8 @@ import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.compo
     NoimagePipe,
     CardComponent,
     LazyLoadComponent,
+    SkeletonComponent,
+    ProgressBarComponent,
   ],
   exports: [
     TituloComponent,
@@ -23,8 +29,16 @@ import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.compo
     NavbarComponent,
     NoimagePipe,
     CardComponent,
-    LazyLoadComponent
+    LazyLoadComponent,
+    SkeletonComponent,
+    NgxSkeletonLoaderModule,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgxSkeletonLoaderModule,
+    ProgressBarComponent,
+    MatProgressBarModule,
+  ],
 })
 export class SharedModule {}
