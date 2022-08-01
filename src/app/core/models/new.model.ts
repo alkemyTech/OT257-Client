@@ -10,5 +10,6 @@ export interface NewModel{
 }
 
 export interface NewsState {
-        news:ReadonlyArray<NewModel>
+        success: boolean;
+        data:ReadonlyArray<NewModel>
 }

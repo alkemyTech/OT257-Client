@@ -8,11 +8,11 @@ import { newsReducer } from "./reducers/news.reducers";
 
 export interface AppState {
     auth: AuthState;
-    news: NewsState;
+    data: NewsState;
 }
 
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
     auth: authReducer,
-    news: newsReducer
+    data: newsReducer
 }

@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { NewModel } from "../../models/new.model";
 import { PrivateApiServiceService } from "../private-api-service.service";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",

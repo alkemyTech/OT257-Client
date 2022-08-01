@@ -1,12 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { NewsService } from "../../../../../core/services/news/news.service";
-
 import Swal from "sweetalert2";
-import { Store } from '@ngrx/store';
-import { loadedNews } from '../../../../../state/actions/news.actions';
+import { Store } from "@ngrx/store";
+import {
+  loadedNews,
+  loadNews,
+} from "../../../../../state/actions/news.actions";
 import { NewModel } from "src/app/core/models/new.model";
-import { Observable } from 'rxjs';
-import { selectListNew } from '../../../../../state/selectors/news.selectors';
+import { Observable } from "rxjs";
+import {
+  selectListNew,
+  selectLoading,
+} from "../../../../../state/selectors/news.selectors";
+import { catchError, map } from "rxjs/operators";
 
 @Component({
   selector: "app-news",
@@ -14,30 +20,28 @@ import { selectListNew } from '../../../../../state/selectors/news.selectors';
   styleUrls: ["./news.component.scss"],
 })
 export class NewsComponent implements OnInit {
-  news!: any;
-  spinner!:boolean;
+  spinner!: boolean;
+  showDialog: boolean = false;
 
-  news_$:Observable<any> = new Observable();
+  news_$: Observable<any> = new Observable();
+  loading_$: Observable<any> = new Observable();
 
-  constructor(
-    private newService: NewsService,
-    private store:Store<any>
-    ) {}
+  constructor(private newService: NewsService, private store: Store<any>) {}
 
   ngOnInit(): void {
+    this.spinner = true;
+    
+    this.newService.getNews().pipe(
+      catchError((err: Error) => {
+        this.showDialog = true;
+        return err.name;
+      })
+    );
+    this.store.dispatch(loadNews());
+    this.news_$ = this.store.select(selectListNew);
+    this.loading_$ = this.store.select(selectLoading);
 
-    this.news_$=this.store.select(selectListNew);
-
-
-  console.log('____',this.news_$);
-    this.spinner=true;
-    this.newService.getNews()
-        .subscribe((resp: any)=>{
-          this.news = resp.data;
-          setInterval(()=>this.spinner=false , 1000);
-          
-        })
-
+    setInterval(() => (this.spinner = false), 1000);
   }
 
   deleteNew(id: string) {
@@ -49,18 +53,19 @@ export class NewsComponent implements OnInit {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, borrarlo!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-
-        
-        this.newService.deleteNew(id).subscribe((resp) => {
-          resp.success?Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success"):Swal.fire("Error", "Error de conexion", "error");
-          
-          this.ngOnInit();
-        });
-
-        
-      }
-    });
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.newService.deleteNew(id).subscribe((resp) => {
+            //resp.success?Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success"):this.showDialog=true;
+            Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
+            this.ngOnInit();
+          });
+        }
+      })
+      .catch(() => {
+        console.log("error");
+        this.showDialog = true;
+      });
   }
 }
