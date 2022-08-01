@@ -6,8 +6,12 @@ import { NavbarComponent } from "./components/backoffice/navbar/navbar.component
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
-import { ProgressBarComponent } from './components/layout/progress-bar/progress-bar.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.component';
+import { SkeletonComponent } from "./components/layout/skeleton/skeleton/skeleton.component";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { ProgressBarComponent } from "./components/layout/progress-bar/progress-bar.component";
+
 @NgModule({
   declarations: [
     TituloComponent,
@@ -15,6 +19,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     NavbarComponent,
     NoimagePipe,
     CardComponent,
+    LazyLoadComponent,
+    SkeletonComponent,
     ProgressBarComponent,
   ],
   exports: [
@@ -23,8 +29,16 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     NavbarComponent,
     NoimagePipe,
     CardComponent,
-    ProgressBarComponent,
+    LazyLoadComponent,
+    SkeletonComponent,
+    NgxSkeletonLoaderModule,
   ],
-  imports: [CommonModule, RouterModule, MatProgressBarModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgxSkeletonLoaderModule,
+    ProgressBarComponent,
+    MatProgressBarModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
