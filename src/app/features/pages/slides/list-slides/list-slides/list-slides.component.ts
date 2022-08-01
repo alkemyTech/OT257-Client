@@ -1,26 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { SlideFormService } from 'src/app/core/services/slide-form.service';
-import Swal from 'sweetalert2';
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { Slides } from "src/app/core/models/slides.model";
+import { SlideFormService } from "src/app/core/services/slide-form.service";
+import { loadedSliders, loadSliders } from "src/app/state/actions/slider.actions";
+import { AppState } from "src/app/state/app.state";
+import { selectSlideList, selectSlideLoading } from "src/app/state/selectors/slider.selectors";
+import Swal from "sweetalert2";
 
 @Component({
-  selector: 'app-list-slides',
-  templateUrl: './list-slides.component.html',
-  styleUrls: ['./list-slides.component.scss']
+  selector: "app-list-slides",
+  templateUrl: "./list-slides.component.html",
+  styleUrls: ["./list-slides.component.scss"],
 })
 export class ListSlidesComponent implements OnInit {
-  slides:any;
-  listSlides :any;
-  
-  constructor(private slideService: SlideFormService) { }
+  listSlides$: Observable<any> = new Observable;
+  loading$: Observable<boolean> = new Observable();
+
+  constructor(
+    private slideService: SlideFormService,
+    private store: Store<AppState>,
+  ) {}
 
   ngOnInit(): void {
+    this.loading$ = this.store.select(selectSlideLoading);
+    this.store.dispatch(loadSliders());
+    this.listSlides$ = this.store.select(selectSlideList);
 
-    this.slideService.getSlide().subscribe(
-      (resp)=>{
-        this.slides = resp;
-        this.listSlides = this.slides;
-      }
-    )
   }
 
   deleteSlide(id: string) {
@@ -41,5 +47,4 @@ export class ListSlidesComponent implements OnInit {
       }
     });
   }
-
 }
