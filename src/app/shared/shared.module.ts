@@ -6,9 +6,17 @@ import { NavbarComponent } from "./components/backoffice/navbar/navbar.component
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
-import { DialogComponent } from './components/layout/dialog/dialog.component';
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { LoudingComponent } from './components/layout/louding/louding.component';
+import { SkeletonComponent } from "./components/layout/skeleton/skeleton/skeleton.component";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { ProgressBarComponent } from "./components/layout/progress-bar/progress-bar.component";
+import {  MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,8 +25,11 @@ import { LoudingComponent } from './components/layout/louding/louding.component'
     NavbarComponent,
     NoimagePipe,
     CardComponent,
-    DialogComponent,
     LoudingComponent,
+    SkeletonComponent,
+    ProgressBarComponent,
+    LoudingComponent
+
   ],
   exports: [
     TituloComponent,
@@ -26,13 +37,22 @@ import { LoudingComponent } from './components/layout/louding/louding.component'
     NavbarComponent,
     NoimagePipe,
     CardComponent,
-    DialogComponent,
     LoudingComponent,
+    SkeletonComponent,
+    NgxSkeletonLoaderModule,
+    ProgressBarComponent,
+    LoudingComponent
   ],
-  imports: [CommonModule,
-     RouterModule,
-     MatProgressSpinnerModule
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgxSkeletonLoaderModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
 
-    ],
+   
+  ],
+
 })
+
 export class SharedModule {}

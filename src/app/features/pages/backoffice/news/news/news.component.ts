@@ -13,6 +13,8 @@ import {
   selectLoading,
 } from "../../../../../state/selectors/news.selectors";
 import { catchError, map } from "rxjs/operators";
+import { alertConfirm } from "src/app/shared/components/layouts/alerts/alerts";
+
 
 @Component({
   selector: "app-news",
@@ -30,7 +32,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner = true;
-    
+
     this.newService.getNews().pipe(
       catchError((err: Error) => {
         this.showDialog = true;
@@ -45,27 +47,25 @@ export class NewsComponent implements OnInit {
   }
 
   deleteNew(id: string) {
-    Swal.fire({
-      title: "Esta seguro de borrar?",
-      text: "Esta accion no tiene revercion!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si, borrarlo!",
-    })
+    alertConfirm
+      .fire({
+        title: "Esta seguro de borrar?",
+        text: "Esta accion no tiene revercion!",
+        icon: "warning",
+  
+      })
       .then((result) => {
         if (result.isConfirmed) {
           this.newService.deleteNew(id).subscribe((resp) => {
-            //resp.success?Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success"):this.showDialog=true;
-            Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
+            alertConfirm.fire({
+              title: "Borrado!",
+              text: `Registro ${id} ha sido borrado`,
+              icon: "success",
+              showCancelButton: true,
+            });
             this.ngOnInit();
           });
         }
-      })
-      .catch(() => {
-        console.log("error");
-        this.showDialog = true;
       });
   }
 }
