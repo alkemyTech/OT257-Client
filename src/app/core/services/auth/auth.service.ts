@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { UserRegister, UserLogin } from "../../models/auth.model";
 import { Router } from "@angular/router";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 @Injectable({
   providedIn: "root",
@@ -17,10 +17,10 @@ export class AuthService implements OnInit {
     showConfirmButton: false,
     timer: 1500,
     timerProgressBar: true,
-    position: 'bottom-end',
+    position: "bottom-end",
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer);
-      toast.addEventListener('mouseleave', Swal.resumeTimer);
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
 
@@ -41,17 +41,19 @@ export class AuthService implements OnInit {
       })
       .pipe(
         map((res: any) => {
-          this.toast.fire({
-            icon: 'success',
-            title: 'Inicio de sesión exitoso',
-          });
-          return res;
+          if (res.data.token) {
+            this.toast.fire({
+              icon: "success",
+              title: "Inicio de sesión exitoso",
+            });
+            return res;
+          }
         }),
         catchError(() => {
           return this.toast.fire({
-            icon: 'error',
-            title: 'Inicio de sesión incorrecto',
-          })
+            icon: "error",
+            title: "Inicio de sesión incorrecto",
+          });
         })
       );
   }
@@ -59,13 +61,13 @@ export class AuthService implements OnInit {
   saveToken(token: string): void {
     localStorage.setItem("token", token);
   }
-  
+
   logout(): void {
     localStorage.removeItem("token");
     this.loggedIn.next(false);
     this.router.navigate(["/iniciar-sesion"]);
   }
-  
+
   checkToken() {
     const userToken = localStorage.getItem("token");
     userToken ? this.loggedIn.next(true) : this.logout();
@@ -83,16 +85,16 @@ export class AuthService implements OnInit {
       .pipe(
         map((res: UserRegister) => {
           this.toast.fire({
-            icon: 'success',
-            title: 'Registro exitoso',
+            icon: "success",
+            title: "Registro exitoso",
           });
           return res;
         }),
         catchError(() => {
           return this.toast.fire({
-            icon: 'error',
-            title: 'Registro fallido',
-          })
+            icon: "error",
+            title: "Registro fallido",
+          });
         })
       );
   }
