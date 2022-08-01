@@ -6,25 +6,25 @@ import { NavbarComponent } from "./components/backoffice/navbar/navbar.component
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
-
+import { ProgressBarComponent } from './components/layout/progress-bar/progress-bar.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     TituloComponent,
     CarouselComponent,
     NavbarComponent,
     NoimagePipe,
-    CardComponent
+    CardComponent,
+    ProgressBarComponent,
   ],
   exports: [
     TituloComponent,
     CarouselComponent,
     NavbarComponent,
     NoimagePipe,
-    CardComponent
+    CardComponent,
+    ProgressBarComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
+  imports: [CommonModule, RouterModule, MatProgressBarModule],
 })
-export class SharedModule {}
+export class SharedModule { }
