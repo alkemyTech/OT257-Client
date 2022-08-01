@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/core/services/users/users.service';
 export class UsersEffects {
 
     loadUsers$ = createEffect(() => this.actions$.pipe(
-        ofType('[Users List] Add User'),
+        ofType('[Users List] Load Users'),
         mergeMap(() => this.usersService.getUsers()
             .pipe(
                 map(users => ({ type: '[Users List/Api] Retrieved Users List Successfully', payload: users })),
