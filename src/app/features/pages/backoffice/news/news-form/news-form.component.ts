@@ -14,6 +14,7 @@ import { NewsService } from "src/app/core/services/news/news.service";
 import { HelpersService } from "src/app/core/services/helpers.service";
 
 import Swal from "sweetalert2";
+import { alertConfirm } from "src/app/shared/components/layouts/alerts/alerts";
 
 @Component({
   selector: "app-news-form",
@@ -173,8 +174,12 @@ export class NewsFormComponent implements OnInit {
     }
 
     this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-
-      resp.success ? Swal.fire("Creación", "Se creo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+       alertConfirm.fire({
+        title: "Creación!",
+        text: `Se creo Correctamente`,
+        icon: "success",
+        showCancelButton: false,
+      });
 
       this.router.navigate([`/backoffice/news/`]);
     });

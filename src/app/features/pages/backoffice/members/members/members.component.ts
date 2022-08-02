@@ -40,6 +40,7 @@ export class MembersComponent implements OnInit {
             title: "Borrado!",
             text: `Registro ${id} ha sido borrado`,
             icon: "success",
+            showCancelButton: false,
           });
           this.ngOnInit();
         });

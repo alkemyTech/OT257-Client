@@ -35,7 +35,6 @@ export class NewsComponent implements OnInit {
 
     this.newService.getNews().pipe(
       catchError((err: Error) => {
-        this.showDialog = true;
         return err.name;
       })
     );
@@ -61,7 +60,7 @@ export class NewsComponent implements OnInit {
               title: "Borrado!",
               text: `Registro ${id} ha sido borrado`,
               icon: "success",
-              showCancelButton: true,
+              showCancelButton: false,
             });
             this.ngOnInit();
           });

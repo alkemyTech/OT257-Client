@@ -5,6 +5,7 @@ import { catchError, map } from "rxjs/operators";
 import { Observable } from "rxjs";
 
 import Swal from "sweetalert2";
+import { toastError } from "src/app/shared/components/layouts/alerts/alerts";
 
 @Injectable({
   providedIn: "root",
@@ -50,8 +51,7 @@ export class PrivateApiServiceService {
         return res;
       }),
       catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
+        return toastError.fire({
           title: `Error de conexión ${err.name}`,
         });
       })
@@ -66,8 +66,7 @@ export class PrivateApiServiceService {
         return res;
       }),
       catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
+        return toastError.fire({
           title: `Error de conexión ${err.name}`,
         });
       })
@@ -91,8 +90,7 @@ export class PrivateApiServiceService {
         return res;
       }),
       catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
+        return toastError.fire({
           title: `Error de conexión ${err.name}`,
         });
       })
@@ -112,8 +110,7 @@ export class PrivateApiServiceService {
         return res;
       }),
       catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
+        return toastError.fire({
           title: `Error de conexión ${err.name}`,
         });
       })
