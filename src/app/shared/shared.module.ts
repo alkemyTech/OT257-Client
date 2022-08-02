@@ -5,7 +5,7 @@ import { CarouselComponent } from "./components/carousel/carousel.component";
 import { NavbarComponent } from "./components/backoffice/navbar/navbar.component";
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
-import { RouterModule } from "@angular/router";
+import { RouterModule } from "@angular/router";atProgressBarModule } from '@angular/material/progress-bar';
 import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.component';
 import { SkeletonComponent } from "./components/layout/skeleton/skeleton/skeleton.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
