@@ -1,6 +1,5 @@
 import { ActionReducerMap } from "@ngrx/store";
 import { AuthState } from "../core/models/auth.model";
-import { User } from "../core/models/user.model";
 import { UsersState } from "../core/models/users.state";
 import { authReducer } from "./reducers/auth.reducer";
 import { usersReducer } from "./reducers/users.reducer";
