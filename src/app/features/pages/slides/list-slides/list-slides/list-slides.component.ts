@@ -29,7 +29,7 @@ export class ListSlidesComponent implements OnInit {
 
   }
 
-  deleteSlide(id: string) {
+  deleteSlide(id: number) {
     Swal.fire({
       title: "Esta seguro de borrar?",
       text: "Esta accion no tiene revercion!",
@@ -40,6 +40,7 @@ export class ListSlidesComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
+        // this.store.dispatch(deleteSlider({ id }))
         // this.slideService.deleteSlide(id).subscribe((resp) => {
         //   Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
         //   this.ngOnInit();

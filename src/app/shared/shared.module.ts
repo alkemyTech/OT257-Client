@@ -37,7 +37,6 @@ import { ProgressBarComponent } from "./components/layout/progress-bar/progress-
     CommonModule,
     RouterModule,
     NgxSkeletonLoaderModule,
-    ProgressBarComponent,
     MatProgressBarModule,
   ],
 })

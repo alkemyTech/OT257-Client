@@ -12,7 +12,15 @@ export class SliderEffect{
     loadSliders$ = createEffect(() => this.actions$.pipe(
         ofType(SliderActionTypes.LOAD_SLIDERS),
         mergeMap(()=>this.sliderService.getSlide().pipe(
-            map(sliders => ({type: SliderActionTypes.LOADED_SLIDERS, sliders: sliders.data})),
+            map(sliders => ({type: SliderActionTypes.LOADED_SLIDERS, sliders: sliders.data, loading:true })),
+            catchError(()=> EMPTY)
+        ))
+    ));
+
+    deleteSliders$ = createEffect(() => this.actions$.pipe(
+        ofType(SliderActionTypes.DELETE_SLIDER),
+        mergeMap((id)=>this.sliderService.deleteSlide(id).pipe(
+            map(() => ({type: SliderActionTypes.DELETED_SLIDER_SUCCESS, id })),
             catchError(()=> EMPTY)
         ))
     ));
@@ -22,13 +30,4 @@ export class SliderEffect{
 
     }
 
-    // deleteSlider$ = createEffect(()=> this.actions$.pipe(
-    //     ofType(SliderActionTypes.DELETE_SLIDER),
-    //     mergeMap((id)=> this.sliderService.deleteSlide(id).pipe(
-    //         map((res: any)=> {
-    //             console.log(res);
-    //         }),
-    //         catchError(() EMPTY.pipe(map((err: Error)=> {console.Console(err)}))
-    //     ))
-    // ));
 }

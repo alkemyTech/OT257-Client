@@ -5,7 +5,9 @@ export enum SliderActionTypes{
   LOAD_SLIDERS = "[slides] load sliders",
   LOADED_SLIDERS = "[slides] get sliders",
   DELETE_SLIDER = "[slides] delete slider",
-  DELETED_SLIDER = "[slide] deleted slider"
+  DELETE_SLIDER_FAILURE = "[slide] delete failure",
+  DELETED_SLIDER_SUCCESS = "[slide] deleted slider"
+
 }
 
 export const loadSliders = createAction(
@@ -16,11 +18,3 @@ export const loadedSliders = createAction(
   props<{ sliders: Slides[] }>()
 );
 
-export const deleteSlider = createAction(
-  SliderActionTypes.DELETE_SLIDER,
-  props<{id:number}>);
-
-export const deletedSlider = createAction(
-  SliderActionTypes.DELETED_SLIDER,
-
-)

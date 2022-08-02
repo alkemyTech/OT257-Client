@@ -47,7 +47,7 @@
           </tr>
         </tbody>
       </table>
-      <app-skeleton [count]="20" *ngIf="loading"></app-skeleton>
+      <app-skeleton [count]="20" *ngIf="loading$ | async"></app-skeleton>
     </div>
   </div>
 </div>

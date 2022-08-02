@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { Slides, SlideState } from "../../core/models/slides.model";
-import { loadSliders,loadedSliders, deleteSlider } from "../actions/slider.actions";
+import { loadSliders,loadedSliders } from "../actions/slider.actions";
 
 export const initialState: SlideState = {
   loading: false,
@@ -15,7 +15,4 @@ export const sliderReducer = createReducer(
   on(loadedSliders, (state, {sliders}) => {
     return { ...state, loading: false, sliders };
   }),
-  on(deleteSlider, (state) => {
-    return { ...state, loading: true}
-  })
 );

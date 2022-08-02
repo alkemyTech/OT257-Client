@@ -30,7 +30,7 @@ export class SlideFormService extends PrivateApiServiceService{
     return this.sendPutRequest(this.URL,id, slide);
   }
 
-  deleteSlide(id:any){
+  deleteSlide(id:number){
     return this.sendDeleteRequest(`${this.URL}`,id);
   }
 }
