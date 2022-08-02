@@ -14,7 +14,7 @@ import { NewsService } from "src/app/core/services/news/news.service";
 import { HelpersService } from "src/app/core/services/helpers.service";
 
 import Swal from "sweetalert2";
-import { alertConfirm } from "src/app/shared/components/layouts/alerts/alerts";
+import * as alerts from "src/app/shared/components/layouts/alerts/alerts";
 
 @Component({
   selector: "app-news-form",
@@ -139,11 +139,14 @@ export class NewsFormComponent implements OnInit {
       this.form.controls["image"].setErrors({ imageNoValido: true });
     }
 
-    this.newsService.updateNew(this.idNew, this.form.value).subscribe((resp) => {
-
-      resp.success ? Swal.fire("Actualizacion", "Se actualizo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
-
-    });
+    this.newsService
+      .updateNew(this.idNew, this.form.value)
+      .subscribe((resp) => {
+        alerts.toastSuccess.fire({
+          text: `Se actualizo correctamente`,
+          icon: "success",
+        });
+      });
   }
 
   createNew() {
@@ -174,11 +177,9 @@ export class NewsFormComponent implements OnInit {
     }
 
     this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-       alertConfirm.fire({
-        title: "Creación!",
+      alerts.toastSuccess.fire({
         text: `Se creo Correctamente`,
         icon: "success",
-        showCancelButton: false,
       });
 
       this.router.navigate([`/backoffice/news/`]);

@@ -13,7 +13,7 @@ import {
   selectLoading,
 } from "../../../../../state/selectors/news.selectors";
 import { catchError, map } from "rxjs/operators";
-import { alertConfirm } from "src/app/shared/components/layouts/alerts/alerts";
+import * as alerts from "src/app/shared/components/layouts/alerts/alerts";
 
 
 @Component({
@@ -46,21 +46,18 @@ export class NewsComponent implements OnInit {
   }
 
   deleteNew(id: string) {
-    alertConfirm
+    alerts.alertConfirm
       .fire({
         title: "Esta seguro de borrar?",
-        text: "Esta accion no tiene revercion!",
         icon: "warning",
   
       })
       .then((result) => {
         if (result.isConfirmed) {
           this.newService.deleteNew(id).subscribe((resp) => {
-            alertConfirm.fire({
-              title: "Borrado!",
-              text: `Registro ${id} ha sido borrado`,
+            alerts.toastSuccess.fire({
+              text: `Se elimino Correctamente`,
               icon: "success",
-              showCancelButton: false,
             });
             this.ngOnInit();
           });

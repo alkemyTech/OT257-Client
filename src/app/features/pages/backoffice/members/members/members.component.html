@@ -2,16 +2,13 @@
 
 <div *ngIf="spinner" class="spinner mt-5">
   <app-louding [spinner]="spinner"></app-louding>
-  </div>
-  
-  <div *ngIf="!spinner" class="container mt-4">
+</div>
+<div *ngIf="!spinner" class="container mt-4">
   <div class="card shadow-lg">
     <div class="card-body">
       <span class="h3">Listado de Miembros</span>
-      <button
-        class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
-        routerLink="/backoffice/members/create"
-      >
+      <button class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
+        routerLink="/backoffice/members/create">
         Agregar Novedad
       </button>
       <h5 style="margin-top: 30px" *ngIf="members.length == 0">

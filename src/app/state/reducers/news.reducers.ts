@@ -14,7 +14,6 @@ export const initialState:  {
 export const newsReducer= createReducer(
   initialState,
   on(loadedNews, (state,action) => {
-  //console.log("action",action);
         return{
           ...state,
           data:action.data

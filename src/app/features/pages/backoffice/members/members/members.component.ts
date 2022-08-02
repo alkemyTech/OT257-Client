@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MembersService } from "../../../../../core/services/members/members.service";
 import Swal from "sweetalert2";
-import { alertConfirm } from "src/app/shared/components/layouts/alerts/alerts";
+import * as alerts from "src/app/shared/components/layouts/alerts/alerts";
 
 @Component({
   selector: "app-members",
@@ -23,7 +23,7 @@ export class MembersComponent implements OnInit {
   }
 
   deleteMember(id: string) {
-    alertConfirm
+   alerts.alertConfirm
       .fire({
         title: "Esta seguro de borrar?",
         text: "Esta accion no tiene revercion!",
@@ -36,11 +36,9 @@ export class MembersComponent implements OnInit {
     .then((result) => {
       if (result.isConfirmed) {
         this.memberService.deleteMember(id).subscribe((resp) => {
-          alertConfirm.fire({
-            title: "Borrado!",
-            text: `Registro ${id} ha sido borrado`,
+          alerts.toastSuccess.fire({
+            text: `Se elimino correctamente`,
             icon: "success",
-            showCancelButton: false,
           });
           this.ngOnInit();
         });
