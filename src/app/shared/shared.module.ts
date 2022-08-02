@@ -42,7 +42,8 @@ import { ProgressBarComponent } from "./components/layouts/progress-bar/progress
     RouterModule,
     NgxSkeletonLoaderModule,
     LoaderComponent,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class SharedModule { }
