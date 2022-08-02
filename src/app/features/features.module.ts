@@ -10,7 +10,7 @@ import { NewsFormComponent } from "./pages/backoffice/news/news-form/news-form.c
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthFormComponent } from './pages/auth/auth-form/auth-form.component';
@@ -31,6 +31,8 @@ import { MembersComponent } from './pages/backoffice/members/members/members.com
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutModule } from "./pages/about/about.module";
 import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
+import { LoaderService } from '../core/services/loader/loader.service';
+import { LoaderInterceptor } from '../core/services/loader/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -95,5 +97,10 @@ import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list
     SweetAlert2Module.forChild({ /* options */ }),
     MatProgressSpinnerModule
   ],
+
+  providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+  ] ,
 })
 export class FeaturesModule { }

@@ -8,6 +8,8 @@ import { CardComponent } from "./components/card/card.component";
 import { RouterModule } from "@angular/router";
 import { ProgressBarComponent } from './components/layout/progress-bar/progress-bar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { LoaderComponent } from './components/loader/loader.component';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 @NgModule({
   declarations: [
     TituloComponent,
@@ -16,6 +18,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     NoimagePipe,
     CardComponent,
     ProgressBarComponent,
+    LoaderComponent,
   ],
   exports: [
     TituloComponent,
@@ -24,7 +27,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     NoimagePipe,
     CardComponent,
     ProgressBarComponent,
+    LoaderComponent
   ],
-  imports: [CommonModule, RouterModule, MatProgressBarModule],
+  imports: [CommonModule, RouterModule, MatProgressBarModule, MatProgressSpinnerModule],
 })
 export class SharedModule { }
