@@ -11,7 +11,7 @@ export class UsersEffects {
         ofType('[Users List] Load Users'),
         mergeMap(() => this.usersService.getUsers()
             .pipe(
-                map(users => ({ type: '[Users List/Api] Retrieved Users List Successfully', payload: users })),
+                map(users => ({ type: '[Users List] Retrieved Users List Successfully', users: users.data, loading: true })),
                 catchError(() => EMPTY)
             ))
     )

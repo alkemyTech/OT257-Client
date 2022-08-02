@@ -1,16 +1,21 @@
 import { createReducer, on } from '@ngrx/store';
 import { User } from 'src/app/core/models/user.model';
-import { loadUsers, retrievedUsersList } from '../actions/users.action';
+import { UsersState } from 'src/app/core/models/users.state';
+import { loadUsers, loadedUsers } from '../actions/users.action';
 
-export const initialState: ReadonlyArray<User> = [];
+export const initialState: UsersState = {
+    loading: false,
+    users: []
+}
 
 export const usersReducer = createReducer(
     initialState,
-    on(loadUsers, (oldState, { user }) => {
-        return [...oldState, ...[user]];
+    on(loadUsers, (state) => {
+        return { ...state, loading: true }
     }),
-    on(retrievedUsersList, (oldState, { users }) => {
-        return [...oldState, ...users]
+    on(loadedUsers, (state, { users }) => {
+        return { ...state, loading: false, users }
     })
+
 );
 
