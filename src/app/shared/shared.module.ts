@@ -10,7 +10,7 @@ import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.compo
 import { SkeletonComponent } from "./components/layout/skeleton/skeleton/skeleton.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { ProgressBarComponent } from "./components/layout/progress-bar/progress-bar.component";
+import { ProgressBarComponent } from "./components/layouts/progress-bar/progress-bar.component";
 
 @NgModule({
   declarations: [

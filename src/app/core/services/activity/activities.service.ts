@@ -3,13 +3,14 @@ import { Observable } from "rxjs";
 import { Activity } from "../../models/activity.model";
 import { PrivateApiServiceService } from '../private-api-service.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment.prod';
 
 @Injectable({
   providedIn: "root",
 })
 export class ActivitiesService extends PrivateApiServiceService{
   
-  private url = "https://ongapi.alkemy.org/api";
+  url = environment.urlActivities;
 
 
   constructor(private httpClient: HttpClient) {
@@ -17,23 +18,23 @@ export class ActivitiesService extends PrivateApiServiceService{
   }
 
   getActivity() {
-    return this.sendGetRequest(`${this.url}/activities`);
+    return this.sendGetRequest(`${this.url}`);
   }
 
   createActivity(data: Activity) {
-    return this.sendPostRequest(`${this.url}/activities`, data);
+    return this.sendPostRequest(`${this.url}`, data);
   }
 
   getActivityById(id: number) {
-    return this.sendGetRequest(`${this.url}/activities`, id);
+    return this.sendGetRequest(`${this.url}`, id);
   }
 
   updateActivity(id: number, data: Activity) {
-    return this.sendPutRequest(`${this.url}/activities`, id, data);
+    return this.sendPutRequest(`${this.url}`, id, data);
   }
 
   deleteActivity(id: number) {
-    return this.sendDeleteRequest(`${this.url}/activities`, id);
+    return this.sendDeleteRequest(`${this.url}`, id);
   }
 
 }
