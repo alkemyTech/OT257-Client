@@ -32,13 +32,14 @@ import { ProgressBarComponent } from "./components/layout/progress-bar/progress-
     LazyLoadComponent,
     SkeletonComponent,
     NgxSkeletonLoaderModule,
+    ProgressBarComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule,
     NgxSkeletonLoaderModule,
-    ProgressBarComponent,
     MatProgressBarModule,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
