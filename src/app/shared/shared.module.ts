@@ -5,11 +5,11 @@ import { CarouselComponent } from "./components/carousel/carousel.component";
 import { NavbarComponent } from "./components/backoffice/navbar/navbar.component";
 import { NoimagePipe } from "./pipes/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
-import { RouterModule } from "@angular/router";
 import { ProgressBarComponent } from './components/layout/progress-bar/progress-bar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { RouterModule } from "@angular/router";
 import { LazyLoadComponent } from './components/layout/lazy-load/lazy-load.component';
 import { SkeletonComponent } from "./components/layout/skeleton/skeleton/skeleton.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
@@ -35,6 +35,8 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     LazyLoadComponent,
     SkeletonComponent,
     NgxSkeletonLoaderModule,
+    ProgressBarComponent
+
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     NgxSkeletonLoaderModule,
     ProgressBarComponent,
     LoaderComponent
+    MatProgressBarModule,
   ],
   imports: [CommonModule, RouterModule, MatProgressBarModule, MatProgressSpinnerModule],
 })
-export class SharedModule {}
+export class SharedModule { }
