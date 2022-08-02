@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { Slides, SlideState } from "../../core/models/slides.model";
+import { SlideState } from "../../core/models/slides.model";
 import { loadSliders, loadedSliders } from "../actions/slider.actions";
 
 export const initialState: SlideState = {

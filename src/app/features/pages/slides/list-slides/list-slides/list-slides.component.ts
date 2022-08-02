@@ -41,10 +41,10 @@ export class ListSlidesComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         // this.store.dispatch(deleteSlider({ id }))
-        // this.slideService.deleteSlide(id).subscribe((resp) => {
-        //   Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
-        //   this.ngOnInit();
-        // });
+        this.slideService.deleteSlide(id).subscribe((resp) => {
+          Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
+          this.ngOnInit();
+        });
       }
     });
   }
