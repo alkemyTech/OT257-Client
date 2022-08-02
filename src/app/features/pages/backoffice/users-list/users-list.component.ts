@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { User } from "src/app/core/models/user.model";
-import { UsersService } from "src/app/core/services/users/users.service";
-import { loadedUsers, loadUsers } from "src/app/state/actions/users.action";
+import { loadUsers } from "src/app/state/actions/users.action";
 import { AppState } from "src/app/state/app.state";
 import {
   selectUsersList,
@@ -19,7 +17,7 @@ export class UsersListComponent implements OnInit {
   loading$: Observable<boolean> = new Observable();
   users$: Observable<any> = new Observable();
 
-  constructor(private usersService: UsersService, private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.loading$ = this.store.select(selectUsersLoading);
