@@ -1,5 +1,5 @@
 export interface Slides {
-  id: number;
+  id: String;
   name: string;
   description: string;
   image: string;
