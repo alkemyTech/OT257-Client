@@ -21,7 +21,17 @@ export class NewsEffects {
     mergeMap(() => this.newsService.getNews()
       .pipe(
         map(news => loadedNews(news)),
-        catchError(() => of({ type: '[Movies API] Movies Loaded Error' }))
+        catchError(() => of({ type: '[News API] News Loaded Error' }))
+      ))
+    )
+  );
+
+  updateNews$ = createEffect(() => this.actions$.pipe(
+    ofType(loadNews),
+    mergeMap(() => this.newsService.getNews()
+      .pipe(
+        map(news => loadedNews(news)),
+        catchError(() => of({ type: '[News API] News Loaded Error' }))
       ))
     )
   );

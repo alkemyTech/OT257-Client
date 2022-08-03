@@ -27,8 +27,10 @@ export class AuthEffects {
       mergeMap((action) =>
         this.authService.login(action).pipe(
           map((res: any) => {
-            this.authService.saveToken(res.token);
-            this.router.navigate(["/backoffice"]);
+            if (res.data.token) {
+              this.authService.saveToken(res.token);
+              this.router.navigate(["/backoffice"]);
+            }
             return logInSuccess(res);
           }),
           catchError(() =>

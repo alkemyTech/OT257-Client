@@ -11,3 +11,24 @@ export const loadedNews = createAction(
   props<{ data: NewModel[] }>()
 );
 
+export const createdNews = createAction(
+  '[News List] Create success',
+  props<{ data: NewModel }>()
+);
+
+
+export const updateNews = createAction(
+  '[News List] Update News'
+  );
+export const updatedNews = createAction(
+  '[News List] Update success',
+  props<{ id: string,
+         data: any
+         }>()
+);
+
+export const deletedNews = createAction(
+  '[News List] Delete success',
+  props<{ id: string }>()
+);
+

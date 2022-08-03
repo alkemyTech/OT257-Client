@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { NewModel, NewsState } from '../../core/models/new.model';
-import { loadedNews } from '../actions/news.actions';
+import * as actions from '../actions/news.actions';
 
 
 export const initialState:  { 
@@ -13,11 +13,19 @@ export const initialState:  {
 
 export const newsReducer= createReducer(
   initialState,
-  on(loadedNews, (state,action) => {
+  on(actions.loadedNews, (state,action) => {
+  //console.log("action",action);
         return{
           ...state,
           data:action.data
         }
   }),
+  on(actions.updatedNews, (state,action) => {
+    //console.log("action",action);
+          return{
+            ...state,
+            data:action.data
+          }
+    }),
  
 );
