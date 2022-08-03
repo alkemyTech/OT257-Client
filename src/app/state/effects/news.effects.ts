@@ -3,11 +3,10 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { NewsService } from '../../core/services/news/news.service';
-import { loadNews,loadedNews } from '../actions/news.actions';
+import  * as actions from '../actions/news.actions';
 
 @Injectable()
 export class NewsEffects {
-
 
 
   constructor(
@@ -17,23 +16,25 @@ export class NewsEffects {
 
 
   loadNews$ = createEffect(() => this.actions$.pipe(
-    ofType(loadNews),
+    ofType(actions.loadNews),
     mergeMap(() => this.newsService.getNews()
       .pipe(
-        map(news => loadedNews(news)),
+        map(news => actions.loadedNews(news)),
         catchError(() => of({ type: '[News API] News Loaded Error' }))
       ))
     )
   );
 
+
   updateNews$ = createEffect(() => this.actions$.pipe(
-    ofType(loadNews),
-    mergeMap(() => this.newsService.getNews()
+    ofType(actions.updateNews),
+    mergeMap((news) =>this.newsService.updateNew(news.id, news.data)
       .pipe(
-        map(news => loadedNews(news)),
+        map(news => actions.updatedNews(news),
         catchError(() => of({ type: '[News API] News Loaded Error' }))
       ))
     )
+  )
   );
 
 

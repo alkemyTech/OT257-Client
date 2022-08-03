@@ -20,11 +20,21 @@ export const newsReducer= createReducer(
           data:action.data
         }
   }),
-  on(actions.updatedNews, (state,action) => {
-    //console.log("action",action);
+  on(actions.updatedNews, (state,action:any) => {
+    console.log("state",state,"action",action);
+          for(let i = 0; i < state.data.length; i++) {
+          var newState:any=state;
+            //console.log("action.data.id",action.id);
+      //console.log("state.data[i].id",state.data[i].id);
+
+              if (newState.data[i].id==action.id){
+                newState.data[i]=action;
+              }
+                   
+          }
           return{
             ...state,
-            data:action.data
+            data:newState
           }
     }),
  

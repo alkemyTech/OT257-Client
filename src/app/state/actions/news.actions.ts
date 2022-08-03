@@ -18,12 +18,16 @@ export const createdNews = createAction(
 
 
 export const updateNews = createAction(
-  '[News List] Update News'
+  '[News List] Update News',
+  props<{ id: string,
+      data: NewModel
+   }>()
   );
+
 export const updatedNews = createAction(
   '[News List] Update success',
-  props<{ id: string,
-         data: any
+  props<{ 
+          data: NewModel
          }>()
 );
 
