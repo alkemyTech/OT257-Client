@@ -1,20 +1,18 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import * as ClassicEditorBuild from "@ckeditor/ckeditor5-build-classic";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { ActivitiesService } from "../../../../core/services/activity/activities.service";
-import { Activity } from "../../../../core/models/activity.model";
-import Swal from "sweetalert2";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { HelpersService } from "../../../../core/services/helpers.service";
+import { HelpersService } from "../../../../../core/services/helpers.service";
+import { Testimonial } from "../../../../../core/models/testimonial.model";
+import Swal from "sweetalert2";
+import { TestimonialService } from "../../../../../core/services/testimonial/testimonial.service";
 
 @Component({
-  selector: "app-activity-form",
-  templateUrl: "./activity-form.component.html",
-  styleUrls: ["./activity-form.component.scss"],
+  selector: "app-testimonial-form",
+  templateUrl: "./testimonial-form.component.html",
+  styleUrls: ["./testimonial-form.component.scss"],
 })
-export class ActivityFormComponent implements OnInit {
-  title = "base-ong-angular-client";
+export class TestimonialFormComponent implements OnInit {
   Editor = ClassicEditor;
   event!: any;
   imgBase64: any;
@@ -23,16 +21,17 @@ export class ActivityFormComponent implements OnInit {
   description: any;
   formData!: FormGroup;
   base64textString!: string;
-  buttonText: any = "CREAR ACTIVIDAD";
-  titleText: any = "CREAR NUEVA ACTIVIDAD";
+  buttonText: any = "CREAR TESTIMONIO";
+  titleText: any = "CREAR NUEVO TESTIMONIO";
+
 
   constructor(
     private fb: FormBuilder,
-    private activitiesService: ActivitiesService,
+    private testimonialServive: TestimonialService,
     private helpers: HelpersService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -40,9 +39,10 @@ export class ActivityFormComponent implements OnInit {
     this.id = this.id === null ? 0 : this.id;
 
     if (this.id > 0) {
-      this.getActivity(this.id);
-      this.buttonText = "ACTUALIZAR ACTIVIDAD";
-      this.titleText = "ACTUALIZAR ACTIVIDAD";
+      this.getTestimonial(this.id);
+      this.buttonText = "ACTUALIZAR TESTIMONIO";
+      this.titleText = "ACTUALIZAR TESTIMONIO";
+
     }
   }
 
@@ -65,8 +65,8 @@ export class ActivityFormComponent implements OnInit {
    */
   createForm() {
     this.formData = this.fb.group({
-      name: ["", [Validators.required, Validators.minLength(5)]],
-      description: [""],
+      name: ["", [Validators.required, Validators.minLength(4)]],
+      description: ["", Validators.required],
       image: [""],
     });
   }
@@ -90,68 +90,75 @@ export class ActivityFormComponent implements OnInit {
         if (!this.formData.value.image) {
           delete data.image;
         }
-        this.updateActivity(data, this.id);
+        this.updateTestimonial(data, this.id);
       } else {
-        this.saveActivity(data);
+        this.saveTestimonial(data);
       }
     }
   }
 
-  //save activity
-  saveActivity(activity: Activity) {
-    this.activitiesService
-      .createActivity(activity)
-      .subscribe((result: any) => {
+  //save testimonial
+  saveTestimonial(testimonial: Testimonial) {
+    this.testimonialServive.createTestimonial(testimonial).subscribe(
+      (result: any) => {
         //activity saved successfully
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Actividad guardada correctamente",
+          title: "Testimonio guardada correctamente",
           showConfirmButton: false,
           timer: 1500,
         });
         this.formData.reset();
         this.imgBase64 = null;
-        this.redirectView();
-      })
-
+      },
+      (error) => {
+        Swal.fire({
+          icon: "error",
+          title: error.error.message,
+        });
+      }
+    );
   }
 
-  //update activity
-  updateActivity(activity: Activity, id: number) {
-    this.activitiesService
-      .updateActivity(id, activity)
-      .subscribe((result: any) => {
+  //update testimonial
+  updateTestimonial(testimonial: Testimonial, id: number) {
+    this.testimonialServive.updateTestimonial(this.id, testimonial).subscribe(
+      (result: any) => {
         //activity saved successfully
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Actividad guardada correctamente",
+          title: "Testimonio actualizado correctamente",
           showConfirmButton: false,
           timer: 1500,
         });
         this.formData.reset();
         this.imgBase64 = null;
-        this.redirectView();
-      })
+
+      },
+      (error) => {
+        Swal.fire({
+          icon: "error",
+          title: error.error.message,
+        });
+      }
+    );
   }
 
   /**
-   * get Activity by id
+   * get testimonial by id
    *
-   * @param id activity id
+   * @param id testimonial id
    */
-  getActivity(id: number) {
-    this.activitiesService.getActivityById(id).subscribe((result: any) => {
+  getTestimonial(id: number) {
+    this.testimonialServive.getTestimonial(id).subscribe((result: any) => {
       this.data = result.data;
+
       this.formData.controls["name"].setValue(this.data.name);
       this.formData.controls["description"].setValue(this.data.description);
       this.imgBase64 = this.data.image;
     });
-  }
-
-  redirectView() {
-    this.router.navigate(["/backoffice/activities"]);
   }
 
   /**

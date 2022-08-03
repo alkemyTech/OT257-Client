@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { OrgViewService } from "../../../../core/services/org-view.service";
+import { OrgViewService } from "../../../../../core/services/org-view.service";
 import { Organization, Data } from "src/app/core/models/IOrganization";
 
 @Component({
