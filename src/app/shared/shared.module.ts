@@ -27,6 +27,13 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     ProgressBarComponent,
     LoaderComponent,
   ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgxSkeletonLoaderModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+  ],
   exports: [
     TituloComponent,
     CarouselComponent,
@@ -35,18 +42,8 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     CardComponent,
     LazyLoadComponent,
     SkeletonComponent,
-    NgxSkeletonLoaderModule,
-    ProgressBarComponent
-
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgxSkeletonLoaderModule,
     ProgressBarComponent,
     LoaderComponent,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
   ]
 })
 export class SharedModule { }
