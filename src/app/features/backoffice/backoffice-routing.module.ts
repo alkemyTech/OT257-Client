@@ -18,73 +18,72 @@ import { UsersListComponent } from "./pages/users-list/users-list.component";
 
 export const routes: Routes = [
   {
-    path: "/actividades",
+    path: "actividades",
     component: ActivityFormComponent,
   },
   {
-    path: "/actividades/:id",
+    path: "actividades/:id",
     component: ActivityFormComponent,
   },
   {
-    path: "/activities",
+    path: "activities",
     component: ListActiviyComponent,
   },
 
   {
-    path: "/activities/create",
+    path: "activities/create",
     component: ActivityFormComponent,
   },
   {
-    path: "/slider/create",
+    path: "slider/create",
     component: SlidesFormComponent,
   },
   {
-    path: "/slider/update/:id",
+    path: "slider/update/:id",
     component: SlidesFormComponent,
   },
   {
-    path: "/slider",
+    path: "slider",
     component: ListSlidesComponent,
   },
   {
-    path: "/testimonios",
+    path: "testimonios",
     component: TestimonialFormComponent,
   },
   {
-    path: "/testimonio/:id",
+    path: "testimonio/:id",
     component: TestimonialFormComponent,
   },
   {
-    path: "/news-form",
+    path: "news-form",
     component: NewsFormComponent,
   },
   {
-    path: "/news",
+    path: "news",
     component: NewsComponent,
   },
   {
-    path: "/news/create",
+    path: "news/create",
     component: NewsFormComponent,
   },
   {
-    path: "/news/:id",
+    path: "news/:id",
     component: NewsFormComponent,
   },
   {
-    path: "/members",
+    path: "members",
     component: MembersComponent,
   },
   {
-    path: "/members/create",
+    path: "members/create",
     component: MembersFormComponent,
   },
-
   {
-    path: "/new/:id",
+    path: "new/:id",
     component: NewsFormComponent,
   },
   {
-    path: "/members/:id",
+    path: "members/:id",
     component: MembersFormComponent,
   },
   {
@@ -93,19 +92,19 @@ export const routes: Routes = [
   },
 
   {
-    path: "/organization",
+    path: "organization",
     component: OrgViewComponent,
   },
   {
-    path: "/organization/edit/:id",
+    path: "organization/edit/:id",
     component: EditFormComponent,
   },
   {
-    path: "/Home",
+    path: "Home",
     component: BackOfficeHomeComponent,
   },
   {
-    path: "/users",
+    path: "users",
     component: UsersListComponent,
   },
 ];

@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
     {
       name: "Miembros",
       img: "assets/images/miembros.PNG",
-      link: "/members",
+      link: "/backoffice/members",
     },
   ];
 
