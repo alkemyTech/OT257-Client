@@ -22,12 +22,12 @@ export class DashboardComponent implements OnInit {
     {
       name: "Categorias",
       img: "assets/images/categorias.PNG",
-      link: "/categories",
+      link: "/backoffice/categories",
     },
     {
       name: "Testimonios",
       img: "assets/images/testimonio.PNG",
-      link: "/testimonios",
+      link: "/backoffice/testimonios",
     },
     {
       name: "Organizacion",

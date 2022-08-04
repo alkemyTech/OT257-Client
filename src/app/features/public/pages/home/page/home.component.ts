@@ -3,6 +3,7 @@ import { Data } from 'src/app/core/models/IOrganization';
 import { NewModel } from 'src/app/core/models/new.model';
 import { Slides } from 'src/app/core/models/slides.model';
 import { HomeService } from 'src/app/core/services/home/home.service';
+import { LoaderService } from 'src/app/core/services/loader/loader.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,9 @@ export class HomeComponent implements OnInit {
   news!: NewModel[]
   slides: Slides[] = []
 
-  constructor(private homeSvc: HomeService) { }
+  loading$ = this.loaderService.loading$;
+
+  constructor(private homeSvc: HomeService, private loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.getDatesPublics();

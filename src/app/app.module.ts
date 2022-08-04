@@ -11,11 +11,13 @@ import { NewsEffects } from './state/effects/news.effects';
 import { FeaturesModule } from "./features/features.module";
 import { CoreModule } from "./core/core.module";
 import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    RouterModule,
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
