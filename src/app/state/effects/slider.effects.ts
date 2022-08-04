@@ -7,6 +7,11 @@ import { SliderActionTypes } from "../actions/slider.actions";
 
 @Injectable()
 export class SliderEffect {
+  constructor(
+    private actions$: Actions,
+    private sliderService: SlideFormService
+  ) {}
+
   loadSliders$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SliderActionTypes.LOAD_SLIDERS),
@@ -26,22 +31,15 @@ export class SliderEffect {
   deleteSlider$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SliderActionTypes.DELETE_SLIDER),
-      mergeMap(({id}) =>
+      mergeMap(({ id }) =>
         this.sliderService.deleteSlide(id).pipe(
           map((res) => ({
-            type: SliderActionTypes.DELETED_SLIDER, res
-
+            type: SliderActionTypes.DELETED_SLIDER,
+            res,
           })),
           catchError(() => EMPTY)
         )
       )
     )
   );
-
-  
-
-  constructor(
-    private actions$: Actions,
-    private sliderService: SlideFormService
-  ) {}
 }

@@ -24,5 +24,6 @@ export const sliderReducer = createReducer(
       return sliders.id !== id;
     });
     return { ...state, sliders: slidersUpdate };
-  })
+  }),
+  
 );

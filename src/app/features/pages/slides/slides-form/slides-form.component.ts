@@ -58,7 +58,6 @@ export class SlidesFormComponent implements OnInit {
       data => {
         this.slideObject = data;
         this.listSlide = this.slideObject.data;
-        console.log(this.listSlide);
       }
     );
 
