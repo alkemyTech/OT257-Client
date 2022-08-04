@@ -9,11 +9,13 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
 import { AuthEffects } from "./state/effects/auth.effects";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    RouterModule,
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
