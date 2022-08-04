@@ -3,8 +3,8 @@ import { NewsService } from "../../../../../core/services/news/news.service";
 import Swal from "sweetalert2";
 import { Store } from "@ngrx/store";
 import {
-  loadedNews,
   loadNews,
+  deleteNews
 } from "../../../../../state/actions/news.actions";
 import { NewModel } from "src/app/core/models/new.model";
 import { Observable } from "rxjs";
@@ -54,13 +54,19 @@ export class NewsComponent implements OnInit {
       })
       .then((result) => {
         if (result.isConfirmed) {
+
+          this.store.dispatch(deleteNews({id}))
+          /*
           this.newService.deleteNew(id).subscribe((resp) => {
             alerts.toastSuccess.fire({
               text: `Se elimino Correctamente`,
               icon: "success",
             });
+
+
             this.ngOnInit();
           });
+          */
         }
       });
   }

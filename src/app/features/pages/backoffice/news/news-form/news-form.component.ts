@@ -119,7 +119,7 @@ export class NewsFormComponent implements OnInit {
     });
   }
 
-  updateNew() {
+  update() {
     if (this.form.value.image) {
       this.form.value.image = this.img;
     } else {
@@ -144,8 +144,8 @@ export class NewsFormComponent implements OnInit {
 
     this.formData=this.form.value;
     this.formData.id= this.idNew;
-    this.store.dispatch(actions.updatedNews(this.formData))
-
+    this.store.dispatch(actions.updateNews({id:this.idNew,data:this.formData}));
+    /*
     this.newsService
       .updateNew(this.idNew, this.form.value)
       .subscribe((resp) => {
@@ -154,13 +154,18 @@ export class NewsFormComponent implements OnInit {
           icon: "success",
         });
       });
+      */
   }
 
   createNew() {
     if (this.idNew) {
-      this.updateNew();
+      this.update();
+    }else{
+      this.create();
     }
+  }
 
+  create() {
     if (this.form.invalid) {
       return Object.values(this.form.controls).forEach((control) => {
         if (control instanceof FormGroup) {
@@ -183,6 +188,14 @@ export class NewsFormComponent implements OnInit {
       delete this.form.value.image;
     }
 
+
+      console.log('this.form.value',this.form.value);
+      this.store.dispatch(actions.createNews(this.form.value))
+      setTimeout(() =>{
+        this.router.navigate([`/backoffice/news/`])
+      },1000)
+      //this.router.navigate([`/backoffice/news/`]);
+ /*
     this.newsService.createNew(this.form.value).subscribe((resp: any) => {
       alerts.toastSuccess.fire({
         text: `Se creo Correctamente`,
@@ -191,5 +204,9 @@ export class NewsFormComponent implements OnInit {
 
       this.router.navigate([`/backoffice/news/`]);
     });
+
+    */
   }
+
+
 }
