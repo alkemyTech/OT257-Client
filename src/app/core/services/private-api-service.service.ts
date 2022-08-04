@@ -1,29 +1,14 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { tap } from "rxjs/operators";
 import { catchError, map } from "rxjs/operators";
 import { Observable } from "rxjs";
-
-import Swal from "sweetalert2";
+import { toastError } from "src/app/shared/components/layouts/alerts/alerts";
 
 @Injectable({
   providedIn: "root",
 })
 
 export class PrivateApiServiceService {
-
-  toast = Swal.mixin({
-    toast: true,
-    showConfirmButton: false,
-    timer: 1500,
-    timerProgressBar: true,
-    position: "bottom-end",
-    didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
-    },
-  });
-
 
 
   private httpHeaders = {
@@ -50,9 +35,8 @@ export class PrivateApiServiceService {
         return res;
       }),
       catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
-          title: `Error de conexión ${err.name}`,
+        return toastError.fire({
+          title: 'Ocurrio un error'
         });
       })
     );
@@ -65,10 +49,9 @@ export class PrivateApiServiceService {
       map((res: any) => {
         return res;
       }),
-      catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
-          title: `Error de conexión ${err.name}`,
+      catchError((err) => {
+        return toastError.fire({
+          title: 'Ocurrio un error'
         });
       })
     );
@@ -90,10 +73,9 @@ export class PrivateApiServiceService {
       map((res: any) => {
         return res;
       }),
-      catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
-          title: `Error de conexión ${err.name}`,
+      catchError((err) => {
+        return toastError.fire({
+          title: 'Ocurrio un error'
         });
       })
     );
@@ -108,13 +90,11 @@ export class PrivateApiServiceService {
   public sendDeleteRequest(url: string, id?: any): Observable<any> {
     return this.http.delete(`${url}/${id}`, this.httpHeaders).pipe(
       map((res: any) => {
-
         return res;
       }),
-      catchError((err: Error) => {
-        return this.toast.fire({
-          icon: "error",
-          title: `Error de conexión ${err.name}`,
+      catchError((err) => {
+        return toastError.fire({
+          title: 'Ocurrio un error'
         });
       })
     );
