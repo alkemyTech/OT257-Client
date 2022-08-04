@@ -29,13 +29,14 @@ export const newsReducer = createReducer(
       data: [...state.data, action],
     };
   }),
-  on(actions.updateNews, (state, action:any) => {
+  on(actions.updateNews, (state, action) => {
     console.log("state", state, "action", action);
-    const tmpIndex = state.data.map((resp) => resp.id).indexOf(action.id);
-    console.log(tmpIndex);
-    //const tmpState = state.data[tmpIndex]
+    const tmpIndex = state.data.findIndex((resp) => resp.id ==action.id);
+   var tmpState:any = state.data;
+    tmpState[tmpIndex]=action.data;
     return {
       ...state,
+        data:tmpState
     };
   }),
 

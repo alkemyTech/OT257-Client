@@ -145,6 +145,10 @@ export class NewsFormComponent implements OnInit {
     this.formData=this.form.value;
     this.formData.id= this.idNew;
     this.store.dispatch(actions.updateNews({id:this.idNew,data:this.formData}));
+
+    setTimeout(() =>{
+      this.router.navigate([`/backoffice/news/`])
+    },1000)
     /*
     this.newsService
       .updateNew(this.idNew, this.form.value)
