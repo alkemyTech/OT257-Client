@@ -13,7 +13,6 @@ export const initialState: {
 export const newsReducer = createReducer(
   initialState,
   on(actions.loadedNews, (state, action) => {
-    //console.log("action",action);
     return {
       ...state,
       data: action.data,
@@ -21,8 +20,6 @@ export const newsReducer = createReducer(
   }),
 
   on(actions.createNews, (state, action: any) => {
-    console.log("state", state, "action data", action);
-
     return {
       ...state,
       success: true,
@@ -30,13 +27,12 @@ export const newsReducer = createReducer(
     };
   }),
   on(actions.updateNews, (state, action) => {
-    console.log("state", state, "action", action);
-    const tmpIndex = state.data.findIndex((resp) => resp.id ==action.id);
-   var tmpState:any = state.data;
-    tmpState[tmpIndex]=action.data;
+    const tmpIndex = state.data.findIndex((resp) => resp.id == action.id);
+    var tmpState: any = state.data;
+    tmpState[tmpIndex] = action.data;
     return {
       ...state,
-        data:tmpState
+      data: tmpState,
     };
   }),
 
