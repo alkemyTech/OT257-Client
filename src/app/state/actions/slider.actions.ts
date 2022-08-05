@@ -8,7 +8,9 @@ export enum SliderActionTypes {
   DELETED_SLIDER = "[slides] deleted slider",
   GET_ONE_SLIDER = "[Slides] get one Slider",
   POST_SLIDER = "[SlideS] post new slider",
-  POST_SLIDER_SUCCESS = "[Slides] post slider success"
+  POST_SLIDER_SUCCESS = "[Slides] post slider success",
+  UPDATE_SLIDER = "[Slides] update slider effects",
+  UPDATE_SLIDER_STATE = "[Slides] update slidder state",
 }
 
 export const loadSliders = createAction(SliderActionTypes.LOAD_SLIDERS);
@@ -25,20 +27,30 @@ export const deleteSlider = createAction(
 
 export const deletedSlider = createAction(
   SliderActionTypes.DELETED_SLIDER,
-  props<{succes: any}>()
+  props<{ succes: any }>()
 );
 
 export const getOneSlide = createAction(
   SliderActionTypes.GET_ONE_SLIDER,
-  props<{id: number}>()
+  props<{ id: number }>()
 );
 
 export const postSlider = createAction(
   SliderActionTypes.POST_SLIDER,
-  props<{slider: any}>()
+  props<{ slider: any }>()
 );
 
 export const postSliderSuccess = createAction(
   SliderActionTypes.POST_SLIDER_SUCCESS,
-  props<{slider:Slides}>()
+  props<{ slider: Slides }>()
+);
+
+export const updateSlider = createAction(
+  SliderActionTypes.UPDATE_SLIDER,
+  props<{ id: number; slider: any }>()
+);
+
+export const updateSliderState = createAction(
+  SliderActionTypes.UPDATE_SLIDER_STATE,
+  props<{ slider: Slides }>()
 );

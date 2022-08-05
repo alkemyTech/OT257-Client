@@ -4,11 +4,18 @@ import { ActivatedRoute, Router } from "@angular/router";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Observable } from "rxjs";
 import { HelpersService } from "src/app/core/services/helpers.service";
-import { SlideFormService } from "src/app/core/services/slide-form.service";
-import { selectSlideList } from "src/app/state/selectors/slider.selectors";
+import {
+  selectOneSlide,
+  selectSlideList,
+} from "src/app/state/selectors/slider.selectors";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/state/app.state";
-import { loadSliders, postSlider } from "src/app/state/actions/slider.actions";
+import {
+  getOneSlide,
+  loadSliders,
+  postSlider,
+  updateSlider,
+} from "src/app/state/actions/slider.actions";
 
 @Component({
   selector: "app-slides-form",
@@ -20,18 +27,18 @@ export class SlidesFormComponent implements OnInit {
   form: FormGroup;
 
   listSlide$: Observable<any> = new Observable();
+  slide$: Observable<any> = new Observable();
 
+  updateSliderId: number = 0;
   error: boolean = false;
   orderError: boolean = false;
   messageError: string = "";
   viewImageMin: any;
-  slide: any;
   modified: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private helpers: HelpersService,
-    private slideService: SlideFormService,
     private activateRoute: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>
@@ -61,7 +68,6 @@ export class SlidesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadSliders());
     this.listSlide$ = this.store.select(selectSlideList);
     this.modifiedSlide();
   }
@@ -108,7 +114,10 @@ export class SlidesFormComponent implements OnInit {
   sendForm() {
     if (this.modified) {
       if (this.form.valid) {
-        this.store.dispatch(postSlider(this.form.value));
+        console.log(this.form.value);
+        this.store.dispatch(
+          updateSlider({ id: this.updateSliderId, slider: this.form.value })
+        );
         this.router.navigate(["backoffice/slider"]);
       } else {
         this.form.markAllAsTouched();
@@ -117,11 +126,6 @@ export class SlidesFormComponent implements OnInit {
       if (this.form.valid) {
         this.store.dispatch(postSlider(this.form.value));
         this.router.navigate(["backoffice/slider"]);
-        // this.slideService.saveSlide(this.form.value).subscribe(
-        //   (data) => {
-        //     alert("Slide guardado con exito");
-        //   }
-        // );
       } else {
         this.form.markAllAsTouched();
       }
@@ -131,20 +135,21 @@ export class SlidesFormComponent implements OnInit {
   modifiedSlide() {
     this.activateRoute.params.subscribe((idRoute) => {
       let id = idRoute["id"];
+      this.updateSliderId = id;
       if (id) {
         this.modified = true;
-        // this.slideService.getOneSlide(id).subscribe(
-        //   (data) => {
-        //     this.slideObject = data;
-        //     this.slide = this.slideObject.data;
-        //     this.form.setValue({
-        //       name: this.slide.name,
-        //       description: this.slide.description,
-        //       order: this.slide.order,
-        //       image: this.slide.image,
-        //     });
-        //     this.viewImageMin = this.slide.image;
-        //   });
+        this.store.dispatch(getOneSlide({ id }));
+        this.slide$ = this.store.select(selectOneSlide);
+        this.slide$.forEach((slide) => {
+          console.log(slide);
+          this.form.setValue({
+            name: slide.name,
+            description: slide.description,
+            order: slide.order,
+            image: slide.image,
+          });
+          this.viewImageMin = slide.image;
+        });
       } else {
         this.modified = false;
       }

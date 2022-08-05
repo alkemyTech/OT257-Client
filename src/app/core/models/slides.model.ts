@@ -13,4 +13,5 @@ export interface Slides {
 export interface SlideState {
   loading: boolean;
   sliders: Slides[];
+  one_slider: Slides
 }

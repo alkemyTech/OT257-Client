@@ -13,3 +13,8 @@ export const selectSlideLoading = createSelector(
   selectSlidesFeature,
   (state: SlideState) => state.loading
 );
+
+export const selectOneSlide = createSelector(
+  selectSlidesFeature,
+  (state: SlideState) => state.one_slider
+);

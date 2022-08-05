@@ -57,4 +57,19 @@ export class SliderEffect {
       )
     )
   );
+
+  updateSlider$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SliderActionTypes.UPDATE_SLIDER),
+      mergeMap(({ slider, id }) =>
+        this.sliderService.updateSlide(slider, id).pipe(
+          map((result) => ({
+            type: SliderActionTypes.UPDATE_SLIDER_STATE,
+            slider: result.data,
+          })),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  );
 }
