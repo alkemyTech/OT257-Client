@@ -42,4 +42,19 @@ export class SliderEffect {
       )
     )
   );
+
+  postSlider$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SliderActionTypes.POST_SLIDER),
+      mergeMap((slider) =>
+        this.sliderService.saveSlide(slider).pipe(
+          map((res) => ({
+            type: SliderActionTypes.POST_SLIDER_SUCCESS,
+            slider: res.data,
+          })),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  );
 }

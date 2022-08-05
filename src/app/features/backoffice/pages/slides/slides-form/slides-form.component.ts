@@ -1,9 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { Observable } from "rxjs";
 import { HelpersService } from "src/app/core/services/helpers.service";
 import { SlideFormService } from "src/app/core/services/slide-form.service";
+import { selectSlideList } from "src/app/state/selectors/slider.selectors";
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/state/app.state";
+import { loadSliders, postSlider } from "src/app/state/actions/slider.actions";
 
 @Component({
   selector: "app-slides-form",
@@ -14,11 +19,11 @@ export class SlidesFormComponent implements OnInit {
   public Editor = ClassicEditor;
   form: FormGroup;
 
+  listSlide$: Observable<any> = new Observable();
+
   error: boolean = false;
   orderError: boolean = false;
   messageError: string = "";
-  slideObject: any;
-  listSlide: any;
   viewImageMin: any;
   slide: any;
   modified: any;
@@ -27,7 +32,9 @@ export class SlidesFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private helpers: HelpersService,
     private slideService: SlideFormService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private router: Router,
+    private store: Store<AppState>
   ) {
     this.form = this.formBuilder.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
@@ -54,28 +61,22 @@ export class SlidesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.slideService.getSlide().subscribe(
-      data => {
-        this.slideObject = data;
-        this.listSlide = this.slideObject.data;
-      }
-    );
-
+    this.store.dispatch(loadSliders());
+    this.listSlide$ = this.store.select(selectSlideList);
     this.modifiedSlide();
   }
 
   orderUnique() {
     this.orderError = false;
     if (this.form.get("order")?.valid) {
-      if (
-        !this.modified && this.form.get("order")?.value != 0 ||
-        (this.modified && this.form.get("order")?.value != 0 && this.form.get("order")?.value != this.slide.order )
-      ) {
-        for (let i = 0; i < this.listSlide.length; i++) {
-          if (this.listSlide[i].order == this.form.get("order")?.value) {
-            this.orderError = true;
+      if (this.form.get("order")?.value !== 0) {
+        this.listSlide$.forEach((slide) => {
+          for (let orderUnique of slide) {
+            if (orderUnique.order === this.form.get("order")?.value) {
+              this.orderError = true;
+            }
           }
-        }
+        });
       }
     }
   }
@@ -107,23 +108,20 @@ export class SlidesFormComponent implements OnInit {
   sendForm() {
     if (this.modified) {
       if (this.form.valid) {
-        this.slideService
-          .updateSlide(this.form.value, this.slide.id)
-          .subscribe(
-            (data) => {
-              alert("slide modificado con exito");
-            }
-          );
+        this.store.dispatch(postSlider(this.form.value));
+        this.router.navigate(["backoffice/slider"]);
       } else {
         this.form.markAllAsTouched();
       }
     } else {
       if (this.form.valid) {
-        this.slideService.saveSlide(this.form.value).subscribe(
-          (data) => {
-            alert("Slide guardado con exito");
-          }
-        );
+        this.store.dispatch(postSlider(this.form.value));
+        this.router.navigate(["backoffice/slider"]);
+        // this.slideService.saveSlide(this.form.value).subscribe(
+        //   (data) => {
+        //     alert("Slide guardado con exito");
+        //   }
+        // );
       } else {
         this.form.markAllAsTouched();
       }
@@ -135,18 +133,18 @@ export class SlidesFormComponent implements OnInit {
       let id = idRoute["id"];
       if (id) {
         this.modified = true;
-        this.slideService.getOneSlide(id).subscribe(
-          (data) => {
-            this.slideObject = data;
-            this.slide = this.slideObject.data;
-            this.form.setValue({
-              name: this.slide.name,
-              description: this.slide.description,
-              order: this.slide.order,
-              image: this.slide.image,
-            });
-            this.viewImageMin = this.slide.image;
-          });
+        // this.slideService.getOneSlide(id).subscribe(
+        //   (data) => {
+        //     this.slideObject = data;
+        //     this.slide = this.slideObject.data;
+        //     this.form.setValue({
+        //       name: this.slide.name,
+        //       description: this.slide.description,
+        //       order: this.slide.order,
+        //       image: this.slide.image,
+        //     });
+        //     this.viewImageMin = this.slide.image;
+        //   });
       } else {
         this.modified = false;
       }
