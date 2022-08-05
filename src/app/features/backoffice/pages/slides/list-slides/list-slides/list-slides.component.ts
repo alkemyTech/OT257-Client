@@ -42,7 +42,7 @@ export class ListSlidesComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.store.dispatch(deleteSlider({id}));
+        this.store.dispatch(deleteSlider({ id }));
         console.log(id);
       }
     });
