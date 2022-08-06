@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { loadUsers } from "src/app/state/actions/users.action";
+import { loadUsers, deleteUser } from "src/app/state/actions/users.action";
 import { AppState } from "src/app/state/app.state";
 import {
   selectUsersList,
@@ -25,5 +25,9 @@ export class UsersListComponent implements OnInit {
     this.store.dispatch(loadUsers());
 
     this.users$ = this.store.select(selectUsersList);
+  }
+
+  deleteUser(id: string) {
+    this.store.dispatch(deleteUser({ id }));
   }
 }

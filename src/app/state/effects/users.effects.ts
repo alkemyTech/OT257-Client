@@ -16,6 +16,15 @@ export class UsersEffects {
             ))
     )
     );
+    deleteUser$ = createEffect(() => this.actions$.pipe(
+        ofType('[Users List] Delete User'),
+        mergeMap(({ id }) => this.usersService.deleteUser(id)
+            .pipe(
+                map(user => ({ type: '[Users List] Deleted User Successfully', user: user.data })),
+                catchError(() => EMPTY)
+            ))
+    )
+    );
 
     constructor(
         private actions$: Actions,

@@ -14,3 +14,8 @@ export const selectUsersLoading = createSelector(
     selectUsers,
     (state: UsersState) => state.loading
 );
+
+export const deletedUser = createSelector(
+    selectUsers,
+    (state: UsersState) => state.deletedUser
+);

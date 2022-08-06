@@ -11,3 +11,11 @@ export const loadedUsers = createAction(
     "[Users List] Retrieved Users List Successfully",
     props<{ users: User[] }>()
 );
+export const deleteUser = createAction(
+    "[Users List] Delete User",
+    props<{ id: string }>()
+);
+export const deletedUser = createAction(
+    "[Users List] Deleted User Successfully",
+    props<{ user: User }>()
+);
