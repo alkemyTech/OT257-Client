@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
 import { AuthEffects } from "./state/effects/auth.effects";
 import { RouterModule } from "@angular/router";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { RouterModule } from "@angular/router";
     RouterModule,
     CoreModule,
     FeaturesModule,
+    SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ }),

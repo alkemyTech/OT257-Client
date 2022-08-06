@@ -13,6 +13,7 @@ import { RouterModule } from "@angular/router";
 import { LazyLoadComponent } from './components/layouts/lazy-load/lazy-load.component';
 import { SkeletonComponent } from "./components/layouts/skeleton/skeleton/skeleton.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     SkeletonComponent,
     ProgressBarComponent,
     LoaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     SkeletonComponent,
     ProgressBarComponent,
     LoaderComponent,
+    FooterComponent,
   ]
 })
 export class SharedModule { }

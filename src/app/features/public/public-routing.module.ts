@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { ActivitiesViewComponent } from "./pages/activities-view/activities-view.component";
 import { AboutComponent } from "./pages/about/page/about.component";
@@ -34,7 +33,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: "contact-form",
+    path: "contacto",
     component: ContactFormComponent,
   },
 ];
