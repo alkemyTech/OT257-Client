@@ -8,6 +8,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
 import { AuthEffects } from "./state/effects/auth.effects";
+import { UsersEffects } from "./state/effects/users.effects";
 import { SliderEffect } from "./state/effects/slider.effects";
 import { RouterModule } from "@angular/router";
 import { FeaturesModule } from "./features/features.module";
@@ -20,10 +21,10 @@ import { FeaturesModule } from "./features/features.module";
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([AuthEffects,SliderEffect]),
-    StoreDevtoolsModule.instrument({ }),
+    EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect]),
+    StoreDevtoolsModule.instrument({}),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
