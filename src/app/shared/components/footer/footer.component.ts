@@ -14,7 +14,6 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.orgSvc.getorganizationData().pipe().subscribe((res) => {
-      console.log(res);
       this.orgData = res.data;
     }
     );
