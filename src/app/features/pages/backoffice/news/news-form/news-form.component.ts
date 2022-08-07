@@ -31,7 +31,7 @@ export class NewsFormComponent implements OnInit {
   event!: any;
   idNew!: any;
   new = "";
-  formData!:any;
+  formData!: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -142,29 +142,21 @@ export class NewsFormComponent implements OnInit {
       this.form.controls["image"].setErrors({ imageNoValido: true });
     }
 
-    this.formData=this.form.value;
-    this.formData.id= this.idNew;
-    this.store.dispatch(actions.updateNews({id:this.idNew,data:this.formData}));
+    this.formData = this.form.value;
+    this.formData.id = this.idNew;
+    this.store.dispatch(
+      actions.updateNews({ id: this.idNew, data: this.formData })
+    );
 
-    setTimeout(() =>{
-      this.router.navigate([`/backoffice/news/`])
-    },1000)
-    /*
-    this.newsService
-      .updateNew(this.idNew, this.form.value)
-      .subscribe((resp) => {
-        alerts.toastSuccess.fire({
-          text: `Se actualizo correctamente`,
-          icon: "success",
-        });
-      });
-      */
+    setTimeout(() => {
+      this.router.navigate([`/backoffice/news/`]);
+    }, 1000);
   }
 
   createNew() {
     if (this.idNew) {
       this.update();
-    }else{
+    } else {
       this.create();
     }
   }
@@ -192,25 +184,10 @@ export class NewsFormComponent implements OnInit {
       delete this.form.value.image;
     }
 
-
-      console.log('this.form.value',this.form.value);
-      this.store.dispatch(actions.createNews(this.form.value))
-      setTimeout(() =>{
-        this.router.navigate([`/backoffice/news/`])
-      },1000)
-      //this.router.navigate([`/backoffice/news/`]);
- /*
-    this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-      alerts.toastSuccess.fire({
-        text: `Se creo Correctamente`,
-        icon: "success",
-      });
-
+    this.store.dispatch(actions.createNews(this.form.value));
+    setTimeout(() => {
       this.router.navigate([`/backoffice/news/`]);
-    });
-
-    */
+    }, 1000);
+    
   }
-
-
 }
