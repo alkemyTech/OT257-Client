@@ -1,4 +1,3 @@
-import { FeaturesModule } from "./features/features.module";
 import { CoreModule } from "./core/core.module";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
@@ -9,7 +8,9 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
 import { AuthEffects } from "./state/effects/auth.effects";
+import { SliderEffect } from "./state/effects/slider.effects";
 import { RouterModule } from "@angular/router";
+import { FeaturesModule } from "./features/features.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { RouterModule } from "@angular/router";
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects,SliderEffect]),
     StoreDevtoolsModule.instrument({ }),
   ],
   providers: [],
