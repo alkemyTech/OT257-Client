@@ -1,8 +1,9 @@
-import { Action, createAction, props } from "@ngrx/store";
+import { createAction, props } from "@ngrx/store";
 import { UserLogin, UserRegister } from "src/app/core/models/auth.model";
 
 export enum AuthActionTypes {
   LOGIN = "[Auth] Login",
+  LOGIN_GOOGLE = "[Auth] Login Google",
   LOGIN_SUCCESS = "[Auth] Login Success",
   LOGIN_FAILURE = "[Auth] Login Failure",
   SIGNUP = "[Auth] Signup",
@@ -14,6 +15,11 @@ export enum AuthActionTypes {
 
 export const logIn = createAction(
   AuthActionTypes.LOGIN,
+  props<{ payload: UserLogin }>()
+);
+
+export const logInGoogle = createAction(
+  AuthActionTypes.LOGIN_GOOGLE,
   props<{ payload: UserLogin }>()
 );
 

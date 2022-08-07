@@ -6,6 +6,7 @@ import { map, mergeMap, catchError } from "rxjs/operators";
 import {
   AuthActionTypes,
   logInSuccess,
+  logInGoogle,
   logInFailure,
   signUpSuccess,
   signUpFailure,
@@ -28,7 +29,7 @@ export class AuthEffects {
         this.authService.login(action).pipe(
           map((res: any) => {
             if (res.data.token) {
-              this.authService.saveToken(res.token);
+              this.authService.saveToken(res.data.token);
               this.router.navigate(["/backoffice"]);
             }
             return logInSuccess(res);
@@ -38,6 +39,23 @@ export class AuthEffects {
           )
         )
       ),
+    )
+  );
+
+  loginGoogle$ = createEffect(() =>
+    this.actions$?.pipe(
+      ofType(AuthActionTypes.LOGIN_GOOGLE),
+      mergeMap(() => {
+        return this.authService.loginGoogle().then((res: any) => {
+          if (res.credential.accessToken) {
+            logInGoogle(res);
+            this.authService.saveToken(res.credential.accessToken);
+            this.router.navigate(["/backoffice"]);
+          }
+          return logInSuccess(res);
+        }
+        ).catch((err: Error) => logInFailure({ payload: err }));
+      })
     )
   );
 
@@ -69,3 +87,4 @@ export class AuthEffects {
     )
   );
 }
+
