@@ -21,6 +21,7 @@ import { RouterModule } from "@angular/router";
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ }),
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
