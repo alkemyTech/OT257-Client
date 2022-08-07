@@ -1,7 +1,7 @@
 <section class="vh-100 d-flex justify-content-center align-items-center">
   <div class="container">
     <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-md-6 col-md-offset-3 mb-md-0 d-flex justify-content-center align-items-center">
+      <div class="col-md-5 col-md-offset-3 mb-md-0 d-flex justify-content-center align-items-center">
         <div class="w-100 border py-4 p-3 shadow" style="
                 background: hsla(0, 0%, 100%, 0.55);
                 backdrop-filter: blur(10px);
@@ -46,8 +46,9 @@
                   requerida</small>
               </div>
               <div class="form-group">
-                <small *ngIf="authForm.get('password')?.errors?.pattern" class="text-danger">La contraseña debe contener <span *ngIf="authForm.get('password')?.errors?.minlength" class="text-danger p-0">al menos 6
-                  caracteres,</span>
+                <small *ngIf="authForm.get('password')?.errors?.pattern" class="text-danger">La contraseña debe contener
+                  <span *ngIf="authForm.get('password')?.errors?.minlength" class="text-danger p-0">al menos 6
+                    caracteres,</span>
                   un número, una letra y un símbolo (por ejemplo: @#$%).</small>
               </div>
               <!-- Password input -->
@@ -67,10 +68,20 @@
                   placeholder="Confirmar contraseña" name="password_again" formControlName="password_again" required />
               </div>
               <!-- Submit button -->
-              <button type="submit" class="btn btn-outline-danger rounded-pill px-3 p-2 mb-3 fw-bold">
+              <button type="submit" class="btn btn-outline-danger rounded-pill p-2 mb-2 fw-bold">
                 {{options.label}}
               </button>
-
+              <!-- Link to login with google -->
+              <div *ngIf="options.id === 'login'" class="d-flex justify-content-between align-items-center">
+                <hr class="w-50">
+                <div class="w-100 d-flex justify-content-center">
+                  <p class="text-center fw-bold mx-3 mb-0">O</p>
+                </div>
+                <hr class="w-50">
+              </div>
+              <button (click)="onGoogleLogin()" *ngIf="options.id === 'login'" class="btn btn-outline-danger rounded-pill p-2 mb-4 fw-bold">
+                <span class="d-flex justify-content-between align-items-center">{{options.label + ' con'}}&nbsp;<i class="fab fa-google-plus h4 m-0"></i></span>
+              </button>
               <!-- Links -->
               <ng-container *ngIf="options.id === 'login'; else showSignTemplate">
                 <div class="form-group">

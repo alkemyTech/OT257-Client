@@ -4,6 +4,7 @@ import { Store } from "@ngrx/store";
 import {
   logIn,
   logInFailure,
+  logInGoogle,
   signUp,
   signUpFailure,
 } from "src/app/state/actions/auth.actions";
@@ -26,6 +27,10 @@ export class AuthFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+  }
+
+  onGoogleLogin(): void {
+    this.store.dispatch(logInGoogle(this.authForm.value));
   }
 
   onSubmit(option: string): void {
