@@ -141,7 +141,6 @@ export class SlidesFormComponent implements OnInit {
         this.store.dispatch(getOneSlide({ id }));
         this.slide$ = this.store.select(selectOneSlide);
         this.slide$.forEach((slide) => {
-          console.log(slide);
           this.form.setValue({
             name: slide.name,
             description: slide.description,

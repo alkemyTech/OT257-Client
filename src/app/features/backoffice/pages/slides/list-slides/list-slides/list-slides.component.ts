@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { Slides } from "src/app/core/models/slides.model";
-import { SlideFormService } from "src/app/core/services/slide-form.service";
 import {
   deleteSlider,
   loadSliders,
