@@ -37,7 +37,7 @@ export class AuthEffects {
             EMPTY.pipe(map((err: Error) => logInFailure({ payload: err })))
           )
         )
-      )
+      ),
     )
   );
 
