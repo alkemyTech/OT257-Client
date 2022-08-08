@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
+import { HeaderComponent } from './pages/header/header.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { environment } from 'src/environments/environment.prod';
     AuthFormComponent,
     ContactFormComponent,
     ActivitiesViewComponent,
+    HeaderComponent,
   ],
   exports: [
     ContactFormComponent,
