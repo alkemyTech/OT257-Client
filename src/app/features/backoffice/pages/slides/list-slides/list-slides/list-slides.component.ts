@@ -1,5 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { SlideFormService } from "src/app/core/services/slide-form.service";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import {
+  deleteSlider,
+  loadSliders,
+} from "src/app/state/actions/slider.actions";
+import { AppState } from "src/app/state/app.state";
+import {
+  selectSlideList,
+  selectSlideLoading,
+} from "src/app/state/selectors/slider.selectors";
 import Swal from "sweetalert2";
 
 @Component({
@@ -8,23 +18,18 @@ import Swal from "sweetalert2";
   styleUrls: ["./list-slides.component.scss"],
 })
 export class ListSlidesComponent implements OnInit {
-  listSlides: any;
-  noData: boolean = false;
-  loading: boolean = true;
+  listSlides$: Observable<any> = new Observable();
+  loading$: Observable<boolean> = new Observable();
 
-  constructor(private slideService: SlideFormService) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.slideService.getSlide().subscribe((resp) => {
-      this.listSlides = resp.data;
-      this.loading = false;
-      if (this.listSlides.length === 0) {
-        this.noData = true;
-      }
-    });
+    this.loading$ = this.store.select(selectSlideLoading);
+    this.store.dispatch(loadSliders());
+    this.listSlides$ = this.store.select(selectSlideList);
   }
 
-  deleteSlide(id: string) {
+  deleteSlide(id: number) {
     Swal.fire({
       title: "Esta seguro de borrar?",
       text: "Esta accion no tiene revercion!",
@@ -35,10 +40,8 @@ export class ListSlidesComponent implements OnInit {
       confirmButtonText: "Si, borrarlo!",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.slideService.deleteSlide(id).subscribe((resp) => {
-          Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success");
-          this.ngOnInit();
-        });
+        this.store.dispatch(deleteSlider({ id }));
+        console.log(id);
       }
     });
   }
