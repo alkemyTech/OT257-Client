@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment.prod';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { PublicRoutingModule } from './public-routing.module';
     RouterModule,
     HttpClientModule,
     PublicRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ]
 })
 export class PublicModule { }

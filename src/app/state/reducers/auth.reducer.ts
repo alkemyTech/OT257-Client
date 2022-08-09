@@ -1,6 +1,7 @@
 import { AuthState } from "src/app/core/models/auth.model";
 import {
   logIn,
+  logInGoogle,
   logInFailure,
   logOut,
   signUp,
@@ -18,6 +19,14 @@ export const initialState: AuthState = {
 export const authReducer = createReducer(
   initialState,
   on(logIn, (state, action) => {
+    return {
+      ...state,
+      isAuthenticated: true,
+      user: action.payload,
+      errorMessage: null,
+    };
+  }),
+  on(logInGoogle, (state, action) => {
     return {
       ...state,
       isAuthenticated: true,

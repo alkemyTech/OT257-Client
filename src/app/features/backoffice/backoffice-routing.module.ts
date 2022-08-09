@@ -100,7 +100,7 @@ export const routes: Routes = [
     component: EditFormComponent,
   },
   {
-    path: "Home",
+    path: "home",
     component: BackOfficeHomeComponent,
   },
   {
