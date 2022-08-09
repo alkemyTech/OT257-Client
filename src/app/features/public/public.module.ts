@@ -30,6 +30,7 @@ import { HeaderComponent } from './pages/header/header.component';
     ContactFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
