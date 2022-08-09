@@ -17,40 +17,11 @@
   font-style: italic;
 }
 
-@media screen and (max-width:1200px) {
-  .image {
-    width: 100%;
-  }
-}
-    
 
 @media screen and (max-width: 768px) {
   .carousel-caption {
     display: none;
   }
-  .image {
-   width: 767px;
-   height: auto;
-  }
 }
 
-@media screen and (max-width: 576px) {
-  .carousel-caption {
-    display: none;
-  }
 
-  .image {
-    width: 575px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .carousel-caption {
-    display: none;
-  }
-
-  .image {
-    width: 479px;
-  }
-}
-    
