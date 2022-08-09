@@ -12,9 +12,10 @@ import { Router } from "@angular/router";
 import { NewsService } from "src/app/core/services/news/news.service";
 
 import { HelpersService } from "src/app/core/services/helpers.service";
-
 import Swal from "sweetalert2";
 import * as alerts from "src/app/shared/components/layouts/alerts/alerts";
+import { Store } from "@ngrx/store";
+import * as actions from "../../../../../state/actions/news.actions";
 
 @Component({
   selector: "app-news-form",
@@ -30,6 +31,7 @@ export class NewsFormComponent implements OnInit {
   event!: any;
   idNew!: any;
   new = "";
+  formData!: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +39,8 @@ export class NewsFormComponent implements OnInit {
     private newsService: NewsService,
     private fb: FormBuilder,
     private router: Router,
-    private helpers: HelpersService
+    private helpers: HelpersService,
+    private store: Store
   ) {
     this.route.paramMap.subscribe((params) => {
       this.idNew = params.get("id");
@@ -116,7 +119,7 @@ export class NewsFormComponent implements OnInit {
     });
   }
 
-  updateNew() {
+  update() {
     if (this.form.value.image) {
       this.form.value.image = this.img;
     } else {
@@ -139,21 +142,26 @@ export class NewsFormComponent implements OnInit {
       this.form.controls["image"].setErrors({ imageNoValido: true });
     }
 
-    this.newsService
-      .updateNew(this.idNew, this.form.value)
-      .subscribe((resp) => {
-        alerts.toastSuccess.fire({
-          text: `Se actualizo correctamente`,
-          icon: "success",
-        });
-      });
+    this.formData = this.form.value;
+    this.formData.id = this.idNew;
+    this.store.dispatch(
+      actions.updateNews({ id: this.idNew, data: this.formData })
+    );
+
+    setTimeout(() => {
+      this.router.navigate([`/backoffice/news/`]);
+    }, 1000);
   }
 
   createNew() {
     if (this.idNew) {
-      this.updateNew();
+      this.update();
+    } else {
+      this.create();
     }
+  }
 
+  create() {
     if (this.form.invalid) {
       return Object.values(this.form.controls).forEach((control) => {
         if (control instanceof FormGroup) {
@@ -176,13 +184,10 @@ export class NewsFormComponent implements OnInit {
       delete this.form.value.image;
     }
 
-    this.newsService.createNew(this.form.value).subscribe((resp: any) => {
-      alerts.toastSuccess.fire({
-        text: `Se creo Correctamente`,
-        icon: "success",
-      });
-
+    this.store.dispatch(actions.createNews(this.form.value));
+    setTimeout(() => {
       this.router.navigate([`/backoffice/news/`]);
-    });
+    }, 1000);
+    
   }
 }

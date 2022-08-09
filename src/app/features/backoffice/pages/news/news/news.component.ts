@@ -3,8 +3,8 @@ import { NewsService } from "../../../../../core/services/news/news.service";
 import Swal from "sweetalert2";
 import { Store } from "@ngrx/store";
 import {
-  loadedNews,
   loadNews,
+  deleteNews,
 } from "../../../../../state/actions/news.actions";
 import { NewModel } from "src/app/core/models/new.model";
 import { Observable } from "rxjs";
@@ -14,7 +14,6 @@ import {
 } from "../../../../../state/selectors/news.selectors";
 import { catchError, map } from "rxjs/operators";
 import * as alerts from "src/app/shared/components/layouts/alerts/alerts";
-
 
 @Component({
   selector: "app-news",
@@ -33,11 +32,6 @@ export class NewsComponent implements OnInit {
   ngOnInit(): void {
     this.spinner = true;
 
-    this.newService.getNews().pipe(
-      catchError((err: Error) => {
-        return err.name;
-      })
-    );
     this.store.dispatch(loadNews());
     this.news_$ = this.store.select(selectListNew);
     this.loading_$ = this.store.select(selectLoading);
@@ -50,17 +44,10 @@ export class NewsComponent implements OnInit {
       .fire({
         title: "Esta seguro de borrar?",
         icon: "warning",
-  
       })
       .then((result) => {
         if (result.isConfirmed) {
-          this.newService.deleteNew(id).subscribe((resp) => {
-            alerts.toastSuccess.fire({
-              text: `Se elimino Correctamente`,
-              icon: "success",
-            });
-            this.ngOnInit();
-          });
+          this.store.dispatch(deleteNews({ id }));
         }
       });
   }

@@ -15,3 +15,4 @@ export interface SlideState {
   sliders: Slides[];
   one_slider: Slides
 }
+
