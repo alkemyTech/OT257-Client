@@ -10,9 +10,10 @@
       >
         Agregar slide
       </button>
-
-      <h5 style="margin-top: 30px" *ngIf="noData">No hay datos para mostrar</h5>
-      <table class="table table-striped mt-5">
+      <h5 style="margin-top: 30px" *ngIf="(listSlides$)">
+        No hay datos para mostrar
+      </h5>
+      <table *ngIf="!(loading$ | async)" class="table table-striped mt-5">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -21,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of listSlides">
+          <tr *ngFor="let item of listSlides$ | async">
             <td>{{ item.name }}</td>
             <td>
               <img
@@ -46,7 +47,7 @@
           </tr>
         </tbody>
       </table>
-      <app-skeleton [count]="20" *ngIf="loading"></app-skeleton>
+      <app-skeleton [count]="20" *ngIf="loading$ | async"></app-skeleton>
     </div>
   </div>
 </div>

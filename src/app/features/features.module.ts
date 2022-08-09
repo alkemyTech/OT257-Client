@@ -18,6 +18,8 @@ import { RouterModule } from "@angular/router";
     RouterModule,
     AppRoutingModule,
     SharedModule,
+    PublicModule,
+    BackofficeModule,
     SweetAlert2Module.forRoot(),
     SweetAlert2Module,
     SweetAlert2Module.forChild({ /* options */ }),
