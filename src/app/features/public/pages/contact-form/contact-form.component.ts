@@ -58,7 +58,7 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  sendConsulta() {
+  sendConsult() {
     if (this.form.valid) {
     } else {
       this.form.markAllAsTouched();
