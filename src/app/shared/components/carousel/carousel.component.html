@@ -7,7 +7,7 @@
   >
     <div class="carousel-inner">
       <div
-        *ngFor="let slide of slidesStatic; let i = index; first as isFirst"
+        *ngFor="let slide of slides; let i = index; first as isFirst"
         class="carousel-item"
         [class.active]="isFirst"
         data-bs-interval="5000"
