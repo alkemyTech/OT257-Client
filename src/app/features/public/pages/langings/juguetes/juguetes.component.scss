@@ -1,0 +1,111 @@
+* {
+    /* outline: 1px solid cadetblue; */
+    padding: 0px;
+    margin: 0px;
+
+}
+
+body {
+
+    background-color: #424949;
+    text-align: center;
+}
+
+main {
+    background-color: #ECF0F1;
+    margin: 50px 0% 0% 30%;
+    display: flex;
+    flex-direction: column;
+    // width: 800px;
+    padding: 0px 50px 0px 50px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    padding: 0px 50px 0px 50px;
+}
+
+nav {
+    height: 300px;
+
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+section div {
+    position: relative;
+}
+
+.titulos {
+    padding: 40px 0px 80px 0px;
+    font: normal 30px bold;
+    text-align: center;
+}
+
+.tiempo{
+    align-content: center;
+    font: normal 20px bold;
+
+}
+
+.image {
+    width: 120px;
+    height: 80px;
+    padding: 5px;
+    box-shadow: 0px 10px 20px -6px black;
+}
+
+.img1 {
+    position: absolute;
+    bottom: 0px;
+    left: 1rem;
+    transform: rotate(20deg);
+}
+
+.img2 {
+    position: absolute;
+    bottom: 160px;
+    right: 1rem;
+    transform: rotate(-20deg);
+}
+
+.img3 {
+    position: absolute;
+    bottom: 20px;
+    left: 3rem;
+    transform: rotate(20deg);
+}
+
+.img5 {
+    position: absolute;
+    bottom: 20px;
+    right: 2rem;
+    transform: rotate(-20deg);
+}
+
+.description {
+    padding: 30px 0px 20px 0px;
+    font: normal 20px normal;
+    margin-bottom: 20px;
+}
+
+.logocapana {
+
+    width: 150px;
+    height: 100px;
+
+}
+
+.juguetes {
+
+    position: relative;
+
+}
