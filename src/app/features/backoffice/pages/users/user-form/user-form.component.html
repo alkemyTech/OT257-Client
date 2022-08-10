@@ -11,17 +11,15 @@
             (onAddressChange)="handleAddressChange($event)"
             class="form-control mb-5"
           />
-          <div class="mx-auto">
-            <google-map
-              width="33rem"
-              [center]="center"
-              [zoom]="zoom"
-              (mapClick)="moveMap($event)"
-              (mapMousemove)="move($event)"
-            >
-              <map-marker [position]="center" [title]="'Your location'"></map-marker>
-            </google-map>
-          </div>
+          <google-map
+            width="100%"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)"
+          >
+            <map-marker [position]="center" [title]="'Your location'"></map-marker>
+          </google-map>
         </div>
       </div>
     </div>
