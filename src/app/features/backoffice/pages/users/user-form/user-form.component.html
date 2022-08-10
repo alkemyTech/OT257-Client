@@ -4,6 +4,12 @@
       <div class="card w-100 shadow-lg border-0 text-center p-5">
         <div class="card-body">
           <h4 class="mb-5">Formulario de usuarios</h4>
+          <input
+            ngx-google-places-autocomplete
+            [options]="options"
+            #placesRef="ngx-places"
+            (onAddressChange)="handleAddressChange($event)"
+          />
         </div>
       </div>
     </div>

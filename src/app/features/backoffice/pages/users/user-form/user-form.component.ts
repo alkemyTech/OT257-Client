@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-user-form',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
+  @ViewChild("placesRef") placesRef!: GooglePlaceDirective;
+
+  options: any = {
+    types: [],
+    componentRestrictions: { country: 'AR' }
+  };
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public handleAddressChange(address: Address) {
+    // Do some stuff
   }
 
 }

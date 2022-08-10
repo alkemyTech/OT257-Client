@@ -1,5 +1,3 @@
-
-
 import { CoreModule } from "./core/core.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -16,6 +14,7 @@ import { SliderEffect } from "./state/effects/slider.effects";
 import { RouterModule } from "@angular/router";
 
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -24,8 +23,9 @@ import { RouterModule } from "@angular/router";
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect,NewsEffects]),
+    EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect, NewsEffects]),
     StoreDevtoolsModule.instrument({}),
+
   ],
   providers: [],
   bootstrap: [AppComponent],
