@@ -1,8 +1,13 @@
 
-
-<app-navbar ></app-navbar>
-
-<div class="mt-5">
+ <main>
+    <aside>
+        <app-sidebar> </app-sidebar> 
+    </aside>
+    <section>  
+        <header>
+            <app-navbar ></app-navbar>
+        </header> 
+                    <div class="mt-5"> 
         <div class="tableCard">
             <div *ngFor="let menu of menus" class="cards">
                 <div class="card w-100 shadow-lg border-0 text-center p-5">
@@ -16,7 +21,10 @@
             </div>
                             
          </div>
-    </div>
+    </div> 
+    </section>
+ </main>   
+
 
 
 
