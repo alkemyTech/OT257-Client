@@ -10,6 +10,7 @@ import { PublicModule } from "./public/public.module";
 import { BackofficeModule } from "./backoffice/backoffice.module";
 import { RouterModule } from "@angular/router";
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -17,13 +18,11 @@ import { RouterModule } from "@angular/router";
     RouterModule,
     AppRoutingModule,
     SharedModule,
-    SweetAlert2Module.forRoot(),
-    SweetAlert2Module,
-    SweetAlert2Module.forChild({
-      /* options */
-    }),
     PublicModule,
     BackofficeModule,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module,
+    SweetAlert2Module.forChild({ /* options */ }),
   ],
   providers: [
     LoaderService,

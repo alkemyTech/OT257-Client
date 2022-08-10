@@ -1,7 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { NewsService } from "../../../../../core/services/news/news.service";
-
 import Swal from "sweetalert2";
+import { Store } from "@ngrx/store";
+import {
+  loadNews,
+  deleteNews,
+} from "../../../../../state/actions/news.actions";
+import { NewModel } from "src/app/core/models/new.model";
+import { Observable } from "rxjs";
+import {
+  selectListNew,
+  selectLoading,
+} from "../../../../../state/selectors/news.selectors";
+import { catchError, map } from "rxjs/operators";
+import * as alerts from "src/app/shared/components/layouts/alerts/alerts";
 
 @Component({
   selector: "app-news",
@@ -9,44 +21,34 @@ import Swal from "sweetalert2";
   styleUrls: ["./news.component.scss"],
 })
 export class NewsComponent implements OnInit {
-  news!: any;
   spinner!: boolean;
+  showDialog: boolean = false;
 
-  constructor(private newService: NewsService) { }
+  news_$: Observable<any> = new Observable();
+  loading_$: Observable<any> = new Observable();
+
+  constructor(private newService: NewsService, private store: Store<any>) {}
 
   ngOnInit(): void {
     this.spinner = true;
-    this.newService.getNews()
-      .subscribe((resp: any) => {
-        console.log(resp)
-        this.news = resp.data;
-        setInterval(() => this.spinner = false, 1000);
 
-      })
+    this.store.dispatch(loadNews());
+    this.news_$ = this.store.select(selectListNew);
+    this.loading_$ = this.store.select(selectLoading);
 
+    setInterval(() => (this.spinner = false), 1000);
   }
 
   deleteNew(id: string) {
-    Swal.fire({
-      title: "Esta seguro de borrar?",
-      text: "Esta accion no tiene revercion!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si, borrarlo!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-
-
-        this.newService.deleteNew(id).subscribe((resp) => {
-          resp.success ? Swal.fire("Borrado!", `Registro ${id} ha sido borrado`, "success") : Swal.fire("Error", "Error de conexion", "error");
-
-          this.ngOnInit();
-        });
-
-
-      }
-    });
+    alerts.alertConfirm
+      .fire({
+        title: "Esta seguro de borrar?",
+        icon: "warning",
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.store.dispatch(deleteNews({ id }));
+        }
+      });
   }
 }

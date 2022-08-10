@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
-
 <div *ngIf="spinner" class="spinner mt-5">
-<mat-spinner ></mat-spinner>
+  <app-loader></app-loader> 
 </div>
+
 
 <div *ngIf="!spinner" class="container mt-4">
   <div class="card shadow-lg">
@@ -14,10 +14,11 @@
       >
         Agregar Novedad
       </button>
-      <h5 style="margin-top: 30px" *ngIf="news.length == 0">
+
+      <h5 style="margin-top: 30px" *ngIf="(news_$ |async).length  == 0">
         No hay datos para mostrar
       </h5>
-      <table *ngIf="news.length > 0" class="table table-striped mt-5">
+      <table *ngIf="(news_$ |async).length>   0" class="table table-striped mt-5">
         <thead>
           <tr>
             <th >Nombre</th>
@@ -27,7 +28,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of news">
+        
+          <tr *ngFor="let item of (news_$ |async)">
             <td>{{ item.name }}</td>
             <td class="text-center"> <img [src]="item.image | noimage " class="rounded-circle" alt="Foto" width="80" height="80"></td>
             <td>{{item.created_at}}</td>
