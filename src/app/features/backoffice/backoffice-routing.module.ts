@@ -15,6 +15,7 @@ import { OrgViewComponent } from "./pages/organization/org-view/org-view.compone
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { BackOfficeHomeComponent } from "./pages/home/back-office-home.component";
 import { UsersListComponent } from "./pages/users-list/users-list.component";
+import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 
 export const routes: Routes = [
   {
@@ -107,10 +108,14 @@ export const routes: Routes = [
     path: "users",
     component: UsersListComponent,
   },
+  {
+    path: "user/form",
+    component: UserFormComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BackofficeRoutingModule {}
+export class BackofficeRoutingModule { }
