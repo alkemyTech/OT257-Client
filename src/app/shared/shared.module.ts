@@ -14,6 +14,7 @@ import { LazyLoadComponent } from './components/layouts/lazy-load/lazy-load.comp
 import { SkeletonComponent } from "./components/layouts/skeleton/skeleton/skeleton.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { FooterComponent } from './components/footer/footer.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ProgressBarComponent,
     LoaderComponent,
     FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,

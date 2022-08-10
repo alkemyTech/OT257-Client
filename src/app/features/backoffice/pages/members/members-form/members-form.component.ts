@@ -14,6 +14,7 @@ import { MembersService } from "src/app/core/services/members/members.service";
 import { HelpersService } from "src/app/core/services/helpers.service";
 
 import Swal from "sweetalert2";
+import * as alerts from 'src/app/shared/components/layouts/alerts/alerts';
 
 @Component({
   selector: "app-members-form",
@@ -163,7 +164,11 @@ export class MembersFormComponent implements OnInit {
     this.membersService
       .updateMember(this.idMember, this.form.value)
       .subscribe((resp) => {
-        resp.success ? Swal.fire("Actualizacion", "Se actualizo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+       
+        alerts.toastSuccess.fire({
+          text: `Se actualizo correctamente`,
+          icon: "success",
+        });
 
       });
   }
@@ -195,7 +200,11 @@ export class MembersFormComponent implements OnInit {
       delete this.form.value.image;
     }
     this.membersService.createMember(this.form.value).subscribe((resp: any) => {
-      resp.success ? Swal.fire("Creación", "Se creo Correctamente", "success") : Swal.fire("Error", "Error de conexion", "error");
+      
+      alerts.toastSuccess.fire({
+        text: `Se actualizo correctamente`,
+        icon: "success",
+      });
       this.router.navigate([`/backoffice/members/`]);
     });
   }
