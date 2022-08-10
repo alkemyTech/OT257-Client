@@ -6,9 +6,9 @@ import { LoaderInterceptor } from "../core/services/loader/loader.interceptor";
 import { SharedModule } from "../shared/shared.module";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
-import { PublicModule } from "./public/public.module";
 import { BackofficeModule } from "./backoffice/backoffice.module";
 import { RouterModule } from "@angular/router";
+import { PublicModule } from "./public/public.module";
 
 @NgModule({
   declarations: [],

@@ -5,6 +5,7 @@ import { Slides } from 'src/app/core/models/slides.model';
 import { HomeService } from 'src/app/core/services/home/home.service';
 import { LoaderService } from 'src/app/core/services/loader/loader.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

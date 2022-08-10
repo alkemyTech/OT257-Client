@@ -13,6 +13,7 @@ import { SliderEffect } from "./state/effects/slider.effects";
 import { RouterModule } from "@angular/router";
 import { FeaturesModule } from "./features/features.module";
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
