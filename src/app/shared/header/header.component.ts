@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   menuList = [{
     'name':'Inicio',
-    'link' : '/inicio',
+    'link' : '',
     'usuarioLog': false
   },
   {

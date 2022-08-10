@@ -7,12 +7,7 @@ import { ContactFormComponent } from "./pages/contact-form/contact-form.componen
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: "inicio",
-    pathMatch: 'full'
-  },
-  {
-    path: "inicio",
+    path: "",
     component: HomeComponent,
   },
   {
