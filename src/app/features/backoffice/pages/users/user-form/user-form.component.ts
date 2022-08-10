@@ -14,6 +14,9 @@ export class UserFormComponent implements OnInit {
     types: [],
     componentRestrictions: { country: 'AR' }
   };
+  title!: string;
+  latitude!: number;
+  longitude!: number;
 
   constructor() { }
 
