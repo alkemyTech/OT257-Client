@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";
@@ -14,7 +13,7 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { BackOfficeHomeComponent } from "./pages/home/back-office-home.component";
-import { UsersListComponent } from "./pages/users-list/users-list.component";
+import { UsersListComponent } from "./pages/users/users-list/users-list.component";
 
 export const routes: Routes = [
   {
