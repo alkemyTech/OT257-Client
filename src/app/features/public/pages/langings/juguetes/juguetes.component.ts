@@ -1,6 +1,7 @@
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-juguetes',
   templateUrl: './juguetes.component.html',
@@ -8,24 +9,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuguetesComponent implements OnInit {
 
-  fecha_fin= new Date('2022-12-1').getTime();
-  fecha_actual:any;
-  textoTiempo!:string;
-
+  currentDate: any;
+  targetDate: any;
+  cDateMillisecs: any;
+  tDateMillisecs: any;
+  difference: any;
+  seconds: any;
+  minutes: any;
+  hours: any;
+  days: any;
+  year: number = 2023;
+  month: number = 6;
+  months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'April',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  day: number = 31;
+  tiempoFaltante!:string
 
   constructor() { }
 
   ngOnInit(): void {
 
-    console.log('Oninit');
+    this.myTimer();
 
-  this.fecha_actual=Date.now();
-  console.log(this.fecha_actual)
-  let diff=this.fecha_fin - this.fecha_actual;
-  let tiempo= new Date(diff);
-  this.textoTiempo=`${tiempo.getDay()} dias ${tiempo.getHours()} Horas y ${tiempo.getMinutes()} Minutos`
-  console.log(this.textoTiempo);
+  }
 
+  myTimer() {
+    this.currentDate = new Date();
+    this.targetDate = new Date(2022, 12, 31);
+    this.cDateMillisecs = this.currentDate.getTime();
+    this.tDateMillisecs = this.targetDate.getTime();
+    this.difference = this.tDateMillisecs - this.cDateMillisecs;
+    this.seconds = Math.floor(this.difference / 1000);
+    this.minutes = Math.floor(this.seconds / 60);
+    this.hours = Math.floor(this.minutes / 60);
+    this.days = Math.floor(this.hours / 24);
+
+    this.hours %= 24;
+    this.minutes %= 60;
+    this.seconds %= 60;
+    this.hours = this.hours < 10 ? '0' + this.hours : this.hours;
+    this.minutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
+    this.seconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
+
+    this.tiempoFaltante=`${this.days} dias ${this.hours} Horas ${this.minutes} Minutos ${this.seconds} Segundos   `;
+  
+    //console.log(this.tiempoFaltante)
+    setInterval(this.myTimer, 1000);
   }
 
   
