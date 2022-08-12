@@ -30,4 +30,10 @@ export class UsersListComponent implements OnInit {
   deleteUser(id: string) {
     this.store.dispatch(deleteUser({ id }));
   }
+
+  searchUser($event: any) {
+    const value = $event.target.value;
+    console.log(value);
+
+  }
 }
