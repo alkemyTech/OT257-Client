@@ -33,7 +33,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: "contact-form",
+    path: "contacto",
     component: ContactFormComponent,
   },
 ];

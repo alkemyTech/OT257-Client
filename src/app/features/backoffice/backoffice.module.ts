@@ -11,7 +11,7 @@ import { EditFormComponent } from "./pages/organization/edit-form/edit-form.comp
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { BackOfficeHomeComponent } from "./pages/home/back-office-home.component";
 import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";
-import { UsersListComponent } from "./pages/users-list/users-list.component";
+import { UsersListComponent } from "./pages/users/users-list/users-list.component";
 import { NewsComponent } from "./pages/news/news/news.component";
 import { MembersComponent } from "./pages/members/members/members.component";
 import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";

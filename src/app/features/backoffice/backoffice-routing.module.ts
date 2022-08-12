@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";

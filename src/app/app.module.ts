@@ -9,9 +9,11 @@ import { ROOT_REDUCERS } from "./state/app.state";
 import { AuthEffects } from "./state/effects/auth.effects";
 import { NewsEffects } from "./state/effects/news.effects";
 import { FeaturesModule } from "./features/features.module";
-import { UsersEffects } from "./state/effects/users.effects";
 import { SliderEffect } from "./state/effects/slider.effects";
 import { RouterModule } from "@angular/router";
+import { UsersEffects } from "./state/effects/users.effects";
+import { SharedModule } from "./shared/shared.module";
+
 
 
 
@@ -22,6 +24,7 @@ import { RouterModule } from "@angular/router";
     RouterModule,
     CoreModule,
     FeaturesModule,
+    SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect, NewsEffects]),
     StoreDevtoolsModule.instrument({}),
