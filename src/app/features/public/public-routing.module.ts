@@ -36,10 +36,6 @@ export const routes: Routes = [
   {
     path: "contacto",
     component: ContactFormComponent,
-  },
-  {
-    path: "footer",
-    component: FooterComponent
   }
 ];
 
