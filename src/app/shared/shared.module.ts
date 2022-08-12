@@ -15,6 +15,8 @@ import { SkeletonComponent } from "./components/layouts/skeleton/skeleton/skelet
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HeaderComponent } from "./header/header.component";
+
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     LoaderComponent,
     FooterComponent,
     NotFoundComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +51,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     SkeletonComponent,
     ProgressBarComponent,
     LoaderComponent,
+    HeaderComponent,
     FooterComponent,
   ]
 })
