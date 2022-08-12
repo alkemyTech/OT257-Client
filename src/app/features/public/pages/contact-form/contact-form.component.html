@@ -1,7 +1,7 @@
 <app-header></app-header>
 <section class="container my-5">
   <div class="row justify-content-start align-items-center font">
-    <div class="col-sm-12 col-md-8">
+    <div class="col-sm-12 col-md-6 ">
       <h1 class="fw-bolder">¿Queres contribuir?</h1>
       <a [routerLink]=""
         ><button class="btn btn-danger my-4 radius fw-bolder py-2">
@@ -9,7 +9,7 @@
         </button></a
       >
       <h1 class="fw-bolder">¡Contactate con nosotros!</h1>
-      <form [formGroup]="form" (ngSubmit)="sendConsulta()">
+      <form [formGroup]="form" (ngSubmit)="sendConsult()">
         <div class="form-floating mb-4">
           <input
             type="text"
@@ -98,11 +98,13 @@
           Enviar consulta
         </button>
       </form>
-      <a [routerLink]="['']"
-        ><button class="btn border border-dark p-3 mt-3 radius" type="submit">
-          Ir al inicio
-        </button></a
+      <a [routerLink]="['/']"><button
+        class="btn border border-dark p-3 mt-3 radius"
+        type="submit"
       >
+        Ir al inicio
+      </button></a>
     </div>
+    <div id="map" class="my-4 col-md-6"></div>
   </div>
 </section>

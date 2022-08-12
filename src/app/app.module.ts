@@ -14,7 +14,7 @@ import { FeaturesModule } from "./features/features.module";
 import { SliderEffect } from "./state/effects/slider.effects";
 import { RouterModule } from "@angular/router";
 import { UsersEffects } from "./state/effects/users.effects";
-
+import { SharedModule } from "./shared/shared.module";
 
 
 
@@ -25,6 +25,7 @@ import { UsersEffects } from "./state/effects/users.effects";
     RouterModule,
     CoreModule,
     FeaturesModule,
+    SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect,NewsEffects]),
     StoreDevtoolsModule.instrument({}),
