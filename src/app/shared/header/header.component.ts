@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       name: "Contacto",
-      link: "/contact-form",
+      link: "/contacto",
       usuarioLog: false,
     },
     {
