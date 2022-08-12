@@ -1,5 +1,3 @@
-
-
 import { CoreModule } from "./core/core.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -18,6 +16,7 @@ import { SharedModule } from "./shared/shared.module";
 
 
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,8 +26,9 @@ import { SharedModule } from "./shared/shared.module";
     FeaturesModule,
     SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect,NewsEffects]),
+    EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect, NewsEffects]),
     StoreDevtoolsModule.instrument({}),
+
   ],
   providers: [],
   bootstrap: [AppComponent],
