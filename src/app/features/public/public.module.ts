@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
-import { JuguetesComponent } from './pages/langings/juguetes/juguetes.component';
+import { ToysComponent } from './pages/langings/toys/toys.component';
 
 
 
@@ -26,7 +26,7 @@ import { JuguetesComponent } from './pages/langings/juguetes/juguetes.component'
     AuthFormComponent,
     ContactFormComponent,
     ActivitiesViewComponent,
-    JuguetesComponent,
+    ToysComponent,
 
   ],
   exports: [

@@ -4,7 +4,7 @@ import { ActivitiesViewComponent } from "./pages/activities-view/activities-view
 import { AboutComponent } from "./pages/about/page/about.component";
 import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
-import { JuguetesComponent } from "./pages/langings/juguetes/juguetes.component";
+import { ToysComponent } from "./pages/langings/toys/toys.component";
 
 export const routes: Routes = [
   {
@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
   {
     path: "landing-juguetes",
-    component: JuguetesComponent,
+    component: ToysComponent,
   },
   {
     path: "iniciar-sesion",
