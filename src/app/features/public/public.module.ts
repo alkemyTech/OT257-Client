@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
+import { MainComponent } from './pages/school-campaign/components/main/main.component';
+
 
 
 
@@ -24,6 +26,7 @@ import { environment } from 'src/environments/environment.prod';
     AuthFormComponent,
     ContactFormComponent,
     ActivitiesViewComponent,
+    MainComponent,
   ],
   exports: [
     ContactFormComponent,

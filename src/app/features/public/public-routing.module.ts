@@ -4,6 +4,7 @@ import { ActivitiesViewComponent } from "./pages/activities-view/activities-view
 import { AboutComponent } from "./pages/about/page/about.component";
 import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
+import { MainComponent } from "./pages/school-campaign/components/main/main.component";
 
 export const routes: Routes = [
   {
@@ -36,6 +37,10 @@ export const routes: Routes = [
     path: "contacto",
     component: ContactFormComponent,
   },
+  {
+    path: "main",
+    component: MainComponent
+  }
 ];
 
 @NgModule({
