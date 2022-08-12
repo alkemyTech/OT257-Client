@@ -23,6 +23,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { SharedModule } from "src/app/shared/shared.module";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { BackofficeRoutingModule } from "./backoffice-routing.module";
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { BackofficeRoutingModule } from "./backoffice-routing.module";
     SharedModule,
     MatProgressSpinnerModule,
     BackofficeRoutingModule,
+    GooglePlaceModule,
+    GoogleMapsModule
   ],
 })
-export class BackofficeModule {}
+export class BackofficeModule { }
