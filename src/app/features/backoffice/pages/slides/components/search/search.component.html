@@ -1,13 +1,10 @@
-<div class="mx-auto p-3 container border color-fondo">
-    <label class="form-label" for="agregarPlato"
-      >Busque un Slide</label
-    >
+
     <input
-      class="form-control"
+      class="form-control form-control-sm rounded-pill p-3 my-2"
       (keyup)="buscarSlide($event)"
-      type="text"
+      type="search"
       id="agregarPlato"
-      placeholder="Buscar Slide"
+      placeholder="🔍 Ingrese aquí el slide del usuario que busca..."
     />
     <div *ngFor="let slide of slideFilter">
         <table *ngIf="slide" class="table table-striped mt-5">
@@ -36,9 +33,12 @@
                     [routerLink]="['/backoffice/slider/update/', slide.id]"
                     class="fas fa-edit fa-lg text-primary me-5"
                   ></i>
+                  <i
+                (click)="deleteSlide(slide.id)"
+                class="fas fa-trash-alt fa-lg text-danger"
+              ></i>
                 </td>
               </tr>
             </tbody>
           </table>
     </div>
-  </div>

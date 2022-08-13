@@ -4,6 +4,8 @@ import { debounceTime } from "rxjs/operators";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/state/app.state";
 import { selectSlideList } from "src/app/state/selectors/slider.selectors";
+import Swal from "sweetalert2";
+import { deleteSlider } from "src/app/state/actions/slider.actions";
 
 @Component({
   selector: "app-search",
@@ -35,11 +37,28 @@ export class SearchComponent implements OnInit {
             let nameSlide = dataName.name.substring(0, inputValue.length);
             if (nameSlide.toLowerCase() == inputValue.toLowerCase()) {
               this.slideFilter.push(dataName);
-            }else if(this.slideFilter.length === 0){
-          
             }
+          }if(this.slideFilter.length === 0){
+            this.slideFilter = data;
           }
+
         });
+      }
+    });
+  }
+  deleteSlide(id: number) {
+    Swal.fire({
+      title: "Esta seguro de borrar?",
+      text: "Esta accion no tiene revercion!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, borrarlo!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.store.dispatch(deleteSlider({ id }));
+        console.log(id);
       }
     });
   }
