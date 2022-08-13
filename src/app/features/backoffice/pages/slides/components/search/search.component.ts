@@ -14,7 +14,6 @@ import { deleteSlider } from "src/app/state/actions/slider.actions";
 })
 export class SearchComponent implements OnInit {
   private subjectKeyUp = new Subject<any>();
-  input: any;
   listSlides$: Observable<any> = new Observable();
   slideFilter: any = [];
 
@@ -31,17 +30,16 @@ export class SearchComponent implements OnInit {
       this.slideFilter = [];
       if (inputValue.length > 2) {
         this.slideFilter = [];
-        console.log(inputValue);
         this.listSlides$.subscribe((data) => {
           for (let dataName of data) {
             let nameSlide = dataName.name.substring(0, inputValue.length);
             if (nameSlide.toLowerCase() == inputValue.toLowerCase()) {
               this.slideFilter.push(dataName);
             }
-          }if(this.slideFilter.length === 0){
+          }
+          if (this.slideFilter.length === 0) {
             this.slideFilter = data;
           }
-
         });
       }
     });
