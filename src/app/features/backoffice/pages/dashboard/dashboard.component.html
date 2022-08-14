@@ -1,28 +1,18 @@
+<app-navbar></app-navbar>
 
-
-<app-navbar ></app-navbar>
-
-<div class="mt-5">
-        <div class="tableCard">
-            <div *ngFor="let menu of menus" class="cards">
-                <div class="card w-100 shadow-lg border-0 text-center p-5">
-                    <div class="card-body">
-                        <h4 class="mb-3">{{menu.name}}</h4>
-                        <img class="image" [src]="menu.img" [alt]="menu.name">
-                        <br>
-                        <button [routerLink]="menu.link" [disabled]=""class="btncard">Ir</button>
-                    </div>
-                </div>
-            </div>
-                            
-         </div>
+<div class="w-100 mt-5">
+  <div class="d-flex justify-content-center tableCard">
+    <div *ngFor="let menu of menus" class="cards d-flex align-items-center justify-content-center">
+      <div class="card w-100 shadow-lg border-0 text-center p-5">
+        <div class="card-body">
+          <h4 class="mb-3">{{ menu.name }}</h4>
+          <img class="image" [src]="menu.img" [alt]="menu.name" />
+          <br />
+          <button [routerLink]="menu.link" [disabled]="" class="btncard">
+            Ir
+          </button>
+        </div>
+      </div>
     </div>
-
-
-
-       
-
-
-  
-
-     
+  </div>
+</div>

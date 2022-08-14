@@ -1,14 +1,16 @@
 <app-loader></app-loader>
 <app-header></app-header>
 <app-titulo [title]="title"></app-titulo>
-<div class="p-4 p-md-5 mb-4 rounded border shadow m-md-5">
-  <div class="col-md-8 px-0">
-    <h1 class="display-4 fst-italic">Sobre Nosotros</h1>
-    <p [innerHtml]="organizationData.long_description" class="lead my-3">
-      {{ organizationData.long_description }}
-    </p>
+<div class="container">
+  <div class="p-4 p-md-5 mb-4 rounded border shadow m-md-5">
+    <div class="px-0">
+      <h1 class="display-4 fst-italic">Sobre Nosotros</h1>
+      <p [innerHtml]="organizationData?.long_description" class="lead my-3 w-100">
+        {{ organizationData?.long_description }}
+      </p>
+    </div>
   </div>
-</div>
-<div class="container d-flex justify-content-center">
-  <app-staff-list [staff_list]="staff"></app-staff-list>
+  <div class="container d-flex justify-content-center">
+    <app-staff-list [staff_list]="staff"></app-staff-list>
+  </div>
 </div>

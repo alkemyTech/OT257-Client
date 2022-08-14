@@ -15,6 +15,7 @@ import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
 import { FooterComponent } from './pages/school-campaign/footer/footer.component';
+import { HeaderComponent } from './pages/school-campaign/header/header.component';
 
 
 
@@ -26,6 +27,7 @@ import { FooterComponent } from './pages/school-campaign/footer/footer.component
     ContactFormComponent,
     ActivitiesViewComponent,
     FooterComponent,
+    HeaderComponent,
   ],
   exports: [
     ContactFormComponent,
