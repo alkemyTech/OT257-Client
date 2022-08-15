@@ -1,0 +1,43 @@
+<input
+  class="form-control form-control-sm rounded-pill p-3 my-2"
+  (keyup)="buscarSlide($event)"
+  type="search"
+  id="agregarSlide"
+  placeholder="🔍 Ingrese aquí el slide que busca..."
+/>
+<div *ngFor="let slide of slideFilter">
+  <table *ngIf="slide" class="table table-striped mt-5">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Order</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ slide.name }}</td>
+        <td>
+          <img
+            [src]="slide.image | noimage"
+            class="rounded-circle"
+            alt="Foto"
+            width="80"
+            height="80"
+          />
+        </td>
+        <td>{{ slide.order }}</td>
+        <td>
+          <i
+            [routerLink]="['/backoffice/slider/update/', slide.id]"
+            class="fas fa-edit fa-lg text-primary me-5"
+          ></i>
+          <i
+            (click)="deleteSlide(slide.id)"
+            class="fas fa-trash-alt fa-lg text-danger"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
