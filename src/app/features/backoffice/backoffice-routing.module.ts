@@ -13,8 +13,8 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { OrgViewComponent } from "./pages/organization/org-view/org-view.component";
 import { EditFormComponent } from "./pages/organization/edit-form/edit-form.component";
 import { BackOfficeHomeComponent } from "./pages/home/back-office-home.component";
-import { UsersListComponent } from "./pages/users-list/users-list.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { UsersListComponent } from "./pages/users/users-list/users-list.component";
 
 export const routes: Routes = [
   {
