@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
+import { Component, OnInit } from "@angular/core";
+import { ClassGetter } from "@angular/compiler/src/output/output_ast";
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  selector: "app-main",
+  templateUrl: "./main.component.html",
+  styleUrls: ["./main.component.scss"],
 })
 export class MainComponent implements OnInit {
   currentDate: any;
@@ -19,28 +19,26 @@ export class MainComponent implements OnInit {
   year: number = 2023;
   month: number = 6;
   months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'April',
-    'May',
-    'June',
-    'July',
-    'Aug',
-    'Sept',
-    'Oct',
-    'Nov',
-    'Dec',
+    "Jan",
+    "Feb",
+    "Mar",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   day: number = 31;
-  tiempoFaltante!:string
+  tiempoFaltante!: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-
     this.myTimer();
-
   }
 
   myTimer() {
@@ -57,15 +55,13 @@ export class MainComponent implements OnInit {
     this.hours %= 24;
     this.minutes %= 60;
     this.seconds %= 60;
-    this.hours = this.hours < 10 ? '0' + this.hours : this.hours;
-    this.minutes = this.minutes < 10 ? '0' + this.minutes : this.minutes;
-    this.seconds = this.seconds < 10 ? '0' + this.seconds : this.seconds;
+    this.hours = this.hours < 10 ? "0" + this.hours : this.hours;
+    this.minutes = this.minutes < 10 ? "0" + this.minutes : this.minutes;
+    this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
 
-    this.tiempoFaltante=`${this.days} dias ${this.hours} Horas ${this.minutes} Minutos ${this.seconds} Segundos   `;
+    this.tiempoFaltante = `${this.days} dias ${this.hours} Horas ${this.minutes} Minutos ${this.seconds} Segundos   `;
 
     //console.log(this.tiempoFaltante)
     setInterval(this.myTimer, 1000);
   }
-
-
 }
