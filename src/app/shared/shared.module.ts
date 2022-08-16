@@ -15,6 +15,8 @@ import { SkeletonComponent } from "./components/layouts/skeleton/skeleton/skelet
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SidebarComponent } from './components/backoffice/sidebar/sidebar.component';
+import {SidebarModule } from 'ng-cdbangular';
 import { HeaderComponent } from "./components/header/header.component";
 import { LayoutComponentComponent } from './components/layout-component/layout-component.component';
 
@@ -25,6 +27,7 @@ import { LayoutComponentComponent } from './components/layout-component/layout-c
     TituloComponent,
     CarouselComponent,
     NavbarComponent,
+    SidebarComponent,
     NoimagePipe,
     CardComponent,
     LazyLoadComponent,
@@ -33,6 +36,7 @@ import { LayoutComponentComponent } from './components/layout-component/layout-c
     LoaderComponent,
     FooterComponent,
     NotFoundComponent,
+    SidebarComponent,
     HeaderComponent,
     LayoutComponentComponent,
   ],
@@ -42,11 +46,13 @@ import { LayoutComponentComponent } from './components/layout-component/layout-c
     NgxSkeletonLoaderModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    SidebarModule
   ],
   exports: [
     TituloComponent,
     CarouselComponent,
     NavbarComponent,
+    SidebarComponent,
     NoimagePipe,
     CardComponent,
     LazyLoadComponent,
