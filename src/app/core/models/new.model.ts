@@ -7,6 +7,7 @@ export interface NewModel{
     user_id: string;
     category_id: string;
     image: string;
+    created_at: Date;
 }
 
 export interface NewsState {

@@ -11,7 +11,7 @@ import { EditFormComponent } from "./pages/organization/edit-form/edit-form.comp
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { BackOfficeHomeComponent } from "./pages/home/back-office-home.component";
 import { ListActiviyComponent } from "./pages/activities/list-activiy/list-activiy.component";
-import { UsersListComponent } from "./pages/users-list/users-list.component";
+import { UsersListComponent } from "./pages/users/users-list/users-list.component";
 import { NewsComponent } from "./pages/news/news/news.component";
 import { MembersComponent } from "./pages/members/members/members.component";
 import { ListSlidesComponent } from "./pages/slides/list-slides/list-slides/list-slides.component";
@@ -23,6 +23,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { SharedModule } from "src/app/shared/shared.module";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { BackofficeRoutingModule } from "./backoffice-routing.module";
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { GoogleMapsModule } from '@angular/google-maps';
+import { SearchComponent } from './pages/slides/components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { BackofficeRoutingModule } from "./backoffice-routing.module";
     MembersComponent,
     ListSlidesComponent,
     UserFormComponent,
+    SearchComponent,
   ],
   exports: [
     CategoriesFormComponent,
@@ -60,6 +64,8 @@ import { BackofficeRoutingModule } from "./backoffice-routing.module";
     SharedModule,
     MatProgressSpinnerModule,
     BackofficeRoutingModule,
+    GooglePlaceModule,
+    GoogleMapsModule
   ],
 })
-export class BackofficeModule {}
+export class BackofficeModule { }

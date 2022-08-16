@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
-
+import { FooterComponent } from './pages/school-campaign/footer/footer.component';
+import { NewsComponent } from './pages/news/news.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import { environment } from 'src/environments/environment.prod';
     AuthFormComponent,
     ContactFormComponent,
     ActivitiesViewComponent,
+    FooterComponent,
+    NewsComponent
   ],
   exports: [
     ContactFormComponent,

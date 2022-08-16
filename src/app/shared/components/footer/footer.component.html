@@ -1,0 +1,29 @@
+<div class="container">
+    <footer class="d-flex justify-content-center align-items-center flex-column py-3 my-3 border-top">
+      <div class="col d-flex justify-content-center align-items-center flex-column">
+        <a [routerLink]="['/']" class="d-flex justify-content-center align-items-center display-3">
+            <img src="{{orgData?.logo}}" alt="logo" class="m-0 w-75">
+        </a>
+      </div>
+      <hr class="w-75">
+      <div class="col d-flex justify-content-center align-items-center flex-column">
+        <ul class="nav d-flex justify-content-center align-items-center flex-row">
+          <li class="nav-item m-2"><a [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item m-2"><a [routerLink]="['/novedades']" class="nav-link p-0 text-muted">Novedades</a></li>
+          <li class="nav-item m-2"><a [routerLink]="['/nosotros']" class="nav-link p-0 text-muted">Nosotros</a></li>
+          <li class="nav-item m-2"><a [routerLink]="['/testimonios']" class="nav-link p-0 text-muted">Testimonios</a></li>
+          <li class="nav-item m-2"><a [routerLink]="['/contacto']" class="nav-link p-0 text-muted">Contacto</a></li>
+          <li class="nav-item m-2"><a [routerLink]="['/contribuye']" class="nav-link p-0 text-muted">Contribuye</a></li>
+        </ul>
+      </div>
+      <hr class="w-75">
+      <div class="col d-flex justify-content-center align-items-center flex-column">
+        <ul class="nav flex-row justify-content-start list-unstyled d-flex">
+          <li class="display-6 m-2"><a class="text-primary" href={{orgData?.facebook_url}} target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+          <li class="display-6 m-2"><a class="text-danger" href="{{orgData?.instagram_url}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li class="display-6 m-2"><a class="text-primary" href="{{orgData?.linkedin_url}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p>2022 by Alkemy. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
