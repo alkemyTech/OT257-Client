@@ -1,3 +1,19 @@
+*{
+  outline: 1 solid cadetblue;
+}
+
+
+main{
+  display: flex;
+  flex-direction: row;
+}
+header{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
 .tableCard {
   display: flex;
   flex-wrap: wrap;
@@ -33,4 +49,5 @@ h4 {
 }
 .imgnav {
   width: 110px;
+  text-align: left;
 }
