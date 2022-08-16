@@ -6,7 +6,6 @@ import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
 import { LoginGuard } from "src/app/shared/guards/login.guard";
 import { NewsComponent } from "./pages/news/news.component";
-import { MainLandingSchoolComponent } from "./pages/school-campaign/components/main-landing-school/main-landing-school.component";
 
 export const routes: Routes = [
   {
@@ -43,10 +42,6 @@ export const routes: Routes = [
   {
     path: "contacto",
     component: ContactFormComponent,
-  },
-  {
-    path: "main",
-    component: MainLandingSchoolComponent
   }
 ];
 
