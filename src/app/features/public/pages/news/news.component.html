@@ -2,6 +2,10 @@
 <div class="container min-vh-100">
   <app-titulo [title]="title"></app-titulo>
   <div class="album py-2 bg-light">
+    <app-search (search)="onSearch($event)"></app-search>
+    <div *ngIf="newsData.length == 0">
+      <h1>No hay novedades con su busqueda</h1>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-4" *ngFor="let new of newsData">
@@ -21,7 +25,14 @@
               />
             </div>
             <div class="card-body">
-              <p [innerHtml]="new.content.slice(0, 100)+' ...'" class="card-text"></p>
+              <h4 class="font-weight-bold card-title text-truncate">
+                {{ new.name }}
+              </h4>
+              <hr />
+              <p
+                [innerHtml]="new.content.slice(0, 100) + ' ...'"
+                class="card-text"
+              ></p>
               <div class="d-flex justify-content-between align-items-center">
                 <a
                   [routerLink]="[new.id]"
@@ -31,7 +42,7 @@
                     Leer más...<i class="fas fa-angle-double-right"></i>
                   </h3>
                 </a>
-                <small class="text-muted">{{ new.created_at| date }}</small>
+                <small class="text-muted">{{ new.created_at | date }}</small>
               </div>
             </div>
           </div>

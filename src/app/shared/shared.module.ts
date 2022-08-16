@@ -16,6 +16,7 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderComponent } from "./header/header.component";
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -32,7 +33,8 @@ import { HeaderComponent } from "./header/header.component";
     LoaderComponent,
     FooterComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +55,7 @@ import { HeaderComponent } from "./header/header.component";
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
+    SearchComponent
   ]
 })
 export class SharedModule { }
