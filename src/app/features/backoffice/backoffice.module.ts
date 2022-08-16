@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { BackofficeRoutingModule } from "./backoffice-routing.module";
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SearchComponent } from './pages/slides/components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MembersComponent,
     ListSlidesComponent,
     UserFormComponent,
+    SearchComponent,
   ],
   exports: [
     CategoriesFormComponent,
