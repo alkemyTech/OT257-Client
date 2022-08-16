@@ -1,12 +1,12 @@
 <div class="overflow-hidden w-100 p-5">
     <div class="d-flex flex-row justify-content-between aling-items-center p-2 ">
         <h2>últimas novedades</h2>
-        <a class="pe-auto text-danger" routerLink="/news">Ver todos...</a>
+        <a class="pe-auto text-danger" routerLink="/novedades">Ver todos...</a>
     </div>
     <div class="row row-cols-lg-3 row-cols-md-2 g-3 flex-row">
         <div *ngFor="let new of news">
             <app-card [image]="new.image" [title]="new.name" [content]="new.content" >
-                <a routerLink="new/{{new.id}}" class="deco-none text-danger d-flex flex-row-reverse p-2">
+                <a routerLink="novedades/{{new.id}}" class="deco-none text-danger d-flex flex-row-reverse p-2">
                     <h3 class="" >Leer más...<i class="fas fa-angle-double-right"></i></h3>
                 </a>
             </app-card>
