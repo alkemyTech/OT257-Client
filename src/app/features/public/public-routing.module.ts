@@ -21,6 +21,10 @@ export const routes: Routes = [
     component: AboutComponent,
   },
   {
+    path: "novedades",
+    component: NewsComponent
+  },
+  {
     path: "iniciar-sesion",
     loadChildren: () =>
       import("./pages/auth/login-form/login-form-routing.module").then(
