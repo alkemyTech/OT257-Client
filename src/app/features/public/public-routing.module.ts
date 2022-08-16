@@ -4,7 +4,7 @@ import { ActivitiesViewComponent } from "./pages/activities-view/activities-view
 import { AboutComponent } from "./pages/about/page/about.component";
 import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
-import { FooterComponent } from "./pages/school-campaign/footer/footer.component";
+import { NewsComponent } from "./pages/news/news.component";
 
 export const routes: Routes = [
   {
@@ -18,6 +18,10 @@ export const routes: Routes = [
   {
     path: "nosotros",
     component: AboutComponent,
+  },
+  {
+    path: "novedades",
+    component: NewsComponent
   },
   {
     path: "iniciar-sesion",
