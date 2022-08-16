@@ -6,6 +6,7 @@ import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
 import { FooterComponent } from "./pages/school-campaign/footer/footer.component";
 import { LoginGuard } from "src/app/shared/guards/login.guard";
+import { NewsComponent } from "./pages/news/news.component";
 
 export const routes: Routes = [
   {
