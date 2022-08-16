@@ -15,8 +15,8 @@ import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
 import { JuguetesComponent } from './pages/langings/juguetes/juguetes.component';
-
-
+import { FooterComponent } from './pages/school-campaign/footer/footer.component';
+import { NewsComponent } from './pages/news/news.component';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { JuguetesComponent } from './pages/langings/juguetes/juguetes.component'
     ContactFormComponent,
     ActivitiesViewComponent,
     JuguetesComponent,
-
+    FooterComponent,
+    NewsComponent
   ],
   exports: [
     ContactFormComponent,
