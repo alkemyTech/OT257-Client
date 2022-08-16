@@ -61,7 +61,6 @@ export class MainLandingSchoolComponent implements OnInit {
 
     this.tiempoFaltante = `${this.days} dias ${this.hours} Horas ${this.minutes} Minutos ${this.seconds} Segundos   `;
 
-    //console.log(this.tiempoFaltante)
     setInterval(this.myTimer, 1000);
   }
 }
