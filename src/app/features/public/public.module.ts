@@ -15,7 +15,8 @@ import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
 import { FooterComponent } from './pages/school-campaign/footer/footer.component';
-import { MainComponent } from './pages/school-campaign/components/main/main.component';
+import { NewsComponent } from './pages/news/news.component';
+import { MainLandingSchoolComponent } from './pages/school-campaign/components/main-landing-school/main-landing-school.component';
 
 
 
@@ -28,7 +29,8 @@ import { MainComponent } from './pages/school-campaign/components/main/main.comp
     ContactFormComponent,
     ActivitiesViewComponent,
     FooterComponent,
-    MainComponent,
+    NewsComponent,
+    MainLandingSchoolComponent,
   ],
   exports: [
     ContactFormComponent,

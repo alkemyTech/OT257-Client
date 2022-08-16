@@ -3,10 +3,10 @@ import { ClassGetter } from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: "app-main",
-  templateUrl: "./main.component.html",
-  styleUrls: ["./main.component.scss"],
+  templateUrl: "./main-landing-school.component.html",
+  styleUrls: ["./main-landing-school.component.scss"],
 })
-export class MainComponent implements OnInit {
+export class MainLandingSchoolComponent implements OnInit {
   currentDate: any;
   targetDate: any;
   cDateMillisecs: any;

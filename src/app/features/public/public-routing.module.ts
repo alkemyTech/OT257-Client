@@ -4,7 +4,9 @@ import { ActivitiesViewComponent } from "./pages/activities-view/activities-view
 import { AboutComponent } from "./pages/about/page/about.component";
 import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
-import { MainComponent } from "./pages/school-campaign/components/main/main.component";
+import { LoginGuard } from "src/app/shared/guards/login.guard";
+import { NewsComponent } from "./pages/news/news.component";
+import { MainLandingSchoolComponent } from "./pages/school-campaign/components/main-landing-school/main-landing-school.component";
 
 export const routes: Routes = [
   {
@@ -20,11 +22,16 @@ export const routes: Routes = [
     component: AboutComponent,
   },
   {
+    path: "novedades",
+    component: NewsComponent
+  },
+  {
     path: "iniciar-sesion",
     loadChildren: () =>
       import("./pages/auth/login-form/login-form-routing.module").then(
         (m) => m.LoginFormRoutingModule
       ),
+    canActivate: [LoginGuard],
   },
   {
     path: "registro",
@@ -39,7 +46,7 @@ export const routes: Routes = [
   },
   {
     path: "main",
-    component: MainComponent
+    component: MainLandingSchoolComponent
   }
 ];
 

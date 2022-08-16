@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { TituloComponent } from "./components/titulo/titulo.component";
 import { CarouselComponent } from "./components/carousel/carousel.component";
 import { NavbarComponent } from "./components/backoffice/navbar/navbar.component";
-import { NoimagePipe } from "./pipes/noimage.pipe";
+import { NoimagePipe } from "./pipes/noimage/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
 import { ProgressBarComponent } from './components/layouts/progress-bar/progress-bar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -15,7 +15,8 @@ import { SkeletonComponent } from "./components/layouts/skeleton/skeleton/skelet
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { HeaderComponent } from "./header/header.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { LayoutComponentComponent } from './components/layout-component/layout-component.component';
 
 
 
@@ -33,6 +34,7 @@ import { HeaderComponent } from "./header/header.component";
     FooterComponent,
     NotFoundComponent,
     HeaderComponent,
+    LayoutComponentComponent,
   ],
   imports: [
     CommonModule,
