@@ -19,6 +19,7 @@ import { SidebarComponent } from './components/backoffice/sidebar/sidebar.compon
 import {SidebarModule } from 'ng-cdbangular';
 
 
+
 @NgModule({
   declarations: [
     TituloComponent,
@@ -34,6 +35,7 @@ import {SidebarModule } from 'ng-cdbangular';
     FooterComponent,
     NotFoundComponent,
     SidebarComponent,
+
   ],
   imports: [
     CommonModule,
@@ -55,6 +57,8 @@ import {SidebarModule } from 'ng-cdbangular';
     ProgressBarComponent,
     LoaderComponent,
     FooterComponent,
-  ]
+   
+  ],
+
 })
 export class SharedModule { }
