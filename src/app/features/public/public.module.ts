@@ -18,7 +18,6 @@ import { ToysComponent } from './pages/landings/toys/toys.component';
 import { FooterComponent } from './pages/school-campaign/footer/footer.component';
 import { NewsComponent } from './pages/news/news.component';
 
-
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -26,7 +25,6 @@ import { NewsComponent } from './pages/news/news.component';
     AuthFormComponent,
     ContactFormComponent,
     ActivitiesViewComponent,
-    ToysComponent,
     FooterComponent,
     NewsComponent
   ],

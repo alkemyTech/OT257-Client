@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { Observable, Subject } from "rxjs";
-import { debounceTime, map } from "rxjs/operators";
+import { Observable } from "rxjs";
 import { loadUsers, deleteUser } from "src/app/state/actions/users.action";
 import { AppState } from "src/app/state/app.state";
 import {
@@ -17,8 +16,6 @@ import {
 export class UsersListComponent implements OnInit {
   loading$: Observable<boolean> = new Observable();
   users$: Observable<any> = new Observable();
-  private subjectKeyUp = new Subject<any>();
-  userFilter!: any;
 
   constructor(private store: Store<AppState>) { }
 
@@ -33,29 +30,4 @@ export class UsersListComponent implements OnInit {
   deleteUser(id: string) {
     this.store.dispatch(deleteUser({ id }));
   }
-
-  searchUser($event: any) {
-    this.subjectKeyUp.next($event.target.value);
-    this.subjectKeyUp.pipe(
-      debounceTime(500)
-    ).subscribe((inputValue) => {
-      this.userFilter = inputValue.toLowerCase();
-      if (this.userFilter.length > 0) {
-        this.users$ = this.store.select(selectUsersList).pipe(
-          map((users) => users.filter((user) => user.name.match(this.userFilter)))
-        );
-      } else {
-        this.store.dispatch(loadUsers());
-      }
-    });
-  }
-
-
-
-
-
-
-
-
-
 }
