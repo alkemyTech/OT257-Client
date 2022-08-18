@@ -1,1 +1,13 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+.sidebar{
+    li{
+        margin: 0 !important;
+        padding: 0.5rem !important;
+        cursor: pointer;
+        color: white;
+        &:hover{
+            color: rgb(255, 93, 93);
+        }
+    }
+}
