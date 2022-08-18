@@ -59,6 +59,8 @@ import { LayoutComponentComponent } from './components/layout-component/layout-c
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
-  ]
+   
+  ],
+
 })
 export class SharedModule { }
