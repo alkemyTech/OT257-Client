@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container min-vh-100">
+  <app-titulo [title]="title"></app-titulo>
+  <div class="album py-2 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let new of newsData">
+          <div class="card mb-4 box-shadow">
+            <div class="container image">
+              <app-lazy-load
+                [image]="new.image"
+                *ngIf="new.image"
+                [descriptionImage]="title"
+                class="card-img-top"
+              ></app-lazy-load>
+              <img
+                *ngIf="!new.image"
+                class="card-img-top"
+                src="http://via.placeholder.com/300"
+                data-holder-rendered="true"
+              />
+            </div>
+            <div class="card-body">
+              <p [innerHtml]="new.content.slice(0, 100)+' ...'" class="card-text"></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <a
+                  [routerLink]="[new.id]"
+                  class="deco-none text-danger d-flex flex-row-reverse p-2"
+                >
+                  <h3 class="">
+                    Leer más...<i class="fas fa-angle-double-right"></i>
+                  </h3>
+                </a>
+                <small class="text-muted">{{ new.created_at| date }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

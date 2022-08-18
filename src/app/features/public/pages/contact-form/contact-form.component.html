@@ -1,8 +1,13 @@
+<app-header></app-header>
 <section class="container my-5">
   <div class="row justify-content-start align-items-center font">
     <div class="col-sm-12 col-md-6 ">
       <h1 class="fw-bolder">¿Queres contribuir?</h1>
-      <a [routerLink]=""><button class="btn btn-danger my-4 radius fw-bolder py-2">Contribuir</button></a>
+      <a [routerLink]=""
+        ><button class="btn btn-danger my-4 radius fw-bolder py-2">
+          Contribuir
+        </button></a
+      >
       <h1 class="fw-bolder">¡Contactate con nosotros!</h1>
       <form [formGroup]="form" (ngSubmit)="sendConsult()">
         <div class="form-floating mb-4">
@@ -83,17 +88,13 @@
             }"
           >
           </textarea>
-
         </div>
         <div *ngIf="Message?.errors && Message?.touched">
           <p *ngIf="Message?.hasError('required')" class="error">
             El campo es obligatorio
           </p>
         </div>
-        <button
-          class="btn btn-primary p-3 mt-3 radius"
-          type="submit"
-        >
+        <button class="btn btn-primary p-3 mt-3 radius" type="submit">
           Enviar consulta
         </button>
       </form>
