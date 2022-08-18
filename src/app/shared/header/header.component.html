@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light border-bottom">
+<nav class="navbar navbar-expand-lg bg-light navbar-light border-bottom">
   <div class="container-fluid font">
     <a class="navbar-brand" href="#"
       ><img
@@ -28,9 +28,9 @@
           <a class="nav-link p-1" [routerLink]="menu.link">{{ menu.name }}</a>
         </li>
       </ul>
-      <div class="dropdown" >
+      <div class="dropdown">
         <a
-        *ngFor="let menu of dropdown"
+          *ngFor="let menu of dropdown"
           class="nav-link p-1 me-2 dropdown-toggle"
           href="#"
           role="button"
@@ -38,22 +38,41 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          {{menu.name}}
+          {{ menu.name }}
         </a>
 
-        <ul class="dropdown-menu navbar-small" aria-labelledby="dropdownMenuLink" *ngFor="let prueba of dropdown">
-          <li><a class="dropdown-item" *ngFor="let item of prueba.campaign" [routerLink]="item.link">{{item.name}}</a></li>
+        <ul
+          class="dropdown-menu navbar-small"
+          aria-labelledby="dropdownMenuLink"
+          *ngFor="let prueba of dropdown"
+        >
+          <li>
+            <a
+              class="dropdown-item"
+              *ngFor="let item of prueba.campaign"
+              [routerLink]="item.link"
+              >{{ item.name }}</a
+            >
+          </li>
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0 navbar-small">
         <li
-          class="nav-item p-1 rounded-pill  me-2 m-small "
+          class="nav-item p-1 rounded-pill me-2 m-small"
           *ngFor="let menu of authentication"
-          [ngClass]="{'border border-dark': menu.name == 'Login', 'regis-color': menu.name == 'Registrarse'}"
+          [ngClass]="{
+            'border border-dark': menu.name == 'Login',
+            'regis-color': menu.name == 'Registrarse'
+          }"
           routerLinkActive="activeButton"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a class="nav-link p-1 m-small" [ngClass]="{'regis-color': menu.name == 'Registrarse'}" [routerLink]="menu.link">{{ menu.name }}</a>
+          <a
+            class="nav-link p-1 m-small rounded-pill"
+            [ngClass]="{ 'regis-color': menu.name == 'Registrarse' }"
+            [routerLink]="menu.link"
+            >{{ menu.name }}</a
+          >
         </li>
       </ul>
     </div>
