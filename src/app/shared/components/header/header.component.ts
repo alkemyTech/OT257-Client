@@ -12,28 +12,57 @@ export class HeaderComponent implements OnInit {
     {
       name: "Inicio",
       link: "",
-      usuarioLog: false,
+      userLog: false,
     },
     {
       name: "Nosotros",
       link: "/nosotros",
-      usuarioLog: false,
+      userLog: false,
+    },
+    {
+      name: "Novedades",
+      link: "/novedades",
+      userLog: false,
+    },
+    {
+      name: "Testimonios",
+      link: "#",
+      userLog: false,
     },
     {
       name: "Contacto",
       link: "/contacto",
-      usuarioLog: false,
+      userLog: false,
     },
     {
-      name: "Donaciones de utiles escolares",
+      name: "Contribuye",
       link: "#",
-      usuarioLog: false,
-    },
-    {
-      name: "Donaciones de juguetes",
-      link: "#",
-      usuarioLog: false,
+      userLog: false,
     },
   ];
+
+  dropdown = [
+    {
+      name: "Campañas",
+      campaign: [
+        { name: "Juguetes", link: "#", userLog: false },
+        { name: "Utiles escolares", link: "#", userLog: false },
+      ],
+    },
+  ];
+
+  authentication = [
+    // {
+    //   name: "Login",
+    //   link: "/iniciar-sesion",
+    //   userLog: false
+    // },
+    {
+      name: "Registrarse",
+      link: "/registro",
+      userLog: false
+    }
+  ]
+
   ngOnInit(): void {}
 }

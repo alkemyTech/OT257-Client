@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-light border-bottom">
   <div class="container-fluid font">
     <a class="navbar-brand" href="#"
       ><img
@@ -20,12 +20,40 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li
-          class="nav-item mx-2"
+          class="nav-item p-1 me-2"
           *ngFor="let menu of menuList"
           routerLinkActive="activeButton"
           [routerLinkActiveOptions]="{ exact: true }"
         >
           <a class="nav-link p-1" [routerLink]="menu.link">{{ menu.name }}</a>
+        </li>
+      </ul>
+      <div class="dropdown" >
+        <a
+        *ngFor="let menu of dropdown"
+          class="nav-link p-1 me-2 dropdown-toggle a-active"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{menu.name}}
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor="let prueba of dropdown">
+          <li><a class="dropdown-item" *ngFor="let item of prueba.campaign" [routerLink]="item.link">{{item.name}}</a></li>
+        </ul>
+      </div>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li
+          class="nav-item p-1 rounded-pill  me-2"
+          *ngFor="let menu of authentication"
+          [ngClass]="{'border border-dark': menu.name == 'Login', 'regis-color': menu.name == 'Registrarse'}"
+          routerLinkActive="activeButton"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link p-1" [ngClass]="{'regis-color': menu.name == 'Registrarse'}" [routerLink]="menu.link">{{ menu.name }}</a>
         </li>
       </ul>
     </div>

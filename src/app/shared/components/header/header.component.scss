@@ -1,13 +1,21 @@
 .font {
   font-family: "Poppins", sans-serif;
+  font-weight: normal;
 }
 
 .activeButton {
-  background-color: rgb(143, 215, 248);
-  cursor: pointer;
-  border-radius: 6px;
+  font-weight: bold;
 }
 
-.activeButton a {
+a {
+  color: black;
+}
+
+ul .regis-color{
+  color: #FFFFFF;
+  background: rgba(255, 0, 0, 1);
+}
+
+a .a-active{
   color: black;
 }
