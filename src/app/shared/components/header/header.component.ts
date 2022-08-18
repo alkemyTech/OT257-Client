@@ -45,18 +45,18 @@ export class HeaderComponent implements OnInit {
     {
       name: "Campañas",
       campaign: [
-        { name: "Juguetes", link: "#", userLog: false },
+        { name: "Juguetes", link: "/landing-juguetes", userLog: false },
         { name: "Utiles escolares", link: "#", userLog: false },
       ],
     },
   ];
 
   authentication = [
-    // {
-    //   name: "Login",
-    //   link: "/iniciar-sesion",
-    //   userLog: false
-    // },
+    {
+      name: "Login",
+      link: "/iniciar-sesion",
+      userLog: false
+    },
     {
       name: "Registrarse",
       link: "/registro",

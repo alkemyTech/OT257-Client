@@ -16,6 +16,19 @@ ul .regis-color{
   background: rgba(255, 0, 0, 1);
 }
 
-a .a-active{
+.nav-link:focus, .nav-link:hover {
   color: black;
+}
+
+@media all and (max-width:991px){
+  .m-small{
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .navbar-small{
+    width: 15%;
+  }
+  .dropdown-menu {
+     position: relative;
+  }
 }

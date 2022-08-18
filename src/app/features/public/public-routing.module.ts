@@ -47,12 +47,12 @@ export const routes: Routes = [
   },
   {
     path: "contacto",
-    component: ContactFormComponent,
+    component: ContactFormComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class PublicRoutingModule { }
