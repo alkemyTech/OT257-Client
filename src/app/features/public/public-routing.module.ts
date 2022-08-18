@@ -4,9 +4,6 @@ import { ActivitiesViewComponent } from "./pages/activities-view/activities-view
 import { AboutComponent } from "./pages/about/page/about.component";
 import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
-import { ToysComponent } from "./pages/langings/toys/toys.component";
-import { FooterComponent } from "./pages/school-campaign/footer/footer.component";
-import { LoginGuard } from "src/app/shared/guards/login.guard";
 import { NewsComponent } from "./pages/news/news.component";
 
 export const routes: Routes = [
@@ -23,10 +20,6 @@ export const routes: Routes = [
     component: AboutComponent,
   },
   {
-
-    path: "landing-juguetes",
-    component: ToysComponent,
-  },
     path: "novedades",
     component: NewsComponent
   },
@@ -36,7 +29,6 @@ export const routes: Routes = [
       import("./pages/auth/login-form/login-form-routing.module").then(
         (m) => m.LoginFormRoutingModule
       ),
-    canActivate: [LoginGuard],
   },
   {
     path: "registro",
