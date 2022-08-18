@@ -1,8 +1,10 @@
 <app-header></app-header>
 <div class="container min-vh-100">
   <app-titulo [title]="title"></app-titulo>
-  <div class="album py-2 bg-light">
-    <app-search (search)="onSearch($event)"></app-search>
+  <div class="album py-2">
+    <div>
+      <app-search (search)="onSearch($event)"></app-search>
+    </div>
     <div *ngIf="newsData.length == 0">
       <h1>No hay novedades con su busqueda</h1>
     </div>

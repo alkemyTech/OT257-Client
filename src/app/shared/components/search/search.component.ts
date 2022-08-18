@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-import { debounce } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
+import { toastError } from '../layouts/alerts/alerts';
 
 @Component({
   selector: 'app-search',
@@ -14,10 +15,12 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.searchKeyup.pipe(debounce(i=>i.length>2?i:'')).subscribe((search: string) => {
+    this.searchKeyup.pipe(debounceTime(500)).subscribe((search: string) => {
       this.getNewSearch(search)
     }), (err: any) => {
-      console.log(err)
+      toastError.fire({
+        title: 'Error en la busqueda',
+      })
     }
   }
 

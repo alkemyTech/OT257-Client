@@ -27,12 +27,8 @@ export class NewsComponent implements OnInit {
 
   onSearch(search: string) {
     this.newsData = [];
-    if (search) {
-      this.newsSvc.getNewsSearch(search).subscribe((res) => {
-        this.newsData = res.data.slice(0, 18);
-      });
-    } else {
-      this.getNews();
-    }
+    this.newsSvc.getNewsSearch(search).subscribe((res) => {
+      this.newsData = res.data.slice(0, 18);
+    });
   }
 }
