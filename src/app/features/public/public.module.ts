@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
+import { ToysComponent } from './pages/landings/toys/toys.component';
 import { FooterComponent } from './pages/school-campaign/footer/footer.component';
 import { NewsComponent } from './pages/news/news.component';
 
