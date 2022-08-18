@@ -16,6 +16,10 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
 import { FooterComponent } from './pages/school-campaign/footer/footer.component';
 import { NewsComponent } from './pages/news/news.component';
+import { MainLandingSchoolComponent } from './pages/school-campaign/components/main-landing-school/main-landing-school.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { NewsComponent } from './pages/news/news.component';
     ContactFormComponent,
     ActivitiesViewComponent,
     FooterComponent,
-    NewsComponent
+    NewsComponent,
+    MainLandingSchoolComponent,
   ],
   exports: [
     ContactFormComponent,

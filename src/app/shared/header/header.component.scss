@@ -1,0 +1,38 @@
+.font {
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}
+
+.activeButton {
+  font-weight: bold;
+}
+
+a {
+  color: black;
+}
+
+ul .regis-color {
+  color: #ffffff !important;
+  background: rgba(255, 0, 0, 1);
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: black;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0 0 0);
+}
+
+@media all and (max-width: 991px) {
+  .m-small {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .navbar-small {
+    width: 20%;
+  }
+  .dropdown-menu {
+    position: relative;
+  }
+}
