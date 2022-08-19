@@ -1,44 +1,30 @@
-<<<<<<< HEAD
 <main>
-=======
-<div class="d-flex align-items-center flex-row w-100 min-vh-100">
->>>>>>> 150dc0f621b6aa7f1f701b0d9bf19ff5028fd7ce
-  <app-sidebar> </app-sidebar>
-  <div class="grey-bg container mt-5">
-    <div class="row h-100">
-      <div *ngFor="let menu of menus" class="col-xl-3 col-sm-6 col-lg-3">
-        <div class="shadow m-2 card p-3">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex align-content-center flex-column">
+  <div class="d-flex align-items-center flex-row w-100 min-vh-100">
+    <app-sidebar> </app-sidebar>
+    <div class="grey-bg container mt-5">
+      <div class="row h-100">
+        <div *ngFor="let menu of menus" class="col-xl-3 col-sm-6 col-lg-3">
+          <div class="shadow m-2 card p-3">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex align-content-center flex-column">
                   <span class="h6 text-center">{{ menu.name }}</span>
                   <div class="align-self-center p-3">
-                    <i class="{{menu.i}} display-4"></i>
+                    <i class="{{ menu.i }} display-4"></i>
                   </div>
                   <button
                     [routerLink]="menu.link"
                     [disabled]=""
                     class="btn btn-outline-danger rounded-pill"
-                  > Ver mas
+                  >
+                    Ver mas
                   </button>
-                
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-  </div> -->
-</main>
-
-       
-
-
-  
-
-     
-=======
   </div>
-</div>
->>>>>>> 150dc0f621b6aa7f1f701b0d9bf19ff5028fd7ce
+</main>
