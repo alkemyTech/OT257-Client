@@ -1,8 +1,5 @@
 <section class="vh-100 d-flex justify-content-center align-items-center">
-  <div
-    class="position-absolute top-0 start-0 translate-middle m-5"
-    style="z-index: 1"
-  >
+  <div class="position-absolute top-0 start-0 translate-middle m-5" style="z-index: 1">
     <button
       type="button"
       [routerLink]="['/']"
@@ -35,16 +32,11 @@
                 "
                 class="form-group"
               >
-                <small
-                  *ngIf="authForm.get('name')?.errors?.required"
-                  class="text-danger"
+                <small *ngIf="authForm.get('name')?.errors?.required" class="text-danger"
                   >El nombre es requerido</small
                 >
               </div>
-              <small
-                *ngIf="authForm.get('name')?.errors?.minlength"
-                class="text-danger"
-              >
+              <small *ngIf="authForm.get('name')?.errors?.minlength" class="text-danger">
                 El nombre debe ser mayor a 2 caracteres.
               </small>
               <!--Name-->
@@ -61,20 +53,15 @@
               <div
                 *ngIf="
                   authForm.get('email')?.hasError('required') &&
-                  (authForm.get('email')?.touched ||
-                    authForm.get('email')?.dirty)
+                  (authForm.get('email')?.touched || authForm.get('email')?.dirty)
                 "
                 class="form-group"
               >
-                <small
-                  *ngIf="authForm.get('email')?.errors?.required"
-                  class="text-danger"
+                <small *ngIf="authForm.get('email')?.errors?.required" class="text-danger"
                   >El correo electrónico es requerido</small
                 >
               </div>
-              <small
-                *ngIf="authForm.get('email')?.hasError('email')"
-                class="text-danger"
+              <small *ngIf="authForm.get('email')?.hasError('email')" class="text-danger"
                 >El correo electrónico debe ser valido</small
               >
               <!-- Email input -->
@@ -92,8 +79,7 @@
               <div
                 *ngIf="
                   authForm.get('password')?.hasError('required') &&
-                  (authForm.get('password')?.touched ||
-                    authForm.get('password')?.dirty)
+                  (authForm.get('password')?.touched || authForm.get('password')?.dirty)
                 "
                 class="form-group"
               >
@@ -179,9 +165,7 @@
                 ></span>
               </button>
               <!-- Links -->
-              <ng-container
-                *ngIf="options.id === 'login'; else showSignTemplate"
-              >
+              <ng-container *ngIf="options.id === 'login'; else showSignTemplate">
                 <div class="form-group">
                   <p class="text-center">
                     ¿No tienes una cuenta?
@@ -196,10 +180,7 @@
                 <div class="form-group">
                   <p class="text-center">
                     ¿Tienes una cuenta?
-                    <a
-                      class="text-danger"
-                      routerLink="/iniciar-sesion"
-                      id="signup"
+                    <a class="text-danger" routerLink="/iniciar-sesion" id="signup"
                       >Inicia sesión aquí</a
                     >
                   </p>
@@ -209,14 +190,8 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 150dc0f621b6aa7f1f701b0d9bf19ff5028fd7ce
-      <div
-        class="col-md-6 d-none d-md-block rounded-5"
-        style="margin-left: -3rem"
-      >
+      <div class="col-md-6 d-none d-md-block rounded-5" style="margin-left: -3rem">
         <img
           src="https://user-images.githubusercontent.com/94970159/179098034-30b2669c-8df8-46a2-9502-f3f7b70d85f0.jpg"
           class="w-100 rounded-5 shadow-sm ml-n5"
