@@ -4,6 +4,7 @@ import { ActivitiesViewComponent } from "./pages/activities-view/activities-view
 import { AboutComponent } from "./pages/about/page/about.component";
 import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
+import { ToysComponent } from "./pages/landings/toys/toys.component";
 import { NewsComponent } from "./pages/news/news.component";
 
 export const routes: Routes = [
@@ -20,6 +21,10 @@ export const routes: Routes = [
     component: AboutComponent,
   },
   {
+    path: "campaña-juguetes",
+    component: ToysComponent,
+  },
+  {
     path: "novedades",
     component: NewsComponent,
   },
@@ -28,7 +33,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import("./pages/auth/login-form/login-form-routing.module").then(
         (m) => m.LoginFormRoutingModule
-      ),
+      )
   },
   {
     path: "registro",
@@ -39,8 +44,8 @@ export const routes: Routes = [
   },
   {
     path: "contacto",
-    component: ContactFormComponent,
-  },
+    component: ContactFormComponent
+  }
 ];
 
 @NgModule({

@@ -15,6 +15,7 @@ import { EditFormComponent } from "./pages/organization/edit-form/edit-form.comp
 import { BackOfficeHomeComponent } from "./pages/home/back-office-home.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { UsersListComponent } from "./pages/users/users-list/users-list.component";
+import { BackofficeGuard } from "../../shared/guards/backoffice.guard";
 
 export const routes: Routes = [
   {

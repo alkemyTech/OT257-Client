@@ -1,12 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { ClassGetter } from "@angular/compiler/src/output/output_ast";
 
 @Component({
-  selector: "app-main",
-  templateUrl: "./main-landing-school.component.html",
-  styleUrls: ["./main-landing-school.component.scss"],
+  selector: "app-toys",
+  templateUrl: "./toys.component.html",
+  styleUrls: ["./toys.component.scss"],
 })
-export class MainLandingSchoolComponent implements OnInit {
+export class ToysComponent implements OnInit {
   currentDate: any;
   targetDate: any;
   cDateMillisecs: any;
@@ -60,7 +59,6 @@ export class MainLandingSchoolComponent implements OnInit {
     this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
 
     this.tiempoFaltante = `${this.days} dias ${this.hours} Horas ${this.minutes} Minutos ${this.seconds} Segundos   `;
-
     setInterval(this.myTimer, 1000);
   }
 }

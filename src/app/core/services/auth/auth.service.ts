@@ -27,6 +27,7 @@ export class AuthService implements OnInit {
   async loginGoogle(){
     try{
       const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      this.loggedIn.next(true)
       return res;
     }catch(err){
       return toastError.fire({
@@ -44,6 +45,7 @@ export class AuthService implements OnInit {
       .pipe(
         map((res: any) => {
           if (res.data.token) {
+            this.loggedIn.next(true)
             toastSuccess.fire({
               title: "Inicio de sesión exitoso",
             });
@@ -51,6 +53,7 @@ export class AuthService implements OnInit {
           }
         }),
         catchError(() => {
+          this.loggedIn.next(false)
           return toastError.fire({
             title: "Inicio de sesión incorrecto",
           });
@@ -64,7 +67,7 @@ export class AuthService implements OnInit {
 
   logout(): void {
     localStorage.removeItem("token");
-    this.loggedIn.next(false);
+    this.afAuth.signOut();
     this.router.navigate(["/iniciar-sesion"]);
   }
 
@@ -84,6 +87,7 @@ export class AuthService implements OnInit {
       })
       .pipe(
         map((res: UserRegister) => {
+          this.loggedIn.next(true)
           toastSuccess.fire({
             title: "Registro exitoso",
           });

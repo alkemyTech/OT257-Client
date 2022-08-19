@@ -1,9 +1,6 @@
-<app-navbar></app-navbar>
 <div *ngIf="spinner" class="spinner mt-5">
   <app-loader></app-loader> 
 </div>
-
-
 <div *ngIf="!spinner" class="container mt-4">
   <div class="card shadow-lg">
     <div class="card-body">
@@ -23,7 +20,7 @@
           <tr>
             <th >Nombre</th>
             <th class="text-center">Foto</th>
-            <th>Fecha Creacion</th>
+            <th class="d-none d-sm-inline">Fecha Creacion</th>
             <th></th>
           </tr>
         </thead>
@@ -32,7 +29,7 @@
           <tr *ngFor="let item of (news_$ |async)">
             <td>{{ item.name }}</td>
             <td class="text-center"> <img [src]="item.image | noimage " class="rounded-circle" alt="Foto" width="80" height="80"></td>
-            <td>{{item.created_at}}</td>
+            <td class="d-none d-sm-inline p-0">{{item.created_at | date}}</td>
             <td>
               <i [routerLink]="['/backoffice/news/',item.id]" class="fas fa-edit fa-lg text-primary me-5"></i>
               <i (click)="deleteNew(item.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
