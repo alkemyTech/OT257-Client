@@ -16,8 +16,8 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { FooterComponent } from "./components/footer/footer.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { SidebarComponent } from "./components/backoffice/sidebar/sidebar.component";
-import { HeaderComponent } from "./components/header/header.component";
 import { LayoutComponentComponent } from "./components/layout-component/layout-component.component";
+import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
   declarations: [
