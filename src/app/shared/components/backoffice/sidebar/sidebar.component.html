@@ -1,9 +1,9 @@
-<div class="d-flex flex-row">
-  <div *ngIf="show" class="sidebar container-fluid">
+<div class="cont d-flex flex-row" style="z-index: 1;">
+  <div *ngIf="show" class="sidebar">
     <div class="row flex-nowrap">
-      <div class="col-auto w-100 col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+      <div class="col-auto w-100 col-md-3 col-xl-2 px-sm-5 bg-secondary">
         <div
-          class="d-flex flex-column align-items-center align-items-sm-start px-md-5 pt-2 text-white min-vh-100"
+          class="d-flex flex-column align-items-center align-items-sm-start pt-2 text-white min-vh-100"
         >
           <img
             width="90"
@@ -13,54 +13,54 @@
           <span class="fs-5 d-none d-sm-inline mb-3">Backoffice</span>
 
           <ul
-            class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            class="w-100 nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
             id="menu"
           >
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-house"></i>
-              <span class="ms-2 d-none d-sm-inline">Home</span>
+              <span class="ms-2 d-none d-sm-block">Home</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-newspaper"></i>
-              <span class="ms-2 d-none d-sm-inline">Novedades</span>
+              <span class="ms-2 d-none d-sm-block">Novedades</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-list-task"></i>
-              <span class="ms-2 d-none d-sm-inline">Actividades</span>
+              <span class="ms-2 d-none d-sm-block">Actividades</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-bookmark-heart"></i>
-              <span class="ms-2 d-none d-sm-inline">Categorías</span>
+              <span class="ms-2 d-none d-sm-block">Categorías</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi-chat-left-text"></i>
-              <span class="ms-2 d-none d-sm-inline">Testimonios</span>
+              <span class="ms-2 d-none d-sm-block">Testimonios</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-building"></i>
-              <span class="ms-2 d-none d-sm-inline">Organización</span>
+              <span class="ms-2 d-none d-sm-block">Organización</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-images"></i>
-              <span class="ms-2 d-none d-sm-inline">Slider</span>
+              <span class="ms-2 d-none d-sm-block">Slider</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-people"></i>
-              <span class="ms-2 d-none d-sm-inline">Usuarios</span>
+              <span class="ms-2 d-none d-sm-block">Usuarios</span>
             </li>
             <li class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-people-fill"></i>
-              <span class="ms-2 d-none d-sm-inline">Miembros</span>
+              <span class="ms-2 d-none d-sm-block">Miembros</span>
             </li>
-            <li class="nav-item my-2 nav-link ">
-              <button class="btn btn-outline-light">
-                <strong class="h4">↵</strong>
-                <span class="ms-2 d-none d-sm-inline">Salir</span>
+            <li class="nav-item my-2 nav-link w-100 ">
+              <button class="btn btn-outline-light w-100 d-flex flex-row align-items-center">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="ms-2 d-none d-sm-block">Salir</span>
               </button>
             </li>
           </ul>
 
-          <div class="pb-4">
+          <div class="pb-4 d-flex flex-row w-100">
             <img
               src="https://github.com/mdo.png"
               alt="hugenerd"
@@ -68,24 +68,21 @@
               height="30"
               class="rounded-circle"
             />
-            <span class="d-none d-sm-inline mx-1">Juan Perez</span>
+            <span class="d-none d-sm-block mx-1">Juan Perez</span>
           </div>
         </div>
       </div>
     </div>
   </div>
   <nav class="">
-    <button
+    <span
     type="button"
-    class="btn btn-light m-2"
-    data-toggle="collapse"
-    data-target="#navbar"
-    aria-expanded="false"
-    aria-controls="navbar"
+    class="position-absolute top-0 start-0 my-2 mx-4 px-2 p-0"
+    style="z-index: 1;"
     (click)="show = !show"
   >
-    <span class="sr-only">Toggle navigation</span>
-    <i class="ic fa fa-bars h3 m-0 p-0"></i>
-  </button>
+    <span *ngIf="show" class="h3">✗</span>
+    <i *ngIf="!show" class="ic fa fa-bars h3 m-0 p-0"></i>
+  </span>
   </nav>
 </div>

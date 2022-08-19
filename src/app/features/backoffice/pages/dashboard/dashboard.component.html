@@ -1,14 +1,25 @@
-<div class="d-flex flex-row w-100">
+<div class="d-flex align-items-center flex-row w-100 min-vh-100">
   <app-sidebar> </app-sidebar>
-  <div class="mt-5">
-    <div class="tableCard">
-      <div *ngFor="let menu of menus" class="cards">
-        <div class="card w-100 shadow-lg border-0 text-center p-5">
-          <div class="card-body">
-            <h4 class="mb-3">{{ menu.name }}</h4>
-            <img class="image" [src]="menu.img" [alt]="menu.name" />
-            <br />
-            <button [routerLink]="menu.link" [disabled]="" class="btncard">Ir</button>
+  <div class="grey-bg container mt-5">
+    <div class="row h-100">
+      <div *ngFor="let menu of menus" class="col-xl-3 col-sm-6 col-lg-3">
+        <div class="shadow m-2 card p-3">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex align-content-center flex-column">
+                  <span class="h6 text-center">{{ menu.name }}</span>
+                  <div class="align-self-center p-3">
+                    <i class="{{menu.i}} display-4"></i>
+                  </div>
+                  <button
+                    [routerLink]="menu.link"
+                    [disabled]=""
+                    class="btn btn-outline-danger rounded-pill"
+                  > Ver mas
+                  </button>
+                
+              </div>
+            </div>
           </div>
         </div>
       </div>
