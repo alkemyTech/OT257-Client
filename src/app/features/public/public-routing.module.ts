@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
   {
     path: "novedades",
-    component: NewsComponent
+    component: NewsComponent,
   },
   {
     path: "iniciar-sesion",
@@ -39,12 +39,12 @@ export const routes: Routes = [
   },
   {
     path: "contacto",
-    component: ContactFormComponent
-  }
+    component: ContactFormComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PublicRoutingModule { }
+export class PublicRoutingModule {}
