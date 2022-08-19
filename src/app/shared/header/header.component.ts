@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
     {
       name: "Campañas",
       campaign: [
-        { name: "Juguetes", link: "/landing-juguetes", userLog: false },
+        { name: "Juguetes", link: "/campaña-juguetes", userLog: false },
         { name: "Utiles escolares", link: "#", userLog: false },
       ],
     },
