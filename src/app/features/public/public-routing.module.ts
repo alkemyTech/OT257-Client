@@ -6,7 +6,6 @@ import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
 import { ToysComponent } from "./pages/landings/toys/toys.component";
 import { NewsComponent } from "./pages/news/news.component";
-import { LoginGuard } from "src/app/shared/guards/login.guard";
 
 export const routes: Routes = [
   {
@@ -27,7 +26,7 @@ export const routes: Routes = [
   },
   {
     path: "novedades",
-    component: NewsComponent
+    component: NewsComponent,
   },
   {
     path: "iniciar-sesion",
@@ -45,7 +44,7 @@ export const routes: Routes = [
   },
   {
     path: "contacto",
-    component: ContactFormComponent,
+    component: ContactFormComponent
   }
 ];
 
@@ -53,4 +52,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PublicRoutingModule { }
+export class PublicRoutingModule {}
