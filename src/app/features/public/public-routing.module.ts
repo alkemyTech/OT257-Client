@@ -5,9 +5,8 @@ import { AboutComponent } from "./pages/about/page/about.component";
 import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
 import { ToysComponent } from "./pages/landings/toys/toys.component";
-import { FooterComponent } from "./pages/school-campaign/footer/footer.component";
-import { LoginGuard } from "src/app/shared/guards/login.guard";
 import { NewsComponent } from "./pages/news/news.component";
+import { LoginGuard } from "src/app/shared/guards/login.guard";
 
 export const routes: Routes = [
   {
@@ -35,7 +34,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import("./pages/auth/login-form/login-form-routing.module").then(
         (m) => m.LoginFormRoutingModule
-      ),
+      )
   },
   {
     path: "registro",
