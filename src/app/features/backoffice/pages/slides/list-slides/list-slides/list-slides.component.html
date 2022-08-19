@@ -1,13 +1,22 @@
-<div class="container mt-4">
+<div class="container">
   <div class="card shadow-lg">
     <div class="card-body">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mt-5">
         <span class="h3">Listado de Slides</span>
         <button
           class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
           routerLink="/backoffice/slider/create"
         >
           Agregar slide
+        </button>
+      </div>
+      <div class="position-absolute top-0 start-0 translate-middle m-4" style="z-index: 1">
+        <button
+          type="button"
+          [routerLink]="['/backoffice']"
+          class="btn btn-outline-danger rounded-circle m-2 fw-bold rounded-circle cursor-pointer"
+        >
+          ⇠
         </button>
       </div>
       <app-search class="my-3" (dataSearch)="onDataSearch($event)"></app-search>
