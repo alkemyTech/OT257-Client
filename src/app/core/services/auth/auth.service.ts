@@ -64,6 +64,7 @@ export class AuthService implements OnInit {
 
   logout(): void {
     localStorage.removeItem("token");
+    this.afAuth.signOut();
     this.loggedIn.next(false);
     this.router.navigate(["/iniciar-sesion"]);
   }

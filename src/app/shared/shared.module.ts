@@ -5,26 +5,26 @@ import { CarouselComponent } from "./components/carousel/carousel.component";
 import { NavbarComponent } from "./components/backoffice/navbar/navbar.component";
 import { NoimagePipe } from "./pipes/noimage/noimage.pipe";
 import { CardComponent } from "./components/card/card.component";
-import { ProgressBarComponent } from './components/layouts/progress-bar/progress-bar.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { LoaderComponent } from './components/loader/loader.component';
+import { ProgressBarComponent } from "./components/layouts/progress-bar/progress-bar.component";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { LoaderComponent } from "./components/loader/loader.component";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { RouterModule } from "@angular/router";
-import { LazyLoadComponent } from './components/layouts/lazy-load/lazy-load.component';
+import { LazyLoadComponent } from "./components/layouts/lazy-load/lazy-load.component";
 import { SkeletonComponent } from "./components/layouts/skeleton/skeleton/skeleton.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
-import { FooterComponent } from './components/footer/footer.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { HeaderComponent } from "./header/header.component";
-import { SearchComponent } from './components/search/search.component';
-
-
+import { FooterComponent } from "./components/footer/footer.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { SidebarComponent } from "./components/backoffice/sidebar/sidebar.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { LayoutComponentComponent } from "./components/layout-component/layout-component.component";
 
 @NgModule({
   declarations: [
     TituloComponent,
     CarouselComponent,
     NavbarComponent,
+    SidebarComponent,
     NoimagePipe,
     CardComponent,
     LazyLoadComponent,
@@ -33,8 +33,9 @@ import { SearchComponent } from './components/search/search.component';
     LoaderComponent,
     FooterComponent,
     NotFoundComponent,
+    SidebarComponent,
     HeaderComponent,
-    SearchComponent
+    LayoutComponentComponent,
   ],
   imports: [
     CommonModule,
@@ -47,6 +48,7 @@ import { SearchComponent } from './components/search/search.component';
     TituloComponent,
     CarouselComponent,
     NavbarComponent,
+    SidebarComponent,
     NoimagePipe,
     CardComponent,
     LazyLoadComponent,
@@ -55,7 +57,7 @@ import { SearchComponent } from './components/search/search.component';
     LoaderComponent,
     HeaderComponent,
     FooterComponent,
-    SearchComponent
-  ]
+    LayoutComponentComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
