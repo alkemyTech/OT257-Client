@@ -1,95 +1,208 @@
 <section class="vh-100 d-flex justify-content-center align-items-center">
+  <div
+    class="position-absolute top-0 start-0 translate-middle m-5"
+    style="z-index: 1"
+  >
+    <button
+      type="button"
+      [routerLink]="['/']"
+      class="btn btn-outline-danger rounded-circle m-2 fw-bold rounded-circle cursor-pointer"
+    >
+      ⇠
+    </button>
+  </div>
   <div class="container">
     <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-md-5 col-md-offset-3 mb-md-0 d-flex justify-content-center align-items-center">
-        <div class="w-100 border py-4 p-3 shadow" style="border-radius: 15px;">
+      <div
+        class="col-md-5 col-md-offset-3 mb-md-0 d-flex justify-content-center align-items-center"
+      >
+        <div
+          class="w-100 border py-4 p-3 shadow"
+          style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+          "
+        >
           <div class="card-body shadow-5 text-center">
-            <h2 class="fw-bold mb-4">{{options.label}}</h2>
+            <h2 class="fw-bold mb-4">{{ options.label }}</h2>
             <form [formGroup]="authForm" (ngSubmit)="onSubmit(options.id)">
               <!-- Validators Name -->
               <div
-                *ngIf="authForm.get('name')?.hasError('required') && (authForm.get('name')?.touched || authForm.get('name')?.dirty)"
-                class="form-group">
-                <small *ngIf="authForm.get('name')?.errors?.required" class="text-danger">El nombre es requerido</small>
+                *ngIf="
+                  authForm.get('name')?.hasError('required') &&
+                  (authForm.get('name')?.touched || authForm.get('name')?.dirty)
+                "
+                class="form-group"
+              >
+                <small
+                  *ngIf="authForm.get('name')?.errors?.required"
+                  class="text-danger"
+                  >El nombre es requerido</small
+                >
               </div>
-              <small *ngIf="authForm.get('name')?.errors?.minlength" class="text-danger">
+              <small
+                *ngIf="authForm.get('name')?.errors?.minlength"
+                class="text-danger"
+              >
                 El nombre debe ser mayor a 2 caracteres.
               </small>
               <!--Name-->
               <div *ngIf="options.id === 'register'" class="form-group mb-4">
-                <input type="text" class="form-control shadow-none border-0 border-bottom bg-transparent" id="name"
-                  formControlName="name" placeholder="Nombre de usuario">
+                <input
+                  type="text"
+                  class="form-control shadow-none border-0 border-bottom bg-transparent"
+                  id="name"
+                  formControlName="name"
+                  placeholder="Nombre de usuario"
+                />
               </div>
               <!-- Validators email -->
               <div
-                *ngIf=" authForm.get('email')?.hasError('required') && (authForm.get('email')?.touched || authForm.get('email')?.dirty)"
-                class="form-group">
-                <small *ngIf="authForm.get('email')?.errors?.required" class="text-danger">El correo electrónico es
-                  requerido</small>
+                *ngIf="
+                  authForm.get('email')?.hasError('required') &&
+                  (authForm.get('email')?.touched ||
+                    authForm.get('email')?.dirty)
+                "
+                class="form-group"
+              >
+                <small
+                  *ngIf="authForm.get('email')?.errors?.required"
+                  class="text-danger"
+                  >El correo electrónico es requerido</small
+                >
               </div>
-              <small *ngIf="authForm.get('email')?.hasError('email')" class="text-danger">El correo electrónico debe ser
-                valido</small>
+              <small
+                *ngIf="authForm.get('email')?.hasError('email')"
+                class="text-danger"
+                >El correo electrónico debe ser valido</small
+              >
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" class="form-control shadow-none border-0 border-bottom bg-transparent"
-                  placeholder="Correo electrónico" name="email" formControlName="email" required />
+                <input
+                  type="email"
+                  class="form-control shadow-none border-0 border-bottom bg-transparent"
+                  placeholder="Correo electrónico"
+                  name="email"
+                  formControlName="email"
+                  required
+                />
               </div>
               <!-- Validators password -->
               <div
-                *ngIf="authForm.get('password')?.hasError('required') && (authForm.get('password')?.touched || authForm.get('password')?.dirty)"
-                class="form-group">
-                <small *ngIf="authForm.get('password')?.errors?.required" class="text-danger">La contraseña es
-                  requerida</small>
+                *ngIf="
+                  authForm.get('password')?.hasError('required') &&
+                  (authForm.get('password')?.touched ||
+                    authForm.get('password')?.dirty)
+                "
+                class="form-group"
+              >
+                <small
+                  *ngIf="authForm.get('password')?.errors?.required"
+                  class="text-danger"
+                  >La contraseña es requerida</small
+                >
               </div>
               <div class="form-group">
-                <small *ngIf="authForm.get('password')?.errors?.pattern" class="text-danger">La contraseña debe contener
-                  <span *ngIf="authForm.get('password')?.errors?.minlength" class="text-danger p-0">al menos 6
-                    caracteres,</span>
-                  un número, una letra y un símbolo (por ejemplo: @#$%).</small>
+                <small
+                  *ngIf="authForm.get('password')?.errors?.pattern"
+                  class="text-danger"
+                  >La contraseña debe contener
+                  <span
+                    *ngIf="authForm.get('password')?.errors?.minlength"
+                    class="text-danger p-0"
+                    >al menos 6 caracteres,</span
+                  >
+                  un número, una letra y un símbolo (por ejemplo: @#$%).</small
+                >
               </div>
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" class="form-control shadow-none bg-transparent border-0 border-bottom"
-                  placeholder="Contraseña" name="password" formControlName="password" required />
+                <input
+                  type="password"
+                  class="form-control shadow-none bg-transparent border-0 border-bottom"
+                  placeholder="Contraseña"
+                  name="password"
+                  formControlName="password"
+                  required
+                />
               </div>
 
               <!-- Validators password confirm -->
               <small
-                *ngIf="authForm.get('password_again')?.value !== authForm.get('password')?.value && options.id === 'register'"
-                class="text-danger">Las contraseñas no conciden</small>
+                *ngIf="
+                  authForm.get('password_again')?.value !==
+                    authForm.get('password')?.value && options.id === 'register'
+                "
+                class="text-danger"
+                >Las contraseñas no conciden</small
+              >
 
               <!-- Password confirm input -->
               <div *ngIf="options.id === 'register'" class="form-outline mb-4">
-                <input type="password" class="form-control shadow-none bg-transparent border-0 border-bottom"
-                  placeholder="Confirmar contraseña" name="password_again" formControlName="password_again" required />
+                <input
+                  type="password"
+                  class="form-control shadow-none bg-transparent border-0 border-bottom"
+                  placeholder="Confirmar contraseña"
+                  name="password_again"
+                  formControlName="password_again"
+                  required
+                />
               </div>
               <!-- Submit button -->
-              <button type="submit" class="btn btn-outline-danger rounded-pill p-2 mb-2 fw-bold">
-                {{options.label}}
+              <button
+                type="submit"
+                class="btn btn-outline-danger rounded-pill p-2 mb-2 fw-bold"
+              >
+                {{ options.label }}
               </button>
               <!-- Link to login with google -->
-              <div *ngIf="options.id === 'login'" class="d-flex justify-content-between align-items-center">
-                <hr class="w-50">
+              <div
+                *ngIf="options.id === 'login'"
+                class="d-flex justify-content-between align-items-center"
+              >
+                <hr class="w-50" />
                 <div class="w-100 d-flex justify-content-center">
                   <p class="text-center fw-bold mx-3 mb-0">O</p>
                 </div>
-                <hr class="w-50">
+                <hr class="w-50" />
               </div>
-              <button (click)="onGoogleLogin()" *ngIf="options.id === 'login'" class="btn btn-outline-danger rounded-pill p-2 mb-4 fw-bold">
-                <span class="d-flex justify-content-between align-items-center">{{options.label + ' con'}}&nbsp;<i class="fab fa-google-plus h4 m-0"></i></span>
+              <button
+                (click)="onGoogleLogin()"
+                *ngIf="options.id === 'login'"
+                class="btn btn-outline-danger rounded-pill p-2 mb-4 fw-bold"
+              >
+                <span class="d-flex justify-content-between align-items-center"
+                  >{{ options.label + " con" }}&nbsp;<i
+                    class="fab fa-google-plus h4 m-0"
+                  ></i
+                ></span>
               </button>
               <!-- Links -->
-              <ng-container *ngIf="options.id === 'login'; else showSignTemplate">
+              <ng-container
+                *ngIf="options.id === 'login'; else showSignTemplate"
+              >
                 <div class="form-group">
-                  <p class="text-center">¿No tienes una cuenta? <a class="text-danger" routerLink="/registro"
-                      id="signup">Registrate aquí</a></p>
+                  <p class="text-center">
+                    ¿No tienes una cuenta?
+                    <a class="text-danger" routerLink="/registro" id="signup"
+                      >Registrate aquí</a
+                    >
+                  </p>
                 </div>
               </ng-container>
 
               <ng-template #showSignTemplate>
                 <div class="form-group">
-                  <p class="text-center">¿Tienes una cuenta? <a class="text-danger" routerLink="/iniciar-sesion"
-                      id="signup">Inicia sesión aquí</a></p>
+                  <p class="text-center">
+                    ¿Tienes una cuenta?
+                    <a
+                      class="text-danger"
+                      routerLink="/iniciar-sesion"
+                      id="signup"
+                      >Inicia sesión aquí</a
+                    >
+                  </p>
                 </div>
               </ng-template>
             </form>
@@ -97,9 +210,15 @@
         </div>
       </div>
 
-      <div class="col-md-6 d-none d-md-block rounded-5">
-        <img src="https://user-images.githubusercontent.com/94970159/179098034-30b2669c-8df8-46a2-9502-f3f7b70d85f0.jpg"
-          class="w-100 rounded-5 shadow-sm ml-n5" alt="" />
+      <div
+        class="col-md-6 d-none d-md-block rounded-5"
+        style="margin-left: -3rem"
+      >
+        <img
+          src="https://user-images.githubusercontent.com/94970159/179098034-30b2669c-8df8-46a2-9502-f3f7b70d85f0.jpg"
+          class="w-100 rounded-5 shadow-sm ml-n5"
+          alt=""
+        />
       </div>
     </div>
   </div>

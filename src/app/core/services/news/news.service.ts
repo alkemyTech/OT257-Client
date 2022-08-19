@@ -22,10 +22,6 @@ export class NewsService extends PrivateApiServiceService {
     return this.sendGetRequest(`${this.url}`);
   }
 
-  getNewsSearch(search: string) {
-    return this.sendGetRequest(`${this.url}?search=${search}`);
-  }
-
   createNew(dataNew: NewModel) {
     return this.sendPostRequest(`${this.url}`, dataNew);
   }

@@ -11,42 +11,42 @@ export class DashboardComponent implements OnInit {
   menus = [
     {
       name: "Novedades",
-      img: "assets/images/novedades.PNG",
+      i: "fas fa-newspaper",
       link: "/backoffice/news",
     },
     {
       name: "Actividades",
-      img: "assets/images/actividades.PNG",
+      i: "fal fa-chart-network",
       link: "/backoffice/activities",
     },
     {
       name: "Categorias",
-      img: "assets/images/categorias.PNG",
+      i: "fas fa-list",
       link: "/backoffice/categories",
     },
     {
       name: "Testimonios",
-      img: "assets/images/testimonio.PNG",
+      i: "fal fa-keynote",
       link: "/backoffice/testimonios",
     },
     {
       name: "Organizacion",
-      img: "assets/images/organizacion.PNG",
+      i: "fas fa-sitemap",
       link: "/backoffice/organization",
     },
     {
       name: "Slides",
-      img: "assets/images/slides.PNG",
+      i: "fas fa-presentation",
       link: "/backoffice/slider",
     },
     {
       name: "Usuarios",
-      img: "assets/images/usuarios.PNG",
+      i: "fas fa-users",
       link: "/backoffice/users",
     },
     {
       name: "Miembros",
-      img: "assets/images/miembros.PNG",
+      i: "fad fa-users",
       link: "/backoffice/members",
     },
   ];
