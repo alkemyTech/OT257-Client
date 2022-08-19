@@ -26,7 +26,7 @@ import { NewsComponent } from './pages/news/news.component';
     ContactFormComponent,
     ActivitiesViewComponent,
     FooterComponent,
-    NewsComponent
+    NewsComponent,
   ],
   exports: [
     ContactFormComponent,
