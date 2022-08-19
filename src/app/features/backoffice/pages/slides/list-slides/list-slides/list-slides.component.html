@@ -10,8 +10,8 @@
           Agregar slide
         </button>
       </div>
-      <app-search class="my-3"></app-search>
-      <h5 style="margin-top: 30px" *ngIf="!(listSlides$)">
+      <app-search class="my-3" (dataSearch)="onDataSearch($event)"></app-search>
+      <h5 style="margin-top: 30px" *ngIf="!(listSlides)">
         No hay datos para mostrar
       </h5>
       <table *ngIf="!(loading$ | async)" class="table table-striped mt-5">
@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of listSlides$ | async">
+          <tr *ngFor="let item of listSlides">
             <td>{{ item.name }}</td>
             <td>
               <img
