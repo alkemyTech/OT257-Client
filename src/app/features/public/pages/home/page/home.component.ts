@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.subscribe(state => {
-      console.log(state)
+  
     }).unsubscribe()  
     this.getDatesPublics();
     this.getNews();
