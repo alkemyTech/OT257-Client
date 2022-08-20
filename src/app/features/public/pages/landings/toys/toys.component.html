@@ -1,53 +1,113 @@
-<div class="movillogo px-5 mt-5">
-  <div>
-    <img
-      src="assets/images/logo-somos_mas.png"
-      class="img-fluid"
-      alt="Logo ONG"
-    />
-  </div>
-  <div class="mt-2 display-7 text-bold">Juguetes por una Sonrrisa</div>
-</div>
-
-<div>
-  <p class="tiempo mt-5 d-flex justify-content-center display-6 text-bold pb-5">
-    <span> Te quedan:</span> <strong> {{ tiempoFaltante }} </strong>
-    <span> &nbsp;para partcipar! </span>
-  </p>
-</div>
-<div class="movil row d-flex justify-content-center">
-  <div class="col d-flex flex-column">
-    <div class="d-flex justify-content-center">
+<div class="container-fluid bg-primary">
+  <app-header></app-header>
+  <div class="row featurette">
+    <!-- texto -->
+    <div class="col-md-7 bg-secondary p-5">
+      <h2 class="featurette-heading fw-normal lh-1 bg-danger mt-5 text-center fs-1">
+        Colecta de juguetes para el día del niño
+      </h2>
+      <p class="text-center fs-6">
+        Estamos iniciando una nueva Colecta de Juguetes bajo la premisa de “Un juguete
+        para cada niño/a en su día” ¿Te sumás donándonos aquellos juguetes en buen estado
+        que ya no usen? Para hacernos llegar tus juguetes, te pedimos nos escribas a
+        comunicacion@emmanuel.org.ar para coordinar la entrega.
+      </p>
+    </div>
+    <!-- fin texto -->
+    <!-- logo -->
+    <div class="col-md-5">
       <img
         src="assets/images/logo_capana.png "
-        class="img-fluid rounded-pill"
+        class="img-fluid rounded-pill mx-auto d-block"
         alt="Logo Campana"
       />
     </div>
-    <div>
-      <p class="d-flex justify-content-center display-6 pt-5 px-5">
-        Descripcion de la campaña lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.
+    <!-- fin logo -->
+    <!-- contador -->
+    <div class="text-center">
+      <p class="tiempo justify-content-center text-bold p-3 fs-4 mt-4">
+        <span> Te quedan:</span> <strong> {{ tiempoFaltante }} </strong>
+        <span> &nbsp;para partcipar! </span>
       </p>
     </div>
+    <!-- fin contador -->
   </div>
-  <div class="col">
-    <div class="capa">
-      <div class="capa1">
-        <img src="assets/images/juguetes3.jpeg" class="img-fluid" alt="img3" />
+  <!-- carrousel -->
+  <app-carousel class="w-100 p-3" [slides]="toys"></app-carousel>
+  <!-- cards -->
+  <div class="row">
+    <div class="col-md">
+      <div class="card p-3 m-5">
+        <div class="card-body">
+          <h5 class="card-title fs-3 text-center">Card title</h5>
+          <p class="card-text fs-5">
+            Some quick example text to build on the card title and make up the bulk of the
+            card's content.Some quick example text to build on the card title and make up
+            the bulk of the card's content.
+          </p>
+          <button type="button" class="btn btn-outline-danger btn-rounded m-2 p-2">
+            Danger
+          </button>
+        </div>
+        <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp"
+            class="img-fluid"
+          />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+          </a>
+        </div>
       </div>
-      <div class="capa2">
-        <img src="assets/images/juguetes4.jpg" class="img-fluid" alt="img4" />
+    </div>
+
+    <div class="col-md">
+      <div class="card p-3 m-5">
+        <div class="card-body">
+          <h5 class="card-title fs-3 text-center">Card title</h5>
+          <p class="card-text fs-5">
+            Some quick example text to build on the card title and make up the bulk of the
+            card's content.Some quick example text to build on the card title and make up
+            the bulk of the card's content.
+          </p>
+          <button type="button" class="btn btn-outline-danger btn-rounded m-2 p-2">
+            Danger
+          </button>
+        </div>
+        <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp"
+            class="img-fluid"
+          />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+          </a>
+        </div>
       </div>
-      <div class="capa3">
-        <img src="assets/images/juguetes5.jpg" class="img-fluid" alt="img5" />
+    </div>
+    <div class="col-md">
+      <div class="card p-3 m-5">
+        <div class="card-body">
+          <h5 class="card-title fs-3 text-center">Card title</h5>
+          <p class="card-text fs-5">
+            Some quick example text to build on the card title and make up the bulk of the
+            card's content.Some quick example text to build on the card title and make up
+            the bulk of the card's content.
+          </p>
+          <button type="button" class="btn btn-danger m-2 p-2">Danger</button>
+        </div>
+        <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp"
+            class="img-fluid"
+          />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
+  <!-- footer -->
+  <app-footer-toys></app-footer-toys>
 </div>
-<br /><br />
-
-<hr />
-
