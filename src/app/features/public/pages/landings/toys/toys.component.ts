@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Slides } from "src/app/core/models/slides.model";
 
 @Component({
   selector: "app-toys",
@@ -33,8 +34,44 @@ export class ToysComponent implements OnInit {
   ];
   day: number = 31;
   tiempoFaltante!: string;
+  slides: Slides[] = []
+  toys: any = [
+    {
+      id: null,
+      name: "Colecta de juguetes para el día del niño",
+      description: "Festejemos juntos este día especial para los niños",
+      image: 'assets/images/colecta-juguetes.jpg',
+      order: null,
+      user_id: null,
+      created_at: null,
+      updated_at: null,
+      deleted_at: null
+    },
+    {
+      id: null,
+      name: "Donación de juguetes",
+      description: "Acercate a nuestra sede para donar juguetes",
+      image: 'assets/images/juguetes3.png',
+      order: null,
+      user_id: null,
+      created_at: null,
+      updated_at: null,
+      deleted_at: null
+    },
+    {
+      id: null,
+      name: "Juguetes para más sonrisas",
+      description: "Hagamos que nuestros niños se sientan más felices",
+      image: 'assets/images/colecta-juguetes3.jpg',
+      order: null,
+      user_id: null,
+      created_at: null,
+      updated_at: null,
+      deleted_at: null
+    },
+  ];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.myTimer();
@@ -58,7 +95,12 @@ export class ToysComponent implements OnInit {
     this.minutes = this.minutes < 10 ? "0" + this.minutes : this.minutes;
     this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
 
-    this.tiempoFaltante = `${this.days} dias ${this.hours} Horas ${this.minutes} Minutos ${this.seconds} Segundos   `;
+    this.tiempoFaltante = `${this.days} días ${this.hours} Horas ${this.minutes} Minutos ${this.seconds} Segundos   `;
     setInterval(this.myTimer, 1000);
+  }
+
+  //SliderToys
+  public getToySlider() {
+    this.slides = this.toys
   }
 }
