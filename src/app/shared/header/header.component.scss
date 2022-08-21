@@ -37,3 +37,15 @@ ul .regis-color {
     position: relative;
   }
 }
+
+@media all and (max-width: 300px) {
+  .navbar-small {
+    width: 60%;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 650px) {
+  .navbar-small {
+    width: 40%;
+  }
+}
