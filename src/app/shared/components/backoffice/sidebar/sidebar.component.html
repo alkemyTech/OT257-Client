@@ -1,7 +1,7 @@
 <div class="cont d-flex flex-row" style="z-index: 1;">
   <div *ngIf="show" class="sidebar">
     <div class="row flex-nowrap">
-      <div class="col-auto w-100 col-md-3 col-xl-2 px-sm-5 bg-secondary">
+      <div class="col-auto w-100 col-lg-3 col-xl-2 px-lg-5 bg-secondary">
         <div
           class="d-flex flex-column align-items-center align-items-sm-start pt-2 text-white min-vh-100"
         >
@@ -10,66 +10,55 @@
             src="../../../../../assets/images/LOGO-SOMOS MAS.png"
             alt="Logo Somos Más"
           />
-          <span class="fs-5 d-none d-sm-inline mb-3">Backoffice</span>
+          <span class="fs-5 d-none d-lg-inline mb-3">Backoffice</span>
 
           <ul
-            class="w-100 nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            class="w-100 nav nav-pills flex-column mb-lg-auto mb-0 align-items-center align-items-sm-start"
             id="menu"
           >
             <li routerLink="/" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-house"></i>
-              <span class="ms-2 d-none d-sm-block">Home</span>
+              <span class="ms-2 d-none d-lg-block">Home</span>
             </li>
             <li routerLink="/backoffice/news" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-newspaper"></i>
-              <span class="ms-2 d-none d-sm-block">Novedades</span>
+              <span class="ms-2 d-none d-lg-block">Novedades</span>
             </li>
             <li routerLink="/backoffice/activities" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-list-task"></i>
-              <span class="ms-2 d-none d-sm-block">Actividades</span>
+              <span class="ms-2 d-none d-lg-block">Actividades</span>
             </li>
             <li routerLink="/backoffice/categories" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-bookmark-heart"></i>
-              <span class="ms-2 d-none d-sm-block">Categorías</span>
+              <span class="ms-2 d-none d-lg-block">Categorías</span>
             </li>
             <li routerLink="/backoffice/tetimonios" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi-chat-left-text"></i>
-              <span class="ms-2 d-none d-sm-block">Testimonios</span>
+              <span class="ms-2 d-none d-lg-block">Testimonios</span>
             </li>
             <li routerLink="/backoffice/organization" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-building"></i>
-              <span class="ms-2 d-none d-sm-block">Organización</span>
+              <span class="ms-2 d-none d-lg-block">Organización</span>
             </li>
             <li routerLink="/backoffice/slider" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-images"></i>
-              <span class="ms-2 d-none d-sm-block">Slider</span>
+              <span class="ms-2 d-none d-lg-block">Slider</span>
             </li>
             <li routerLink="/backoffice/users" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-people"></i>
-              <span class="ms-2 d-none d-sm-block">Usuarios</span>
+              <span class="ms-2 d-none d-lg-block">Usuarios</span>
             </li>
             <li routerLink="/backoffice/members" class="nav-item my-2 nav-link ">
               <i class="fs-4 bi bi-people-fill"></i>
-              <span class="ms-2 d-none d-sm-block">Miembros</span>
+              <span class="ms-2 d-none d-lg-block">Miembros</span>
             </li>
             <li class="nav-item my-2 nav-link w-100 ">
-              <button (click)="logout()" class="btn btn-outline-light w-100 d-flex flex-row align-items-center">
+              <button (click)="logout()" class="btn btn-outline-light w-100 d-flex flex-row justify-content-center align-items-center">
                 <i class="fas fa-sign-out-alt"></i>
-                <span class="ms-2 d-none d-sm-block">Salir</span>
+                <span class="ms-2 d-none d-lg-block">Salir</span>
               </button>
             </li>
           </ul>
-
-          <div class="pb-4 d-flex flex-row w-100">
-            <img
-              src="https://github.com/mdo.png"
-              alt="hugenerd"
-              width="30"
-              height="30"
-              class="rounded-circle"
-            />
-            <span class="d-none d-sm-block mx-1">Juan Perez</span>
-          </div>
         </div>
       </div>
     </div>
@@ -81,7 +70,7 @@
     style="z-index: 1;"
     (click)="show = !show"
   >
-    <span *ngIf="show" class="h3">✗</span>
+    <span *ngIf="show" class="h3"><i class="fad fa-angle-left"></i></span>
     <i *ngIf="!show" class="ic fa fa-bars h3 m-0 p-0"></i>
   </span>
   </nav>

@@ -1,0 +1,36 @@
+<app-layout-component>
+  <button
+      type="button"
+      (click)="onBack()"
+      class="btn btn-outline-danger rounded-circle mx-4 mt-2 fw-bold rounded-circle cursor-pointer"
+    >
+      ⇠
+    </button>
+  <div class="container">
+    <div class="w-100  rounded p-4 mt-4 bg-light shadow">
+      <div class="w-100 d-flex align-items-center flex-column">
+        <span class="display-6 flex-column d-flex justify-content-center align-content-center featurette-heading fw-normal lh-1 mb-2">
+          {{ newsData.name }}
+          <span class="text-muted h3">{{ newsData.created_at | date }}</span>
+        </span>
+        <div
+          class="image m-3 d-flex justify-content-center overflow-hidden rounded-4 shadow bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+        >
+          <app-lazy-load
+            [image]="newsData.image"
+            *ngIf="newsData.image"
+            [descriptionImage]="newsData.name"
+            class="card-img-top"
+          ></app-lazy-load>
+          <img
+            *ngIf="!newsData.image"
+            class="card-img-top"
+            src="http://via.placeholder.com/300"
+            data-holder-rendered="true"
+          />
+        </div>
+        <p [innerHTML]="newsData.content" class="w-75 lead mt-2"></p>
+      </div>
+    </div>
+  </div>
+</app-layout-component>

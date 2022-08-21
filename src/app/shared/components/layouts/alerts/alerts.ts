@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 
 export const toastError = Swal.mixin({
   toast: true,
-  iconHtml: '<img class="w-100" src="https://cdn.icon-icons.com/icons2/1402/PNG/512/cancel_96921.png"',
+  iconHtml: '<img class="w-100" src="assets/image/cancel.png" />',
   showConfirmButton: false,
   timer: 2000,
   timerProgressBar: true,
@@ -15,7 +15,7 @@ export const toastError = Swal.mixin({
 
 export const toastInfo = Swal.mixin({
   toast: true,
-  iconHtml: '<img class="w-100" src="https://cdn.icon-icons.com/icons2/2346/PNG/512/info_information_icon_142931.png"',
+  iconHtml: '<img class="w-100" src="assets/image/info.png" />',
   showConfirmButton: false,
   timer: 2000,
   timerProgressBar: true,
@@ -28,7 +28,7 @@ export const toastInfo = Swal.mixin({
 
 export const toastSuccess = Swal.mixin({
   toast: true,
-  iconHtml: '<img class="w-100" src="https://cdn.icon-icons.com/icons2/2346/PNG/512/checkmark_check_apply_done_accept_icon_142904.png"',
+  iconHtml: '<img class="w-100" src="assets/image/check.png" />',
   showConfirmButton: false,
   timer: 2000,
   timerProgressBar: true,

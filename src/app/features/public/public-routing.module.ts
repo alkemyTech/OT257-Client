@@ -6,6 +6,7 @@ import { HomeComponent } from "./pages/home/page/home.component";
 import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
 import { ToysComponent } from "./pages/landings/toys/toys.component";
 import { NewsComponent } from "./pages/news/news.component";
+import { NewsDetailComponent } from "./pages/news/new-detail/new-detail.component";
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path: "novedades",
     component: NewsComponent,
+  },
+  {
+    path: "novedades/:id",
+    component: NewsDetailComponent,
   },
   {
     path: "iniciar-sesion",

@@ -11,7 +11,7 @@
 
 .spinner {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: calc(50vh - 50px);
+    left: calc(50vw - 50px);
     transform: translate ( - 50%, - 50%);
 }

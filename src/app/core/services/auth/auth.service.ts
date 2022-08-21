@@ -6,7 +6,12 @@ import { UserRegister, UserLogin } from "../../models/auth.model";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import firebase from "firebase/compat/app";
-import { toastError, toastSuccess } from "src/app/shared/components/layouts/alerts/alerts";
+import {
+  toastError,
+  toastSuccess,
+} from "src/app/shared/components/layouts/alerts/alerts";
+import { UsersService } from "../users/users.service";
+import { User } from "../../models/user.model";
 
 @Injectable({
   providedIn: "root",
@@ -14,28 +19,33 @@ import { toastError, toastSuccess } from "src/app/shared/components/layouts/aler
 export class AuthService implements OnInit {
   private auth = "https://ongapi.alkemy.org/api/";
   private loggedIn = new BehaviorSubject<boolean>(false);
+  private userLogin?: User;
 
-  constructor(private http: HttpClient, private router: Router, private afAuth: AngularFireAuth) {
-    this.checkToken();
-  }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private afAuth: AngularFireAuth,
+  ) {}
   ngOnInit(): void {}
 
   get isLogged(): Observable<boolean> {
     return this.loggedIn.asObservable();
   }
 
-  async loginGoogle(){
-    try{
-      const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-      this.loggedIn.next(true)
+  async loginGoogle() {
+    try {
+      const res = await this.afAuth.signInWithPopup(
+        new firebase.auth.GoogleAuthProvider()
+      );
+      this.loggedIn.next(true); 
       return res;
-    }catch(err){
+    } catch (err) {
       return toastError.fire({
         title: "Error al iniciar sesión con Google",
       });
     }
   }
- 
+
   login(user: UserLogin): Observable<any> {
     return this.http
       .post<UserLogin>(this.auth + "login", {
@@ -45,7 +55,7 @@ export class AuthService implements OnInit {
       .pipe(
         map((res: any) => {
           if (res.data.token) {
-            this.loggedIn.next(true)
+            this.loggedIn.next(true);
             toastSuccess.fire({
               title: "Inicio de sesión exitoso",
             });
@@ -53,7 +63,7 @@ export class AuthService implements OnInit {
           }
         }),
         catchError(() => {
-          this.loggedIn.next(false)
+          this.loggedIn.next(false);
           return toastError.fire({
             title: "Inicio de sesión incorrecto",
           });
@@ -73,7 +83,9 @@ export class AuthService implements OnInit {
 
   checkToken() {
     const userToken = localStorage.getItem("token");
-    userToken ? this.loggedIn.next(true) : this.logout();
+    userToken
+      ? this.router.navigate(["/backoffice"])
+      : this.router.navigate(["/iniciar-sesion"]);
     return this.loggedIn;
   }
 
@@ -87,7 +99,7 @@ export class AuthService implements OnInit {
       })
       .pipe(
         map((res: UserRegister) => {
-          this.loggedIn.next(true)
+          this.loggedIn.next(true);
           toastSuccess.fire({
             title: "Registro exitoso",
           });

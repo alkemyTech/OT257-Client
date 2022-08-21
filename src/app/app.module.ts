@@ -28,7 +28,6 @@ import { SharedModule } from "./shared/shared.module";
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([AuthEffects, UsersEffects, SliderEffect, NewsEffects]),
     StoreDevtoolsModule.instrument({}),
-
   ],
   providers: [],
   bootstrap: [AppComponent],

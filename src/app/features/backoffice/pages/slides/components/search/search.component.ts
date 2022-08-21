@@ -9,7 +9,7 @@ import { deleteSlider } from "src/app/state/actions/slider.actions";
 import { Slides } from '../../../../../../core/models/slides.model';
 
 @Component({
-  selector: "app-search",
+  selector: "app-search-slider",
   templateUrl: "./search.component.html",
   styleUrls: ["./search.component.scss"],
 })

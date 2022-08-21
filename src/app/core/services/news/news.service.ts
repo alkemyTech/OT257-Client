@@ -22,11 +22,15 @@ export class NewsService extends PrivateApiServiceService {
     return this.sendGetRequest(`${this.url}`);
   }
 
+  gerNewsSearch(search: string) {
+    return this.sendGetRequest(`${this.url}?search=${search}`);
+  }
+
   createNew(dataNew: NewModel) {
     return this.sendPostRequest(`${this.url}`, dataNew);
   }
 
-  getNew(id: string) {
+  getNew(id: string | null) {
     return this.sendGetRequest(`${this.url}`, id);
   }
 
