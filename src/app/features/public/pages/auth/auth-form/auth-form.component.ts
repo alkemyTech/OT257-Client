@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
+import { AuthService } from "src/app/core/services/auth/auth.service";
 import {
   logIn,
   logInFailure,
@@ -23,9 +24,14 @@ export class AuthFormComponent implements OnInit {
     label: string;
   };
 
-  constructor(private readonly fb: FormBuilder, private store: Store<any>) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private store: Store<any>,
+    private authSvc: AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.authSvc.checkToken();
     this.initForm();
   }
 

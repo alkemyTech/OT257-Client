@@ -17,7 +17,17 @@ export class NewsComponent implements OnInit {
       .getNews()
       .pipe()
       .subscribe((res) => {
-        this.newsData = res.data.slice(0, 18);
+        this.newsData = res.data.slice(0, 12);
       });
+  }
+
+  onSearch(search: string) {
+    this.newsSvc
+      .gerNewsSearch(search)
+      .pipe()
+      .subscribe((res) => {
+        this.newsData = res.data.slice(0, 12);
+      }
+      );
   }
 }

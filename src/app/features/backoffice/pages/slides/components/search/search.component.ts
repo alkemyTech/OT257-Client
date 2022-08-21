@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import { deleteSlider } from "src/app/state/actions/slider.actions";
 
 @Component({
-  selector: "app-search",
+  selector: "app-search-slider",
   templateUrl: "./search.component.html",
   styleUrls: ["./search.component.scss"],
 })

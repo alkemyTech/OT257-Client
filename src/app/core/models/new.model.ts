@@ -1,5 +1,4 @@
 export interface NewModel{
-
     id: string;
     name: string;
     slug: string ;

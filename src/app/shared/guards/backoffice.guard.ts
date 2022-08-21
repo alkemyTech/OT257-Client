@@ -25,7 +25,6 @@ export class BackofficeGuard implements CanActivate {
     if (this.valor) {
       return true;
     } else {
-      this.router.navigate(["/iniciar-sesion"]);
       return false;
     }
   }

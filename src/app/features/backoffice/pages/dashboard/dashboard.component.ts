@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
-
+import { AuthService } from "src/app/core/services/auth/auth.service";
 
 @Component({
   selector: "app-dashboard",
@@ -51,7 +50,9 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private authSvc: AuthService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.authSvc.checkToken();
+  }
 }

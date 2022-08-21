@@ -6,7 +6,7 @@ import { toastError } from '../layouts/alerts/alerts';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styles: ['']
 })
 export class SearchComponent implements OnInit {
   searchKeyup = new Subject<any>();
