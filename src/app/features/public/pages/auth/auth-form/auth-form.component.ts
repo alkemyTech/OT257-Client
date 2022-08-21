@@ -31,7 +31,6 @@ export class AuthFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authSvc.checkToken();
     this.initForm();
   }
 

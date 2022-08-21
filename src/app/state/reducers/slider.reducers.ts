@@ -8,10 +8,12 @@ import {
   postSliderSuccess,
   getOneSlide,
   updateSliderState,
+  updateSlider,
 } from "../actions/slider.actions";
 
 export const initialState: SlideState = {
   loading: false,
+  loadingOneSlide: false,
   sliders: [],
   one_slider: {
     id: 0,
@@ -59,6 +61,9 @@ export const sliderReducer = createReducer(
       }
       return data;
     });
-    return { ...state, sliders: updateListSlider };
+    return { ...state, sliders: updateListSlider, loadingOneSlide: false };
+  }),
+  on(updateSlider,(state)=>{
+    return {...state, loadingOneSlide: true}
   })
 );

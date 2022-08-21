@@ -1,53 +1,95 @@
-<div class="movillogo px-5 mt-5">
-  <div>
-    <img
-      src="assets/images/logo-somos_mas.png"
-      class="img-fluid"
-      alt="Logo ONG"
-    />
-  </div>
-  <div class="mt-2 display-7 text-bold">Juguetes por una Sonrrisa</div>
-</div>
-
-<div>
-  <p class="tiempo mt-5 d-flex justify-content-center display-6 text-bold pb-5">
-    <span> Te quedan:</span> <strong> {{ tiempoFaltante }} </strong>
-    <span> &nbsp;para partcipar! </span>
-  </p>
-</div>
-<div class="movil row d-flex justify-content-center">
-  <div class="col d-flex flex-column">
-    <div class="d-flex justify-content-center">
+<div class="container-fluid">
+  <app-header></app-header>
+  <div class="row featurette">
+    <!-- texto -->
+    <div class="col-md-7 p-5">
+      <h2 class="lh-1 mt-5 text-center fs-1">Colecta de juguetes para el día del niño</h2>
+      <p class="text-center fs-4">
+        ¿Te sumás donándonos aquellos juguetes en buen estado que ya no usen?
+      </p>
+    </div>
+    <!-- fin texto -->
+    <!-- logo -->
+    <div class="col-md-5">
       <img
         src="assets/images/logo_capana.png "
-        class="img-fluid rounded-pill"
+        class="img-fluid rounded-pill mx-auto d-block"
         alt="Logo Campana"
       />
     </div>
-    <div>
-      <p class="d-flex justify-content-center display-6 pt-5 px-5">
-        Descripcion de la campaña lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.
+    <!-- fin logo -->
+    <!-- contador -->
+    <div class="text-center">
+      <p class="tiempo justify-content-center text-bold p-3 fs-4 mt-4 timer">
+        <span> Te quedan:</span> <strong> {{ tiempoFaltante }} </strong>
+        <span> &nbsp;para partcipar! </span>
       </p>
     </div>
+    <!-- fin contador -->
   </div>
-  <div class="col">
-    <div class="capa">
-      <div class="capa1">
-        <img src="assets/images/juguetes3.jpeg" class="img-fluid" alt="img3" />
+  <!-- carrousel -->
+  <app-carousel class="w-100 p-3" [slides]="toys"></app-carousel>
+  <!-- cards -->
+  <div class="row">
+    <div class="col-md">
+      <div class="card p-3 m-5 shadow-lg">
+        <div class="card-body p-1">
+          <h5 class="card-title fs-3 text-center my-2">Doná un juguete</h5>
+          <p class="card-text fs-5 mt-3 lh-sm">
+            Festejaremos por quinto año consecutivo el Día del niño en el Hospital Pedro
+            de Elizalde (Casa Cuna).Debido a las restricciones vigentes este año
+            llevaremos los juguetes hasta la capilla del Hospital donde personal de salud
+            los desinfectará según el protocolo vigente.
+          </p>
+          <button type="button" class="btn btn-danger btn-rounded m-2 p-2">
+            Participar
+          </button>
+        </div>
+        <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+          <img src="assets/images/juguetes6.jpg" class="img-fluid" />
+        </div>
       </div>
-      <div class="capa2">
-        <img src="assets/images/juguetes4.jpg" class="img-fluid" alt="img4" />
+    </div>
+    <div class="col-md">
+      <div class="card p-3 m-5 shadow-lg">
+        <div class="card-body p-1">
+          <h5 class="card-title fs-3 text-center my-2">Campeonato de fútbol</h5>
+          <p class="card-text fs-5 mt-3 lh-sm">
+            Campeonato de fútbol día del niño. Formá tu equipo y participá por excelentes
+            premios. En parte por una altura inalcanzable del balón, en parte porque solo
+            los más intuitivos contemplan una opción que para el resto llega de
+            casualidad. A rematar por arriba se llega con entrenamiento y repetición. A
+            rematar por arriba se llega con entrenamiento y repetición.
+          </p>
+          <button type="button" class="btn btn-danger btn-rounded m-2 p-2">
+            Participar
+          </button>
+        </div>
+        <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+          <img src="assets/images/juguetes7.jpg" class="img-fluid" />
+        </div>
       </div>
-      <div class="capa3">
-        <img src="assets/images/juguetes5.jpg" class="img-fluid" alt="img5" />
+    </div>
+    <div class="col-md">
+      <div class="card p-3 m-5 shadow-lg">
+        <div class="card-body p-1">
+          <h5 class="card-title fs-3 text-center my-2">Festejá con nosotros</h5>
+          <p class="card-text fs-5 mt-3 lh-sm">
+            Puedes unirte al festejo del día del niño en nuestra sede, participá de las
+            actividades, juegos, competencias. Ayudanos a preparar una merienda especial
+            para nuestros niños. Voluntarios y/o donantes pueden ayudarnos a pasar un día
+            diferente.
+          </p>
+          <button type="button" class="btn btn-danger btn-rounded m-2 p-2">
+            Participar
+          </button>
+        </div>
+        <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+          <img src="assets/images/juguetes7.webp" class="img-fluid" />
+        </div>
       </div>
     </div>
   </div>
+  <!-- footer -->
+  <app-footer-toys></app-footer-toys>
 </div>
-<br /><br />
-
-<hr />
-

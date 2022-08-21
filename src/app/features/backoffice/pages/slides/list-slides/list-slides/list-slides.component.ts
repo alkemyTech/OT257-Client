@@ -7,10 +7,12 @@ import {
 } from "src/app/state/actions/slider.actions";
 import { AppState } from "src/app/state/app.state";
 import {
+  selectOneSlideLoading,
   selectSlideList,
   selectSlideLoading,
 } from "src/app/state/selectors/slider.selectors";
 import Swal from "sweetalert2";
+import { Slides } from '../../../../../../core/models/slides.model';
 
 @Component({
   selector: "app-list-slides",
@@ -18,15 +20,19 @@ import Swal from "sweetalert2";
   styleUrls: ["./list-slides.component.scss"],
 })
 export class ListSlidesComponent implements OnInit {
-  listSlides$: Observable<any> = new Observable();
+  listSlides: Slides[] = [];
   loading$: Observable<boolean> = new Observable();
+  loadingUpdateSlide$: Observable<boolean> = new Observable();
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.loading$ = this.store.select(selectSlideLoading);
+    this.loadingUpdateSlide$ = this.store.select(selectOneSlideLoading);
     this.store.dispatch(loadSliders());
-    this.listSlides$ = this.store.select(selectSlideList);
+     this.store.select(selectSlideList).subscribe(data=>{
+      this.listSlides = data;
+      });
   }
 
   deleteSlide(id: number) {
@@ -44,5 +50,9 @@ export class ListSlidesComponent implements OnInit {
         console.log(id);
       }
     });
+  }
+
+  onDataSearch(slideData: Slides[]){
+    this.listSlides = slideData;
   }
 }

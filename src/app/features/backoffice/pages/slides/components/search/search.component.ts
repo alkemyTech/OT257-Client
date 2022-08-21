@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 import { Store } from "@ngrx/store";
@@ -6,6 +6,7 @@ import { AppState } from "src/app/state/app.state";
 import { selectSlideList } from "src/app/state/selectors/slider.selectors";
 import Swal from "sweetalert2";
 import { deleteSlider } from "src/app/state/actions/slider.actions";
+import { Slides } from '../../../../../../core/models/slides.model';
 
 @Component({
   selector: "app-search-slider",
@@ -13,6 +14,7 @@ import { deleteSlider } from "src/app/state/actions/slider.actions";
   styleUrls: ["./search.component.scss"],
 })
 export class SearchComponent implements OnInit {
+  @Output() dataSearch = new EventEmitter<Slides[]>();
   private subjectKeyUp = new Subject<any>();
   listSlides$: Observable<any> = new Observable();
   slideFilter: any = [];
@@ -28,7 +30,6 @@ export class SearchComponent implements OnInit {
     this.subjectKeyUp.next($event.target.value);
     this.subjectKeyUp.pipe(debounceTime(500)).subscribe((inputValue) => {
       this.slideFilter = [];
-      if (inputValue.length > 2) {
         this.slideFilter = [];
         this.listSlides$.subscribe((data) => {
           for (let dataName of data) {
@@ -41,7 +42,8 @@ export class SearchComponent implements OnInit {
             this.slideFilter = data;
           }
         });
-      }
+        this.dataSearch.emit(this.slideFilter);
+      
     });
   }
   deleteSlide(id: number) {

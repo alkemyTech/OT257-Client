@@ -1,7 +1,7 @@
-<div class="container mt-4">
+<div class="container">
   <div class="card shadow-lg">
     <div class="card-body">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mt-5">
         <span class="h3">Listado de Slides</span>
         <button
           class="btn btn-outline-primary rounded-pill p-3 fw-bold float-end"
@@ -10,11 +10,20 @@
           Agregar slide
         </button>
       </div>
-      <app-search-slider class="my-3"></app-search-slider>
-      <h5 style="margin-top: 30px" *ngIf="!(listSlides$)">
+      <div class="position-absolute top-0 start-0 translate-middle m-4" style="z-index: 1">
+        <button
+          type="button"
+          [routerLink]="['/backoffice']"
+          class="btn btn-outline-danger rounded-circle m-2 fw-bold rounded-circle cursor-pointer"
+        >
+          ⇠
+        </button>
+      </div>
+      <app-search-slider class="my-3" (dataSearch)="onDataSearch($event)"></app-search-slider>
+      <h5 style="margin-top: 30px" *ngIf="!(listSlides)">
         No hay datos para mostrar
       </h5>
-      <table *ngIf="!(loading$ | async)" class="table table-striped mt-5">
+      <table *ngIf="!(loading$ | async) && !(loadingUpdateSlide$ | async)" class="table table-striped mt-5">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -23,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of listSlides$ | async">
+          <tr *ngFor="let item of listSlides">
             <td>{{ item.name }}</td>
             <td>
               <img
@@ -48,7 +57,7 @@
           </tr>
         </tbody>
       </table>
-      <app-skeleton [count]="20" *ngIf="loading$ | async"></app-skeleton>
+      <app-skeleton [count]="20" *ngIf="(loading$ | async) || (loadingUpdateSlide$ | async)"></app-skeleton>
     </div>
   </div>
 </div>

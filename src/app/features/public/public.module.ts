@@ -14,9 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
-import { FooterComponent } from './pages/school-campaign/footer/footer.component';
-import { NewsComponent } from './pages/news/news.component';
 import { NewsDetailComponent } from './pages/news/new-detail/new-detail.component';
+import { ToysComponent } from './pages/landings/toys/toys.component';
+import { NewsComponent } from './pages/news/news.component';
+import { FooterComponent } from './pages/school-campaign/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,11 @@ import { NewsDetailComponent } from './pages/news/new-detail/new-detail.componen
     AuthFormComponent,
     ContactFormComponent,
     ActivitiesViewComponent,
-    FooterComponent,
+    ToysComponent,
     NewsComponent,
-    NewsDetailComponent
+    NewsDetailComponent,
+    FooterComponent,
+    ToysComponent
   ],
   exports: [
     ContactFormComponent,

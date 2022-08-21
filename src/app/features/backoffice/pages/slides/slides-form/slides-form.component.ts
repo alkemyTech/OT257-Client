@@ -114,9 +114,8 @@ export class SlidesFormComponent implements OnInit {
   sendForm() {
     if (this.modified) {
       if (this.form.valid) {
-        console.log(this.form.value);
         this.store.dispatch(
-          updateSlider({ id: this.updateSliderId, slider: this.form.value })
+          updateSlider({ id: this.updateSliderId, slider: this.form.value})
         );
         this.router.navigate(["backoffice/slider"]);
       } else {
