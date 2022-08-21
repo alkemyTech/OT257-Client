@@ -3,7 +3,7 @@ import { Data } from "src/app/core/models/IOrganization";
 import { OrgViewService } from "src/app/core/services/org-view.service";
 
 @Component({
-  selector: "app-footer",
+  selector: "app-footer-landing",
   templateUrl: "./footer.component.html",
   styleUrls: ["./footer.component.scss"],
 })

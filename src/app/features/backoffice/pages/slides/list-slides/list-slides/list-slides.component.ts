@@ -7,6 +7,7 @@ import {
 } from "src/app/state/actions/slider.actions";
 import { AppState } from "src/app/state/app.state";
 import {
+  selectOneSlideLoading,
   selectSlideList,
   selectSlideLoading,
 } from "src/app/state/selectors/slider.selectors";
@@ -21,11 +22,13 @@ import { Slides } from '../../../../../../core/models/slides.model';
 export class ListSlidesComponent implements OnInit {
   listSlides: Slides[] = [];
   loading$: Observable<boolean> = new Observable();
+  loadingUpdateSlide$: Observable<boolean> = new Observable();
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.loading$ = this.store.select(selectSlideLoading);
+    this.loadingUpdateSlide$ = this.store.select(selectOneSlideLoading);
     this.store.dispatch(loadSliders());
      this.store.select(selectSlideList).subscribe(data=>{
       this.listSlides = data;

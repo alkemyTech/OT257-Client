@@ -14,6 +14,11 @@ export const selectSlideLoading = createSelector(
   (state: SlideState) => state.loading
 );
 
+export const selectOneSlideLoading = createSelector(
+  selectSlidesFeature,
+  (state: SlideState) => state.loadingOneSlide
+);
+
 export const selectOneSlide = createSelector(
   selectSlidesFeature,
   (state: SlideState) => state.one_slider
