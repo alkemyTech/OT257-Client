@@ -13,6 +13,7 @@ export class CarouselComponent implements OnInit {
   @Input() slides: Slides[] = [];
 
 
+
   constructor() { }
 
   ngOnInit(): void {

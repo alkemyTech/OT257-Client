@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   menuList = [
     {
@@ -64,5 +64,5 @@ export class HeaderComponent implements OnInit {
     }
   ]
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

@@ -15,8 +15,8 @@ import { PublicRoutingModule } from './public-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
 import { ToysComponent } from './pages/landings/toys/toys.component';
-import { FooterComponent } from './pages/school-campaign/footer/footer.component';
 import { NewsComponent } from './pages/news/news.component';
+import { FooterComponent } from './pages/school-campaign/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,9 @@ import { NewsComponent } from './pages/news/news.component';
     AuthFormComponent,
     ContactFormComponent,
     ActivitiesViewComponent,
-    FooterComponent,
+    ToysComponent,
     NewsComponent,
+    FooterComponent,
     ToysComponent
   ],
   exports: [

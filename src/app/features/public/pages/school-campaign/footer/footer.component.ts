@@ -3,13 +3,13 @@ import { Data } from "src/app/core/models/IOrganization";
 import { OrgViewService } from "src/app/core/services/org-view.service";
 
 @Component({
-  selector: "app-footer-landing",
+  selector: "app-footer-toys",
   templateUrl: "./footer.component.html",
   styleUrls: ["./footer.component.scss"],
 })
 export class FooterComponent implements OnInit {
   orgData!: Data;
-  constructor(private orgSvc: OrgViewService) {}
+  constructor(private orgSvc: OrgViewService) { }
 
   ngOnInit(): void {
     this.orgSvc
