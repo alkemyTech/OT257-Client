@@ -65,7 +65,7 @@ export class SliderEffect {
         this.sliderService.updateSlide(slider, id).pipe(
           map((result) => ({
             type: SliderActionTypes.UPDATE_SLIDER_STATE,
-            slider: result.data,
+            slider: result.data
           })),
           catchError(() => EMPTY)
         )

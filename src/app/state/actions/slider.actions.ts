@@ -47,7 +47,7 @@ export const postSliderSuccess = createAction(
 
 export const updateSlider = createAction(
   SliderActionTypes.UPDATE_SLIDER,
-  props<{ id: number; slider: any }>()
+  props<{ id: number; slider: any; }>()
 );
 
 export const updateSliderState = createAction(

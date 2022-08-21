@@ -23,7 +23,7 @@
       <h5 style="margin-top: 30px" *ngIf="!(listSlides)">
         No hay datos para mostrar
       </h5>
-      <table *ngIf="!(loading$ | async)" class="table table-striped mt-5">
+      <table *ngIf="!(loading$ | async) && !(loadingUpdateSlide$ | async)" class="table table-striped mt-5">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -57,7 +57,7 @@
           </tr>
         </tbody>
       </table>
-      <app-skeleton [count]="20" *ngIf="loading$ | async"></app-skeleton>
+      <app-skeleton [count]="20" *ngIf="(loading$ | async) || (loadingUpdateSlide$ | async)"></app-skeleton>
     </div>
   </div>
 </div>

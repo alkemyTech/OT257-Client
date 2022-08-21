@@ -27,7 +27,8 @@ import { FooterComponent } from './pages/school-campaign/footer/footer.component
     ActivitiesViewComponent,
     ToysComponent,
     NewsComponent,
-    FooterComponent
+    FooterComponent,
+    ToysComponent
   ],
   exports: [
     ContactFormComponent,
