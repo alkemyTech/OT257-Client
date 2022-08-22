@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
+  logued:boolean = false;
   constructor() { }
 
   menuList = [
@@ -61,8 +62,20 @@ export class HeaderComponent implements OnInit {
       name: "Registrarse",
       link: "/registro",
       userLog: false
-    }
-  ]
+    }]
 
-  ngOnInit(): void { }
+    admin = [{
+      name: "Admin",
+      link: "/backoffice",
+    }]
+  
+
+  ngOnInit(): void {
+    let token = localStorage.getItem('token');
+    if(token){
+      this.logued = true;
+    }else{
+      this.logued = false;
+    }
+   }
 }
